@@ -1,0 +1,126 @@
+body{
+    background: rgba(92,150,255,1);
+}
+
+div{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+
+    -webkit-box-shadow: 25px 25px 51px -24px rgba(0,0,0,0.51);
+    -moz-box-shadow: 25px 25px 51px -24px rgba(0,0,0,0.51);
+    box-shadow: 25px 25px 51px -24px rgba(0,0,0,0.51);
+}
+
+/* Divs */
+#div_title{
+    background-color: #212121;
+    text-align: center;
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: 20px;
+    height: 70px; /* DEF1 */
+}
+
+#div_version{
+    background-color: #212121;
+    text-align: center;
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: 110px;
+    height: 50px; /* DEF2 */
+}
+#div_changes{
+    background-color: #212121;
+
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: 180px;
+    height: 200px; /* DEF2 */
+}
+#changes_title{
+    background-color: #212121;
+    text-align: center;
+}
+#changes_content{
+    background-color: #212121;
+}
+
+#div_history{
+    background-color: #212121;
+
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: 410px;
+    height: calc(100% - 440px); /* DEF2 */
+}
+#history_title{
+    background-color: #212121;
+    text-align: center;
+}
+#history_content{
+    background-color: #212121;
+}
+
+/* Text Styles */
+
+.text_default{    
+    font-family: 'Roboto', sans-serif;
+    padding: 0px;
+    font-size: 20px;
+    margin: 0px;
+    color: #f4f4f4;
+    padding-left: 20px;
+}
+.text_title{    
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    color: #f4f4f4;
+    padding: 0px;
+    margin: 0px;
+}
+.text_version{    
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    padding: 0px;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    margin: 0px;
+}
+
+/* Title */
+#title{
+    padding: 0px;
+    padding-top: 7px;
+    margin: 0px;
+}
+/*
+class="text_default"
+id="div_title"
+class="text_title" 
+id="title"
+
+class="text_default" 
+id="div_version"
+class="text_version" 
+id="version"
+
+"text_default" 
+id="div_changes"
+id="changes_title"
+
+calss="text_version" 
+id="changes_content"
+
+class="text_default" 
+id="div_history"
+id="history_title"
+calss="text_version"
+*/
+
