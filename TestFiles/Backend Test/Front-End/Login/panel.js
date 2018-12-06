@@ -69,9 +69,11 @@ function checkSession(){
     console.log("Session Token: "+sessionStorage.getItem('token'));
 
     if(!sessionStorage.getItem('token')){
-        sessionStorage.clear(); 
-        window.location = "http://127.0.0.1:5500/login.html";
+       // sessionStorage.clear(); 
+       // window.location = "http://127.0.0.1:5500/login.html";
     }else{
-        document.write("Hello "+sessionStorage.getItem('username'));
+        setTimeout(function() {
+            document.write("<h1>Hello "+sessionStorage.getItem('username')+"</h1>");
+        }, 2000);
     }
 }

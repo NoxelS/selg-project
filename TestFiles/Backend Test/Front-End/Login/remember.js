@@ -1,7 +1,6 @@
 function remember_onload(){
     if(localStorage.getItem('remember')){
         document.getElementById("username").value = JSON.parse(localStorage.getItem('remember')).username;
-        document.getElementById("password").value = JSON.parse(localStorage.getItem('remember')).password;
         document.getElementById("ckb1").checked = true;
     }
 }
@@ -16,7 +15,6 @@ function remember_meClicked(){
         localStorage.setItem('remember', JSON.stringify({
             active: true,
             username: "Noel",
-            password: "Passwort"
         }));
     }
 

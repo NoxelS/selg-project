@@ -30,10 +30,12 @@ var User = function(username, password){
 var Users = [];
 
 Users.push(new User('Admin', 'Password'));
+Users.push(new User('Noel', 'Passwort'));
 
 var tokens = [];
 
-var Token = function(info_text, user){
+var Token = function(info_text, user, loggedIn){
+    this.loggedIn = loggedIn;
     this.text = info_text;
     this.token = crypto.randomBytes(20).toString('hex');
     this.activeUser = user;
@@ -75,14 +77,19 @@ app.post('/post', (request,respond) => {
 
     Users.forEach((User) => {
         if(User.username === data.username && User.password === data.password){
-            const tmpToken = new Token("Logged in...", User);
+            const tmpToken = new Token("Logged in...", User, true);
             console.log("User Logged in. Genertaed Token:" + tmpToken.token);
             console.log("Tokens: " + JSON.stringify(tokens));
+            console.log("Sending: "+JSON.stringify(tmpToken));
             respond.end(JSON.stringify(tmpToken));
-        }else{
-            respond.end("Wrong Login");
         }
     });
+    
+    respond.end(JSON.stringify(
+        {
+            loggedIn: false
+        }
+    ));
 
 });
 
