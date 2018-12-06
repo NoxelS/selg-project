@@ -2,7 +2,8 @@ const express = require('express');
 var bodyParser = require("body-parser");
 var mysql = require('mysql');
 const app = express();
-
+const crypto = require("crypto");
+/*
 var Student = function(name, lastname){
     this.firstname = name,
     this.lastname =  lastname
@@ -19,7 +20,25 @@ Students.push(new Student("Tom", "Müller"))
 Students.push(new Student("Leonie", "Muster"))
 Students.push(new Student("Testus", "Tastus"))
 Students.push(new Student("Lorem", "Ipsum"))
+*/
 
+var User = function(username, password){
+    this.username = username,
+    this.password =  password
+}
+
+var Users = [];
+
+Users.push(new User('Admin', 'Password'));
+
+var tokens = [];
+
+var Token = function(info_text, user){
+    this.text = info_text;
+    this.token = crypto.randomBytes(20).toString('hex');
+    this.activeUser = user;
+    tokens.push(this.token);
+}
 
 // Add headers
 app.use(function (req, res, next) {
@@ -44,21 +63,26 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
-app.get('/', (request, respond) => {
-    respond.send(JSON.stringify(Students))
+// Useless
+app.get('/panel', (request, respond) => {
+    respond.sendfile('panel.html');
 })
 
 app.post('/post', (request,respond) => {
 
     var data = JSON.parse(Object.keys(request.body)[0]);
-    console.log(typeof data);
-    if(data.login === 'test' && data.password === 'password'){
-        respond.end("Right Login");
-    }else{
-        respond.end("Wrong Login");
-    }
+    console.log("User trying to login: "+JSON.stringify(data));
 
+    Users.forEach((User) => {
+        if(User.username === data.username && User.password === data.password){
+            const tmpToken = new Token("Logged in...", User);
+            console.log("User Logged in. Genertaed Token:" + tmpToken.token);
+            console.log("Tokens: " + JSON.stringify(tokens));
+            respond.end(JSON.stringify(tmpToken));
+        }else{
+            respond.end("Wrong Login");
+        }
+    });
 
 });
 
@@ -67,7 +91,7 @@ app.listen(3000, function () {
 });
 
 
-
+/*
 var con = mysql.createConnection({
     host: "185.233.105.88",
     port: "32330",
@@ -83,3 +107,4 @@ con.connect(function(err) {
       console.log(JSON.stringify(result[0])+"\r\n"+JSON.stringify(result[1]));
     });
   });
+*/

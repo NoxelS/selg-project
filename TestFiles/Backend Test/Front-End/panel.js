@@ -63,10 +63,15 @@ function sendCall(res, theUrl){
 }
 
 function checkSession(){
-    console.log(sessionStorage.getItem('token'));
+
+    // @TODO -> Validate Token via Server 
+
+    console.log("Session Token: "+sessionStorage.getItem('token'));
 
     if(!sessionStorage.getItem('token')){
         sessionStorage.clear(); 
         window.location = "http://127.0.0.1:5500/login.html";
+    }else{
+        document.write("Hello "+sessionStorage.getItem('username'));
     }
 }

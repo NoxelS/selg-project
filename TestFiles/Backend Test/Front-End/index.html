@@ -12,7 +12,7 @@
       </title>
   </head>
 
-  <body>
+  <body onload="checkSession()">
         <p>
             Server Test 1.0 - Backend for SELG
         </p>
@@ -38,6 +38,10 @@
         <button onclick="sendData()">
             Send Data
         </button>
+        <br><br>
+        <button onclick="checkSession()">
+                Session Storage?
+            </button>
   </body>
 
   <script src="main.js"></script>
