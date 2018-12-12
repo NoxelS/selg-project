@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 var lineReader = require('readline').createInterface({
-  input: require('fs').createReadStream('testnames.txt')
+  input: require('fs').createReadStream('test_fachlehrer.txt')
 });
 
 var test_names = [];
@@ -47,6 +47,8 @@ var con = mysql.createConnection({
 
     for(var g = 0; g < test_names.length; g++){
       var name = test_names[g];
+
+      /* Nur für Schüler
       var year = (Math.floor((Math.random() * 6)))+2000;
       var month = (Math.floor((Math.random() * 12) + 1));
       var day = (Math.floor((Math.random() * 31) + 1));
@@ -56,11 +58,19 @@ var con = mysql.createConnection({
       var stufe = (Math.floor((Math.random() * 5) + 1)+5)
       var suffix = valid_suffix[(Math.floor((Math.random() * 4)))];
       var index = Math.floor((Math.random() * 100) + 1);
-      console.log(`Adding User ${name} ${geburtsdatum} ${stufe} ${suffix} ${index}`);
-      var sql = "INSERT INTO `selg_schema`.`schueler_db` (`name`, `geburtsdatum`, `stufe`, `klassen_suffix`, `index`) VALUES ('"+name+"', '"+geburtsdatum+"', '"+stufe+"', '"+suffix+"', '"+index+"');";
+      */
+      var username = test_names[g].replace(" ","").toLowerCase().substring(0,10);
+      console.log(`Adding User ${username}`);
+      var password = Math.random().toString(36).substring(7)+Math.random().toString(36).substring(7);
+      var akronym = test_names[g].split(" ")[0][1]+test_names[g].split(" ")[0][2]+test_names[g].split(" ")[0][3]+test_names[g].split(" ")[1][1]+test_names[g].split(" ")[1][2];
+      console.log(username, " - ", password, " - ", name, " - ", akronym);
+      
+      
+      var sql = "INSERT INTO `selg_schema`.`fachlehrer_db` (`username`, `password`, `name`, `akronym`) VALUES ('"+username+"', '"+password+"', '"+name+"', '"+akronym+"');";
       con.query(sql, function (err, result) {
         if (err) throw err;
         console.log(result);
       });
+      
     } 
   });
