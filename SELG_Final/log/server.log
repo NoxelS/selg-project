@@ -4556,3 +4556,969 @@
 12/16/2018 23:07:02: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  20.696 ms 
 12/16/2018 23:07:02: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.761 ms 
 12/16/2018 23:07:02: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.601 ms 
+12/16/2018 23:22:19: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  36.643 ms 
+12/16/2018 23:22:19: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.599 ms 
+12/16/2018 23:22:19: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.206 ms 
+12/16/2018 23:22:19: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.638 ms 
+12/16/2018 23:22:19: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.756 ms 
+12/16/2018 23:22:19: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.512 ms 
+12/16/2018 23:22:19: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.848 ms 
+12/16/2018 23:22:19: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.315 ms 
+12/16/2018 23:22:19: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.459 ms 
+12/16/2018 23:22:19: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.445 ms 
+12/16/2018 23:22:19: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.566 ms 
+12/16/2018 23:22:19: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.536 ms 
+12/16/2018 23:22:19: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.963 ms 
+12/16/2018 23:22:19: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.559 ms 
+12/16/2018 23:22:19: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.540 ms 
+12/16/2018 23:28:33: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  34.335 ms 
+12/16/2018 23:28:33: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.280 ms 
+12/16/2018 23:28:33: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.824 ms 
+12/16/2018 23:28:33: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.673 ms 
+12/16/2018 23:28:33: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.093 ms 
+12/16/2018 23:28:33: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.887 ms 
+12/16/2018 23:28:33: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  4.069 ms 
+12/16/2018 23:28:33: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.860 ms 
+12/16/2018 23:28:33: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  8.562 ms 
+12/16/2018 23:28:33: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.346 ms 
+12/16/2018 23:28:33: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  1.692 ms 
+12/16/2018 23:28:33: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.894 ms 
+12/16/2018 23:28:33: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.153 ms 
+12/16/2018 23:28:33: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.426 ms 
+12/16/2018 23:28:33: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.464 ms 
+12/16/2018 23:28:46: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  33.453 ms 
+12/16/2018 23:28:46: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.131 ms 
+12/16/2018 23:28:46: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.680 ms 
+12/16/2018 23:28:46: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.384 ms 
+12/16/2018 23:28:46: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.386 ms 
+12/16/2018 23:28:46: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.744 ms 
+12/16/2018 23:28:46: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.052 ms 
+12/16/2018 23:28:46: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.783 ms 
+12/16/2018 23:28:46: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.231 ms 
+12/16/2018 23:28:46: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  3.496 ms 
+12/16/2018 23:28:46: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.751 ms 
+12/16/2018 23:28:46: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.507 ms 
+12/16/2018 23:28:46: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.388 ms 
+12/16/2018 23:28:46: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.485 ms 
+12/16/2018 23:28:46: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.513 ms 
+12/16/2018 23:28:56: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  39.126 ms 
+12/16/2018 23:28:56: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.974 ms 
+12/16/2018 23:28:56: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.517 ms 
+12/16/2018 23:28:56: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.987 ms 
+12/16/2018 23:28:56: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.335 ms 
+12/16/2018 23:28:56: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.226 ms 
+12/16/2018 23:28:56: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.425 ms 
+12/16/2018 23:28:56: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.557 ms 
+12/16/2018 23:28:56: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  4.022 ms 
+12/16/2018 23:28:56: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  3.229 ms 
+12/16/2018 23:28:56: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.501 ms 
+12/16/2018 23:28:56: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.416 ms 
+12/16/2018 23:28:56: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.713 ms 
+12/16/2018 23:28:56: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.883 ms 
+12/16/2018 23:28:56: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.491 ms 
+12/16/2018 23:29:45: [ GET ] Url: / 	Status:  OK ( 200 ) 20346 Responsetime:  9.427 ms 
+12/16/2018 23:29:45: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.420 ms 
+12/16/2018 23:29:45: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.562 ms 
+12/16/2018 23:29:45: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.400 ms 
+12/16/2018 23:29:45: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.435 ms 
+12/16/2018 23:29:45: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.410 ms 
+12/16/2018 23:29:45: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.477 ms 
+12/16/2018 23:29:45: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.472 ms 
+12/16/2018 23:29:45: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.421 ms 
+12/16/2018 23:29:45: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.470 ms 
+12/16/2018 23:29:45: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.425 ms 
+12/16/2018 23:29:45: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.428 ms 
+12/16/2018 23:29:45: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.494 ms 
+12/16/2018 23:29:45: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.609 ms 
+12/16/2018 23:29:45: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.511 ms 
+12/16/2018 23:29:45: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.438 ms 
+12/16/2018 23:29:47: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  7.275 ms 
+12/16/2018 23:29:47: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.191 ms 
+12/16/2018 23:29:47: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.666 ms 
+12/16/2018 23:29:47: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.995 ms 
+12/16/2018 23:29:47: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.462 ms 
+12/16/2018 23:29:47: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.434 ms 
+12/16/2018 23:29:47: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.444 ms 
+12/16/2018 23:29:47: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.416 ms 
+12/16/2018 23:29:47: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.606 ms 
+12/16/2018 23:29:47: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.393 ms 
+12/16/2018 23:29:47: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.992 ms 
+12/16/2018 23:29:47: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.430 ms 
+12/16/2018 23:29:47: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.474 ms 
+12/16/2018 23:29:47: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.418 ms 
+12/16/2018 23:29:47: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.434 ms 
+12/16/2018 23:29:48: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  0.496 ms 
+12/16/2018 23:29:59: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  6.985 ms 
+12/16/2018 23:29:59: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.940 ms 
+12/16/2018 23:29:59: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.007 ms 
+12/16/2018 23:29:59: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.656 ms 
+12/16/2018 23:29:59: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.434 ms 
+12/16/2018 23:29:59: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.158 ms 
+12/16/2018 23:29:59: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.640 ms 
+12/16/2018 23:29:59: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.672 ms 
+12/16/2018 23:29:59: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.898 ms 
+12/16/2018 23:29:59: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.961 ms 
+12/16/2018 23:29:59: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.406 ms 
+12/16/2018 23:29:59: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.351 ms 
+12/16/2018 23:29:59: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.245 ms 
+12/16/2018 23:29:59: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.566 ms 
+12/16/2018 23:29:59: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.540 ms 
+12/16/2018 23:29:59: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  0.345 ms 
+12/16/2018 23:30:04: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  8.465 ms 
+12/16/2018 23:30:04: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.274 ms 
+12/16/2018 23:30:04: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.479 ms 
+12/16/2018 23:30:04: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  4.564 ms 
+12/16/2018 23:30:04: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.685 ms 
+12/16/2018 23:30:04: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.612 ms 
+12/16/2018 23:30:04: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.201 ms 
+12/16/2018 23:30:04: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.436 ms 
+12/16/2018 23:30:04: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.764 ms 
+12/16/2018 23:30:04: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.571 ms 
+12/16/2018 23:30:04: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.517 ms 
+12/16/2018 23:30:04: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.450 ms 
+12/16/2018 23:30:04: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.688 ms 
+12/16/2018 23:30:04: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  9.021 ms 
+12/16/2018 23:30:04: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  9.169 ms 
+12/16/2018 23:30:06: [ GET ] Url: /@TODO 	Status:  Internal Server Error ( 500 ) 9281 Responsetime:  12.367 ms 
+12/16/2018 23:30:06: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.584 ms 
+12/16/2018 23:30:06: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.595 ms 
+12/16/2018 23:30:06: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.449 ms 
+12/16/2018 23:30:06: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.516 ms 
+12/16/2018 23:30:06: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.734 ms 
+12/16/2018 23:30:06: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.822 ms 
+12/16/2018 23:30:06: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.727 ms 
+12/16/2018 23:30:06: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  5.770 ms 
+12/16/2018 23:30:06: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.752 ms 
+12/16/2018 23:30:06: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.402 ms 
+12/16/2018 23:30:06: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.376 ms 
+12/16/2018 23:30:06: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.616 ms 
+12/16/2018 23:30:06: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.052 ms 
+12/16/2018 23:30:06: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.453 ms 
+12/16/2018 23:30:09: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  11.151 ms 
+12/16/2018 23:30:09: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.448 ms 
+12/16/2018 23:30:09: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  5.036 ms 
+12/16/2018 23:30:09: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.670 ms 
+12/16/2018 23:30:09: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.213 ms 
+12/16/2018 23:30:09: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.836 ms 
+12/16/2018 23:30:09: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.678 ms 
+12/16/2018 23:30:09: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.927 ms 
+12/16/2018 23:30:09: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.991 ms 
+12/16/2018 23:30:09: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  7.499 ms 
+12/16/2018 23:30:09: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  8.054 ms 
+12/16/2018 23:30:09: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.492 ms 
+12/16/2018 23:30:09: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.012 ms 
+12/16/2018 23:30:09: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.380 ms 
+12/16/2018 23:30:09: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.547 ms 
+12/16/2018 23:30:19: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  6.355 ms 
+12/16/2018 23:30:19: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.532 ms 
+12/16/2018 23:30:19: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.515 ms 
+12/16/2018 23:30:19: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.410 ms 
+12/16/2018 23:30:19: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.510 ms 
+12/16/2018 23:30:19: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.509 ms 
+12/16/2018 23:30:19: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.997 ms 
+12/16/2018 23:30:19: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.323 ms 
+12/16/2018 23:30:19: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.803 ms 
+12/16/2018 23:30:19: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  1.027 ms 
+12/16/2018 23:30:19: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.828 ms 
+12/16/2018 23:30:19: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.362 ms 
+12/16/2018 23:30:19: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.709 ms 
+12/16/2018 23:30:19: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  4.978 ms 
+12/16/2018 23:30:19: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.427 ms 
+12/16/2018 23:36:50: [ GET ] Url: / 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  39.465 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  18.340 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  36.206 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  43.552 ms 
+12/16/2018 23:36:50: [ GET ] Url: /css/sb-admin.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  43.186 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  50.571 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  56.911 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  45.097 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  48.342 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  38.809 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  38.322 ms 
+12/16/2018 23:36:50: [ GET ] Url: /js/sb-admin.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  38.144 ms 
+12/16/2018 23:36:50: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  44.025 ms 
+12/16/2018 23:36:50: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  38.262 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  27.573 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  6.198 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  8.269 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  6.279 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.086 ms 
+12/16/2018 23:36:50: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.872 ms 
+12/16/2018 23:36:50: [ GET ] Url: /js/sb-admin.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.495 ms 
+12/16/2018 23:36:50: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.915 ms 
+12/16/2018 23:36:50: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.136 ms 
+12/16/2018 23:36:50: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.241 ms 
+12/16/2018 23:37:24: [ GET ] Url: / 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  9.958 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  21.187 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  32.097 ms 
+12/16/2018 23:37:24: [ GET ] Url: /css/sb-admin.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  37.305 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  54.163 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  51.620 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  52.731 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  50.960 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  50.505 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  32.650 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  31.848 ms 
+12/16/2018 23:37:24: [ GET ] Url: /js/sb-admin.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  40.992 ms 
+12/16/2018 23:37:24: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  40.397 ms 
+12/16/2018 23:37:24: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  30.321 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  17.825 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.044 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.820 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.282 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.931 ms 
+12/16/2018 23:37:24: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.385 ms 
+12/16/2018 23:37:24: [ GET ] Url: /js/sb-admin.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.358 ms 
+12/16/2018 23:37:24: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.970 ms 
+12/16/2018 23:37:24: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.725 ms 
+12/16/2018 23:37:24: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  0.753 ms 
+12/16/2018 23:37:25: [ GET ] Url: / 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.378 ms 
+12/16/2018 23:37:25: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  21.332 ms 
+12/16/2018 23:37:25: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  23.135 ms 
+12/16/2018 23:37:25: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  25.983 ms 
+12/16/2018 23:37:25: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  33.701 ms 
+12/16/2018 23:37:25: [ GET ] Url: /css/sb-admin.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  34.848 ms 
+12/16/2018 23:37:25: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  33.858 ms 
+12/16/2018 23:37:25: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  29.527 ms 
+12/16/2018 23:37:25: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  31.804 ms 
+12/16/2018 23:37:25: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  24.697 ms 
+12/16/2018 23:37:25: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  28.072 ms 
+12/16/2018 23:37:25: [ GET ] Url: /js/sb-admin.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  27.736 ms 
+12/16/2018 23:37:25: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  34.388 ms 
+12/16/2018 23:37:25: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  23.110 ms 
+12/16/2018 23:37:25: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.445 ms 
+12/16/2018 23:37:25: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.497 ms 
+12/16/2018 23:37:26: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.987 ms 
+12/16/2018 23:37:26: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.688 ms 
+12/16/2018 23:37:26: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.313 ms 
+12/16/2018 23:37:26: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.661 ms 
+12/16/2018 23:37:26: [ GET ] Url: /js/sb-admin.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.885 ms 
+12/16/2018 23:37:26: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.306 ms 
+12/16/2018 23:37:26: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.495 ms 
+12/16/2018 23:37:36: [ GET ] Url: / 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.583 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  8.384 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  12.689 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  20.962 ms 
+12/16/2018 23:37:36: [ GET ] Url: /css/sb-admin.css 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  27.366 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  32.449 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  30.347 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  30.104 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  32.696 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  28.272 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  35.032 ms 
+12/16/2018 23:37:36: [ GET ] Url: /js/sb-admin.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  32.364 ms 
+12/16/2018 23:37:36: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  30.656 ms 
+12/16/2018 23:37:36: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  26.544 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.031 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.720 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.112 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  6.840 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.156 ms 
+12/16/2018 23:37:36: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.259 ms 
+12/16/2018 23:37:36: [ GET ] Url: /js/sb-admin.min.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.647 ms 
+12/16/2018 23:37:36: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  5.069 ms 
+12/16/2018 23:37:36: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Internal Server Error ( 500 ) 9470 Responsetime:  4.695 ms 
+12/16/2018 23:37:52: [ GET ] Url: / 	Status:  OK ( 200 ) 20346 Responsetime:  35.268 ms 
+12/16/2018 23:37:52: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  OK ( 200 ) 140936 Responsetime:  7.633 ms 
+12/16/2018 23:37:52: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  OK ( 200 ) 48649 Responsetime:  10.555 ms 
+12/16/2018 23:37:52: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  OK ( 200 ) 5799 Responsetime:  14.170 ms 
+12/16/2018 23:37:52: [ GET ] Url: /css/sb-admin.css 	Status:  OK ( 200 ) 6833 Responsetime:  14.955 ms 
+12/16/2018 23:37:52: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  OK ( 200 ) 86927 Responsetime:  3.864 ms 
+12/16/2018 23:37:52: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  OK ( 200 ) 70966 Responsetime:  5.610 ms 
+12/16/2018 23:37:52: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  OK ( 200 ) 2532 Responsetime:  6.371 ms 
+12/16/2018 23:37:52: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  OK ( 200 ) 159638 Responsetime:  2.118 ms 
+12/16/2018 23:37:52: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  OK ( 200 ) 447569 Responsetime:  0.821 ms 
+12/16/2018 23:37:52: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  OK ( 200 ) 4693 Responsetime:  5.264 ms 
+12/16/2018 23:37:52: [ GET ] Url: /js/sb-admin.min.js 	Status:  OK ( 200 ) 918 Responsetime:  4.664 ms 
+12/16/2018 23:37:52: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  OK ( 200 ) 103 Responsetime:  3.734 ms 
+12/16/2018 23:37:52: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  OK ( 200 ) 1530 Responsetime:  4.471 ms 
+12/16/2018 23:37:52: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  1.195 ms 
+12/16/2018 23:37:52: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  0.573 ms 
+12/16/2018 23:37:57: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  7.574 ms 
+12/16/2018 23:37:57: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.751 ms 
+12/16/2018 23:37:57: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.150 ms 
+12/16/2018 23:37:57: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.427 ms 
+12/16/2018 23:37:57: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.391 ms 
+12/16/2018 23:37:57: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.570 ms 
+12/16/2018 23:37:57: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.096 ms 
+12/16/2018 23:37:57: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.662 ms 
+12/16/2018 23:37:57: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.656 ms 
+12/16/2018 23:37:57: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.457 ms 
+12/16/2018 23:37:57: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  3.495 ms 
+12/16/2018 23:37:57: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.426 ms 
+12/16/2018 23:37:57: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.337 ms 
+12/16/2018 23:37:57: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.393 ms 
+12/16/2018 23:37:57: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.565 ms 
+12/16/2018 23:37:57: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  0.615 ms 
+12/16/2018 23:38:07: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  33.685 ms 
+12/16/2018 23:38:07: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.645 ms 
+12/16/2018 23:38:07: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.879 ms 
+12/16/2018 23:38:07: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.701 ms 
+12/16/2018 23:38:07: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.352 ms 
+12/16/2018 23:38:07: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.478 ms 
+12/16/2018 23:38:07: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.460 ms 
+12/16/2018 23:38:07: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.653 ms 
+12/16/2018 23:38:07: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.898 ms 
+12/16/2018 23:38:07: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.159 ms 
+12/16/2018 23:38:07: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.616 ms 
+12/16/2018 23:38:07: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.897 ms 
+12/16/2018 23:38:07: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.485 ms 
+12/16/2018 23:38:07: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.565 ms 
+12/16/2018 23:38:07: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.439 ms 
+12/16/2018 23:38:07: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.586 ms 
+12/16/2018 23:38:08: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  7.167 ms 
+12/16/2018 23:38:08: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.736 ms 
+12/16/2018 23:38:08: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.805 ms 
+12/16/2018 23:38:08: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.486 ms 
+12/16/2018 23:38:08: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.433 ms 
+12/16/2018 23:38:08: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.384 ms 
+12/16/2018 23:38:08: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.378 ms 
+12/16/2018 23:38:08: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.499 ms 
+12/16/2018 23:38:08: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.486 ms 
+12/16/2018 23:38:08: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.424 ms 
+12/16/2018 23:38:08: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.420 ms 
+12/16/2018 23:38:08: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.382 ms 
+12/16/2018 23:38:08: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.380 ms 
+12/16/2018 23:38:08: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.367 ms 
+12/16/2018 23:38:08: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  0.576 ms 
+12/16/2018 23:38:15: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  35.438 ms 
+12/16/2018 23:38:15: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.603 ms 
+12/16/2018 23:38:15: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.131 ms 
+12/16/2018 23:38:15: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.452 ms 
+12/16/2018 23:38:15: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.683 ms 
+12/16/2018 23:38:15: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.422 ms 
+12/16/2018 23:38:15: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.436 ms 
+12/16/2018 23:38:15: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.404 ms 
+12/16/2018 23:38:15: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.059 ms 
+12/16/2018 23:38:15: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  2.158 ms 
+12/16/2018 23:38:15: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.438 ms 
+12/16/2018 23:38:15: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.677 ms 
+12/16/2018 23:38:15: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.250 ms 
+12/16/2018 23:38:15: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.461 ms 
+12/16/2018 23:38:16: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.501 ms 
+12/16/2018 23:39:10: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  33.448 ms 
+12/16/2018 23:39:10: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  5.312 ms 
+12/16/2018 23:39:10: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.695 ms 
+12/16/2018 23:39:10: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.502 ms 
+12/16/2018 23:39:10: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.147 ms 
+12/16/2018 23:39:10: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.144 ms 
+12/16/2018 23:39:10: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.012 ms 
+12/16/2018 23:39:10: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.937 ms 
+12/16/2018 23:39:10: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.825 ms 
+12/16/2018 23:39:10: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.103 ms 
+12/16/2018 23:39:10: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  4.221 ms 
+12/16/2018 23:39:10: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  7.066 ms 
+12/16/2018 23:39:10: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.757 ms 
+12/16/2018 23:39:10: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.921 ms 
+12/16/2018 23:39:11: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.474 ms 
+12/16/2018 23:39:11: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.535 ms 
+12/16/2018 23:39:12: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  8.214 ms 
+12/16/2018 23:39:12: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  5.085 ms 
+12/16/2018 23:39:12: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.831 ms 
+12/16/2018 23:39:12: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.288 ms 
+12/16/2018 23:39:12: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.023 ms 
+12/16/2018 23:39:12: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.652 ms 
+12/16/2018 23:39:12: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.979 ms 
+12/16/2018 23:39:12: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.476 ms 
+12/16/2018 23:39:12: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.663 ms 
+12/16/2018 23:39:12: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.317 ms 
+12/16/2018 23:39:12: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.643 ms 
+12/16/2018 23:39:12: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.611 ms 
+12/16/2018 23:39:12: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  5.030 ms 
+12/16/2018 23:39:12: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.339 ms 
+12/16/2018 23:39:12: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.421 ms 
+12/16/2018 23:39:41: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  32.589 ms 
+12/16/2018 23:39:41: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.931 ms 
+12/16/2018 23:39:41: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.927 ms 
+12/16/2018 23:39:41: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.271 ms 
+12/16/2018 23:39:41: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.603 ms 
+12/16/2018 23:39:41: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  8.622 ms 
+12/16/2018 23:39:41: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.101 ms 
+12/16/2018 23:39:41: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.114 ms 
+12/16/2018 23:39:41: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.821 ms 
+12/16/2018 23:39:41: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  3.077 ms 
+12/16/2018 23:39:41: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  3.563 ms 
+12/16/2018 23:39:41: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  4.284 ms 
+12/16/2018 23:39:41: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.711 ms 
+12/16/2018 23:39:41: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.567 ms 
+12/16/2018 23:39:41: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.474 ms 
+12/16/2018 23:39:41: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.749 ms 
+12/16/2018 23:39:45: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  33.294 ms 
+12/16/2018 23:39:45: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.267 ms 
+12/16/2018 23:39:45: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.675 ms 
+12/16/2018 23:39:45: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.449 ms 
+12/16/2018 23:39:45: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.385 ms 
+12/16/2018 23:39:45: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.923 ms 
+12/16/2018 23:39:45: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  5.428 ms 
+12/16/2018 23:39:45: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.192 ms 
+12/16/2018 23:39:45: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.137 ms 
+12/16/2018 23:39:45: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  3.645 ms 
+12/16/2018 23:39:45: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  3.405 ms 
+12/16/2018 23:39:45: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.527 ms 
+12/16/2018 23:39:45: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.609 ms 
+12/16/2018 23:39:45: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.495 ms 
+12/16/2018 23:39:45: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.833 ms 
+12/16/2018 23:39:45: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.484 ms 
+12/16/2018 23:39:48: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  7.161 ms 
+12/16/2018 23:39:48: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.478 ms 
+12/16/2018 23:39:48: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.650 ms 
+12/16/2018 23:39:48: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.615 ms 
+12/16/2018 23:39:48: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.623 ms 
+12/16/2018 23:39:48: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.421 ms 
+12/16/2018 23:39:48: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.073 ms 
+12/16/2018 23:39:48: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.947 ms 
+12/16/2018 23:39:48: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.352 ms 
+12/16/2018 23:39:48: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.460 ms 
+12/16/2018 23:39:48: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.575 ms 
+12/16/2018 23:39:48: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.463 ms 
+12/16/2018 23:39:48: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.440 ms 
+12/16/2018 23:39:48: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.474 ms 
+12/16/2018 23:39:48: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.555 ms 
+12/16/2018 23:40:07: [ GET ] Url: / 	Status:  Internal Server Error ( 500 ) 9458 Responsetime:  38.998 ms 
+12/16/2018 23:40:07: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.558 ms 
+12/16/2018 23:40:07: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  5.297 ms 
+12/16/2018 23:40:07: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.642 ms 
+12/16/2018 23:40:07: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  2.804 ms 
+12/16/2018 23:40:07: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.844 ms 
+12/16/2018 23:40:07: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  8.342 ms 
+12/16/2018 23:40:07: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.308 ms 
+12/16/2018 23:40:07: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.552 ms 
+12/16/2018 23:40:07: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.113 ms 
+12/16/2018 23:40:07: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  1.477 ms 
+12/16/2018 23:40:07: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.455 ms 
+12/16/2018 23:40:07: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.466 ms 
+12/16/2018 23:40:07: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.241 ms 
+12/16/2018 23:40:07: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.460 ms 
+12/16/2018 23:40:07: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.708 ms 
+12/16/2018 23:40:23: [ GET ] Url: / 	Status:  Internal Server Error ( 500 ) 9458 Responsetime:  14.011 ms 
+12/16/2018 23:40:23: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.512 ms 
+12/16/2018 23:40:23: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.780 ms 
+12/16/2018 23:40:23: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.242 ms 
+12/16/2018 23:40:23: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.930 ms 
+12/16/2018 23:40:23: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.817 ms 
+12/16/2018 23:40:23: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.374 ms 
+12/16/2018 23:40:23: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.479 ms 
+12/16/2018 23:40:23: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.536 ms 
+12/16/2018 23:40:23: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.035 ms 
+12/16/2018 23:40:23: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  1.207 ms 
+12/16/2018 23:40:23: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.597 ms 
+12/16/2018 23:40:23: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.468 ms 
+12/16/2018 23:40:23: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.537 ms 
+12/16/2018 23:40:23: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.513 ms 
+12/16/2018 23:40:23: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  1.646 ms 
+12/16/2018 23:41:42: [ GET ] Url: / 	Status:   (  )  Responsetime:   ms 
+12/16/2018 23:41:55: [ GET ] Url: / 	Status:  OK ( 200 ) 20346 Responsetime:  32.771 ms 
+12/16/2018 23:41:55: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.163 ms 
+12/16/2018 23:41:55: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.606 ms 
+12/16/2018 23:41:55: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  3.232 ms 
+12/16/2018 23:41:55: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  7.872 ms 
+12/16/2018 23:41:55: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.983 ms 
+12/16/2018 23:41:55: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  6.713 ms 
+12/16/2018 23:41:55: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  7.824 ms 
+12/16/2018 23:41:55: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.210 ms 
+12/16/2018 23:41:55: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.596 ms 
+12/16/2018 23:41:55: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.985 ms 
+12/16/2018 23:41:55: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.704 ms 
+12/16/2018 23:41:55: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.711 ms 
+12/16/2018 23:41:55: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.392 ms 
+12/16/2018 23:41:55: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.485 ms 
+12/16/2018 23:41:55: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.145 ms 
+12/16/2018 23:41:56: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  7.166 ms 
+12/16/2018 23:41:56: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.716 ms 
+12/16/2018 23:41:56: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.885 ms 
+12/16/2018 23:41:56: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.619 ms 
+12/16/2018 23:41:56: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.298 ms 
+12/16/2018 23:41:56: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.752 ms 
+12/16/2018 23:41:56: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.549 ms 
+12/16/2018 23:41:56: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.003 ms 
+12/16/2018 23:41:56: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.104 ms 
+12/16/2018 23:41:56: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  2.617 ms 
+12/16/2018 23:41:56: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.469 ms 
+12/16/2018 23:41:56: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.472 ms 
+12/16/2018 23:41:56: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.549 ms 
+12/16/2018 23:41:56: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.429 ms 
+12/16/2018 23:41:57: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.405 ms 
+12/16/2018 23:41:57: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  1.537 ms 
+12/16/2018 23:42:12: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  38.155 ms 
+12/16/2018 23:42:12: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.339 ms 
+12/16/2018 23:42:12: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.329 ms 
+12/16/2018 23:42:12: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  3.088 ms 
+12/16/2018 23:42:12: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.498 ms 
+12/16/2018 23:42:12: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.770 ms 
+12/16/2018 23:42:12: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.404 ms 
+12/16/2018 23:42:12: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.771 ms 
+12/16/2018 23:42:12: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.049 ms 
+12/16/2018 23:42:12: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  4.048 ms 
+12/16/2018 23:42:12: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  5.002 ms 
+12/16/2018 23:42:12: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.000 ms 
+12/16/2018 23:42:12: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.532 ms 
+12/16/2018 23:42:12: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.017 ms 
+12/16/2018 23:42:12: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.587 ms 
+12/16/2018 23:42:13: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.950 ms 
+12/16/2018 23:44:43: [ GET ] Url: /login 	Status:  Not Modified ( 304 )  Responsetime:  22.517 ms 
+12/16/2018 23:44:43: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.123 ms 
+12/16/2018 23:44:43: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.848 ms 
+12/16/2018 23:44:43: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.916 ms 
+12/16/2018 23:44:43: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.284 ms 
+12/16/2018 23:44:43: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  4.119 ms 
+12/16/2018 23:44:43: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  4.350 ms 
+12/16/2018 23:44:43: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9281 Responsetime:  29.592 ms 
+12/16/2018 23:44:43: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9281 Responsetime:  11.689 ms 
+12/16/2018 23:44:46: [ POST ] Url: /login 	Status:  Internal Server Error ( 500 ) 9455 Responsetime:  26.977 ms 
+12/16/2018 23:44:47: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.571 ms 
+12/16/2018 23:44:47: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.934 ms 
+12/16/2018 23:44:47: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.476 ms 
+12/16/2018 23:44:47: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.867 ms 
+12/16/2018 23:44:47: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.165 ms 
+12/16/2018 23:44:47: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.236 ms 
+12/16/2018 23:44:47: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.351 ms 
+12/16/2018 23:44:47: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.723 ms 
+12/16/2018 23:44:47: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.768 ms 
+12/16/2018 23:44:47: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  1.584 ms 
+12/16/2018 23:44:47: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.927 ms 
+12/16/2018 23:44:47: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.683 ms 
+12/16/2018 23:44:47: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.410 ms 
+12/16/2018 23:44:47: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.635 ms 
+12/16/2018 23:45:19: [ POST ] Url: /login 	Status:  Internal Server Error ( 500 ) 9455 Responsetime:  58.618 ms 
+12/16/2018 23:45:19: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.949 ms 
+12/16/2018 23:45:19: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.346 ms 
+12/16/2018 23:45:19: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  2.555 ms 
+12/16/2018 23:45:19: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.417 ms 
+12/16/2018 23:45:19: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  9.551 ms 
+12/16/2018 23:45:19: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  10.798 ms 
+12/16/2018 23:45:19: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.353 ms 
+12/16/2018 23:45:19: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.891 ms 
+12/16/2018 23:45:19: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.964 ms 
+12/16/2018 23:45:19: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.251 ms 
+12/16/2018 23:45:19: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.102 ms 
+12/16/2018 23:45:19: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.297 ms 
+12/16/2018 23:45:19: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.730 ms 
+12/16/2018 23:45:20: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.454 ms 
+12/16/2018 23:45:20: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.202 ms 
+12/16/2018 23:45:21: [ GET ] Url: /login 	Status:  Not Modified ( 304 )  Responsetime:  2.973 ms 
+12/16/2018 23:45:21: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.437 ms 
+12/16/2018 23:45:21: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.458 ms 
+12/16/2018 23:45:21: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.450 ms 
+12/16/2018 23:45:21: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.390 ms 
+12/16/2018 23:45:21: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.846 ms 
+12/16/2018 23:45:21: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  4.872 ms 
+12/16/2018 23:45:21: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9281 Responsetime:  19.501 ms 
+12/16/2018 23:45:21: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9281 Responsetime:  8.360 ms 
+12/16/2018 23:45:23: [ POST ] Url: /login 	Status:  Internal Server Error ( 500 ) 9455 Responsetime:  12.511 ms 
+12/16/2018 23:45:23: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.830 ms 
+12/16/2018 23:45:23: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.128 ms 
+12/16/2018 23:45:23: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.989 ms 
+12/16/2018 23:45:23: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.356 ms 
+12/16/2018 23:45:23: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.572 ms 
+12/16/2018 23:45:23: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.436 ms 
+12/16/2018 23:45:23: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.431 ms 
+12/16/2018 23:45:23: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.412 ms 
+12/16/2018 23:45:23: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.950 ms 
+12/16/2018 23:45:23: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  1.161 ms 
+12/16/2018 23:45:23: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.471 ms 
+12/16/2018 23:45:23: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.409 ms 
+12/16/2018 23:45:23: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.361 ms 
+12/16/2018 23:45:23: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.427 ms 
+12/16/2018 23:45:31: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  10.058 ms 
+12/16/2018 23:45:31: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.348 ms 
+12/16/2018 23:45:31: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.828 ms 
+12/16/2018 23:45:31: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  6.176 ms 
+12/16/2018 23:45:31: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  4.284 ms 
+12/16/2018 23:45:31: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.336 ms 
+12/16/2018 23:45:31: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  6.162 ms 
+12/16/2018 23:45:31: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  15.938 ms 
+12/16/2018 23:45:31: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  16.260 ms 
+12/16/2018 23:45:31: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  16.753 ms 
+12/16/2018 23:45:31: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  3.439 ms 
+12/16/2018 23:45:31: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.533 ms 
+12/16/2018 23:45:31: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.845 ms 
+12/16/2018 23:45:31: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.235 ms 
+12/16/2018 23:45:31: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.551 ms 
+12/16/2018 23:46:10: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  41.144 ms 
+12/16/2018 23:46:10: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.412 ms 
+12/16/2018 23:46:10: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  5.544 ms 
+12/16/2018 23:46:10: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.715 ms 
+12/16/2018 23:46:10: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  2.549 ms 
+12/16/2018 23:46:10: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  10.292 ms 
+12/16/2018 23:46:10: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.557 ms 
+12/16/2018 23:46:10: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.666 ms 
+12/16/2018 23:46:10: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  2.274 ms 
+12/16/2018 23:46:10: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.391 ms 
+12/16/2018 23:46:10: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.708 ms 
+12/16/2018 23:46:10: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.295 ms 
+12/16/2018 23:46:10: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.496 ms 
+12/16/2018 23:46:10: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.515 ms 
+12/16/2018 23:46:10: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.477 ms 
+12/16/2018 23:46:11: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.363 ms 
+12/16/2018 23:47:25: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  37.967 ms 
+12/16/2018 23:47:25: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.568 ms 
+12/16/2018 23:47:25: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  5.555 ms 
+12/16/2018 23:47:25: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.635 ms 
+12/16/2018 23:47:25: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  9.932 ms 
+12/16/2018 23:47:25: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.888 ms 
+12/16/2018 23:47:25: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.479 ms 
+12/16/2018 23:47:25: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.320 ms 
+12/16/2018 23:47:25: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  2.975 ms 
+12/16/2018 23:47:25: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.443 ms 
+12/16/2018 23:47:25: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  1.867 ms 
+12/16/2018 23:47:25: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.899 ms 
+12/16/2018 23:47:25: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.666 ms 
+12/16/2018 23:47:25: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.407 ms 
+12/16/2018 23:47:25: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.448 ms 
+12/16/2018 23:47:26: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.408 ms 
+12/16/2018 23:47:31: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  8.069 ms 
+12/16/2018 23:47:31: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.753 ms 
+12/16/2018 23:47:31: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.481 ms 
+12/16/2018 23:47:31: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.566 ms 
+12/16/2018 23:47:31: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.707 ms 
+12/16/2018 23:47:31: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.007 ms 
+12/16/2018 23:47:31: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.538 ms 
+12/16/2018 23:47:31: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  4.671 ms 
+12/16/2018 23:47:31: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  4.589 ms 
+12/16/2018 23:47:31: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.697 ms 
+12/16/2018 23:47:31: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.409 ms 
+12/16/2018 23:47:31: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.414 ms 
+12/16/2018 23:47:31: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.662 ms 
+12/16/2018 23:47:31: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.037 ms 
+12/16/2018 23:47:32: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.513 ms 
+12/16/2018 23:47:32: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  0.552 ms 
+12/16/2018 23:47:47: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  36.613 ms 
+12/16/2018 23:47:47: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.782 ms 
+12/16/2018 23:47:47: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  5.234 ms 
+12/16/2018 23:47:47: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.491 ms 
+12/16/2018 23:47:47: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  3.173 ms 
+12/16/2018 23:47:47: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  6.232 ms 
+12/16/2018 23:47:47: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  7.462 ms 
+12/16/2018 23:47:47: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  10.615 ms 
+12/16/2018 23:47:47: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.390 ms 
+12/16/2018 23:47:47: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.708 ms 
+12/16/2018 23:47:47: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.343 ms 
+12/16/2018 23:47:47: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.940 ms 
+12/16/2018 23:47:47: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.512 ms 
+12/16/2018 23:47:47: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.525 ms 
+12/16/2018 23:47:47: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.543 ms 
+12/16/2018 23:47:48: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.388 ms 
+12/16/2018 23:47:53: [ GET ] Url: /@TODO 	Status:  Internal Server Error ( 500 ) 9419 Responsetime:  13.871 ms 
+12/16/2018 23:47:53: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.193 ms 
+12/16/2018 23:47:53: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  15.208 ms 
+12/16/2018 23:47:53: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  14.145 ms 
+12/16/2018 23:47:53: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.119 ms 
+12/16/2018 23:47:53: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.641 ms 
+12/16/2018 23:47:53: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.972 ms 
+12/16/2018 23:47:53: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  13.572 ms 
+12/16/2018 23:47:53: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.416 ms 
+12/16/2018 23:47:53: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  2.022 ms 
+12/16/2018 23:47:53: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.889 ms 
+12/16/2018 23:47:53: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.430 ms 
+12/16/2018 23:47:53: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.457 ms 
+12/16/2018 23:47:53: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.466 ms 
+12/16/2018 23:47:53: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.425 ms 
+12/16/2018 23:48:16: [ GET ] Url: /@TODO 	Status:  Internal Server Error ( 500 ) 9419 Responsetime:  38.998 ms 
+12/16/2018 23:48:16: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.738 ms 
+12/16/2018 23:48:16: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.964 ms 
+12/16/2018 23:48:16: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.329 ms 
+12/16/2018 23:48:16: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.971 ms 
+12/16/2018 23:48:16: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.191 ms 
+12/16/2018 23:48:16: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.679 ms 
+12/16/2018 23:48:16: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.287 ms 
+12/16/2018 23:48:16: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.913 ms 
+12/16/2018 23:48:16: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  2.036 ms 
+12/16/2018 23:48:16: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.370 ms 
+12/16/2018 23:48:16: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.450 ms 
+12/16/2018 23:48:16: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.488 ms 
+12/16/2018 23:48:16: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.498 ms 
+12/16/2018 23:48:16: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.540 ms 
+12/16/2018 23:48:16: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.280 ms 
+12/16/2018 23:48:23: [ GET ] Url: /@TODO 	Status:  Internal Server Error ( 500 ) 9281 Responsetime:  45.910 ms 
+12/16/2018 23:48:23: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.490 ms 
+12/16/2018 23:48:23: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  5.211 ms 
+12/16/2018 23:48:23: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.942 ms 
+12/16/2018 23:48:23: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  2.636 ms 
+12/16/2018 23:48:23: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  4.197 ms 
+12/16/2018 23:48:23: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  10.970 ms 
+12/16/2018 23:48:23: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.419 ms 
+12/16/2018 23:48:23: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.333 ms 
+12/16/2018 23:48:23: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.483 ms 
+12/16/2018 23:48:23: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.327 ms 
+12/16/2018 23:48:23: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.008 ms 
+12/16/2018 23:48:23: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.398 ms 
+12/16/2018 23:48:23: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.463 ms 
+12/16/2018 23:48:24: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.655 ms 
+12/16/2018 23:48:24: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.238 ms 
+12/16/2018 23:48:27: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  7.884 ms 
+12/16/2018 23:48:27: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.586 ms 
+12/16/2018 23:48:27: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.400 ms 
+12/16/2018 23:48:27: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.283 ms 
+12/16/2018 23:48:27: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.419 ms 
+12/16/2018 23:48:27: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.516 ms 
+12/16/2018 23:48:27: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.402 ms 
+12/16/2018 23:48:27: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  5.116 ms 
+12/16/2018 23:48:27: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  5.061 ms 
+12/16/2018 23:48:27: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.775 ms 
+12/16/2018 23:48:27: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.911 ms 
+12/16/2018 23:48:27: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.950 ms 
+12/16/2018 23:48:27: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.206 ms 
+12/16/2018 23:48:27: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.449 ms 
+12/16/2018 23:48:27: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.423 ms 
+12/16/2018 23:49:24: [ GET ] Url: /login 	Status:  Not Modified ( 304 )  Responsetime:  25.108 ms 
+12/16/2018 23:49:24: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.913 ms 
+12/16/2018 23:49:24: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.632 ms 
+12/16/2018 23:49:24: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.443 ms 
+12/16/2018 23:49:24: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.983 ms 
+12/16/2018 23:49:24: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  5.878 ms 
+12/16/2018 23:49:24: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  16.326 ms 
+12/16/2018 23:49:24: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9281 Responsetime:  28.064 ms 
+12/16/2018 23:49:24: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9281 Responsetime:  11.473 ms 
+12/16/2018 23:50:24: [ POST ] Url: /login 	Status:  Internal Server Error ( 500 ) 9455 Responsetime:  54.764 ms 
+12/16/2018 23:50:24: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  5.250 ms 
+12/16/2018 23:50:24: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.365 ms 
+12/16/2018 23:50:24: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.723 ms 
+12/16/2018 23:50:24: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.887 ms 
+12/16/2018 23:50:24: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.759 ms 
+12/16/2018 23:50:24: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.214 ms 
+12/16/2018 23:50:24: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.893 ms 
+12/16/2018 23:50:24: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.843 ms 
+12/16/2018 23:50:24: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.155 ms 
+12/16/2018 23:50:24: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  1.506 ms 
+12/16/2018 23:50:24: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.682 ms 
+12/16/2018 23:50:24: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  3.541 ms 
+12/16/2018 23:50:24: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.416 ms 
+12/16/2018 23:50:24: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.635 ms 
+12/16/2018 23:51:48: [ POST ] Url: /login 	Status:  Internal Server Error ( 500 ) 9455 Responsetime:  14.104 ms 
+12/16/2018 23:51:48: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.222 ms 
+12/16/2018 23:51:48: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.965 ms 
+12/16/2018 23:51:48: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.044 ms 
+12/16/2018 23:51:48: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.850 ms 
+12/16/2018 23:51:48: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.617 ms 
+12/16/2018 23:51:48: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.759 ms 
+12/16/2018 23:51:48: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.015 ms 
+12/16/2018 23:51:48: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.941 ms 
+12/16/2018 23:51:48: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.585 ms 
+12/16/2018 23:51:48: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.667 ms 
+12/16/2018 23:51:48: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.642 ms 
+12/16/2018 23:51:48: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.796 ms 
+12/16/2018 23:51:48: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  3.715 ms 
+12/16/2018 23:51:48: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.602 ms 
+12/16/2018 23:51:55: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  8.308 ms 
+12/16/2018 23:51:55: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.639 ms 
+12/16/2018 23:51:55: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.166 ms 
+12/16/2018 23:51:55: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.848 ms 
+12/16/2018 23:51:55: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.918 ms 
+12/16/2018 23:51:55: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.745 ms 
+12/16/2018 23:51:55: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.257 ms 
+12/16/2018 23:51:55: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.681 ms 
+12/16/2018 23:51:55: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.489 ms 
+12/16/2018 23:51:55: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.449 ms 
+12/16/2018 23:51:55: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.504 ms 
+12/16/2018 23:51:55: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.496 ms 
+12/16/2018 23:51:55: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.501 ms 
+12/16/2018 23:51:55: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.516 ms 
+12/16/2018 23:51:55: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.581 ms 
+12/16/2018 23:54:09: [ POST ] Url: /login 	Status:  Internal Server Error ( 500 ) 9455 Responsetime:  55.994 ms 
+12/16/2018 23:54:09: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  6.458 ms 
+12/16/2018 23:54:09: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  6.820 ms 
+12/16/2018 23:54:09: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  2.235 ms 
+12/16/2018 23:54:09: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.232 ms 
+12/16/2018 23:54:09: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  2.855 ms 
+12/16/2018 23:54:09: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.796 ms 
+12/16/2018 23:54:09: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.597 ms 
+12/16/2018 23:54:09: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  2.073 ms 
+12/16/2018 23:54:09: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.425 ms 
+12/16/2018 23:54:09: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.917 ms 
+12/16/2018 23:54:09: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.476 ms 
+12/16/2018 23:54:09: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.566 ms 
+12/16/2018 23:54:09: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.419 ms 
+12/16/2018 23:54:09: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.436 ms 
+12/16/2018 23:54:09: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.163 ms 
+12/16/2018 23:54:11: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  9.001 ms 
+12/16/2018 23:54:11: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.457 ms 
+12/16/2018 23:54:11: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.416 ms 
+12/16/2018 23:54:11: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.012 ms 
+12/16/2018 23:54:11: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.787 ms 
+12/16/2018 23:54:11: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.565 ms 
+12/16/2018 23:54:11: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.339 ms 
+12/16/2018 23:54:11: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.796 ms 
+12/16/2018 23:54:11: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  2.978 ms 
+12/16/2018 23:54:11: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  3.347 ms 
+12/16/2018 23:54:11: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.011 ms 
+12/16/2018 23:54:11: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.675 ms 
+12/16/2018 23:54:11: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.153 ms 
+12/16/2018 23:54:11: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.828 ms 
+12/16/2018 23:54:11: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.578 ms 
+12/16/2018 23:55:27: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  9.262 ms 
+12/16/2018 23:55:27: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.600 ms 
+12/16/2018 23:55:27: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.907 ms 
+12/16/2018 23:55:27: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.667 ms 
+12/16/2018 23:55:27: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  8.327 ms 
+12/16/2018 23:55:27: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.989 ms 
+12/16/2018 23:55:27: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.281 ms 
+12/16/2018 23:55:27: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.375 ms 
+12/16/2018 23:55:27: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.410 ms 
+12/16/2018 23:55:27: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  4.031 ms 
+12/16/2018 23:55:27: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  1.058 ms 
+12/16/2018 23:55:27: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.093 ms 
+12/16/2018 23:55:27: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.076 ms 
+12/16/2018 23:55:27: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.618 ms 
+12/16/2018 23:55:27: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.490 ms 
+12/16/2018 23:55:27: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  0.743 ms 
+12/16/2018 23:56:06: [ GET ] Url: /login 	Status:  Not Modified ( 304 )  Responsetime:  2.585 ms 
+12/16/2018 23:56:06: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.544 ms 
+12/16/2018 23:56:06: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.920 ms 
+12/16/2018 23:56:06: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  4.323 ms 
+12/16/2018 23:56:06: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.936 ms 
+12/16/2018 23:56:06: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.145 ms 
+12/16/2018 23:56:06: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.751 ms 
+12/16/2018 23:56:07: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9281 Responsetime:  15.794 ms 
+12/16/2018 23:56:07: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9281 Responsetime:  8.955 ms 
+12/16/2018 23:56:08: [ POST ] Url: /login 	Status:  Internal Server Error ( 500 ) 9455 Responsetime:  14.772 ms 
+12/16/2018 23:56:08: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.997 ms 
+12/16/2018 23:56:08: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.577 ms 
+12/16/2018 23:56:08: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.496 ms 
+12/16/2018 23:56:08: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.655 ms 
+12/16/2018 23:56:08: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.146 ms 
+12/16/2018 23:56:08: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.502 ms 
+12/16/2018 23:56:08: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.463 ms 
+12/16/2018 23:56:09: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.486 ms 
+12/16/2018 23:56:09: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.769 ms 
+12/16/2018 23:56:09: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.452 ms 
+12/16/2018 23:56:09: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.463 ms 
+12/16/2018 23:56:09: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.547 ms 
+12/16/2018 23:56:09: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.417 ms 
+12/16/2018 23:56:09: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.674 ms 
+12/16/2018 23:56:17: [ POST ] Url: /login 	Status:  OK ( 200 ) 9666 Responsetime:  55.096 ms 
+12/16/2018 23:56:17: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  5.239 ms 
+12/16/2018 23:56:17: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.386 ms 
+12/16/2018 23:56:17: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.505 ms 
+12/16/2018 23:56:17: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.917 ms 
+12/16/2018 23:56:17: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.550 ms 
+12/16/2018 23:56:17: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.244 ms 
+12/16/2018 23:56:17: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.817 ms 
+12/16/2018 23:56:17: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.023 ms 
+12/16/2018 23:56:17: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  1.933 ms 
+12/16/2018 23:56:17: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.725 ms 
+12/16/2018 23:56:17: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.495 ms 
+12/16/2018 23:56:17: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.402 ms 
+12/16/2018 23:56:17: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.452 ms 
+12/16/2018 23:56:17: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.559 ms 
+12/16/2018 23:58:41: [ POST ] Url: /login 	Status:  OK ( 200 ) 9666 Responsetime:  11.181 ms 
+12/16/2018 23:58:41: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.171 ms 
+12/16/2018 23:58:41: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.296 ms 
+12/16/2018 23:58:41: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  6.855 ms 
+12/16/2018 23:58:41: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.584 ms 
+12/16/2018 23:58:41: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  3.771 ms 
+12/16/2018 23:58:41: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  12.831 ms 
+12/16/2018 23:58:41: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.497 ms 
+12/16/2018 23:58:41: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  1.137 ms 
+12/16/2018 23:58:41: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.300 ms 
+12/16/2018 23:58:41: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.564 ms 
+12/16/2018 23:58:41: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.602 ms 
+12/16/2018 23:58:41: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.547 ms 
+12/16/2018 23:58:41: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.381 ms 
+12/16/2018 23:58:41: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.488 ms 
+12/16/2018 23:58:41: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.758 ms 
+12/16/2018 23:58:59: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  14.464 ms 
+12/16/2018 23:58:59: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.748 ms 
+12/16/2018 23:58:59: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.073 ms 
+12/16/2018 23:58:59: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.753 ms 
+12/16/2018 23:58:59: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.785 ms 
+12/16/2018 23:58:59: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.576 ms 
+12/16/2018 23:58:59: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.616 ms 
+12/16/2018 23:58:59: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.751 ms 
+12/16/2018 23:58:59: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  7.360 ms 
+12/16/2018 23:58:59: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  3.171 ms 
+12/16/2018 23:58:59: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  10.305 ms 
+12/16/2018 23:58:59: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.526 ms 
+12/16/2018 23:58:59: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.746 ms 
+12/16/2018 23:58:59: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.150 ms 
+12/16/2018 23:58:59: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.452 ms 
+12/16/2018 23:59:01: [ GET ] Url: /@TODO 	Status:  Internal Server Error ( 500 ) 9281 Responsetime:  13.396 ms 
+12/16/2018 23:59:01: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.505 ms 
+12/16/2018 23:59:01: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.321 ms 
+12/16/2018 23:59:01: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.016 ms 
+12/16/2018 23:59:01: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  3.555 ms 
+12/16/2018 23:59:01: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.506 ms 
+12/16/2018 23:59:01: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.025 ms 
+12/16/2018 23:59:01: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.811 ms 
+12/16/2018 23:59:02: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.029 ms 
+12/16/2018 23:59:02: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  2.162 ms 
+12/16/2018 23:59:02: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.611 ms 
+12/16/2018 23:59:02: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.496 ms 
+12/16/2018 23:59:02: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.441 ms 
+12/16/2018 23:59:02: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.373 ms 
+12/16/2018 23:59:02: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.629 ms 
+12/16/2018 23:59:06: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  7.011 ms 
+12/16/2018 23:59:06: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.968 ms 
+12/16/2018 23:59:06: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.125 ms 
+12/16/2018 23:59:06: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  2.648 ms 
+12/16/2018 23:59:06: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.714 ms 
+12/16/2018 23:59:06: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  8.827 ms 
+12/16/2018 23:59:06: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.778 ms 
+12/16/2018 23:59:06: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.986 ms 
+12/16/2018 23:59:06: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.443 ms 
+12/16/2018 23:59:06: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  3.058 ms 
+12/16/2018 23:59:06: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  2.756 ms 
+12/16/2018 23:59:06: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.341 ms 
+12/16/2018 23:59:06: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.819 ms 
+12/16/2018 23:59:06: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.986 ms 
+12/16/2018 23:59:06: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.446 ms 
+12/17/2018 00:02:18: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  7.327 ms 
+12/17/2018 00:02:18: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.754 ms 
+12/17/2018 00:02:18: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  7.685 ms 
+12/17/2018 00:02:18: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.936 ms 
+12/17/2018 00:02:18: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.463 ms 
+12/17/2018 00:02:18: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.880 ms 
+12/17/2018 00:02:18: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.272 ms 
+12/17/2018 00:02:18: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.741 ms 
+12/17/2018 00:02:18: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  5.606 ms 
+12/17/2018 00:02:18: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  8.309 ms 
+12/17/2018 00:02:18: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  9.397 ms 
+12/17/2018 00:02:18: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.404 ms 
+12/17/2018 00:02:18: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.685 ms 
+12/17/2018 00:02:18: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.860 ms 
+12/17/2018 00:02:18: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.537 ms 
+12/17/2018 00:02:19: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  10.017 ms 
+12/17/2018 00:02:19: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.562 ms 
+12/17/2018 00:02:19: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.690 ms 
+12/17/2018 00:02:19: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  1.609 ms 
+12/17/2018 00:02:19: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  2.613 ms 
+12/17/2018 00:02:19: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.220 ms 
+12/17/2018 00:02:19: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.915 ms 
+12/17/2018 00:02:19: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.199 ms 
+12/17/2018 00:02:19: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  3.388 ms 
+12/17/2018 00:02:19: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.577 ms 
+12/17/2018 00:02:19: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  0.406 ms 
+12/17/2018 00:02:19: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.464 ms 
+12/17/2018 00:02:19: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.436 ms 
+12/17/2018 00:02:19: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.393 ms 
+12/17/2018 00:02:19: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.495 ms 
+12/17/2018 00:03:41: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  5.727 ms 
+12/17/2018 00:03:41: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.247 ms 
+12/17/2018 00:03:41: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  5.306 ms 
+12/17/2018 00:03:41: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.726 ms 
+12/17/2018 00:03:41: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  4.618 ms 
+12/17/2018 00:03:41: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.001 ms 
+12/17/2018 00:03:41: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  8.864 ms 
+12/17/2018 00:03:41: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  7.627 ms 
+12/17/2018 00:03:41: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  4.151 ms 
+12/17/2018 00:03:41: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  0.834 ms 
+12/17/2018 00:03:41: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  3.887 ms 
+12/17/2018 00:03:41: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.524 ms 
+12/17/2018 00:03:41: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  1.666 ms 
+12/17/2018 00:03:41: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.278 ms 
+12/17/2018 00:03:41: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.441 ms 
+12/17/2018 00:07:06: [ GET ] Url: / 	Status:  Not Modified ( 304 )  Responsetime:  5.291 ms 
+12/17/2018 00:07:06: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.436 ms 
+12/17/2018 00:07:06: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.522 ms 
+12/17/2018 00:07:06: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  0.538 ms 
+12/17/2018 00:07:06: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.806 ms 
+12/17/2018 00:07:06: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.675 ms 
+12/17/2018 00:07:06: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.682 ms 
+12/17/2018 00:07:06: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.279 ms 
+12/17/2018 00:07:06: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.838 ms 
+12/17/2018 00:07:06: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  1.658 ms 
+12/17/2018 00:07:06: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.530 ms 
+12/17/2018 00:07:06: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  0.642 ms 
+12/17/2018 00:07:06: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.620 ms 
+12/17/2018 00:07:06: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.218 ms 
+12/17/2018 00:07:06: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.474 ms 
+12/17/2018 00:07:06: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  0.602 ms 

@@ -24,6 +24,7 @@ router.post("/", function(req, res, next) {
       };
 
     console.log("POST LOGIN");
+    //req.session.user = {username:req.body.username};
     res.render("loginold", handlebars_presettings);
     // @TODO
 });

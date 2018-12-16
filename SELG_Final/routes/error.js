@@ -15,11 +15,10 @@ var transporter = nodemailer.createTransport({
 router.get('/', function(req, res, next) {
     console.log(req.body.error);
     res.redirect('/');
-    res.redirect('/login');
 });
 
 router.post('/', function(req, res, next) {
-    console.log(req.body.error);
+    console.log("Somebody posting an error: "+req.body.error);
     res.redirect('/');
 
   transporter.sendMail({
