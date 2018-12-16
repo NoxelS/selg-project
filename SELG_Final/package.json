@@ -14,7 +14,9 @@
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "node-datetime": "^2.1.2",
-    "node-status-codes": "^3.0.0"
+    "node-env-file": "^0.1.8",
+    "node-status-codes": "^3.0.0",
+    "nodemailer": "^4.7.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"

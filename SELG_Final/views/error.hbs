@@ -1,17 +1,21 @@
 <div class="alert alert-danger" role="alert">
   <h2 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> <b>{{error}}</b></h2>
   <h4>
-    {{#if error.message }}
-      {{error.message}}
-    {{else}}
+    {{#if error.message }} {{error.message}} {{else}}
     <br>
-      <h2>Ooops!</h2> <br>
-      <h3>Sorry this page is not here.</h3>
+    <h2>Ooops!</h2> <br>
+    <h3>Die Seite die Sie suchen gibt es nicht</h3>
     {{/if}}
   </h4>
-
-
 </div>
-<div class="" role="alert">
-  <button type="button" class="btn btn-danger" onclick="console.log('@TODO')">Report this error</button>
-</div>
+
+<!-- Wenn kein 404 error: Button zum report senden -->
+{{#if error.message }}
+  <div class="" role="alert">
+    <form action="/error" method="post">
+      <button name="error" class="btn btn-danger" value="{{error.message}}">Diesen Fehler melden</button>
+    </form>
+  </div>
+{{else}}
+  <a name="error" class="btn btn-danger" href="/">Zurück zur Übersicht</a>
+{{/if}}
