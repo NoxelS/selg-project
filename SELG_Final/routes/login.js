@@ -16,14 +16,14 @@ router.get("/", function(req, res, next) {
 router.post("/", function(req, res, next) {
     var handlebars_presettings = {
         title: "SELG-Tool",
-        display_name: null,
+        display_name: req.body.username,
         icon_cards: false,
         location: "Login",
         loggedin: true,
         name: req.body.username
       };
 
-    console.log("POST LOGIN");
+    console.log("POST LOGIN"+req.body.username);
     //req.session.user = {username:req.body.username};
     res.render("loginold", handlebars_presettings);
     // @TODO

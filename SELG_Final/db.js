@@ -1,11 +1,15 @@
 var mysql = require('mysql');
+
+// @TODO via ENV. files
+
 var connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
+    host: "192.168.178.37",
+    port: "3306",
+    user: "node_connection",
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-})
+    database: "selg_schema"
+});
+console.log(process.env);
+connection.connect( (err) => { if(err) {throw err}});
 
-connection.connect()
-
-module.exports = connection;
+module.exports = connection; //a&r6a90$48|wfa9awfg8wgaa9a0gag0ga0ag0ffaffm0=

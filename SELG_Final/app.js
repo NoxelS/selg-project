@@ -9,11 +9,16 @@ var fs = require('fs');
 var nodeStatusCodes = require('node-status-codes');
 const favicon = require('express-favicon');
 var session = require('express-session');
+var expressValidator = require('express-validator');
+
+var fileLogger = require('./log/file-logger')
+fileLogger.log();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var errorRouter = require('./routes/error');
+var adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -54,6 +59,7 @@ app.use(favicon(__dirname + '/public/images/favicon.png'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
  
@@ -62,6 +68,7 @@ app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/users', usersRouter);
 app.use('/error', errorRouter);
+app.use('/admin', adminRouter);
 
 app.use(session({
   key: 'user_sid',
