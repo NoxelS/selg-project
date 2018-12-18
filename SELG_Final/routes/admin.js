@@ -9,10 +9,10 @@ const saltRounds = 10;
 /* GET Login page. */
 router.get("/", function(req, res, next) {
   var handlebars_presettings = {
-    title: "Login",
+    title: "SELG-Admintool",
     display_name: null,
     icon_cards: false,
-    location: "Login"
+    location: "Benutzer erstellen"
   };
   res.render("create_admin", handlebars_presettings);
 });

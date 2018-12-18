@@ -15,7 +15,7 @@ var session = require("express-session");
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var MySQLStore = require("express-mysql-session")(session);
-var bcrypt = require('bcrypt')
+var bcrypt = require("bcrypt");
 
 // MySQL Session Storage
 var sessionStore = new MySQLStore({
@@ -49,7 +49,6 @@ app.engine(
 );
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
-
 
 // Morgan Logger -> Logs to Console & /log/server.los
 app.use(
@@ -100,11 +99,11 @@ app.use(
 
 app.use(favicon(__dirname + "/public/images/favicon.png"));
 
-app.all('*', function(req, res, next) {
+app.all("*", function(req, res, next) {
   res.header("Access-Control-Allow-Origin", req.headers.origin); // also  tried "*" here
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Origin", "*");
   next();
 });
 
@@ -126,7 +125,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 // Checks if User is signedin -> If not: redirect to /login
 function authenticationMiddleware() {
   return (req, res, next) => {
@@ -134,15 +132,35 @@ function authenticationMiddleware() {
       `req.session.passport.user: ${JSON.stringify(req.session.passport)}`
     );
     if (req.isAuthenticated()) return next();
-      res.redirect("/login");
+    res.redirect("/login");
   };
 }
 
 app.use((req, res, next) => {
-    res.locals.isAuthenticated = req.isAuthenticated();
-    next();
-});
+  res.locals.isAuthenticated = req.isAuthenticated();
 
+  if (res.locals.isAuthenticated) {
+    res.locals.user_id = req.user.user_id;
+
+    const db = require("./db");
+
+
+    db.query(
+      "SELECT * FROM user_db WHERE id = ?",
+      [res.locals.user_id],
+      (error, results, fields) => {
+        if(error) throw error;
+        res.locals.permission = results[0].permission_flag;
+        res.locals.username = results[0].username;
+        
+        console.log("CONNECTION: "+JSON.stringify(results));
+        next();
+      }
+    );
+  }else{
+    next();
+  }
+});
 
 // /login can be visited wihout session
 app.use("/login", loginRouter);
@@ -153,40 +171,43 @@ app.use("/error", errorRouter);
 app.use("/admin", adminRouter);
 app.use("/logout", logoutRouter);
 
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    
+passport.use(
+  new LocalStrategy(function(username, password, done) {
     console.log(username);
     console.log(password);
 
     const db = newFunction();
-    console.log("DB connected")
+    console.log("DB connected");
 
-    db.query('SELECT id, password FROM user_db WHERE username = ?', [username], (error, results, fields) => {
-      // Datenbank error
-      if (error) {done(error)}
+    db.query(
+      "SELECT id, password FROM user_db WHERE username = ?",
+      [username],
+      (error, results, fields) => {
+        // Datenbank error
+        if (error) {
+          done(error);
+        }
 
-      // Benutzername nicht gefunden
-      if(results.length === 0){
+        // Benutzername nicht gefunden
+        if (results.length === 0) {
+          done(null, false);
+        } else {
+          // Password von der Datenbank
+          const hash = results[0].password.toString();
 
-        done(null, false);
-      }else{
-
-        // Password von der Datenbank
-        const hash = results[0].password.toString();
-
-        bcrypt.compare(password, hash, (err, response) => {
-          if(response === true) {
-            console.log(results[0].id);
-            return done(null, {user_id: results[0].id});
-          }else{
-            return done(null, false);
-          }
-        });
+          bcrypt.compare(password, hash, (err, response) => {
+            if (response === true) {
+              console.log(results[0].id);
+              return done(null, { user_id: results[0].id });
+            } else {
+              return done(null, false);
+            }
+          });
+        }
       }
-    });
-  }
-));
+    );
+  })
+);
 
 /*
 // This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
@@ -219,6 +240,5 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 function newFunction() {
-  return require('./db');
+  return require("./db");
 }
-
