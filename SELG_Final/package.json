@@ -15,6 +15,7 @@
     "express-session": "^1.15.6",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
+    "mysql": "^2.16.0",
     "node-datetime": "^2.1.2",
     "node-env-file": "^0.1.8",
     "node-status-codes": "^3.0.0",

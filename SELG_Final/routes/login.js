@@ -7,7 +7,7 @@ router.get("/", function(req, res, next) {
     layout: false,
     title: "Login",
     display_name: null,
-    main_index: false,
+    icon_cards: false,
     location: "Login"
   };
   res.render("login", handlebars_presettings);
@@ -15,9 +15,9 @@ router.get("/", function(req, res, next) {
 
 router.post("/", function(req, res, next) {
     var handlebars_presettings = {
-        title: "Login",
+        title: "SELG-Tool",
         display_name: null,
-        main_index: false,
+        icon_cards: false,
         location: "Login",
         loggedin: true,
         name: req.body.username

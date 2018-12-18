@@ -9,7 +9,7 @@ router.get('/name', function(req, res, next) {
   var handlebars_presettings = {
     title: "SELG-Tool",
     display_name: req.params.name,
-    main_index: false,
+    icon_cards: false,
     location: "Übersicht"  
   }
   res.render('indexs', handlebars_presettings);
@@ -20,7 +20,7 @@ router.get('/',function(req, res, next) {
   var handlebars_presettings = {
     title: "SELG-Tool",
     display_name: req.params.name,
-    main_index: false,
+    icon_cards: true,
     location: "Übersicht"  
   }
 
