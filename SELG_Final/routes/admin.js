@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
+var passport = require('passport');
+
 var bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -34,13 +36,30 @@ router.post("/create/user", function(req, res, next) {
         [username, hash, permission_flag],
         function(err, result, fields) {
           if (err) throw err;
-          console.log(result);
+          db.query('SELECT LAST_INSERT_ID() as user_id', (error, results, fields) => {
+            if (error) throw error;
+
+            //user_id = results[0]
+
+            req.login(results[0], (err) => {
+              res.redirect("/")
+            });
+            console.log(results[0]);
+
+          });
+
         }
       );
     });
-    res.redirect("/admin");
-    // @TODO
   }
+});
+
+passport.serializeUser(function(user_id, done) {
+  done(null, user_id);
+});
+
+passport.deserializeUser(function(user_id, done) {
+  done(null, user_id);
 });
 
 module.exports = router;

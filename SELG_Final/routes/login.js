@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+var passport = require('passport');
 
 /* GET Login page. */
 router.get("/", function(req, res, next) {
@@ -13,20 +14,10 @@ router.get("/", function(req, res, next) {
   res.render("login", handlebars_presettings);
 });
 
-router.post("/", function(req, res, next) {
-    var handlebars_presettings = {
-        title: "SELG-Tool",
-        display_name: req.body.username,
-        icon_cards: false,
-        location: "Login",
-        loggedin: true,
-        name: req.body.username
-      };
-
-    console.log("POST LOGIN"+req.body.username);
-    //req.session.user = {username:req.body.username};
-    res.render("loginold", handlebars_presettings);
-    // @TODO
-});
+router.post("/", passport.authenticate(
+  'local', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+  }));
 
 module.exports = router;
