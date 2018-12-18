@@ -1,0 +1,80 @@
+wfwagwgTest12/18/2018 16:40:28 Restarting due to changes...12/18/2018 16:40:38 Restarting due to changes... 12/18/2018 16:40:40 Restarting due to changes... 
+12/18/2018 16:40:43 Restarting due to changes... 
+12/18/2018 16:40:46 Restarting due to changes... 
+12/18/2018 16:41:26: [ GET ] Url: /admin 	Status:  Not Modified ( 304 )  Responsetime:  22.606 ms 
+12/18/2018 16:41:26: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.228 ms 
+12/18/2018 16:41:26: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.494 ms 
+12/18/2018 16:41:26: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  4.419 ms 
+12/18/2018 16:41:26: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  7.685 ms 
+12/18/2018 16:41:26: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.907 ms 
+12/18/2018 16:41:26: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  5.681 ms 
+12/18/2018 16:41:26: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9275 Responsetime:  34.882 ms 
+12/18/2018 16:41:27: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9275 Responsetime:  11.643 ms 
+12/18/2018 16:41:27: [ GET ] Url: /favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.401 ms 
+12/18/2018 16:41:29: [ GET ] Url: /admin 	Status:  Not Modified ( 304 )  Responsetime:  2.977 ms 
+12/18/2018 16:41:29: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.936 ms 
+12/18/2018 16:41:29: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.936 ms 
+12/18/2018 16:41:29: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.872 ms 
+12/18/2018 16:41:29: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.939 ms 
+12/18/2018 16:41:29: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.737 ms 
+12/18/2018 16:41:29: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  4.911 ms 
+12/18/2018 16:41:29: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9275 Responsetime:  15.474 ms 
+12/18/2018 16:41:29: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9275 Responsetime:  11.545 ms 
+12/18/2018 16:41:29: [ GET ] Url: /favicon.ico 	Status:  OK ( 200 )  Responsetime:  0.522 ms 
+12/18/2018 16:42:02  Restarting due to changes... 
+12/18/2018 16:42:04 : Restarting due to changes... 
+12/18/2018 16:42:05 :  Restarting due to changes... 
+12/18/2018 16:42:08 :   Restarting due to changes... 
+12/18/2018 16:42:13 :  [RESTART] Restarting due to changes... 
+12/18/2018 16:42:24 : [RESTART] Restarting due to changes... 
+12/18/2018 16:42:29 : [RESTART] Restarting due to changes... 
+12/18/2018 16:42:39: [RESTART] Restarting due to changes... 
+12/18/2018 16:44:18: [ GET ] Url: /admin 	Status:  Not Modified ( 304 )  Responsetime:  22.576 ms 
+12/18/2018 16:44:19: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.551 ms 
+12/18/2018 16:44:19: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  3.037 ms 
+12/18/2018 16:44:19: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  6.451 ms 
+12/18/2018 16:44:19: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  9.524 ms 
+12/18/2018 16:44:19: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  10.407 ms 
+12/18/2018 16:44:19: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  3.759 ms 
+12/18/2018 16:44:19: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9275 Responsetime:  31.814 ms 
+12/18/2018 16:44:19: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9275 Responsetime:  12.739 ms 
+12/18/2018 16:44:19: [ GET ] Url: /favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.392 ms 
+12/18/2018 16:44:42: [ POST ] Url: /admin/create/user 	Status:  Found ( 302 ) 56 Responsetime:  126.601 ms 
+12/18/2018 16:44:59: [RESTART] Restarting due to changes... 
+12/18/2018 16:45:01: [RESTART] Restarting due to changes... 
+12/18/2018 16:45:02: [ POST ] Url: /admin 	Status:  Internal Server Error ( 500 ) 9275 Responsetime:  52.721 ms 
+12/18/2018 16:45:02: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  4.645 ms 
+12/18/2018 16:45:02: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  2.069 ms 
+12/18/2018 16:45:02: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.css 	Status:  Not Modified ( 304 )  Responsetime:  2.370 ms 
+12/18/2018 16:45:02: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  1.856 ms 
+12/18/2018 16:45:02: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  7.651 ms 
+12/18/2018 16:45:02: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  8.056 ms 
+12/18/2018 16:45:02: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  9.028 ms 
+12/18/2018 16:45:02: [ GET ] Url: /vendor/chart.js/Chart.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.416 ms 
+12/18/2018 16:45:02: [ GET ] Url: /vendor/datatables/jquery.dataTables.js 	Status:  Not Modified ( 304 )  Responsetime:  2.738 ms 
+12/18/2018 16:45:02: [ GET ] Url: /vendor/datatables/dataTables.bootstrap4.js 	Status:  Not Modified ( 304 )  Responsetime:  2.365 ms 
+12/18/2018 16:45:02: [ GET ] Url: /js/sb-admin.min.js 	Status:  Not Modified ( 304 )  Responsetime:  2.655 ms 
+12/18/2018 16:45:02: [ GET ] Url: /js/demo/datatables-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.875 ms 
+12/18/2018 16:45:02: [ GET ] Url: /js/demo/chart-area-demo.js 	Status:  Not Modified ( 304 )  Responsetime:  2.152 ms 
+12/18/2018 16:45:02: [ GET ] Url: /vendor/fontawesome-free/webfonts/fa-solid-900.woff2 	Status:  Not Modified ( 304 )  Responsetime:  0.641 ms 
+12/18/2018 16:45:03: [ GET ] Url: /images/favicon.ico 	Status:  OK ( 200 )  Responsetime:  2.329 ms 
+12/18/2018 16:45:04: [ GET ] Url: /admin 	Status:  Not Modified ( 304 )  Responsetime:  3.223 ms 
+12/18/2018 16:45:04: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.627 ms 
+12/18/2018 16:45:04: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  0.526 ms 
+12/18/2018 16:45:04: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.289 ms 
+12/18/2018 16:45:04: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  1.321 ms 
+12/18/2018 16:45:04: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  0.606 ms 
+12/18/2018 16:45:04: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  0.820 ms 
+12/18/2018 16:45:04: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9275 Responsetime:  17.561 ms 
+12/18/2018 16:45:04: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9275 Responsetime:  7.657 ms 
+12/18/2018 16:45:04: [ GET ] Url: /favicon.ico 	Status:  OK ( 200 )  Responsetime:  1.466 ms 
+12/18/2018 16:45:07: [ POST ] Url: /admin/create/user 	Status:  Found ( 302 ) 56 Responsetime:  107.497 ms 
+12/18/2018 16:45:07: [ GET ] Url: /admin 	Status:  Not Modified ( 304 )  Responsetime:  2.388 ms 
+12/18/2018 16:45:07: [ GET ] Url: /vendor/bootstrap/css/bootstrap.min.css 	Status:  Not Modified ( 304 )  Responsetime:  1.215 ms 
+12/18/2018 16:45:07: [ GET ] Url: /vendor/fontawesome-free/css/all.min.css 	Status:  Not Modified ( 304 )  Responsetime:  12.252 ms 
+12/18/2018 16:45:07: [ GET ] Url: /css/sb-admin.css 	Status:  Not Modified ( 304 )  Responsetime:  4.015 ms 
+12/18/2018 16:45:07: [ GET ] Url: /vendor/jquery/jquery.min.js 	Status:  Not Modified ( 304 )  Responsetime:  8.431 ms 
+12/18/2018 16:45:07: [ GET ] Url: /vendor/bootstrap/js/bootstrap.bundle.min.js 	Status:  Not Modified ( 304 )  Responsetime:  8.456 ms 
+12/18/2018 16:45:07: [ GET ] Url: /vendor/jquery-easing/jquery.easing.min.js 	Status:  Not Modified ( 304 )  Responsetime:  8.628 ms 
+12/18/2018 16:45:07: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9275 Responsetime:  28.754 ms 
+12/18/2018 16:45:07: [ GET ] Url: /js/test.js 	Status:  Internal Server Error ( 500 ) 9275 Responsetime:  8.689 ms 
