@@ -9,7 +9,6 @@ const saltRounds = 10;
 /* GET Login page. */
 router.get("/", function(req, res, next) {
   var handlebars_presettings = {
-    layout: false,
     title: "Login",
     display_name: null,
     icon_cards: false,
