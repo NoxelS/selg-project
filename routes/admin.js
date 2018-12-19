@@ -9,26 +9,24 @@ const saltRounds = 10;
 /* GET Login page. */
 router.get("/", function(req, res, next) {
   var handlebars_presettings = {
+    layout: "layout_admin",
     title: "SELG-Admintool",
     display_name: null,
     icon_cards: false,
     location: "Benutzer erstellen"
   };
-  res.render("create_admin", handlebars_presettings);
+  res.render("benutzer_edit", handlebars_presettings);
 });
 
 router.post("/create/user", function(req, res, next) {
   req.checkBody("username", "Ein Benutzername ist notwendig!").isLength(3, 15);
-
   if (req.validationErrors()) {
     console.log("Denied Creation");
   } else {
     const username = req.body.username;
     const password = req.body.password;
     const permission_flag = req.body.permission_flag.toLowerCase();
-
     var db = require("../db.js");
-
     bcrypt.hash(password, saltRounds, function(err, hash) {
       db.query(
         "INSERT INTO `selg_schema`.`user_db` (`username`, `password`, `permission_flag`) VALUES (?, ?, ?)",
@@ -37,16 +35,12 @@ router.post("/create/user", function(req, res, next) {
           if (err) throw err;
           db.query('SELECT LAST_INSERT_ID() as user_id', (error, results, fields) => {
             if (error) throw error;
-
             //user_id = results[0]
-
             req.login(results[0], (err) => {
               res.redirect("/")
             });
             console.log(results[0]);
-
           });
-
         }
       );
     });

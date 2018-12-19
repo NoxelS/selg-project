@@ -173,36 +173,27 @@ app.use("/logout", logoutRouter);
 
 passport.use(
   new LocalStrategy(function(username, password, done) {
-    console.log(username);
-    console.log(password);
-
     const db = newFunction();
-    console.log("DB connected");
-
     db.query(
       "SELECT id, password FROM user_db WHERE username = ?",
       [username],
       (error, results, fields) => {
-        // Datenbank error
         if (error) {
           done(error);
         }
-
-        // Benutzername nicht gefunden
         if (results.length === 0) {
           done(null, false);
         } else {
-          // Password von der Datenbank
           const hash = results[0].password.toString();
-
-          bcrypt.compare(password, hash, (err, response) => {
-            if (response === true) {
-              console.log(results[0].id);
-              return done(null, { user_id: results[0].id });
-            } else {
-              return done(null, false);
+            bcrypt.compare(password, hash, (err, response) => {
+              if (response === true) {
+                console.log(results[0].id);
+                return done(null, { user_id: results[0].id });
+              } else {
+                return done(null, false);
+              }
             }
-          });
+          );
         }
       }
     );

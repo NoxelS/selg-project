@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="container-fluid border">
+        <br>
+        <div class="container-fluid">
+            <div class="card-header" style="background-color: #e9ecef;">
+                Benutzer löschen
+            </div>
+            <!--
+                <div class="card-body">
+                    <form action="/admin/create/user" method="post" autocomplete="off">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Benutzername</label>
+                            <div class="form-label-group">
+                                <input type="username" id="username" name="username" class="form-control" placeholder="Benutzername" required="required"
+                                    autofocus="autofocus">
+                                <label for="username">Benutzername</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Passwort</label>
+                            <div class="form-label-group">
+                                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="required">
+                                <label for="password">Passwort</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Art des Accounts</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="permission_flag">
+                                <option>Fachlehrer</option>
+                                <option>Tutor</option>
+                                <option>Administrator</option>
+                            </select>
+                        </div>
+                        <br>
+
+                    </form>
+                </div> -->
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="inputAddress">Benutzername</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Benutzername">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputZip">Akronym</label>
+                        <input type="text" class="form-control" id="inputZip">
+                    </div>
+
+                    <br>
+                    <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-fw fa-user-minus"></i>
+                        <span>Benutzer löschen</span></a>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sind Sie sich sicher?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Klicken Sie auf "Benutzer Löschen", wenn Sie sich sicher sind, den ausgewählten Benutzer zu löschen.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Abbrechen</button>
+                <a class="btn btn-danger" href="/">Benutzer Löschen</a>
+            </div>
+        </div>
+    </div>
+</div>
