@@ -6,8 +6,17 @@ var passport = require('passport');
 var bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-/* GET Login page. */
-router.get("/", function(req, res, next) {
+function userHasAdminPermission() {
+  return (req, res, next) => {
+    if (res.locals.permission === "admin") return next();
+    res.redirect("/");
+  };
+}
+
+
+
+/* Create User Route. */
+router.get("/create_user", userHasAdminPermission(), function(req, res, next) {
   var handlebars_presettings = {
     layout: "layout_admin",
     title: "SELG-Admintool",
@@ -15,10 +24,10 @@ router.get("/", function(req, res, next) {
     icon_cards: false,
     location: "Benutzer erstellen"
   };
-  res.render("benutzer_edit", handlebars_presettings);
+  res.render("benutzer_create", handlebars_presettings);
 });
 
-router.post("/create/user", function(req, res, next) {
+router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
   req.checkBody("username", "Ein Benutzername ist notwendig!").isLength(3, 15);
   if (req.validationErrors()) {
     console.log("Denied Creation");
@@ -46,6 +55,74 @@ router.post("/create/user", function(req, res, next) {
     });
   }
 });
+
+/* Edit User Route. */
+router.get("/edit_user", userHasAdminPermission(), function(req, res, next) {
+  var handlebars_presettings = {
+    layout: "layout_admin",
+    title: "SELG-Admintool",
+    display_name: null,
+    icon_cards: false,
+    location: "Benutzer bearbeiten"
+  };
+  res.render("benutzer_edit", handlebars_presettings);
+});
+
+/* Delete User Route. */
+router.get("/delete_user", userHasAdminPermission(), function(req, res, next) {
+  var handlebars_presettings = {
+    layout: "layout_admin",
+    title: "SELG-Admintool",
+    display_name: null,
+    icon_cards: false,
+    location: "Benutzer löschen"
+  };
+  res.render("benutzer_delete", handlebars_presettings);
+});
+
+
+
+/* Create Schueler Route. */
+router.get("/create_schueler", userHasAdminPermission(), function(req, res, next) {
+  var handlebars_presettings = {
+    layout: "layout_admin",
+    title: "SELG-Admintool",
+    display_name: null,
+    icon_cards: false,
+    location: "Schüler erstellen"
+  };
+  res.render("schueler_create", handlebars_presettings);
+});
+
+router.post("/create_schueler", userHasAdminPermission(), function(req, res, next) {
+    // @TODO
+    res.redirect("/")
+});
+
+/* Edit Schüler Route. */
+router.get("/edit_schueler", userHasAdminPermission(), function(req, res, next) {
+  var handlebars_presettings = {
+    layout: "layout_admin",
+    title: "SELG-Admintool",
+    display_name: null,
+    icon_cards: false,
+    location: "Schüler bearbeiten"
+  };
+  res.render("schueler_edit", handlebars_presettings);
+});
+
+/* Delete Schüler Route. */
+router.get("/delete_schueler", userHasAdminPermission(), function(req, res, next) {
+  var handlebars_presettings = {
+    layout: "layout_admin",
+    title: "SELG-Admintool",
+    display_name: null,
+    icon_cards: false,
+    location: "Schüler löschen"
+  };
+  res.render("schueler_delete", handlebars_presettings);
+});
+
 
 passport.serializeUser(function(user_id, done) {
   done(null, user_id);

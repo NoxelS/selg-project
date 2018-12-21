@@ -226,7 +226,28 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
 
-  res.render("error");
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Tool",
+    display_name: req.params.name,
+    icon_cards: false,
+    location: "Error"
+  };
+
+  /*
+  switch (res.locals.permission) {
+    case "fachlehrer":
+      handlebars_presettings.layout = "layout_fachlehrer";
+      break;
+    case "tutor":
+      handlebars_presettings.layout = "layout_tutor";
+      break;
+    case "admin":
+      handlebars_presettings.layout = "layout_admin";
+      break;
+  }
+*/
+  res.render("error", handlebars_presettings);
 });
 
 module.exports = app;
