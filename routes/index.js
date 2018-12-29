@@ -8,11 +8,40 @@ router.get("/", function(req, res, next) {
     layout: res.locals.permission,
     title: "SELG-Tool",
     display_name: req.params.name,
-    icon_cards: true,
+    icon_cards: false,
     location: "Übersicht"
   };
+  if (res.locals.permission === "admin") {
+    handlebars_presettings.user_count = 0;
 
-  res.render("index", handlebars_presettings);
+    // @TODO ASYNC
+
+    var db = require("../db.js");
+    db.query("SELECT MAX(ID) AS LastID FROM user_db", function(err, result) {
+      if (err) throw err;
+      handlebars_presettings.user_count = result[0].LastID;
+      db.query("SELECT MAX(ID) AS LastID FROM schueler_db", function(err, result) {
+        if (err) throw err;
+        handlebars_presettings.schueler_count = result[0].LastID;
+        res.render("index_admin", handlebars_presettings);
+      });
+    });
+  } else {
+    res.render("index", handlebars_presettings);
+  }
+});
+
+/* GET Profile page. */
+router.get("/profil", function(req, res, next) {
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Tool",
+    display_name: "req.params.name",
+    icon_cards: false,
+    location: "Profil"
+  };
+
+  res.render("profile", handlebars_presettings);
 });
 
 // DEBUG

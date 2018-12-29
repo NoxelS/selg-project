@@ -11,7 +11,12 @@ router.get("/", function(req, res, next) {
     icon_cards: false,
     location: "Login"
   };
-  res.render("login", handlebars_presettings);
+
+  if(res.locals.permission){
+    res.redirect('/');
+  }else{
+    res.render("login", handlebars_presettings);
+  }
 });
 
 router.post("/", passport.authenticate(

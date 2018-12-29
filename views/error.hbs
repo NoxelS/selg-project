@@ -1,4 +1,4 @@
-<div class="alert alert-danger" role="alert">
+<!--<div class="alert alert-danger" role="alert">
   <h2 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> <b>{{error}}</b></h2>
   <h4>
     {{#if error.message }} {{error.message}} {{else}}
@@ -9,13 +9,34 @@
   </h4>
 </div>
 
-<!-- Wenn kein 404 error: Button zum report senden -->
-{{#if error.message }}
-  <div class="" role="alert">
-    <form action="/error" method="post">
-      <button name="error" class="btn btn-danger" value="{{error.message}}">Diesen Fehler melden</button>
-    </form>
+
+  <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+    <div class="card-header"><h3>{{#if error.message }} Error {{else}} Error 404 {{/if}}</h3></div>
+    <div class="card-body">
+      {{#if error.message }} {{error.message}} {{else}}
+    <h5>Ooops!</h5> 
+    <p>Die Seite die Sie suchen gibt es nicht</p>
+    {{/if}}
+    </div>
   </div>
-{{else}}
-  <a name="error" class="btn btn-danger" href="/">Zurück zur Übersicht</a>
-{{/if}}
+ -->
+
+<div class="card">
+  <h5 class="card-header">{{#if error.message }} Error {{else}} Error 404 {{/if}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">Es ist ein Fehler aufgetreten.</h5>
+    <p class="card-text">{{#if error.message }} {{error.message}} {{else}}Die Seite die Sie suchen gibt es nicht.{{/if}}
+      </p>
+
+    <!-- Wenn kein 404 error: Button zum report senden -->
+    {{#if error.message }}
+    <div class="" role="alert">
+      <form action="/error" method="post">
+        <button name="error" class="btn btn-danger" value="{{error.message}}">Diesen Fehler melden</button>
+      </form>
+    </div>
+    {{else}}
+    <a name="error" class="btn btn-danger" href="/">Zurück zur Übersicht</a>
+    {{/if}}
+  </div>
+</div>
