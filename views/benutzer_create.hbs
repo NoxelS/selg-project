@@ -1,83 +1,100 @@
 <div class="container-fluid">
     <div class="container-fluid border">
+        <br>
+        <div class="container-fluid">
+            <div class="card-header" style="background-color: #e9ecef;">
+                Neuer Benutzer erstellen
+            </div>
             <br>
-            <div class="container-fluid">
-                <div class="card-header" style="background-color: #e9ecef;">
-                    Neuer Benutzer erstellen
-                </div> <!--
-                <div class="card-body">
-                    <form action="/admin/create/user" method="post" autocomplete="off">
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Benutzername</label>
-                            <div class="form-label-group">
-                                <input type="username" id="username" name="username" class="form-control" placeholder="Benutzername" required="required"
-                                    autofocus="autofocus">
-                                <label for="username">Benutzername</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Passwort</label>
-                            <div class="form-label-group">
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="required">
-                                <label for="password">Passwort</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Art des Accounts</label>
-                            <select class="form-control" id="exampleFormControlSelect1" name="permission_flag">
-                                <option>Fachlehrer</option>
-                                <option>Tutor</option>
-                                <option>Administrator</option>
-                            </select>
-                        </div>
-                        <br>
+            <p>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    Benutzer erstellen (Vorläufig)
+                </button>
+            </p>
 
-                    </form>
-                </div> -->
-                <div class="card-body">
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">Vorname</label>
-                                <input type="text" class="form-control" id="inputEmail4" placeholder="Vorname">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Nachname</label>
-                                <input type="password" class="form-control" id="inputPassword4" placeholder="Nachname">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress">Benutzername</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Benutzername">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress">Password</label>
-                            <input type="password" class="form-control" id="inputAddress" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress2">Password wiederholen</label>
-                            <input type="password" class="form-control" id="inputAddress2" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
-                        </div>
-                        <div class="form-row">
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
 
-                            <div class="form-group col-md-6">
-                                <label for="inputState">Benutzerart</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected> Fachlehrer</option>
-                                    <option> Tutor </option>
-                                    <option> Administrator </option>
+
+                    <div class="card-body">
+                        <form action="/admin/create_user" method="post" autocomplete="off">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Benutzername</label>
+                                <div class="form-label-group">
+                                    <input type="username" id="username" name="username" class="form-control" placeholder="Benutzername" required="required"
+                                        autofocus="autofocus">
+                                    <label for="username">Benutzername</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Passwort</label>
+                                <div class="form-label-group">
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="required">
+                                    <label for="password">Passwort</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Art des Accounts</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="permission_flag">
+                                    <option>Fachlehrer</option>
+                                    <option>Tutor</option>
+                                    <option>Administrator</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputZip">Akronym</label>
-                                <input type="text" class="form-control" id="inputZip">
-                            </div>
-                        </div>
-                        <br>
-                        <button type="submit" value="Submit" class="btn btn-primary">Benutzer erstellen</button>
-                    </form>
+                            <button type="submit" value="Submit" class="btn btn-primary">Benutzer erstellen</button>
+                            <br>
+
+                        </form>
+                    </div>
                 </div>
             </div>
-        
+
+
+            <div class="card-body">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Vorname</label>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="Vorname">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Nachname</label>
+                            <input type="password" class="form-control" id="inputPassword4" placeholder="Nachname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Benutzername</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Benutzername">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Password</label>
+                        <input type="password" class="form-control" id="inputAddress" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Password wiederholen</label>
+                        <input type="password" class="form-control" id="inputAddress2" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                            <label for="inputState">Benutzerart</label>
+                            <select id="inputState" class="form-control">
+                                <option selected> Fachlehrer</option>
+                                <option> Tutor </option>
+                                <option> Administrator </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputZip">Akronym</label>
+                            <input type="text" class="form-control" id="inputZip" placeholder="Akronym">
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" value="Submit" class="btn btn-primary">Benutzer erstellen</button>
+                </form>
+            </div>
+        </div>
+
     </div>
 </div>
