@@ -35,6 +35,7 @@ var loginRouter = require("./routes/login");
 var errorRouter = require("./routes/error");
 var adminRouter = require("./routes/admin");
 var logoutRouter = require("./routes/logout");
+var bewertungRouter = require("./routes/bewertung");
 
 var app = express();
 
@@ -172,6 +173,7 @@ app.use("/users", usersRouter);
 app.use("/error", errorRouter);
 app.use("/admin", adminRouter);
 app.use("/logout", logoutRouter);
+app.use("/bewertung", bewertungRouter);
 
 passport.use(
   new LocalStrategy(function(username, password, done) {
