@@ -18,10 +18,10 @@ router.get("/", function(req, res, next) {
 
     var db = require("../db.js");
     db.query("SELECT MAX(ID) AS LastID FROM user_db", function(err, result) {
-      if (err) throw err;
+      if (err) console.log(err);
       handlebars_presettings.user_count = result[0].LastID;
       db.query("SELECT MAX(ID) AS LastID FROM schueler_db", function(err, result) {
-        if (err) throw err;
+        if (err) console.log(err)
         handlebars_presettings.schueler_count = result[0].LastID;
         res.render("index_admin", handlebars_presettings);
       });
@@ -36,7 +36,7 @@ router.get("/profil", function(req, res, next) {
   var handlebars_presettings = {
     layout: res.locals.permission,
     title: "SELG-Tool",
-    display_name: "req.params.name",
+    display_name: res.locals.username,
     icon_cards: false,
     location: "Profil"
   };
@@ -44,6 +44,18 @@ router.get("/profil", function(req, res, next) {
   res.render("profile", handlebars_presettings);
 });
 
+/* GET Settings page. */
+router.get("/einstellungen", function(req, res, next) {
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Tool",
+    display_name: res.locals.username,
+    icon_cards: false,
+    location: "Einstellungen"
+  };
+
+  res.render("einstellungen", handlebars_presettings);
+});
 // DEBUG
 
 router.get("/generate_error", function(req, res, next) {

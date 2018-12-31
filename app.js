@@ -61,13 +61,19 @@ app.use(
         tokens.method(req, res),
         "] Url:",
         tokens.url(req, res),
+        "FileType(ending):",
+        tokens
+          .url(req, res)
+          .split("/")
+          [tokens.url(req, res).split("/").length - 1].split(".")
+          .reverse()[0],
         "\tStatus: ",
         nodeStatusCodes[tokens.status(req, res)],
         "(",
         tokens.status(req, res),
         ")",
         tokens.res(req, res, "content-length"),
-        "Responsetime: ",
+        "Responsetime:",
         tokens["response-time"](req, res),
         "ms",
         "\r\n"
@@ -76,25 +82,26 @@ app.use(
         if (err) return console.log(err);
       }
     );
-    return [
-      datetime.create().format("m/d/Y H:M:S") + ": [",
-      tokens.method(req, res),
-      "] Url-Ending:",
-      tokens
-        .url(req, res)
-        .split("/")
-        [tokens.url(req, res).split("/").length - 1].split(".")
-        .reverse()[0],
-      "\tStatus: ",
-      nodeStatusCodes[tokens.status(req, res)],
-      "(",
-      tokens.status(req, res),
-      ")",
-      tokens.res(req, res, "content-length"),
-      "Rt: ",
-      tokens["response-time"](req, res),
-      "ms"
-    ].join(" ");
+
+    if (tokens.method(req, res) == "POST") {
+      return [
+        datetime.create().format("m/d/Y H:M:S") + ": [",
+        tokens.method(req, res),
+        "] Url:",
+        tokens.url(req, res),
+        "Status: ",
+        nodeStatusCodes[tokens.status(req, res)],
+        "(",
+        tokens.status(req, res),
+        ")", "Content-length:",
+        tokens.res(req, res, "content-length"),
+        "Responsetime:",
+        tokens["response-time"](req, res),
+        "ms"
+      ].join(" ");
+    } else {
+      return null;
+    }
   })
 );
 
@@ -120,7 +127,10 @@ app.use(
     secret: "w4wafafwetgfelfwa#24ns42indawfwol",
     resave: false,
     store: sessionStore,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60
+    } /* Ein Nutzer bleibt maximal eine stunde eingeloggt */
   })
 );
 app.use(passport.initialize());
@@ -129,36 +139,42 @@ app.use(passport.session());
 // Checks if User is signedin -> If not: redirect to /login
 function authenticationMiddleware() {
   return (req, res, next) => {
-    console.log(
-      `req.session.passport.user: ${JSON.stringify(req.session.passport)}`
-    );
     if (req.isAuthenticated()) return next();
     res.redirect("/login");
   };
 }
 
+// Setting locals
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
 
   if (res.locals.isAuthenticated) {
     res.locals.user_id = req.user.user_id;
-
     const db = require("./db");
-
-
     db.query(
       "SELECT * FROM user_db WHERE id = ?",
       [res.locals.user_id],
       (error, results, fields) => {
-        if(error) throw error;
+        if (error) throw error;
         res.locals.permission = results[0].permission_flag;
         res.locals.username = results[0].username;
-        
-        console.log("CONNECTION: "+JSON.stringify(results));
+
+        console.log(
+          [
+            datetime.create().format("m/d/Y H:M:S"),
+            ": ",
+            "[ NEW REQUEST ] Logged in User [user_id=",
+            results[0].id,
+            ", username='",
+            results[0].username,
+            "', type=",
+            results[0].permission_flag, "]", " is accessing ", req.originalUrl
+          ].join("")
+        );
         next();
       }
     );
-  }else{
+  } else {
     next();
   }
 });
@@ -177,7 +193,7 @@ app.use("/bewertung", bewertungRouter);
 
 passport.use(
   new LocalStrategy(function(username, password, done) {
-    const db = newFunction();
+    const db = getDB();
     db.query(
       "SELECT id, password FROM user_db WHERE username = ?",
       [username],
@@ -189,15 +205,14 @@ passport.use(
           done(null, false);
         } else {
           const hash = results[0].password.toString();
-            bcrypt.compare(password, hash, (err, response) => {
-              if (response === true) {
-                console.log(results[0].id);
-                return done(null, { user_id: results[0].id });
-              } else {
-                return done(null, false);
-              }
+          bcrypt.compare(password, hash, (err, response) => {
+            if (response === true) {
+              console.log(results[0].id);
+              return done(null, { user_id: results[0].id });
+            } else {
+              return done(null, false);
             }
-          );
+          });
         }
       }
     );
@@ -220,10 +235,8 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-
   res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
+  res.locals.error = err;
 
   // render the error page
   res.status(err.status || 500);
@@ -236,23 +249,11 @@ app.use(function(err, req, res, next) {
     location: "Error"
   };
 
-  /*
-  switch (res.locals.permission) {
-    case "fachlehrer":
-      handlebars_presettings.layout = "layout_fachlehrer";
-      break;
-    case "tutor":
-      handlebars_presettings.layout = "layout_tutor";
-      break;
-    case "admin":
-      handlebars_presettings.layout = "layout_admin";
-      break;
-  }
-*/
   res.render("error", handlebars_presettings);
 });
 
 module.exports = app;
-function newFunction() {
+
+function getDB() {
   return require("./db");
 }

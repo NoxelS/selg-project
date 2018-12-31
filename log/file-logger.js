@@ -8,7 +8,7 @@ module.exports = {
             [
                 datetime.create().format('m/d/Y H:M:S')+
                 ":",
-                "[RESTART]",
+                "[ RESTART ]",
                 "Restarting due to changes...",
                 "\r\n"
             ].join(' '), 
@@ -16,6 +16,5 @@ module.exports = {
                     if (err) return console.log(err);
                 }
         );}
-    
 };
 

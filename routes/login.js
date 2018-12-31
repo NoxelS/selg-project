@@ -19,6 +19,7 @@ router.get("/", function(req, res, next) {
   }
 });
 
+// User tries to login
 router.post("/", passport.authenticate(
   'local', {
     successRedirect: '/',

@@ -1,5 +1,7 @@
 <link href="../css/star-rating.css" rel="stylesheet">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 <div class="container-fluid mb-3">
     <div class="container-fluid border">
         <br>
@@ -9,20 +11,40 @@
             </div>
 
             <div class="card-body">
-                <form>
+                <form action="/bewertung/neu" method="post" autocomplete="off">
+
+                    {{#if missing_value}}
+                    <!-- Danger-Nachricht: Wenn nicht alles ausgefüllt wurde-->
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong class="h5">Achtung!</strong> Sie müssen alle erforderlichen Felder ausfüllen!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {{/if}}
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">Name der Schülerin / des Schülers:</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Name der Schülerin / des Schülers">
+                            <label for="name">Name der Schülerin / des Schülers:</label>
+                            <input type="text" name="name" class="form-control" id="name" required="required" placeholder="Name der Schülerin / des Schülers">
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="inputPassword4">Fach</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="Fach">
+                            <label for="fach">Fach:</label>
+                            <input type="text" name="fach" class="form-control" id="fach" placeholder="Fach" required="required">
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="inputPassword4">Kurs</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="Kurs">
+                            <label for="kurs">Kurs:</label>
+                            <input type="text" name="kurs" class="form-control" id="kurs" placeholder="Kurs" required="required">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="Kurs">Kurs:</label>
+                            <select name ="Kurs"  class="custom-select">
+                            <option name ="Kurs" value="0">Kurs1</option>
+                            <option name ="Kurs" value="1">Kurs2</option>
+                            <option name ="Kurs" value="2">Kurs3</option>
+                            <option name ="Kurs" value="3">Kurs4</option>
+                            </select>
                         </div>
                     </div>
 
@@ -52,15 +74,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="star5" name="1" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="star5" name="soz_1" type="radio" value="5" class="radio-btn hide" />
                                             <label for="star5">☆</label>
-                                            <input id="star4" name="1" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="star4" name="soz_1" type="radio" value="4" class="radio-btn hide" />
                                             <label for="star4">☆</label>
-                                            <input id="star3" name="1" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="star3" name="soz_1" type="radio" value="3" class="radio-btn hide" />
                                             <label for="star3">☆</label>
-                                            <input id="star2" name="1" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="star2" name="soz_1" type="radio" value="2" class="radio-btn hide" />
                                             <label for="star2">☆</label>
-                                            <input id="star1" name="1" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="star1" name="soz_1" type="radio" value="1" class="radio-btn hide" />
                                             <label for="star1">☆</label>
                                             <div class="clear">
                                             </div>
@@ -76,15 +98,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="star15" name="2" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="star15" name="soz_2" type="radio" value="5" class="radio-btn hide" />
                                             <label for="star15">☆</label>
-                                            <input id="star14" name="2" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="star14" name="soz_2" type="radio" value="4" class="radio-btn hide" />
                                             <label for="star14">☆</label>
-                                            <input id="star13" name="2" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="star13" name="soz_2" type="radio" value="3" class="radio-btn hide" />
                                             <label for="star13">☆</label>
-                                            <input id="star12" name="2" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="star12" name="soz_2" type="radio" value="2" class="radio-btn hide" />
                                             <label for="star12">☆</label>
-                                            <input id="star11" name="2" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="star11" name="soz_2" type="radio" value="1" class="radio-btn hide" />
                                             <label for="star11">☆</label>
                                             <div class="clear">
                                             </div>
@@ -100,15 +122,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="star25" name="3" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="star25" name="soz_3" type="radio" value="5" class="radio-btn hide" />
                                             <label for="star25">☆</label>
-                                            <input id="star24" name="3" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="star24" name="soz_3" type="radio" value="4" class="radio-btn hide" />
                                             <label for="star24">☆</label>
-                                            <input id="star23" name="3" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="star23" name="soz_3" type="radio" value="3" class="radio-btn hide" />
                                             <label for="star23">☆</label>
-                                            <input id="star22" name="3" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="star22" name="soz_3" type="radio" value="2" class="radio-btn hide" />
                                             <label for="star22">☆</label>
-                                            <input id="star21" name="3" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="star21" name="soz_3" type="radio" value="1" class="radio-btn hide" />
                                             <label for="star21">☆</label>
                                             <div class="clear">
                                             </div>
@@ -124,15 +146,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="star35" name="4" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="star35" name="soz_4" type="radio" value="5" class="radio-btn hide" />
                                             <label for="star35">☆</label>
-                                            <input id="star34" name="4" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="star34" name="soz_4" type="radio" value="4" class="radio-btn hide" />
                                             <label for="star34">☆</label>
-                                            <input id="star33" name="4" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="star33" name="soz_4" type="radio" value="3" class="radio-btn hide" />
                                             <label for="star33">☆</label>
-                                            <input id="star32" name="4" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="star32" name="soz_4" type="radio" value="2" class="radio-btn hide" />
                                             <label for="star32">☆</label>
-                                            <input id="star31" name="4" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="star31" name="soz_4" type="radio" value="1" class="radio-btn hide" />
                                             <label for="star31">☆</label>
                                             <div class="clear">
                                             </div>
@@ -153,15 +175,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="star45" name="51" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="star45" name="soz_5_1" type="radio" value="5" class="radio-btn hide" />
                                             <label for="star45">☆</label>
-                                            <input id="star44" name="51" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="star44" name="soz_5_1" type="radio" value="4" class="radio-btn hide" />
                                             <label for="star44">☆</label>
-                                            <input id="star43" name="51" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="star43" name="soz_5_1" type="radio" value="3" class="radio-btn hide" />
                                             <label for="star43">☆</label>
-                                            <input id="star42" name="51" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="star42" name="soz_5_1" type="radio" value="2" class="radio-btn hide" />
                                             <label for="star42">☆</label>
-                                            <input id="star41" name="51" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="star41" name="soz_5_1" type="radio" value="1" class="radio-btn hide" />
                                             <label for="star41">☆</label>
                                             <div class="clear">
                                             </div>
@@ -176,15 +198,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="star451" name="52" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="star451" name="soz_5_2" type="radio" value="5" class="radio-btn hide" />
                                             <label for="star451">☆</label>
-                                            <input id="star441" name="52" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="star441" name="soz_5_2" type="radio" value="4" class="radio-btn hide" />
                                             <label for="star441">☆</label>
-                                            <input id="star431" name="52" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="star431" name="soz_5_2" type="radio" value="3" class="radio-btn hide" />
                                             <label for="star431">☆</label>
-                                            <input id="star421" name="52" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="star421" name="soz_5_2" type="radio" value="2" class="radio-btn hide" />
                                             <label for="star421">☆</label>
-                                            <input id="star411" name="52" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="star411" name="soz_5_2" type="radio" value="1" class="radio-btn hide" />
                                             <label for="star411">☆</label>
                                             <div class="clear">
                                             </div>
@@ -195,20 +217,20 @@
 
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">6. Du trägst mit deinen Verhalten zur guten Gemeinschaft bei.</p>
+                                    <p class="mb-0 ml-3">6. Du trägst mit deinem Verhalten zur guten Gemeinschaft bei.</p>
                                 </div>
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="star55" name="6" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="star55" name="soz_6" type="radio" value="5" class="radio-btn hide" />
                                             <label for="star55">☆</label>
-                                            <input id="star54" name="6" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="star54" name="soz_6" type="radio" value="4" class="radio-btn hide" />
                                             <label for="star54">☆</label>
-                                            <input id="star53" name="6" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="star53" name="soz_6" type="radio" value="3" class="radio-btn hide" />
                                             <label for="star53">☆</label>
-                                            <input id="star52" name="6" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="star52" name="soz_6" type="radio" value="2" class="radio-btn hide" />
                                             <label for="star52">☆</label>
-                                            <input id="star51" name="6" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="star51" name="soz_6" type="radio" value="1" class="radio-btn hide" />
                                             <label for="star51">☆</label>
                                             <div class="clear">
                                             </div>
@@ -234,15 +256,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="astar5" name="a1" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="astar5" name="lernab_1" type="radio" value="5" class="radio-btn hide" />
                                             <label for="astar5">☆</label>
-                                            <input id="astar4" name="a1" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="astar4" name="lernab_1" type="radio" value="4" class="radio-btn hide" />
                                             <label for="astar4">☆</label>
-                                            <input id="astar3" name="a1" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="astar3" name="lernab_1" type="radio" value="3" class="radio-btn hide" />
                                             <label for="astar3">☆</label>
-                                            <input id="astar2" name="a1" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="astar2" name="lernab_1" type="radio" value="2" class="radio-btn hide" />
                                             <label for="astar2">☆</label>
-                                            <input id="astar1" name="a1" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="astar1" name="lernab_1" type="radio" value="1" class="radio-btn hide" />
                                             <label for="astar1">☆</label>
                                             <div class="clear">
                                             </div>
@@ -258,15 +280,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="astar15" name="a2" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="astar15" name="lernab_2" type="radio" value="5" class="radio-btn hide" />
                                             <label for="astar15">☆</label>
-                                            <input id="astar14" name="a2" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="astar14" name="lernab_2" type="radio" value="4" class="radio-btn hide" />
                                             <label for="astar14">☆</label>
-                                            <input id="astar13" name="a2" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="astar13" name="lernab_2" type="radio" value="3" class="radio-btn hide" />
                                             <label for="astar13">☆</label>
-                                            <input id="astar12" name="a2" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="astar12" name="lernab_2" type="radio" value="2" class="radio-btn hide" />
                                             <label for="astar12">☆</label>
-                                            <input id="astar11" name="a2" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="astar11" name="lernab_2" type="radio" value="1" class="radio-btn hide" />
                                             <label for="astar11">☆</label>
                                             <div class="clear">
                                             </div>
@@ -282,15 +304,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="astar25" name="a3" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="astar25" name="lernab_3" type="radio" value="5" class="radio-btn hide" />
                                             <label for="astar25">☆</label>
-                                            <input id="astar24" name="a3" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="astar24" name="lernab_3" type="radio" value="4" class="radio-btn hide" />
                                             <label for="astar24">☆</label>
-                                            <input id="astar23" name="a3" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="astar23" name="lernab_3" type="radio" value="3" class="radio-btn hide" />
                                             <label for="astar23">☆</label>
-                                            <input id="astar22" name="a3" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="astar22" name="lernab_3" type="radio" value="2" class="radio-btn hide" />
                                             <label for="astar22">☆</label>
-                                            <input id="astar21" name="a3" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="astar21" name="lernab_3" type="radio" value="1" class="radio-btn hide" />
                                             <label for="astar21">☆</label>
                                             <div class="clear">
                                             </div>
@@ -306,15 +328,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="astar35" name="a4" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="astar35" name="lernab_4" type="radio" value="5" class="radio-btn hide" />
                                             <label for="astar35">☆</label>
-                                            <input id="astar34" name="a4" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="astar34" name="lernab_4" type="radio" value="4" class="radio-btn hide" />
                                             <label for="astar34">☆</label>
-                                            <input id="astar33" name="a4" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="astar33" name="lernab_4" type="radio" value="3" class="radio-btn hide" />
                                             <label for="astar33">☆</label>
-                                            <input id="astar32" name="a4" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="astar32" name="lernab_4" type="radio" value="2" class="radio-btn hide" />
                                             <label for="astar32">☆</label>
-                                            <input id="astar31" name="a4" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="astar31" name="lernab_4" type="radio" value="1" class="radio-btn hide" />
                                             <label for="astar31">☆</label>
                                             <div class="clear">
                                             </div>
@@ -330,15 +352,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="bastar35" name="ba4" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="bastar35" name="lernab_5" type="radio" value="5" class="radio-btn hide" />
                                             <label for="bastar35">☆</label>
-                                            <input id="bastar34" name="ba4" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="bastar34" name="lernab_5" type="radio" value="4" class="radio-btn hide" />
                                             <label for="bastar34">☆</label>
-                                            <input id="bastar33" name="ba4" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="bastar33" name="lernab_5" type="radio" value="3" class="radio-btn hide" />
                                             <label for="bastar33">☆</label>
-                                            <input id="bastar32" name="ba4" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="bastar32" name="lernab_5" type="radio" value="2" class="radio-btn hide" />
                                             <label for="bastar32">☆</label>
-                                            <input id="bastar31" name="ba4" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="bastar31" name="lernab_5" type="radio" value="1" class="radio-btn hide" />
                                             <label for="bastar31">☆</label>
                                             <div class="clear">
                                             </div>
@@ -354,15 +376,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="cbastar35" name="cba4" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="cbastar35" name="lernab_6" type="radio" value="5" class="radio-btn hide" />
                                             <label for="cbastar35">☆</label>
-                                            <input id="cbastar34" name="cba4" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="cbastar34" name="lernab_6" type="radio" value="4" class="radio-btn hide" />
                                             <label for="cbastar34">☆</label>
-                                            <input id="cbastar33" name="cba4" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="cbastar33" name="lernab_6" type="radio" value="3" class="radio-btn hide" />
                                             <label for="cbastar33">☆</label>
-                                            <input id="cbastar32" name="cba4" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="cbastar32" name="lernab_6" type="radio" value="2" class="radio-btn hide" />
                                             <label for="cbastar32">☆</label>
-                                            <input id="cbastar31" name="cba4" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="cbastar31" name="lernab_6" type="radio" value="1" class="radio-btn hide" />
                                             <label for="cbastar31">☆</label>
                                             <div class="clear">
                                             </div>
@@ -378,15 +400,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="dcbastar35" name="dcba4" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="dcbastar35" name="lernab_7" type="radio" value="5" class="radio-btn hide" />
                                             <label for="dcbastar35">☆</label>
-                                            <input id="dcbastar34" name="dcba4" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="dcbastar34" name="lernab_7" type="radio" value="4" class="radio-btn hide" />
                                             <label for="dcbastar34">☆</label>
-                                            <input id="dcbastar33" name="dcba4" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="dcbastar33" name="lernab_7" type="radio" value="3" class="radio-btn hide" />
                                             <label for="dcbastar33">☆</label>
-                                            <input id="dcbastar32" name="dcba4" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="dcbastar32" name="lernab_7" type="radio" value="2" class="radio-btn hide" />
                                             <label for="dcbastar32">☆</label>
-                                            <input id="dcbastar31" name="dcba4" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="dcbastar31" name="lernab_7" type="radio" value="1" class="radio-btn hide" />
                                             <label for="dcbastar31">☆</label>
                                             <div class="clear">
                                             </div>
@@ -402,15 +424,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="edcbastar35" name="edcba4" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="edcbastar35" name="lernab_8" type="radio" value="5" class="radio-btn hide" />
                                             <label for="edcbastar35">☆</label>
-                                            <input id="edcbastar34" name="edcba4" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="edcbastar34" name="lernab_8" type="radio" value="4" class="radio-btn hide" />
                                             <label for="edcbastar34">☆</label>
-                                            <input id="edcbastar33" name="edcba4" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="edcbastar33" name="lernab_8" type="radio" value="3" class="radio-btn hide" />
                                             <label for="edcbastar33">☆</label>
-                                            <input id="edcbastar32" name="edcba4" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="edcbastar32" name="lernab_8" type="radio" value="2" class="radio-btn hide" />
                                             <label for="edcbastar32">☆</label>
-                                            <input id="edcbastar31" name="edcba4" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="edcbastar31" name="lernab_8" type="radio" value="1" class="radio-btn hide" />
                                             <label for="edcbastar31">☆</label>
                                             <div class="clear">
                                             </div>
@@ -432,15 +454,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="astar45" name="a51" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="astar45" name="lernab_9_1" type="radio" value="5" class="radio-btn hide" />
                                             <label for="astar45">☆</label>
-                                            <input id="astar44" name="a51" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="astar44" name="lernab_9_1" type="radio" value="4" class="radio-btn hide" />
                                             <label for="astar44">☆</label>
-                                            <input id="astar43" name="a51" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="astar43" name="lernab_9_1" type="radio" value="3" class="radio-btn hide" />
                                             <label for="astar43">☆</label>
-                                            <input id="astar42" name="a51" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="astar42" name="lernab_9_1" type="radio" value="2" class="radio-btn hide" />
                                             <label for="astar42">☆</label>
-                                            <input id="astar41" name="a51" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="astar41" name="lernab_9_1" type="radio" value="1" class="radio-btn hide" />
                                             <label for="astar41">☆</label>
                                             <div class="clear">
                                             </div>
@@ -455,15 +477,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="astar451" name="a52" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="astar451" name="lernab_9_2" type="radio" value="5" class="radio-btn hide" />
                                             <label for="astar451">☆</label>
-                                            <input id="astar441" name="a52" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="astar441" name="lernab_9_2" type="radio" value="4" class="radio-btn hide" />
                                             <label for="astar441">☆</label>
-                                            <input id="astar431" name="a52" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="astar431" name="lernab_9_2" type="radio" value="3" class="radio-btn hide" />
                                             <label for="astar431">☆</label>
-                                            <input id="astar421" name="a52" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="astar421" name="lernab_9_2" type="radio" value="2" class="radio-btn hide" />
                                             <label for="astar421">☆</label>
-                                            <input id="astar411" name="a52" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="astar411" name="lernab_9_2" type="radio" value="1" class="radio-btn hide" />
                                             <label for="astar411">☆</label>
                                             <div class="clear">
                                             </div>
@@ -478,15 +500,15 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="bstar451" name="b52" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="bstar451" name="lernab_9_3" type="radio" value="5" class="radio-btn hide" />
                                             <label for="bstar451">☆</label>
-                                            <input id="bstar441" name="b52" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="bstar441" name="lernab_9_3" type="radio" value="4" class="radio-btn hide" />
                                             <label for="bstar441">☆</label>
-                                            <input id="bstar431" name="b52" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="bstar431" name="lernab_9_3" type="radio" value="3" class="radio-btn hide" />
                                             <label for="bstar431">☆</label>
-                                            <input id="bstar421" name="b52" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="bstar421" name="lernab_9_3" type="radio" value="2" class="radio-btn hide" />
                                             <label for="bstar421">☆</label>
-                                            <input id="bstar411" name="b52" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="bstar411" name="lernab_9_3" type="radio" value="1" class="radio-btn hide" />
                                             <label for="bstar411">☆</label>
                                             <div class="clear">
                                             </div>
@@ -497,20 +519,20 @@
 
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">10. Du fertigst deine Hauaufgaben regelmäßig an.</p>
+                                    <p class="mb-0 ml-3">10. Du fertigst deine Hausaufgaben regelmäßig an.</p>
                                 </div>
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="bstar55" name="b6" type="radio" value="5" class="radio-btn hide" />
+                                            <input id="bstar55" name="lernab_10" type="radio" value="5" class="radio-btn hide" />
                                             <label for="bstar55">☆</label>
-                                            <input id="bstar54" name="b6" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="bstar54" name="lernab_10" type="radio" value="4" class="radio-btn hide" />
                                             <label for="bstar54">☆</label>
-                                            <input id="bstar53" name="b6" type="radio" value="3" class="radio-btn hide" />
+                                            <input id="bstar53" name="lernab_10" type="radio" value="3" class="radio-btn hide" />
                                             <label for="bstar53">☆</label>
-                                            <input id="bstar52" name="b6" type="radio" value="2" class="radio-btn hide" />
+                                            <input id="bstar52" name="lernab_10" type="radio" value="2" class="radio-btn hide" />
                                             <label for="bstar52">☆</label>
-                                            <input id="bstar51" name="b6" type="radio" value="1" class="radio-btn hide" />
+                                            <input id="bstar51" name="lernab_10" type="radio" value="1" class="radio-btn hide" />
                                             <label for="bstar51">☆</label>
                                             <div class="clear">
                                             </div>
@@ -520,17 +542,17 @@
                             </div>
                         </div>
                     </div>
-                    <!-- END OF SOZIALVERHALTEN -->
+                    <!-- END OF ARBEITSVERHALTEN -->
 
                     <div class="form-group mt-4 mb-1">
-                        <label for="exampleFormControlTextarea1">Zusätzlicher Kommentar</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1">Zusätzlicher Kommentar:</label>
+                        <textarea class="form-control" type="text" name="kommentar" id="kommentar" placeholder="Hier ist Platz für einen zusätzlichen Kommentar..."
+                            rows="3"></textarea>
                     </div>
 
                     <button type="submit" value="Submit" class="mt-3 btn btn-primary">Bewertung erstellen</button>
                 </form>
             </div>
         </div>
-
     </div>
 </div>

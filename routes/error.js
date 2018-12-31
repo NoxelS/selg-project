@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var nodemailer = require("nodemailer");
+var datetime = require("node-datetime");
 
 // @TODO
 
@@ -21,7 +22,7 @@ router.get("/", function(req, res, next) {
     title: "SELG-Tool",
     display_name: res.locals.username,
     icon_cards: false,
-    location: "Übersicht"
+    location: "Error"
   };
 
   res.render("error", handlebars_presettings);
@@ -29,7 +30,7 @@ router.get("/", function(req, res, next) {
 
 
 router.post("/", function(req, res, next) {
-  console.log("Somebody posting an error: " + req.body.error);
+
   res.redirect("/");
 
   transporter.sendMail(

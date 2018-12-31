@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+var datetime = require("node-datetime");
 
 var passport = require("passport");
 
@@ -27,9 +28,7 @@ router.get("/create_user", userHasAdminPermission(), function(req, res, next) {
 
 router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
   req.checkBody("username", "Ein Benutzername ist notwendig!").isLength(3, 15);
-  if (req.validationErrors()) {
-    console.log("Denied Creation");
-  } else {
+  if (!req.validationErrors()) {
     const username = req.body.username;
     const password = req.body.password;
     var permission_flag = "";
@@ -52,26 +51,77 @@ router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
         "INSERT INTO `selg_schema`.`user_db` (`username`, `password`, `permission_flag`) VALUES (?, ?, ?)",
         [username, hash, permission_flag],
         function(err, result, fields) {
-          if (err) throw err;
-          db.query(
-            "SELECT LAST_INSERT_ID() as user_id",
-            (error, results, fields) => {
-              if (error) throw error;
-              //user_id = results[0]
-              /* @TODO 
+          if (err) {
+            res.locals.message = err.message;
+            res.locals.error = err;
+
+            // render the error page
+            res.status(err.status || 500);
+
+            var handlebars_presettings = {
+              layout: res.locals.permission,
+              title: "SELG-Tool",
+              display_name: req.params.name,
+              icon_cards: false,
+              location: "Error"
+            };
+
+            res.render("error", handlebars_presettings);
+          } else {
+            db.query(
+              "SELECT LAST_INSERT_ID() as user_id",
+              (error, results, fields) => {
+                if (error) {
+                  res.locals.message = err.message;
+                  res.locals.error = err;
+
+                  // render the error page
+                  res.status(err.status || 500);
+
+                  var handlebars_presettings = {
+                    layout: res.locals.permission,
+                    title: "SELG-Tool",
+                    display_name: req.params.name,
+                    icon_cards: false,
+                    location: "Error",
+                    error: {
+                      message: "An SQL Error occured..."
+                    }
+                  };
+
+                  res.render("error", handlebars_presettings);
+                }
+                //user_id = results[0]
+                /* @TODO 
               req.login(results[0], err => {
                 res.redirect("/");
               });
               */
-              res.redirect("/");
-              console.log("\r\n\r\n\r\n\r\n\r\n\r\n");
-              console.log(results[0]);
-              console.log("\r\n\r\n\r\n\r\n\r\n\r\n");
-            }
-          );
+                res.redirect("/");
+                console.log(
+                  [
+                    datetime.create().format("m/d/Y H:M:S"),
+                    ": [ NEW USER CREATED ] -> user_id=",
+                    results[0]
+                  ].join("")
+                );
+              }
+            );
+          }
         }
       );
     });
+  }else{
+    // @TODO - Invalider Benutzer bzw Fehler beim erstellen
+    var handlebars_presettings = {
+      layout: "admin",
+      title: "SELG-Admintool",
+      display_name: null,
+      icon_cards: false,
+      location: "Benutzer löschen",
+      error: {message: "Beim erstellen des Nutzers ist ein Fehler aufgetreten..."}
+    };
+    res.render("error", handlebars_presettings);
   }
 });
 
