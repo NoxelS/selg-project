@@ -107,6 +107,7 @@ app.use(
 
 app.use(favicon(__dirname + "/public/images/favicon.png"));
 
+// @TODO
 app.all("*", function(req, res, next) {
   res.header("Access-Control-Allow-Origin", req.headers.origin); // also  tried "*" here
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -199,17 +200,20 @@ passport.use(
       [username],
       (error, results, fields) => {
         if (error) {
+          console.log("\tFaild Login");
           done(error);
         }
         if (results.length === 0) {
+          console.log("\tFaild Login");
           done(null, false);
         } else {
           const hash = results[0].password.toString();
           bcrypt.compare(password, hash, (err, response) => {
             if (response === true) {
-              console.log(results[0].id);
+              console.log("\tNew Login: ID="+results[0].id);
               return done(null, { user_id: results[0].id });
             } else {
+              console.log("\tFaild Login");
               return done(null, false);
             }
           });
