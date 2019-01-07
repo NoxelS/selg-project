@@ -159,10 +159,9 @@ app.use((req, res, next) => {
         if (error) throw error;
         res.locals.permission = results[0].permission_flag;
         res.locals.username = results[0].username;
-
         console.log(
           [
-            datetime.create().format("m/d/Y H:M:S"),
+            datetime.create().format("m/d/Y H:M:"),
             ": ",
             "[ NEW REQUEST ] Logged in User [user_id=",
             results[0].id,

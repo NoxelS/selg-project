@@ -1,34 +1,10 @@
-<!--<div class="alert alert-danger" role="alert">
-  <h2 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> <b>{{error}}</b></h2>
-  <h4>
-    {{#if error.message }} {{error.message}} {{else}}
-    <br>
-    <h2>Ooops!</h2> <br>
-    <h3>Die Seite die Sie suchen gibt es nicht</h3>
-    {{/if}}
-  </h4>
-</div>
-
-
-  <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-    <div class="card-header"><h3>{{#if error.message }} Error {{else}} Error 404 {{/if}}</h3></div>
-    <div class="card-body">
-      {{#if error.message }} {{error.message}} {{else}}
-    <h5>Ooops!</h5> 
-    <p>Die Seite die Sie suchen gibt es nicht</p>
-    {{/if}}
-    </div>
-  </div>
- -->
-
 <div class="card">
   <h5 class="card-header">{{#if error.message }} Error {{else}} Error 404 {{/if}}</h5>
   <div class="card-body">
     <h5 class="card-title">Es ist ein Fehler aufgetreten.</h5>
-    <p class="card-text">{{#if error.message }} {{error.message}} {{else}}Die Seite die Sie suchen gibt es nicht.{{/if}}
-      </p>
+    <p class="card-text">{{#if error.message }} {{error.message}} {{else}}Die Seite die Sie suchen gibt es nicht.{{/if}} </p>
 
-    <!-- Wenn kein 404 error: Button zum report senden -->
+    {{!-- Wenn kein 404 error: Button zum report senden --}}
     {{#if error.message }}
     <div class="" role="alert">
       <form action="/error" method="post">
