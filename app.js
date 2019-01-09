@@ -36,6 +36,7 @@ var errorRouter = require("./routes/error");
 var adminRouter = require("./routes/admin");
 var logoutRouter = require("./routes/logout");
 var bewertungRouter = require("./routes/bewertung");
+var kursRouter = require("./routes/kurs");
 
 var app = express();
 
@@ -189,6 +190,7 @@ app.use("/users", usersRouter);
 app.use("/error", errorRouter);
 app.use("/admin", adminRouter);
 app.use("/logout", logoutRouter);
+app.use("/kurs", kursRouter);
 app.use("/bewertung", bewertungRouter);
 
 passport.use(

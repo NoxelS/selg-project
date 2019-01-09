@@ -1,0 +1,48 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <a class="navbar-brand mr-1" href="/"> SELG Fachlehrertool </a>
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <i class="fas fa-bars"></i>
+    </button>
+    <!-- Blank Space zwischen linker und rechter Navbar -->
+    <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"></div>
+    <!-- Rechte Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0">
+        <!-- Aufgaben -->
+        <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <span class="badge badge-danger">
+                    <!-- Anzahl neuer Aufgaben-->9+</span>
+            </a>
+        </li>
+        <!-- Nachrichten -->
+        <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <span class="badge badge-danger">
+                    <!-- Anzahl neuer Nachrichten-->1</span>
+            </a>
+        </li>
+        <!-- Profil -->
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-user-circle fa-fw"></i>
+            </a>
+            <!-- Dropdown for Profil -->
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#"><span><i class="pull-right"></i>Angemeldet als <strong>
+                            <!-- @TODO Variabler Name -->Max M.</strong></span></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/profil"><span><i class="pull-right fas fa-user-circle"></i> Mein Profil</span></a>
+                <a class="dropdown-item" href="/einstellungen"><span><i class="pull-right fas fa-cog"></i> Einstellungen</span></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><span><i class="pull-right fas fa-sign-out-alt"></i>
+                        Abmelden</span></a>
+            </div>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,60 @@
+<!-- Sidebar -->
+<ul class="sidebar navbar-nav">
+
+    <!-- Alle -->
+    <li class="nav-item active">
+        <a class="nav-link" href="/">
+            <!-- @TODO Href: per Permissionflag -->
+            <i class="fas fa-fw fa-home"></i>
+            <span>Übersicht</span>
+        </a>
+    </li>
+
+    <!-- @TODO Fachlehrer & Tutoren-->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Meine Kurse</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <!-- @TODO Darstellen aller Kurse -->
+            <a class="dropdown-item" href="/kurs/Deutsch"><span><i class="pull-right fas fa-caret-right"></i> Deutsch E2-9</span></a>
+            <a class="dropdown-item" href="/kurs/Englisch"><span><i class="pull-right fas fa-caret-right"></i> Englisch E1-6</span></a>
+            <a class="dropdown-item" href="/kurs/Englisch"><span><i class="pull-right fas fa-caret-right"></i> Englisch E2-8</span></a>
+            <a class="dropdown-item" href="/kurs/Deutsch"><span><i class="pull-right fas fa-caret-right"></i> Deutsch E2-9</span></a>
+            <a class="dropdown-item" href="/kurs/Mathe"><span><i class="pull-right fas fa-caret-right"></i> Mathe E1-3</span></a>
+            <a class="dropdown-item" href="/kurs/Englisch"><span><i class="pull-right fas fa-caret-right"></i> Englisch E2-8</span></a>
+            <a class="dropdown-item" href="/kurs/Mathe"><span><i class="pull-right fas fa-caret-right"></i> Mathe E1-7</span></a>
+            <a class="dropdown-item" href="/kurs/Englisch"><span><i class="pull-right fas fa-caret-right"></i> Englisch E2-6</span></a>
+            <a class="dropdown-item" href="/kurs/Mathe"><span><i class="pull-right fas fa-caret-right"></i> Mathe E1-5</span></a>
+        </div>
+    </li>
+
+    <!-- @TODO Fachlehrer -->
+    <li class="nav-item">
+        <a class="nav-link" href="/bewertung/neu">
+            <i class="fas fa-fw fa-file-alt"></i>
+            <span>Neue Bewertung</span></a>
+    </li>
+
+    <!-- Alle -->
+    <li class="nav-item">
+        <a class="nav-link" href="/profil" data-target="#">
+            <i class="fas fa-fw fa-user-circle"></i>
+            <span>Mein Profil</span></a>
+    </li>
+    <!-- Alle -->
+    <li class="nav-item">
+        <a class="nav-link" href="/einstellungen" data-target="#">
+            <i class="fas fa-fw fa-cog  "></i>
+            <span>Einstellungen</span></a>
+    </li>
+    <!-- Alle -->
+    <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+            <!-- LOGOUT -->
+            <i class="fas fa-fw fa-sign-out-alt"></i>
+            <span>Abmelden</span></a>
+    </li>
+</ul>

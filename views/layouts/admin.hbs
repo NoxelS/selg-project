@@ -1,35 +1,23 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-
   {{!-- Meta --}}
   {{> meta/main}}
-
   <title> SELG Admintool </title>
-
   {{!-- Stylsheets --}}
   {{> imports/stylesheet}}
-
 </head>
-
 <body id="page-top">
-
   {{!-- Navbar --}}
   {{> nav/bar/admin}}
-
   {{!-- Main wrapper --}}
   <div id="wrapper">
-
    {{!-- Sidebar --}}
     {{> nav/sidebar/admin}}
-
     {{!-- Content --}}
     <div id="content-wrapper">
       <div class="container-fluid">
-
         {{> breadcrumb/basic}}
-
         {{!-- Messages --}}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <strong class="h5">Achtung!</strong> Datenbankeinträge sind noch nicht richtig möglich und dienen nur zu Testzwecken!
@@ -37,30 +25,20 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-
-
         {{!-- Icon Cards--}}
         {{#if icon_cards}}
           {{> iconcards/basic}}
-        {{/if}} 
-        
-        
+        {{/if}}        
         {{{ body }}}
-
         {{> sticky/footer}}
-
       </div>
     </div>
     {{!-- END OF MAIN WRAPPER --}}
-
     {{!-- Scroll-to-top Button --}}
     {{> sticky/scrolltotop}}
-
     {{!-- Logout Modal--}}
     {{> modals/logout}}
-
     {{!-- Javascript Imports --}}
     {{> imports/bootstrap}}
 </body>
-
 </html>

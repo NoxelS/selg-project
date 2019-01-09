@@ -8,7 +8,7 @@ router.get("/", function(req, res, next) {
     layout: res.locals.permission,
     title: "SELG-Tool",
     display_name: req.params.name,
-    icon_cards: false,
+    icon_cards: true,
     location: "Übersicht"
   };
   if (res.locals.permission === "admin") {
