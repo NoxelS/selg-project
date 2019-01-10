@@ -3,7 +3,6 @@ var Handlebars = require("handlebars");
 module.exports = function(Schuelerliste, options) {
   const Kurs = options.data.root.kurs;
 
-  console.log(Kurs);
   var i = 1;
   var table = "";
   Schuelerliste.forEach(Schueler => {

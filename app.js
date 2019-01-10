@@ -48,7 +48,8 @@ app.engine(
     defaultLayout: "layout",
     layoutsDir: __dirname + "/views/layouts/",
     helpers: {
-      genTable: require("./helpers/generateTable")
+      genTable: require("./helpers/generateTable"),
+      genMeineKurse: require("./helpers/generateMeineKurse")
     }
   })
 );
@@ -160,7 +161,7 @@ app.use((req, res, next) => {
       "SELECT * FROM user_db WHERE id = ?",
       [res.locals.user_id],
       (error, results, fields) => {
-        if (error) throw error;
+        if (error) throw new Error(error.message);
         res.locals.permission = results[0].permission_flag;
         res.locals.username = results[0].username;
         console.log(
@@ -175,7 +176,26 @@ app.use((req, res, next) => {
             results[0].permission_flag, "]", " is accessing ", req.originalUrl
           ].join("")
         );
-        next();
+
+        // Wenn es sich um ein Fachlehrer oder einen Tutor hält werden seine Kurse lokal gespeichert um
+        // diese später per HBS dynamisch zu rendern.
+
+        if(res.locals.permission !== "admin"){
+          db.query(
+            "SELECT * FROM kurs_db WHERE lehrer_id = ?",
+            [res.locals.user_id],
+            (err, result) => {
+              if (err) {
+                return next(new Error(err.message));
+              } else {
+                res.locals.meineKurse = result;
+                next();
+              }
+            }
+          );
+        }else{
+          next();
+        }
       }
     );
   } else {

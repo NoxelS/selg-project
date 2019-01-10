@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
 var datetime = require("node-datetime");
-
 var passport = require("passport");
 
 var bcrypt = require("bcrypt");
@@ -24,6 +23,40 @@ router.get("/create_kurs", userHasAdminPermission(), function(req, res, next) {
     location: "Kurs erstellen"
   };
   res.render("create/kurs", handlebars_presettings);
+});
+
+router.post("/create_kurs", userHasAdminPermission(), function(req, res, next) {
+    const stufe = req.body.stufe;
+    const fach = req.body.fach;
+    const leistungsebene = req.body.leistungsebene;
+    const lehrer_username = req.body.username;
+
+    var db = require("../db");
+
+    // Zugehörigen Lehrer finden
+    db.query("SELECT * FROM user_db WHERE username = ?;",
+    [lehrer_username],
+    function(err, result) {
+      if (err) {
+        return next(new Error(err.message));
+      } else if(result.length == 0){
+        return next(new Error("Diesen Lehrer gibt es nicht..."));
+      }else{
+        // Wenn der Leher gefunden wurde:
+ 
+        db.query("INSERT INTO `selg_schema`.`kurs_db` (`name`, `lehrer_name`, `lehrer_id`, `type`, `jahrgang`, `leistungsebene`) VALUES (?, ?, ?, ?, ?, ?);",
+        [fach.toLowerCase(), result[0].username, result[0].id, fach.toLowerCase(), stufe, leistungsebene],
+        function(err, result) {
+          if (err) {
+            return next(new Error(err.message));
+          } else {
+            res.redirect("/");
+          }
+        });
+
+
+      }
+    });
 });
 
 

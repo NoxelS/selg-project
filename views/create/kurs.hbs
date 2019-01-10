@@ -1,3 +1,5 @@
+<script src="/js/kurs-admin.js"></script>
+
 <div class="container-fluid">
     <div class="container-fluid border">
         <br>
@@ -6,37 +8,52 @@
                 Neuen Kurs erstellen {{!--Name, type, jahrgang, leistungsbene, lehrer--}}
             </div>
             <div class="card-body">
-                <form>
+                <form action="/admin/create_kurs" method="post" autocomplete="off">
                     <div class="form-row">
                         <div class="form-group col-md-1">
                             <label for="stufe">Stufe</label>
-                            <select id="stufe" class="form-control">
-                                <option value="8"> 8</option>
-                                <option value="7"> 7 </option>
-                                <option value="6"> 6 </option>
-                                <option value="5"> 5 </option>
+                            <select id="stufe" name="stufe" class="form-control" onmousedown="this.value='';" onchange="stufeChange(this.value);">
+                                <option value="8">8</option>
+                                <option value="7">7</option>
+                                <option value="6">6</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="type">Fach</label>
-                            <select id="type" class="form-control">
-                                <option value="8"> Deutsch</option>
-                                <option value="7"> Mathe </option>
-                                <option value="6"> Englisch </option>
-                                <option value="5"> Gesellschaftslehre </option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="leistungsebene">Leistungsebene</label>
-                            <select id="leistungsebene" class="form-control">
-                                <option value="8"> g</option>
-                                <option value="7"> e1 </option>
-                                <option value="6"> e2 </option>
+                            <select id="fach" name="fach" class="form-control" onmousedown="this.value='';" onchange="fachChange(this.value);">
+                                <option value="deutsch">Deutsch</option>
+                                <option value="englisch">Englisch</option>
+                                <option value="mathematik">Mathematik</option>
+                                <option value="gesellschaftslehre">Gesellschaftslehre</option>
+                                <option value="musik">Musik</option>' +
+                                <option value="bildende Kunst">Bildende Kunst</option>
+                                <option value="chemie">Chemie</option>
+                                <option value="biologie">Biologie</option>
+                                <option value="physik">Physik</option>
+                                <option value="religion">Religion</option>
+                                <option value="sport">Sport</option>
+                                <option value="sgl">SGL</option>
+                                <option value="kommunikation_und_medien">WPF: Kommunikation und Medien</option>
+                                <option value="oekologie">WPF: Ökologie</option>
+                                <option value="darstellendes_spielen">WPF: Darstellendes Spiel</option>
+                                <option value="sport_und_gesundheit">WPF: Sport und Gesundheit</option>
+                                <option value="franzoesisch">WPF: Französisch</option>
+                                <option value="technik_und_wirtschaft">WPF: Technik und Wirtschaft</option>
+                                <option value="kunst_und_design">WPF: Kunst und Design</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="username">Benutzername des Lehrers</label>
-                            <input type="username" class="form-control" id="username" placeholder="Benutzername">
+                            <input type="username" name="username" class="form-control" id="username" placeholder="Benutzername" required="required">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label id="leistungsebene_label" for="leistungsebene">Leistungsebene</label>
+                            <select id="leistungsebene" name="leistungsebene" class="form-control">
+                                <option value="g">g</option>
+                                <option value="e1">e1</option>
+                                <option value="e2">e2</option>
+                            </select>
                         </div>
                     </div>
                     <br>
