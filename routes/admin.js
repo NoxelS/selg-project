@@ -14,6 +14,20 @@ function userHasAdminPermission() {
   };
 }
 
+/* Create Kurs Route. */
+router.get("/create_kurs", userHasAdminPermission(), function(req, res, next) {
+  var handlebars_presettings = {
+    layout: "admin",
+    title: "SELG-Admintool",
+    display_name: null,
+    icon_cards: false,
+    location: "Kurs erstellen"
+  };
+  res.render("create/kurs", handlebars_presettings);
+});
+
+
+
 /* Create User Route. */
 router.get("/create_user", userHasAdminPermission(), function(req, res, next) {
   var handlebars_presettings = {
