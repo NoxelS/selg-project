@@ -1,4 +1,4 @@
-<link href="../css/star-rating.css" rel="stylesheet">
+<link href="/css/star-rating.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -7,11 +7,17 @@
         <br>
         <div class="container-fluid">
             <div class="card-header" style="background-color: #e9ecef;">
-                Neuer Bewertung erstellen
+                Neuer Bewertung für {{schuelername}}
             </div>
 
             <div class="card-body">
                 <form action="/bewertung/neu" method="post" autocomplete="off">
+
+                    {{!-- META DATA -> Hidden values--}}
+                    <input type="hidden" name="schueler_id" id="schueler_id" readonly="readonly" value="{{schuelerid}}">
+                    <input type="hidden" name="kurs_id" id="kurs_id" readonly="readonly" value="{{kursid}}">
+
+                               
 
                     {{#if missing_value}}
                     <!-- Danger-Nachricht: Wenn nicht alles ausgefüllt wurde-->
@@ -27,17 +33,18 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="name">Name der Schülerin / des Schülers:</label>
-                            <input type="text" name="name" class="form-control" id="name" required="required" placeholder="Name der Schülerin / des Schülers">
+                            <input type="text" name="name" class="form-control" id="name" readonly="readonly" placeholder="{{schuelername}}" value="{{schuelername}}">
+
                         </div>
                         <div class="form-group col-md-2">
                             <label for="fach">Fach:</label>
-                            <input type="text" name="fach" class="form-control" id="fach" placeholder="Fach" required="required">
+                            <input type="text" name="fach" class="form-control" id="fach" placeholder="Fach" readonly="readonly" placeholder="{{kursname}}" value="{{kursname}}">
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="kurs">Kurs:</label>
-                            <input type="text" name="kurs" class="form-control" id="kurs" placeholder="Kurs" required="required">
+                            <label for="leistungsebene">Leistungsebene:</label>
+                            <input type="text" name="leistungsebene" class="form-control" id="leistungsebene" placeholder="leistungsebene"  readonly="readonly" placeholder="{{leistungsebene}}" value="{{leistungsebene}}">
                         </div>
-                        <div class="form-group col-md-2">
+                        {{!--<div class="form-group col-md-2">
                             <label for="Kurs">Kurs:</label>
                             <select name ="Kurs"  class="custom-select">
                             <option name ="Kurs" value="0">Kurs1</option>
@@ -45,7 +52,7 @@
                             <option name ="Kurs" value="2">Kurs3</option>
                             <option name ="Kurs" value="3">Kurs4</option>
                             </select>
-                        </div>
+                        </div>--}}
                     </div>
 
                     <div class="form-row mt-3">

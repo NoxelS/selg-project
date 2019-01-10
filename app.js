@@ -46,7 +46,10 @@ app.engine(
   hbs({
     extname: "hbs",
     defaultLayout: "layout",
-    layoutsDir: __dirname + "/views/layouts/"
+    layoutsDir: __dirname + "/views/layouts/",
+    helpers: {
+      genTable: require("./helpers/generateTable")
+    }
   })
 );
 app.set("views", path.join(__dirname, "views"));
