@@ -3,6 +3,7 @@ var router = express.Router();
 var datetime = require("node-datetime");
 var db = require("../db");
 var async = require("async");
+
 /* Rendert die Seite für einen Kurs */
 router.get("/:kursid", function(req, res, next) {
   var kursid = req.params.kursid;

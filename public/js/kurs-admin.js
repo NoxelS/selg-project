@@ -12,7 +12,7 @@ function stufeChange(stufe) {
       '<option value="mathematik">Mathematik</option>' +
       '<option value="gesellschaftslehre">Gesellschaftslehre</option>' +
       '<option value="musik">Musik</option>' +
-      '<option value="bildende Kunst">Bildende Kunst</option>' +
+      '<option value="bildende_kunst>Bildende Kunst</option>' +
       '<option value="naturwissenschaften">Naturwissenschaften</option>' +
       '<option value="religion">Religion</option>' +
       '<option value="sport">Sport</option>' +
@@ -25,7 +25,7 @@ function stufeChange(stufe) {
       '<option value="mathematik">Mathematik</option>' +
       '<option value="gesellschaftslehre">Gesellschaftslehre</option>' +
       '<option value="musik">Musik</option>' +
-      '<option value="bildende Kunst">Bildende Kunst</option>' +
+      '<option value="bildende_kunst">Bildende Kunst</option>' +
       '<option value="naturwissenschaften">Naturwissenschaften</option>' +
       '<option value="religion">Religion</option>' +
       '<option value="sport">Sport</option>' +
@@ -45,7 +45,7 @@ function stufeChange(stufe) {
       '<option value="mathematik">Mathematik</option>' +
       '<option value="gesellschaftslehre">Gesellschaftslehre</option>' +
       '<option value="musik">Musik</option>' +
-      '<option value="bildende Kunst">Bildende Kunst</option>' +
+      '<option value="bildende_kunst">Bildende Kunst</option>' +
       '<option value="chemie">Chemie</option>' +
       '<option value="physik">Physik</option>' +
       '<option value="religion">Religion</option>' +
@@ -66,7 +66,7 @@ function stufeChange(stufe) {
       '<option value="mathematik">Mathematik</option>' +
       '<option value="gesellschaftslehre">Gesellschaftslehre</option>' +
       '<option value="musik">Musik</option>' +
-      '<option value="bildende Kunst">Bildende Kunst</option>' +
+      '<option value="bildende_kunst">Bildende Kunst</option>' +
       '<option value="chemie">Chemie</option>' +
       '<option value="biologie">Biologie</option>' +
       '<option value="physik">Physik</option>' +

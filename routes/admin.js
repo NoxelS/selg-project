@@ -2,7 +2,9 @@ var express = require("express");
 var router = express.Router();
 var datetime = require("node-datetime");
 var passport = require("passport");
-
+var path = require('path');
+var mime = require('mime');
+var fs = require('fs');
 var bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -25,41 +27,115 @@ router.get("/create_kurs", userHasAdminPermission(), function(req, res, next) {
   res.render("create/kurs", handlebars_presettings);
 });
 
+function genFachName(type) {
+  let ret;
+  switch (type) {
+    case "deutsch":
+      ret = "Deutsch";
+      break;
+    case "englisch":
+      ret = "Englisch";
+      break;
+    case "mathematik":
+      ret = "Mathematik";
+      break;
+    case "gesellschaftslehre":
+      ret = "GL";
+      break;
+    case "musik":
+      ret = "Musik";
+      break;
+    case "bildende_kunst":
+      ret = "BK";
+      break;
+    case "chemie":
+      ret = "Chemie";
+      break;
+    case "biologie":
+      ret = "Biologie";
+      break;
+    case "physik":
+      ret = "Physik";
+      break;
+    case "religion":
+      ret = "Religion";
+      break;
+    case "sport":
+      ret = "Sport";
+      break;
+    case "naturwissenschaften":
+      ret = "NAWI";
+      break;
+    case "sgl":
+      ret = "SGL";
+      break;
+    case "kommunikation_und_medien":
+      ret = "Kom&Med";
+      break;
+    case "oekologie":
+      ret = "Ökologie";
+      break;
+    case "darstellendes_spielen":
+      ret = "DS";
+      break;
+    case "sport_und_gesundheit":
+      ret = "Sport&Ges";
+      break;
+    case "franzoesisch":
+      ret = "Französisch";
+      break;
+    case "technik_und_wirtschaft":
+      ret = "Tech&Wirt";
+      break;
+    case "kunst_und_design":
+      ret = "Kunst & Design";
+      break;
+  }
+  return ret;
+}
+
 router.post("/create_kurs", userHasAdminPermission(), function(req, res, next) {
-    const stufe = req.body.stufe;
-    const fach = req.body.fach;
-    const leistungsebene = req.body.leistungsebene;
-    const lehrer_username = req.body.username;
+  const stufe = req.body.stufe;
+  const fach = req.body.fach;
+  const leistungsebene = req.body.leistungsebene;
+  const lehrer_username = req.body.username;
 
-    var db = require("../db");
+  var db = require("../db");
 
-    // Zugehörigen Lehrer finden
-    db.query("SELECT * FROM user_db WHERE username = ?;",
+  // Zugehörigen Lehrer finden
+  db.query(
+    "SELECT * FROM user_db WHERE username = ?;",
     [lehrer_username],
     function(err, result) {
       if (err) {
         return next(new Error(err.message));
-      } else if(result.length == 0){
+      } else if (result.length == 0) {
         return next(new Error("Diesen Lehrer gibt es nicht..."));
-      }else{
+      } else {
         // Wenn der Leher gefunden wurde:
- 
-        db.query("INSERT INTO `selg_schema`.`kurs_db` (`name`, `lehrer_name`, `lehrer_id`, `type`, `jahrgang`, `leistungsebene`) VALUES (?, ?, ?, ?, ?, ?);",
-        [fach.toLowerCase(), result[0].username, result[0].id, fach.toLowerCase(), stufe, leistungsebene],
-        function(err, result) {
-          if (err) {
-            return next(new Error(err.message));
-          } else {
-            res.redirect("/");
+
+        db.query(
+          "INSERT INTO `selg_schema`.`kurs_db` (`name`, `lehrer_name`, `lehrer_id`, `type`, `jahrgang`, `leistungsebene`) VALUES (?, ?, ?, ?, ?, ?);",
+          [
+            genFachName(fach.toLowerCase()),
+            result[0].username,
+            result[0].id,
+            fach.toLowerCase(),
+            stufe,
+            leistungsebene
+          ],
+          function(err, result) {
+            if (err) {
+              return next(new Error(err.message));
+            } else {
+              res.redirect("/");
+            }
           }
-        });
-
-
+        );
       }
-    });
+    }
+  );
 });
-
-
 
 /* Create User Route. */
 router.get("/create_user", userHasAdminPermission(), function(req, res, next) {
@@ -158,7 +234,7 @@ router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
         }
       );
     });
-  }else{
+  } else {
     // @TODO - Invalider Benutzer bzw Fehler beim erstellen
     var handlebars_presettings = {
       layout: "admin",
@@ -166,7 +242,9 @@ router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
       display_name: null,
       icon_cards: false,
       location: "Benutzer löschen",
-      error: {message: "Beim erstellen des Nutzers ist ein Fehler aufgetreten..."}
+      error: {
+        message: "Beim erstellen des Nutzers ist ein Fehler aufgetreten..."
+      }
     };
     res.render("error", handlebars_presettings);
   }
@@ -259,6 +337,37 @@ passport.serializeUser(function(user_id, done) {
 
 passport.deserializeUser(function(user_id, done) {
   done(null, user_id);
+});
+
+
+
+ // @TODO
+router.get("/download", function(req, res) {
+  let pdf = require("handlebars-pdf");
+  let paths = __dirname + "/test-" + Math.random() + ".pdf";
+  let document = {
+    template:
+      "<h1>{{msg}}</h1>" +
+      '<p style="color:red">Red text</p>' +
+      '<img src="https://archive.org/services/img/image" />',
+    context: {
+      msg: "Hello world"
+    },
+    path: paths
+  };
+
+  pdf
+    .create(document)
+    .then(resPDF => {
+
+      res.download(document.path, "Bewertung.pdf"); 
+
+      console.log(resPDF);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
 });
 
 module.exports = router;
