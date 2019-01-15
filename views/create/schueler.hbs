@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="container-fluid border">
+        <br>
+        <div class="container-fluid">
+            <div class="card-header" style="background-color: #e9ecef;">
+                Schüler erstellen
+            </div>
+            <br>
+
+            <div class="card-body">
+                <form action="/admin/create_schueler" method="post" autocomplete="off">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="vorname">Vorname</label>
+                            <input type="text" class="form-control" name="vorname" id="vorname" placeholder="Vorname">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="nachname">Nachname</label>
+                            <input type="password" class="form-control" name="nachname" id="nachname" placeholder="Nachname">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label for="stufe">Stufe</label>
+                            <input type="stufe" class="form-control" name="stufe" id="stufe" placeholder="">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="suffix">Suffix</label>
+                            <input type="text" class="form-control" name="suffix" id="suffix" placeholder="">
+                        </div>
+                    </div>
+                    <button type="submit" value="Submit" class="btn btn-primary">Benutzer erstellen</button><br>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

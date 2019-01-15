@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="container-fluid border">
+        <br>
+        <div class="container-fluid">
+            <div class="card-header" style="background-color: #e9ecef;">
+                Benutzer erstellen
+            </div>
+            <div class="card-body">
+                <form action="/admin/create_user" method="post" autocomplete="off">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="vorname">Vorname</label>
+                            <input type="text" class="form-control" name="vorname" id="vorname" placeholder="Vorname" required="required">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="nachname">Nachname</label>
+                            <input type="text" class="form-control" name="nachname" id="nachname" placeholder="Nachname" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Benutzername</label>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Benutzername" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="password_re">Password wiederholen</label>
+                        <input type="password" class="form-control" name="password_re" id="password_re" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required="required">
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-2">
+                            <label for="permission">Benutzerart</label>
+                            <select name="permission" id="permission" class="form-control">
+                                <option value="fachlehrer" selected> Fachlehrer</option>
+                                <option value="tutor"> Tutor </option>
+                                <option value="admin"> Administrator </option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" value="Submit" class="btn btn-primary">Benutzer erstellen</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

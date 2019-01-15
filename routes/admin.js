@@ -2,9 +2,9 @@ var express = require("express");
 var router = express.Router();
 var datetime = require("node-datetime");
 var passport = require("passport");
-var path = require('path');
-var mime = require('mime');
-var fs = require('fs');
+var path = require("path");
+var mime = require("mime");
+var fs = require("fs");
 var bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -93,6 +93,16 @@ function genFachName(type) {
   }
   return ret;
 }
+/* Create User Route. */
+router.get("/create_user", userHasAdminPermission(), function(req, res, next) {
+  var handlebars_presettings = {
+    layout: "admin",
+    title: "SELG-Admintool",
+    icon_cards: false,
+    location: "Benutzer erstellen"
+  };
+  res.render("create/benutzer", handlebars_presettings);
+});
 
 router.post("/create_kurs", userHasAdminPermission(), function(req, res, next) {
   const stufe = req.body.stufe;
@@ -137,82 +147,34 @@ router.post("/create_kurs", userHasAdminPermission(), function(req, res, next) {
   );
 });
 
-/* Create User Route. */
-router.get("/create_user", userHasAdminPermission(), function(req, res, next) {
-  var handlebars_presettings = {
-    layout: "admin",
-    title: "SELG-Admintool",
-    display_name: null,
-    icon_cards: false,
-    location: "Benutzer erstellen"
-  };
-  res.render("benutzer_create", handlebars_presettings);
-});
-
 router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
-  req.checkBody("username", "Ein Benutzername ist notwendig!").isLength(3, 15);
+  // Check Password Match
+  if (req.body.password !== req.body.password_re)
+    return next(new Error("Das Passwort muss übereinstimmen!"));
+
+  // {"vorname":"awgawg","nachname":"awgawg","username":"awgawg","password":"awgawgawg","password_re":"awgawgag","leistungsebene":"admin"}
+
   if (!req.validationErrors()) {
     const username = req.body.username;
     const password = req.body.password;
-    var permission_flag = "";
-
-    switch (req.body.permission_flag.toLowerCase()) {
-      case "administrator":
-        permission_flag = "admin";
-        break;
-      case "tutor":
-        permission_flag = "tutor";
-        break;
-      case "fachlehrer":
-        permission_flag = "fachlehrer";
-        break;
-    }
+    const vorname = req.body.vorname;
+    const nachname = req.body.nachname;
+    const permission = req.body.permission;
 
     var db = require("../db.js");
     bcrypt.hash(password, saltRounds, function(err, hash) {
       db.query(
-        "INSERT INTO `selg_schema`.`user_db` (`username`, `password`, `permission_flag`) VALUES (?, ?, ?)",
-        [username, hash, permission_flag],
+        "INSERT INTO `selg_schema`.`user_db` (`username`, `password`, `permission_flag`, `vorname`, `nachname`) VALUES (?, ?, ?, ?, ?)",
+        [username, hash, permission, vorname, nachname],
         function(err, result, fields) {
           if (err) {
-            res.locals.message = err.message;
-            res.locals.error = err;
-
-            // render the error page
-            res.status(err.status || 500);
-
-            var handlebars_presettings = {
-              layout: res.locals.permission,
-              title: "SELG-Tool",
-              display_name: req.params.name,
-              icon_cards: false,
-              location: "Error"
-            };
-
-            res.render("error", handlebars_presettings);
+            return next(new Error(err.message));
           } else {
             db.query(
               "SELECT LAST_INSERT_ID() as user_id",
               (error, results, fields) => {
                 if (error) {
-                  res.locals.message = err.message;
-                  res.locals.error = err;
-
-                  // render the error page
-                  res.status(err.status || 500);
-
-                  var handlebars_presettings = {
-                    layout: res.locals.permission,
-                    title: "SELG-Tool",
-                    display_name: req.params.name,
-                    icon_cards: false,
-                    location: "Error",
-                    error: {
-                      message: "An SQL Error occured..."
-                    }
-                  };
-
-                  res.render("error", handlebars_presettings);
+                  return next(new Error(error.message));
                 }
                 //user_id = results[0]
                 /* @TODO 
@@ -225,7 +187,7 @@ router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
                   [
                     datetime.create().format("m/d/Y H:M:S"),
                     ": [ NEW USER CREATED ] -> user_id=",
-                    results[0]
+                    results[0].user_id
                   ].join("")
                 );
               }
@@ -287,7 +249,7 @@ router.get("/create_schueler", userHasAdminPermission(), function(
     icon_cards: false,
     location: "Schüler erstellen"
   };
-  res.render("schueler_create", handlebars_presettings);
+  res.render("create/schueler", handlebars_presettings);
 });
 
 router.post("/create_schueler", userHasAdminPermission(), function(
@@ -295,8 +257,37 @@ router.post("/create_schueler", userHasAdminPermission(), function(
   res,
   next
 ) {
-  // @TODO
-  res.redirect("/");
+  // { vorname: '', nachname: '', stufe: '', suffix: '' }
+  const vorname = req.body.vorname;
+  const nachname = req.body.nachname;
+  const fullname = vorname + " " + nachname;
+  const stufe = req.body.stufe;
+  const suffix = req.body.suffix;
+
+  var db = require("../db.js");
+
+  db.query(
+    "INSERT INTO `selg_schema`.`schueler_db` (`name`, `stufe`, `klassen_suffix`, `vorname`, `nachname`) VALUES (?, ?, ?, ?, ?)",
+    [fullname, stufe, suffix, vorname, nachname],
+    function(err, result, fields) {
+      if (err) {
+        return next(new Error(err.message));
+      } else {
+        db.query(
+          "SELECT LAST_INSERT_ID() as schueler_id",
+          (error, results, fields) => {
+            if (error) {
+              return next(new Error(error.message));
+            } else {
+              // @TODO Suche die Kurse in welchen er Standartmäßig ist
+              console.log(`[NEW SCHÜLER] = ${results[0].schueler_id}`); 
+              res.redirect("/");
+            }
+          }
+        );
+      }
+    }
+  );
 });
 
 /* Edit Schüler Route. */
@@ -339,9 +330,7 @@ passport.deserializeUser(function(user_id, done) {
   done(null, user_id);
 });
 
-
-
- // @TODO
+// @TODO
 router.get("/download", function(req, res) {
   let pdf = require("handlebars-pdf");
   let paths = __dirname + "/test-" + Math.random() + ".pdf";
@@ -359,15 +348,13 @@ router.get("/download", function(req, res) {
   pdf
     .create(document)
     .then(resPDF => {
-
-      res.download(document.path, "Bewertung.pdf"); 
+      res.download(document.path, "Bewertung.pdf");
 
       console.log(resPDF);
     })
     .catch(error => {
       console.error(error);
     });
-
 });
 
 module.exports = router;

@@ -50,7 +50,8 @@ app.engine(
     layoutsDir: __dirname + "/views/layouts/",
     helpers: {
       genTable: require("./helpers/generateTable"),
-      genMeineKurse: require("./helpers/generateMeineKurse")
+      genMeineKurse: require("./helpers/generateMeineKurse"),
+      genDisplayName: require("./helpers/generateDisplayName")
     }
   })
 );
@@ -165,6 +166,8 @@ app.use((req, res, next) => {
         if (error) throw new Error(error.message);
         res.locals.permission = results[0].permission_flag;
         res.locals.username = results[0].username;
+        res.locals.fullname = [results[0].vorname,results[0].nachname];
+
         console.log(
           [
             datetime.create().format("m/d/Y H:M:"),
