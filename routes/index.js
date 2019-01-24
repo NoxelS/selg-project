@@ -58,8 +58,26 @@ router.get("/einstellungen", function(req, res, next) {
 });
 // DEBUG
 
+/* GET Datenschutz page. */
+router.get("/datenschutz", function(req, res, next) {
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Tool",
+    display_name: res.locals.username,
+    icon_cards: false,
+    location: "Datenschutzrichtlinien"
+  };
+
+  res.render("policy/datenschutz", handlebars_presettings);
+});
+
+
 router.get("/generate_error", function(req, res, next) {
   res.render("generate_error");
+});
+
+router.post("/test", function(req, res, next) {
+  console.log(JSON.stringify(req.body));
 });
 
 module.exports = router;

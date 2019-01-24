@@ -43,7 +43,7 @@ router.get("/neu/schuelerid=:id/kursid=:kid", function(req, res, next) {
           handlebars_presettings.kursid = req.params.kid;
 
           if (result[0].leistungsebene === null) {
-            handlebars_presettings.leistungsebene = "n/a";
+            handlebars_presettings.leistungsebene = undefined;
           } else {
             handlebars_presettings.leistungsebene = result[0].leistungsebene;
           }

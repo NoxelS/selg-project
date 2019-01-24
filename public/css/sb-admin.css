@@ -9,6 +9,11 @@ html {
   min-height: 100%;
 }
 
+.no-border {
+  border: 0;
+  box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+}
+
 body {
   height: 100%;
 }
