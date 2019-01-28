@@ -1,0 +1,67 @@
+{
+  "schueler_id": "99",
+  "kurs_id": "3",
+  "name": "Marquis Medlock",
+  "fach": "Englisch",
+  "leistungsebene": "e1",
+
+  "soz_1": "1",
+  "kommentar_1": "x",
+
+  "soz_2": "1",
+  "kommentar_2": "x",
+
+  "soz_3": "1",
+  "kommentar_3": "x",
+
+  "soz_4": "1",
+  "kommentar_4": "x",
+
+  "soz_5_1": "1",
+  "kommentar_51": "x",
+
+  "soz_5_2": "1",
+  "kommentar_52": "x",
+
+  "soz_6": "1",
+  "kommentar_6": "x",
+  
+  "lernab_1": "1",
+  "kommentar_7": "x",
+
+  "lernab_2": "1",
+  "kommentar_8": "x",
+
+  "lernab_3": "1",
+  "kommentar_9": "x",
+
+  "lernab_4": "1",
+  "kommentar_10": "x",
+
+  "lernab_5": "1",
+  "kommentar_11": "x",
+
+  "lernab_6": "1",
+  "kommentar_12": "x",
+
+  "lernab_7": "1",
+  "kommentar_13": "x",
+
+  "lernab_8": "1",
+  "kommentar_14": "x",
+
+  "lernab_9_1": "1",
+  "kommentar_15": "x",
+
+  "lernab_9_2": "1",
+  "kommentar_16": "x",
+
+  "lernab_9_3": "1",
+  "kommentar_17": "x",
+
+  "lernab_10": "1",
+  "kommentar_18": "x",
+
+
+  "kommentar": "Kommentar"
+}

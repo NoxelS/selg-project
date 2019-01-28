@@ -16,11 +16,13 @@
 
                     {{!-- META DATA -> Hidden values--}}
                     <input type="hidden" name="schueler_id" id="schueler_id" readonly="readonly" value="{{schuelerid}}">
-                    <input type="hidden" name="kurs_id" id="kurs_id" readonly="readonly" value="{{kursid}}"> {{#if missing_value}}
+                    <input type="hidden" name="kurs_id" id="kurs_id" readonly="readonly" value="{{kursid}}"> 
+                    
+                    {{#if missing_value}}
                     <!-- Danger-Nachricht: Wenn nicht alles ausgefüllt wurde-->
 
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong class="h5">Achtung!</strong> Sie müssen alle erforderlichen Felder ausfüllen!
+                        <strong class="h5">Achtung!</strong> {{missing_value}}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
