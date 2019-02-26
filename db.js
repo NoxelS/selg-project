@@ -1,15 +1,28 @@
-var mysql = require('mysql');
+var mysql = require("mysql");
 
 // @TODO via ENV. files
 
 var connection = mysql.createConnection({
-    host: "192.168.178.37",
-    port: "3306",
-    user: "node_connection",
-    password: "a&r6a90$48|wfa9awfg8wgaa9a0gag0ga0ag0ffaffm0=",
-    database: "selg_schema"
+  /* 
+    old:
+        host: "192.168.178.37",
+        port: "3306",
+        user: "node_connection",
+        password: "a&r6a90$48|wfa9awfg8wgaa9a0gag0ga0ag0ffaffm0=",
+        database: "selg_schema"
+    */
+  host: "Service_Selg_MySql",
+  port: "3306",
+  user: "node_con",
+  password: "password",
+  database: "selg_schema",
+  insecureAuth : true
 });
 
-connection.connect( (err) => { if(err) {throw err}});
+connection.connect(err => {
+  if (err) {
+    throw err;
+  }
+});
 
-module.exports = connection; 
+module.exports = connection;

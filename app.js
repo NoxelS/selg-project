@@ -20,13 +20,21 @@ var bcrypt = require("bcrypt");
 
 // MySQL Session Storage
 var sessionStore = new MySQLStore({
+  /* OLD
   host: "192.168.178.37",
   port: "3306",
   user: "node_connection",
   password: "a&r6a90$48|wfa9awfg8wgaa9a0gag0ga0ag0ffaffm0=",
-  database: "selg_schema"
+  database: "selg_schema"*/
+  host: "Service_Selg_MySql",
+  port: "3306",
+  user: "node_con",
+  password: "password",
+  database: "selg_schema",
+  insecureAuth : true
 });
 
+var staticLogger = require("./log/statistic-logger");
 var fileLogger = require("./log/file-logger");
 fileLogger.log();
 
@@ -180,7 +188,7 @@ app.use((req, res, next) => {
             results[0].permission_flag, "]", " is accessing ", req.originalUrl
           ].join("")
         );
-
+        
         // Wenn es sich um ein Fachlehrer oder einen Tutor hält werden seine Kurse lokal gespeichert um
         // diese später per HBS dynamisch zu rendern.
 
@@ -239,6 +247,7 @@ passport.use(
           bcrypt.compare(password, hash, (err, response) => {
             if (response === true) {
               console.log("\tNew Login: ID="+results[0].id);
+              staticLogger.logSession();
               return done(null, { user_id: results[0].id });
             } else {
               console.log("\tFaild Login");

@@ -259,7 +259,7 @@ router.post("/create_schueler", userHasAdminPermission(), function(
 ) {
   // { vorname: '', nachname: '', stufe: '', suffix: '' }
   const vorname = req.body.vorname;
-  const nachname = req.body.nachname;
+  const nachname = req.body.nachnP;
   const fullname = vorname + " " + nachname;
   const stufe = req.body.stufe;
   const suffix = req.body.suffix;
@@ -280,7 +280,7 @@ router.post("/create_schueler", userHasAdminPermission(), function(
               return next(new Error(error.message));
             } else {
               // @TODO Suche die Kurse in welchen er Standartmäßig ist
-              console.log(`[NEW SCHÜLER] = ${results[0].schueler_id}`); 
+              console.log(`[NEW SCHÜLER] = ${results[0].schueler_id}`);
               res.redirect("/");
             }
           }
@@ -322,6 +322,23 @@ router.get("/delete_schueler", userHasAdminPermission(), function(
   res.render("schueler_delete", handlebars_presettings);
 });
 
+router.get("/sessions", userHasAdminPermission(), function(req, res, next) {
+  var db = require("../db");
+
+  // Zugehörigen Lehrer finden
+  db.query(
+    "SELECT * FROM session_history",
+    function(err, result) {
+      if (err) {
+        return next(new Error(err.message));
+      } else {
+        res.write(JSON.stringify(result));
+        res.end();
+      }
+    }
+  );
+});
+
 passport.serializeUser(function(user_id, done) {
   done(null, user_id);
 });
@@ -335,8 +352,7 @@ router.get("/download", function(req, res) {
   let pdf = require("handlebars-pdf");
   let paths = __dirname + "/test-" + Math.random() + ".pdf";
   let document = {
-    template:
-      `<link href="/css/star-rating.css" rel="stylesheet">
+    template: `<link href="/css/star-rating.css" rel="stylesheet">
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script src="/js/bewertung.js"></script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="stylesheet" href="https://bootadmin.net/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://bootadmin.net/css/fontawesome-all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://bootadmin.net/css/datatables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://bootadmin.net/css/fullcalendar.min.css"
+    />
+    <link rel="stylesheet" href="https://bootadmin.net/css/bootadmin.min.css" />
+    <script src="./mathe/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css"
+    />
+
+    <title>Noel-S WG</title>
+  </head>
+  <body class="bg-light">
+    <div class="card-body">
+      <div id="graphdiv4" style="width:100%; height:320px;"></div>
+    </div>
+
+    <script src="diagram_update.js"></script>
+
+    <script>
+      var current_id = 1;
+      let dataset = [];
+
+      function updateData(x, y) {
+        dataset.push([current_id + 1, y, 1 - y]);
+        console.log(dataset);
+        current_id++;
+
+        var Graph = new Dygraph(document.getElementById("graphdiv4"), dataset, {
+          labels: ["x", "A", "B"],
+          title: "Winrate P1, P2",
+          showRoller: true,
+          rollPeriod: 3,
+          ylabel: "Chance",
+          xlabel: "Rounds"
+        });
+      }
+
+      var Graph = new Dygraph(document.getElementById("graphdiv4"), [], {
+        labels: ["x", "A", "B"],
+        title: "Winrate P1, P2",
+        showRoller: true,
+        rollPeriod: 3,
+        ylabel: "Chance",
+        xlabel: "Rounds"
+      });
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://selg.noel-s.ch/admin/sessions", true);
+      xhr.send();
+
+      xhr.onreadystatechange = processRequest;
+
+      function processRequest(e) {
+        data = JSON.parse((e.currentTarget.response));
+        console.log(data);
+        
+        for (var i = 0; i < data.length; i++) {
+          updateData(data[i].id, Math.random() * 100);
+        }
+      }
+    </script>
+  </body>
+</html>
