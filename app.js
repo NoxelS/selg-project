@@ -20,18 +20,26 @@ var bcrypt = require("bcrypt");
 
 // MySQL Session Storage
 var sessionStore = new MySQLStore({
-  /* OLD
+  /* OLD PC local
   host: "192.168.178.37",
   port: "3306",
   user: "node_connection",
   password: "a&r6a90$48|wfa9awfg8wgaa9a0gag0ga0ag0ffaffm0=",
   database: "selg_schema"*/
+  /* VPS HOST
   host: "Service_Selg_MySql",
   port: "3306",
   user: "node_con",
   password: "password",
   database: "selg_schema",
   insecureAuth : true
+  */
+ host: "185.233.105.88",
+ port: "3306",
+ user: "node_con",
+ password: "password",
+ database: "selg_schema",
+ insecureAuth : true
 });
 
 var staticLogger = require("./log/statistic-logger");
@@ -175,7 +183,6 @@ app.use((req, res, next) => {
         res.locals.permission = results[0].permission_flag;
         res.locals.username = results[0].username;
         res.locals.fullname = [results[0].vorname,results[0].nachname];
-
         console.log(
           [
             datetime.create().format("m/d/Y H:M:"),

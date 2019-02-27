@@ -1,85 +1,75 @@
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+<script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
 
-    <link rel="stylesheet" href="https://bootadmin.net/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://bootadmin.net/css/fontawesome-all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://bootadmin.net/css/datatables.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://bootadmin.net/css/fullcalendar.min.css"
-    />
-    <link rel="stylesheet" href="https://bootadmin.net/css/bootadmin.min.css" />
-    <script src="./mathe/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css"
-    />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css" />
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
-    <title>Noel-S WG</title>
-  </head>
-  <body class="bg-light">
-    <div class="card-body">
-      <div id="graphdiv4" style="width:100%; height:320px;"></div>
-    </div>
+<div class="card-body">
+  <div id="graphdiv4" style="width:100%; height:320px;"></div>
+</div>
 
-    <script src="diagram_update.js"></script>
+<script>
+  $(document).ready(function () {
 
-    <script>
-      var current_id = 1;
-      let dataset = [];
-
-      function updateData(x, y) {
-        dataset.push([current_id + 1, y, 1 - y]);
-        console.log(dataset);
-        current_id++;
-
-        var Graph = new Dygraph(document.getElementById("graphdiv4"), dataset, {
-          labels: ["x", "A", "B"],
-          title: "Winrate P1, P2",
-          showRoller: true,
-          rollPeriod: 3,
-          ylabel: "Chance",
-          xlabel: "Rounds"
-        });
+    var history_data = "";
+    for (var property in session_history) {
+      if (session_history.hasOwnProperty(property)) {
+        history_data+= property+","+session_history[property]+"\n";
       }
+    }
+    var data = history_data;
 
-      var Graph = new Dygraph(document.getElementById("graphdiv4"), [], {
-        labels: ["x", "A", "B"],
-        title: "Winrate P1, P2",
-        showRoller: true,
-        rollPeriod: 3,
-        ylabel: "Chance",
-        xlabel: "Rounds"
-      });
+    new Dygraph(
+      document.getElementById("graphdiv4"),
+      data,
+      {
+        labels: ['Date', 'Sessions'],
+        underlayCallback: function (canvas, area, g) {
 
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://selg.noel-s.ch/admin/sessions", true);
-      xhr.send();
+          canvas.fillStyle = "rgba(255, 255, 255, 1.0)";
 
-      xhr.onreadystatechange = processRequest;
+          function highlight_period(x_start, x_end) {
+            var canvas_left_x = g.toDomXCoord(x_start);
+            var canvas_right_x = g.toDomXCoord(x_end);
+            var canvas_width = canvas_right_x - canvas_left_x;
+            canvas.fillRect(canvas_left_x, area.y, canvas_width, area.h);
+          }
 
-      function processRequest(e) {
-        data = JSON.parse((e.currentTarget.response));
-        console.log(data);
-        
-        for (var i = 0; i < data.length; i++) {
-          updateData(data[i].id, Math.random() * 100);
+          var min_data_x = g.getValue(0, 0);
+          var max_data_x = g.getValue(g.numRows() - 1, 0);
+
+          // get day of week
+          var d = new Date(min_data_x);
+          var dow = d.getUTCDay();
+
+          var w = min_data_x;
+          // starting on Sunday is a special case
+          if (dow === 0) {
+            highlight_period(w, w + 12 * 3600 * 1000);
+          }
+          // find first saturday
+          while (dow != 6) {
+            w += 24 * 3600 * 1000;
+            d = new Date(w);
+            dow = d.getUTCDay();
+          }
+          // shift back 1/2 day to center highlight around the point for the day
+          w -= 12 * 3600 * 1000;
+          while (w < max_data_x) {
+            var start_x_highlight = w;
+            var end_x_highlight = w + 2 * 24 * 3600 * 1000;
+            // make sure we don't try to plot outside the graph
+            if (start_x_highlight < min_data_x) {
+              start_x_highlight = min_data_x;
+            }
+            if (end_x_highlight > max_data_x) {
+              end_x_highlight = max_data_x;
+            }
+            highlight_period(start_x_highlight, end_x_highlight);
+            // calculate start of highlight for next Saturday 
+            w += 7 * 24 * 3600 * 1000;
+          }
         }
-      }
-    </script>
-  </body>
-</html>
+      });
+  }
+  );
+</script>

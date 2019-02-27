@@ -322,23 +322,6 @@ router.get("/delete_schueler", userHasAdminPermission(), function(
   res.render("schueler_delete", handlebars_presettings);
 });
 
-router.get("/sessions", userHasAdminPermission(), function(req, res, next) {
-  var db = require("../db");
-
-  // Zugehörigen Lehrer finden
-  db.query(
-    "SELECT * FROM session_history",
-    function(err, result) {
-      if (err) {
-        return next(new Error(err.message));
-      } else {
-        res.write(JSON.stringify(result));
-        res.end();
-      }
-    }
-  );
-});
-
 passport.serializeUser(function(user_id, done) {
   done(null, user_id);
 });
@@ -348,7 +331,8 @@ passport.deserializeUser(function(user_id, done) {
 });
 
 // @TODO
-router.get("/download", function(req, res) {
+/*
+router.get("/download", function(req, res) {d
   let pdf = require("handlebars-pdf");
   let paths = __dirname + "/test-" + Math.random() + ".pdf";
   let document = {
@@ -953,5 +937,5 @@ router.get("/download", function(req, res) {
       console.error(error);
     });
 });
-
+*/
 module.exports = router;

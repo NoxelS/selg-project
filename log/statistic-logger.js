@@ -7,7 +7,7 @@ module.exports = {
         var db = require('../db')
         db.query(
             "INSERT INTO `selg_schema`.`session_history` (`date`) VALUES (?);",
-            [datetime.create().format('m-d-Y')],
+            [datetime.create().format('Y-m-d')],
             function(err, result, fields) {
               if (err) {
                 return next(new Error(err.message));

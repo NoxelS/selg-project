@@ -1,3 +1,23 @@
+{{!-- Data for the Session Graph --}}
+<script>
+    var session_history = JSON.parse('{{session_history}}');
+</script>
+
+
+<div class="row">
+    <div class="col">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-external-link-square-alt"></i>
+                Bis jetzt ermöglichte Sessions</div>
+            <div class="card-body">
+                {{> graphs/session-statistics}}
+            </div>
+            <div class="card-footer small text-muted">Insgesamt gab es schon <b>{{session_count}}</b> Sessions.</div>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-lg-4">
         <div class="card mb-3">
@@ -9,7 +29,7 @@
                     <h1 style="font-family: 'Aleo', sans-serif; font-size: 60px;"> {{schueler_count}}</h1>
                 </div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+         <div class="card-footer small text-muted mb-3"></div>
         </div>
     </div>
 
@@ -23,7 +43,7 @@
                     <h1 style="font-family: 'Aleo', sans-serif; font-size: 60px;">{{ user_count }}</h1>
                 </div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+         <div class="card-footer small text-muted mb-3"></div>
         </div>
     </div>
     <div class="col-lg-4">
@@ -36,23 +56,38 @@
                     <h1 style="font-family: 'Aleo', sans-serif; font-size: 60px;">1423</h1>
                 </div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <div class="card-footer small text-muted mb-3"></div>
         </div>
     </div>
 </div>
-<div class="card mb-3">
-    <div class="card-header">
-        <i class="fas fa-chart-area"></i>
-        Letzte hinzugefügte Nutzer
+<div class="row">
+<div class="col-lg-6">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-chart-area"></i>
+            Letzte hinzugefügte Nutzer
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                {{last_users}}
+            </ul>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
     </div>
-    <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">Max Mustermann</li>
-            <li class="list-group-item">Leon Schneider</li>
-            <li class="list-group-item">Max Müller</li>
-            <li class="list-group-item">Michelle Marbach</li>
-            <li class="list-group-item">Peter Pathe</li>
-        </ul>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+    <div class="col-lg-6">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-chart-area"></i>
+            Letzte hinzugefügte Kurse
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                {{last_courses}}
+            </ul>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+    </div>
+    </div>
+</div>
 </div>
