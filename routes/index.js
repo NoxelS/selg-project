@@ -39,7 +39,6 @@ router.get("/", function(req, res, next) {
           db.query('SELECT * FROM (SELECT * FROM user_db ORDER BY id DESC LIMIT 5) sub ORDER BY id ASC', function(err, last_users) {
             if (err) return next(new Error(err.message));
             var last_users_table = "";
-            console.log(last_users);
             for(var i = 0; i < last_users.length; i++){
               last_users_table+= `<li class="list-group-item">${(last_users[i].permission_flag.charAt(0).toUpperCase() + last_users[i].permission_flag.slice(1))+": "+last_users[i].vorname+" "+last_users[i].nachname}</li>`;
             }
@@ -47,7 +46,6 @@ router.get("/", function(req, res, next) {
             db.query('SELECT * FROM (SELECT * FROM kurs_db ORDER BY id DESC LIMIT 5) sub ORDER BY id ASC', function(err, last_courses) {
               if (err) return next(new Error(err.message));
               var last_courses_table = "";
-              console.log(last_courses);
               for(var i = 0; i < last_courses.length; i++){
                 last_courses_table+= `<li class="list-group-item">${last_courses[i].name+" Jhrg. "+last_courses[i].jahrgang}</li>`;
               }
@@ -110,5 +108,36 @@ router.get("/generate_error", function(req, res, next) {
 router.post("/test", function(req, res, next) {
   console.log(JSON.stringify(req.body));
 });
+
+router.post("/search", function(req, res, next) {
+  res.redirect("/search="+req.body.nametofind);    
+});
+
+router.get("/search=:nametofind", function(req, res, next) {
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Tool",
+    display_name: res.locals.username,
+    icon_cards: false,
+    location: "Schüler Finden..."
+  };
+  
+
+  // @TODO Nur leute Suchen, die man auch sehen darf als Fachlehrer
+
+  var db = require("../db.js");
+  db.query("SELECT  * FROM  schueler_db WHERE  name LIKE ? ORDER BY name ASC",["%"+req.params.nametofind+"%"], function(err, result) {
+    if (err) return next(new Error(err.message));
+    handlebars_presettings.nametofind = req.params.nametofind;
+    if(result.length === 0){
+      next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
+    }else{
+      handlebars_presettings.result = result;
+      handlebars_presettings.resultLength = result.length;
+      res.render("search/search", handlebars_presettings);
+    }
+  });
+});
+
 
 module.exports = router;

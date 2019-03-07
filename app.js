@@ -26,20 +26,20 @@ var sessionStore = new MySQLStore({
   user: "node_connection",
   password: "a&r6a90$48|wfa9awfg8wgaa9a0gag0ga0ag0ffaffm0=",
   database: "selg_schema"*/
-  /* VPS HOST
+  /* VPS HOST*/
   host: "Service_Selg_MySql",
   port: "3306",
   user: "node_con",
   password: "password",
   database: "selg_schema",
   insecureAuth : true
-  */
+  /*
  host: "185.233.105.88",
  port: "3306",
  user: "node_con",
  password: "password",
  database: "selg_schema",
- insecureAuth : true
+ insecureAuth : true*/
 });
 
 var staticLogger = require("./log/statistic-logger");
@@ -67,7 +67,8 @@ app.engine(
     helpers: {
       genTable: require("./helpers/generateTable"),
       genMeineKurse: require("./helpers/generateMeineKurse"),
-      genDisplayName: require("./helpers/generateDisplayName")
+      genDisplayName: require("./helpers/generateDisplayName"),
+      genSearchResult: require("./helpers/genSearchTable")
     }
   })
 );
@@ -136,6 +137,7 @@ app.all("*", function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   res.header("Access-Control-Allow-Headers", "Content-Type");
   res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
   next();
 });
 
@@ -299,6 +301,21 @@ app.use(function(err, req, res, next) {
 
   res.render("error", handlebars_presettings);
 });
+
+/*
+var scheduler = require('node-schedule');
+
+var rule = new scheduler.RecurrenceRule();
+rule.hour = 22
+rule.dayOfWeek = new schedule.Range(0,6)
+var dailyJob = schedule.scheduleJob(date, function(){
+ console.log('[SCHEDULE]I run on days at 22:00');
+ fileLogger.logSchedule();
+
+});
+scheduler.scheduleJob(rule,task);
+*/
+
 
 module.exports = app;
 

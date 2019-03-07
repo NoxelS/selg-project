@@ -15,6 +15,22 @@ module.exports = {
                 function (err) {
                     if (err) return console.log(err);
                 }
-        );}
+        );
+        },
+    logSchedule: function(){
+            fs.appendFile(__dirname + "/server.log",
+            [
+                datetime.create().format('m/d/Y H:M:S')+
+                ":",
+                "[ SCHEDULED-MESSAGE ]",
+                "SCHEDULE WORKS!!!!",
+                "\r\n"
+            ].join(' '), 
+                function (err) {
+                    if (err) return console.log(err);
+                }
+        );
+          
+        }
 };
 
