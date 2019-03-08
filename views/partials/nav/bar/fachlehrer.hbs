@@ -5,7 +5,18 @@
         <i class="fas fa-bars"></i>
     </button>
     <!-- Blank Space zwischen linker und rechter Navbar -->
-    <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"></div>
+      {{!-- Searchbar --}}
+  <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"></div>
+  <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-4 my-md-0" action="/search" method="post" autocomplete="off">
+    <div class="input-group">
+      <input type="text" name="nametofind" class="form-control" placeholder="Schüler finden..." aria-label="Suchen" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit" value="Submit" >
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </form>
     <!-- Rechte Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
         <!-- Aufgaben -->

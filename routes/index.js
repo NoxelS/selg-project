@@ -86,7 +86,6 @@ router.get("/einstellungen", function(req, res, next) {
 
   res.render("einstellungen", handlebars_presettings);
 });
-// DEBUG
 
 /* GET Datenschutz page. */
 router.get("/datenschutz", function(req, res, next) {
@@ -101,14 +100,9 @@ router.get("/datenschutz", function(req, res, next) {
   res.render("policy/datenschutz", handlebars_presettings);
 });
 
-router.get("/generate_error", function(req, res, next) {
-  res.render("generate_error");
-});
-
-router.post("/test", function(req, res, next) {
-  console.log(JSON.stringify(req.body));
-});
-
+/*
+  Wenn die SUchleiste benutzt wird, wird die Suchanfrage an /search=[Name der gesucht wurde] weitergeleitet.
+*/
 router.post("/search", function(req, res, next) {
   res.redirect("/search="+req.body.nametofind);    
 });
@@ -121,22 +115,61 @@ router.get("/search=:nametofind", function(req, res, next) {
     icon_cards: false,
     location: "Schüler Finden..."
   };
-  
-
-  // @TODO Nur leute Suchen, die man auch sehen darf als Fachlehrer
-
-  var db = require("../db.js");
-  db.query("SELECT  * FROM  schueler_db WHERE  name LIKE ? ORDER BY name ASC",["%"+req.params.nametofind+"%"], function(err, result) {
-    if (err) return next(new Error(err.message));
-    handlebars_presettings.nametofind = req.params.nametofind;
-    if(result.length === 0){
-      next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
-    }else{
-      handlebars_presettings.result = result;
-      handlebars_presettings.resultLength = result.length;
-      res.render("search/search", handlebars_presettings);
-    }
-  });
+  /* 
+    Wenn ein admin die Suchleiste benutzt, werden Ihm alle Schüler angezeigt, die es in der Datenbank gibt.
+    handlebars_presettings.result ist dabei eine Array mit allen Schülern als Objekt
+  */
+  if(res.locals.permission === 'admin'){
+    var db = require("../db.js");
+    db.query("SELECT  * FROM  schueler_db WHERE  name LIKE ? ORDER BY name ASC",["%"+req.params.nametofind+"%"], function(err, result) {
+      // Wenn es ein Error gibt, oder niemand gefunden wird (result.length = 0), wird ein Error weitergegeben
+      if (err) return next(new Error(err.message));
+      handlebars_presettings.nametofind = req.params.nametofind;
+      if(result.length === 0){
+        next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
+      }else{
+        // Durch eine helperfunction wird aus handlebars_presettings.result eine HTML-Tabelle (HBS Safestring) erstellt
+        handlebars_presettings.result = result;
+        handlebars_presettings.resultLength = result.length;
+        res.render("search/search", handlebars_presettings);
+      }
+    });
+  }else{
+    /* 
+      Wenn ein fachlehrer die Suchleiste benutzt, werden Ihm alle Schüler angezeigt, die in seinen Kursen vorahnden sind
+      Zuerst werden alle Schüler gesucht, dann werden alle schüler ids gescuht, welche in seinen Kursen vorhanden sind
+      Die Überschneidungen dieser zwei Mengen werden in der handlebars_presettings.result Array gespeichert.
+    */
+    var db = require("../db.js");
+    db.query("SELECT * FROM schueler_db WHERE  name LIKE ? ORDER BY name ASC",["%"+req.params.nametofind+"%"], function(err, result) {
+      if (err) return next(new Error(err.message));
+      handlebars_presettings.nametofind = req.params.nametofind;
+      handlebars_presettings.schueler_gefunden = result;
+      handlebars_presettings.result = [];
+      if(result.length === 0){
+        next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
+      }else{
+        db.query("SELECT id_schueler FROM schueler_kurs_link WHERE id_kurs IN (SELECT id FROM kurs_db WHERE lehrer_id = ?)",[res.locals.user_id], function(err, result) {
+          if (err) return next(new Error(err.message));
+          if(result.length === 0) next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
+          for(var i = 0; i < handlebars_presettings.schueler_gefunden.length ; i++){
+            for(var k = 0; k < result.length; k++){
+              if(handlebars_presettings.schueler_gefunden[i].id === result[k].id_schueler){
+                handlebars_presettings.result.push(handlebars_presettings.schueler_gefunden[i]);
+              }
+            }
+          }
+          if(handlebars_presettings.result.length === 0){
+            next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden.")); 
+          }else{
+            handlebars_presettings.resultLength = handlebars_presettings.result.length;
+            handlebars_presettings.result = handlebars_presettings.result.sort( (a,b) => {return a.id - b.id});
+            res.render("search/search", handlebars_presettings);
+          } 
+        });
+      }
+    });
+  }
 });
 
 

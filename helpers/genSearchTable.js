@@ -1,7 +1,6 @@
 var Handlebars = require("handlebars");
 
 module.exports = function(result, options) {
-  console.log(result);
     var table = "";
   result.forEach(entry => {
     var row = "<tr>";
