@@ -68,7 +68,8 @@ app.engine(
       genTable: require("./helpers/generateTable"),
       genMeineKurse: require("./helpers/generateMeineKurse"),
       genDisplayName: require("./helpers/generateDisplayName"),
-      genSearchResult: require("./helpers/genSearchTable")
+      genSearchResult: require("./helpers/genSearchTable"),
+      genFachlehrerLastBewertungen: require("./helpers/genFachlehrerLastBewertungen")
     }
   })
 );

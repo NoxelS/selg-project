@@ -73,60 +73,111 @@ router.post("/neu", function(req, res, next) {
     res.render("neue_bewertung", handlebars_presettings);
 
   } else {
+    var datetime = require('node-datetime');
+
+    // Bei Manueller Erstellung wird berücksichtigt, dass Kurse unter der achten Klasse keine Leistungsebene besitzen.
+    if(req.body.leistungsebene.length === 0){
+      req.body.leistungsebene = "g";
+    }
     
     var insert_array =
     [
-      req.body.schueler_id, req.body.kurs_id, req.body.name, req.body.fach, req.body.leistungsebene, req.body.kommentar,
+      req.body.schueler_id, req.body.kurs_id,res.locals.user_id, datetime.create().format("d.m.Y") , req.body.name, req.body.fach, req.body.leistungsebene, req.body.kommentar,
       req.body.soz_1,req.body.soz_2,req.body.soz_3,req.body.soz_4,req.body.soz_5_1,req.body.soz_5_2,req.body.soz_6,
       req.body.lernab_1,req.body.lernab_2,req.body.lernab_3,req.body.lernab_4,req.body.lernab_5,req.body.lernab_6,req.body.lernab_7,req.body.lernab_8,req.body.lernab_9_1,req.body.lernab_9_2,req.body.lernab_9_3,req.body.lernab_10,
       req.body.kommentar_1,req.body.kommentar_2,req.body.kommentar_3,req.body.kommentar_4,req.body.kommentar_5,req.body.kommentar_6,req.body.kommentar_7,req.body.kommentar_8,req.body.kommentar_9,req.body.kommentar_10,req.body.kommentar_11,req.body.kommentar_12,req.body.kommentar_13,req.body.kommentar_14,req.body.kommentar_15,req.body.kommentar_16,req.body.kommentar_17,req.body.kommentar_18
     ];
-    /*
-    var insert_array = [];
-    
-    for(var i = 0; i < post_request.length; i++){
-      if(post_request[i] === undefined){
-        insert_array.push("undefined");
-      }else{
-        insert_array.push(post_request[i]);
-      }
-    }
-*/
-console.log(req.body)
 
-    db.query(
-      "INSERT INTO `selg_schema`.`bewertungen_db` "
-      + "(`schueler_id`, `kurs_id`, `schueler_name`, `kurs_name`, `leistungsebene`, `kommentar`,"
-      + "`soz_1`, `soz_2`, `soz_3`, `soz_4`, `soz_5_1`, `soz_5_2`, `soz_6`," 
-      + "`lear_1`, `lear_2`, `lear_3`, `lear_4`, `lear_5`, `lear_6`, `lear_7`, `lear_8`, `lear_9_1`, `lear_9_2`, `lear_9_3`, `lear_10`, "
-      + "`k_1`, `k_2`, `k_3`, `k_4`, `k_5`, `k_6`, `k_7`, `k_8`, `k_9`, `k_10`, `k_11`, `k_12`, `k_13`, `k_14`, `k_15`, `k_16`, `k_17`, `k_18`) "
-      + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
-      insert_array,
-      function(err, result, fields) {
-        if (err) {
-          return next(new Error(err.message));
-        } else {
-          db.query(
-            "SELECT LAST_INSERT_ID() as last_bewertung",
-            (error, results, fields) => {
-              if (error) {
-                return next(new Error(error.message));
-              } else {
-                // @TODO Suche die Kurse in welchen er Standartmäßig ist
-                console.log(
-                  [
-                    datetime.create().format("m/d/Y H:M:S"),
-                    ": [ NEUE BEWERTUNG ] -> "+results[0].last_bewertung
-                  ].join("")
-                );
-                res.redirect("/");
-              }
-            }
-          );
+    // Es wird geschaut ob es dieses Schüler überhaupt in der Datenbank gibt
+    db.query("SELECT * from `schueler_db` WHERE name = ?", [req.body.name], function(err, result){
+      if(err){ return next(new Error(err.message)); }
+      if(result.length === 0){ return next(new Error("Es konnte kein Schüler mit dem Namen "+req.body.name+" gefunden werden."))}else{
+        db.query("SELECT * from `kurs_db` WHERE name = ?", [req.body.fach], function(err, result){
+          if(err){ return next(new Error(err.message)); }
+          if(result.length === 0){ return next(new Error("Es konnte kein Kurs mit dem Namen "+req.body.fach+" "+req.body.leistungsebene+" gefunden werden."))}else{
+    
+        /*
+        var insert_array = [];
+
+        for(var i = 0; i < post_request.length; i++){
+          if(post_request[i] === undefined){
+            insert_array.push("undefined");
+          }else{
+            insert_array.push(post_request[i]);
+          }
         }
-      }
-    );
+        */
+        console.log(req.body)
+      
+        db.query(
+          "INSERT INTO `selg_schema`.`bewertungen_db` "
+          + "(`schueler_id`, `kurs_id`, `lehrer_id`, `date`,`schueler_name`, `kurs_name`, `leistungsebene`, `kommentar`,"
+          + "`soz_1`, `soz_2`, `soz_3`, `soz_4`, `soz_5_1`, `soz_5_2`, `soz_6`," 
+          + "`lear_1`, `lear_2`, `lear_3`, `lear_4`, `lear_5`, `lear_6`, `lear_7`, `lear_8`, `lear_9_1`, `lear_9_2`, `lear_9_3`, `lear_10`, "
+          + "`k_1`, `k_2`, `k_3`, `k_4`, `k_5`, `k_6`, `k_7`, `k_8`, `k_9`, `k_10`, `k_11`, `k_12`, `k_13`, `k_14`, `k_15`, `k_16`, `k_17`, `k_18`) "
+          + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+          insert_array,
+          function(err, result, fields) {
+            if (err) {
+              return next(new Error(err.message));
+            } else {
+              db.query(
+                "SELECT LAST_INSERT_ID() as last_bewertung",
+                (error, results, fields) => {
+                  if (error) {
+                    return next(new Error(error.message));
+                  } else {
+                    // @TODO Suche die Kurse in welchen er Standartmäßig ist
+                    console.log(
+                      [
+                        datetime.create().format("m/d/Y H:M:S"),
+                        ": [ NEUE BEWERTUNG ] -> "+results[0].last_bewertung
+                      ].join("")
+                    );
+                    res.redirect("/");
+                  }
+                }
+              );
+            }
+          }
+        );
+      }});
+    }});
+
   }
+});
+
+router.get("/neu", function(req, res, next) {
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Tool",
+    display_name: req.params.name,
+    icon_cards: false,
+    location: "Neue Bewertung",
+  };
+
+  res.render("bewertungen/neue_bewertung_manuell", handlebars_presettings)
+});
+
+
+router.get("/view=:id", function(req, res, next) {
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Tool",
+    display_name: req.params.name,
+    icon_cards: false,
+    location: "Bewertung ansehen",
+    json: req.params.id
+  };
+
+  db.query("SELECT * FROM bewertungen_db WHERE id = ?", [req.params.id], function(    err,    result  ) {
+    if (err) {
+      return next(new Error(err.message));
+    } else {
+      handlebars_presettings.json = JSON.stringify(result);
+      res.render("bewertungen/view", handlebars_presettings)
+    }
+  });
 });
 
 module.exports = router;

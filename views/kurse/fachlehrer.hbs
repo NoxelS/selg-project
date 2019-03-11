@@ -34,3 +34,15 @@
     </div>
     <div class="card-footer small text-muted"></div>
 </div>
+<script>
+    // Basic example
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            "ordering": true, // false to disable sorting (or any other option)
+            "paging": false,
+            "info": false,
+            "searching": false
+        });
+        $('.dataTables_length').addClass('bs-select');
+    });
+</script>
