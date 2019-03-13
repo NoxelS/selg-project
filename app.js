@@ -34,6 +34,7 @@ var sessionStore = new MySQLStore({
   database: "selg_schema",
   insecureAuth : true
   */
+  
  host: "185.233.105.88",
  port: "3306",
  user: "node_con",
