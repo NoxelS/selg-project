@@ -223,7 +223,7 @@ app.use((req, res, next) => {
                   // Sucht alle momentanen Ankündigungen für alle drei Arten von Benutzern
                   if(res.locals.permission === "fachlehrer"){
                   db.query(
-                     "SELECT * FROM announcement_db WHERE (zielgruppe = 'Fachlehrer' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle') AND NOT ( datum < NOW() - INTERVAL 30 DAY);",
+                     "SELECT * FROM announcement_db WHERE (zielgruppe = 'Fachlehrer' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle') AND NOT ( datum < NOW() - INTERVAL 30 DAY) LIMIT 5;",
                      (error, results, fields) => {
                       if(error) return next(new Error(error.message));
                       res.locals.announcements_count = results.length;
@@ -232,7 +232,7 @@ app.use((req, res, next) => {
                   });
                   }else if(res.locals.permission === "tutor"){
                     db.query(
-                      "SELECT * FROM announcement_db WHERE (zielgruppe = 'Tutoren' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle') AND NOT ( datum < NOW() - INTERVAL 30 DAY);",
+                      "SELECT * FROM announcement_db WHERE (zielgruppe = 'Tutoren' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle') AND NOT ( datum < NOW() - INTERVAL 30 DAY) LIMIT 5;",
                       (error, results, fields) => {
                         if(error) return next(new Error(error.message));
                         res.locals.announcements_count = results.length;
@@ -246,7 +246,7 @@ app.use((req, res, next) => {
         }else{
           // Sucht nach Ankündigungen für Administratoren
           db.query(
-            "SELECT * FROM announcement_db WHERE (zielgruppe = 'Administratoren' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle') AND NOT ( datum < NOW() - INTERVAL 30 DAY);",
+            "SELECT * FROM announcement_db WHERE (zielgruppe = 'Administratoren' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle') AND NOT ( datum < NOW() - INTERVAL 30 DAY) LIMIT 5;",
             (error, results, fields) => {
               if(error) return next(new Error(error.message));
               res.locals.announcements = results;

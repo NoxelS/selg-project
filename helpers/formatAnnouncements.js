@@ -1,6 +1,4 @@
 var Handlebars = require("handlebars");
-const db = require("../db");
-const Promise = require("promise");
 
 module.exports = function(announcements) {
     if (announcements !== undefined && announcements.length !== 0) {

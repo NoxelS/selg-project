@@ -160,6 +160,64 @@ router.get("/neu", function(req, res, next) {
 });
 
 
+// Exportiert eine Bewertung als PDF
+router.get("/download=:id", function(req, res, next) {
+
+  db.query("SELECT * FROM bewertungen_db WHERE id = ?", [req.params.id], function(err, bewertung_presetting){
+    // Die Seite gibt es nicht
+    if(err || bewertung_presetting.length === 0) return next(new Error(""));
+    // Die Seite gibt es, aber der Nutzer hat keine berechtigung sie zu sehen
+    if(bewertung_presetting[0].lehrer_id != res.locals.user_id) return next(new Error(""));
+
+    const pdf = require('phantom-html2pdf');
+    const Handlebars = require('handlebars');
+    const fs = require('fs');
+
+    Handlebars.registerHelper('ifEqual', function(a, b, opts) {
+      if(a == b) // Or === depending on your needs
+          return opts.fn(this);
+      else
+          return opts.inverse(this);
+    });
+
+    Handlebars.registerHelper('calcRows', function(text) {
+      const lineLength = "AAAABBBBAAAABBBBAAAABBBBAAAABBBBAA".length;
+      text = text+"";
+      if(text.length >= 3*lineLength) return 4;
+      if(text.length >= 2*lineLength) return 3;
+      if(text.length >= lineLength) return 2;
+      return 1;
+    });
+
+
+    var temp = fs.readFileSync('./views/bewertungen/view_pdf.hbs','utf8');
+    if (err) throw err;
+
+    let template = Handlebars.compile(temp);
+
+    var pdfOptions = {
+      html: template(bewertung_presetting[0]),
+      paperSize: {
+        format: 'A4',
+        orientation: 'portrait',
+        border: '1cm'
+      }
+    };
+  
+    pdf.convert(pdfOptions, function(err, result) {
+      result.toFile(__dirname+"/SELG-Protokoll.pdf", function() {
+        console.log('Done');
+        var file = __dirname + '/SELG-Protokoll.pdf';
+        res.download(file); // Set disposition and send it.
+      });
+    });
+  
+
+    
+  });
+});
+
+
 router.get("/view=:id", function(req, res, next) {
   var handlebars_presettings = {
     layout: res.locals.permission,
