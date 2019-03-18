@@ -19,7 +19,7 @@
   </form>
     <!-- Rechte Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
-        <!-- Aufgaben -->
+        <!-- Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -28,13 +28,18 @@
             </a>
             <!-- Dropdown for Profil -->
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-                <a class="dropdown-item" href="#"><span><i class="pull-right"></i><i class="fas fa-bullhorn mr-2"></i>Ankündigungen</span></a>
-                <div class="dropdown-divider"></div>
+                <a class="dropdown-item"><span><i class="pull-right"></i><i class="fas fa-bullhorn mr-2"></i>Ankündigungen</span></a>
+                <div class="dropdown-divider mb-3"></div>
                 
-                <div class="container">
+                <div class="container" style="width: 35rem; height: auto;">
+                   <div class="list-group">
                   {{formatAnnouncements announcements}}
+                  </div>
                 </div>
+
                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item"><span class="text-muted small"><i class="pull-right"></i>Aktualisiert um {{currentTime}} </span></a>
+               
 
             </div>
         </li>

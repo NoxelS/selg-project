@@ -3,25 +3,22 @@ const db = require("../db");
 const Promise = require("promise");
 
 module.exports = function(announcements) {
-  if (announcements !== undefined) {
-    let dropdown = "";
-    for (let i = 0; i < announcements.length; i++) {
-      dropdown += `
-    <div class="card mt-3" style="width: 35rem; height: auto;">
-    <div class="card-header bg-light mb-0">
-    <b>${announcements[i].author_name}</b><span class="text-muted"> am ${
-        announcements[i].display_date
-      }</span>
-  </div>
-        <div class="card-body">
-            <p class="card-text my-0 py-0">${announcements[i].message}</p>
-        </div>
-    </div>
-    `;
+    if (announcements !== undefined && announcements.length !== 0) {
+        let dropdown = "";
+        for (let i = 0; i < announcements.length; i++) {
+          dropdown += `
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start mb-3">
+                        <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Von ${announcements[i].author_name}</h5>
+                        <small class="text-gray">#${announcements[i].id}</small>
+                        </div>
+                        <p class="mb-1">${announcements[i].message}</p>
+                        <small>${announcements[i].display_date}</small>
+                        </a>
+                    `;
     }
-  
-  return new Handlebars.SafeString(dropdown);
+        return new Handlebars.SafeString(dropdown);
     }else{
-        return new Handlebars.SafeString("");
+        return new Handlebars.SafeString(`<p class="mb-1">Im Moment gibt es keine neuen Ankündigungen</p>`);
     }
 };

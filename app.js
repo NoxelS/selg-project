@@ -73,7 +73,8 @@ app.engine(
       genFachlehrerLastBewertungen: require("./helpers/genFachlehrerLastBewertungen"),
       ifEqual: require("./helpers/conditionalHelper"),
       calcRows: require("./helpers/calcRows"),
-      formatAnnouncements: require("./helpers/formatAnnouncements")
+      formatAnnouncements: require("./helpers/formatAnnouncements"),
+      currentTime: require("./helpers/currentTime")
     }
   })
 );
@@ -231,7 +232,7 @@ app.use((req, res, next) => {
                   });
                   }else if(res.locals.permission === "tutor"){
                     db.query(
-                      "SELECT * FROM announcement_db WHERE zielgruppe = 'Tutoren' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle';",
+                      "SELECT * FROM announcement_db WHERE (zielgruppe = 'Tutoren' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle') AND NOT ( datum < NOW() - INTERVAL 30 DAY);",
                       (error, results, fields) => {
                         if(error) return next(new Error(error.message));
                         res.locals.announcements_count = results.length;
@@ -245,7 +246,7 @@ app.use((req, res, next) => {
         }else{
           // Sucht nach Ankündigungen für Administratoren
           db.query(
-            "SELECT * FROM announcement_db WHERE zielgruppe = 'Administratoren' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle';",
+            "SELECT * FROM announcement_db WHERE (zielgruppe = 'Administratoren' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle') AND NOT ( datum < NOW() - INTERVAL 30 DAY);",
             (error, results, fields) => {
               if(error) return next(new Error(error.message));
               res.locals.announcements = results;
