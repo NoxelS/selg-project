@@ -70,7 +70,9 @@ app.engine(
       genMeineKurse: require("./helpers/generateMeineKurse"),
       genDisplayName: require("./helpers/generateDisplayName"),
       genSearchResult: require("./helpers/genSearchTable"),
-      genFachlehrerLastBewertungen: require("./helpers/genFachlehrerLastBewertungen")
+      genFachlehrerLastBewertungen: require("./helpers/genFachlehrerLastBewertungen"),
+      ifEqual: require("./helpers/conditionalHelper"),
+      calcRows: require("./helpers/calcRows")
     }
   })
 );

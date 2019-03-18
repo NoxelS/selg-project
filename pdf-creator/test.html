@@ -1,60 +1,96 @@
-<link href="/css/star-rating.css" rel="stylesheet">
+<!DOCTYPE html>
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="/js/bewertung.js"></script>
+    <style>
+        html, body{
+            width: 0px;
+            height: 0px; 
+            margin: 0px;
+            padding: 0px;
+        }
+        .main{
+            width: 712px;
 
-<div class="container-fluid mb-3">
-    <div class="container-fluid border">
-        <br>
+        }
+    .rating-text{
+    color: #666666;
+    font-size: medium;
+}
+
+.txt-center {
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+    width: 0px;
+    height: 0px;
+}
+
+.rating {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    position: relative;
+}
+
+.rating > label {
+    
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}
+
+.rating-fix{
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    width: 1.1em;
+    color: #000;
+}
+
+.filled{
+    font-size: medium;
+    content: "\2605";
+    color: #FFD700;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="main px-0 mx-0">
+<h4 class="text-center"><b>Schüler-Eltern-Lehrer-Gespräch</b></h4>
+<h4 class="text-center"> Protokoll vom ________</h4>
+<h5 class="text-center">Name der Schülerin / des Schülers: _______________________ Klasse: ______</h5>
         <div class="container-fluid">
-            <div class="card-header" style="background-color: #e9ecef;">
-                Neuer Bewertung
-            </div>
-
             <div class="card-body">
                 <form action="/bewertung/neu" method="post" autocomplete="off">
-
-                    {{!-- META DATA -> Hidden values--}}
-                    <input type="hidden" name="schueler_id" id="schueler_id">
-                    <input type="hidden" name="kurs_id" id="kurs_id"> 
-                    
-                    {{#if missing_value}}
-                    <!-- Danger-Nachricht: Wenn nicht alles ausgefüllt wurde-->
-
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong class="h5">Achtung!</strong> {{missing_value}}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    {{/if}}
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="name">Name der Schülerin / des Schülers:</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Name der Schülerin / des Schülers:">
-
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="fach">Fach:</label>
-                            <input type="text" name="fach" class="form-control" id="fach" placeholder="Fach">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="leistungsebene">Leistungsebene:</label>
-                            <input type="text" name="leistungsebene" class="form-control" id="leistungsebene" placeholder="Leistungsebene">
-                        </div>
-                        {{!--
-                        <div class="form-group col-md-2">
-                            <label for="Kurs">Kurs:</label>
-                            <select name="Kurs" class="custom-select">
-                                <option name="Kurs" value="0">Kurs1</option>
-                                <option name="Kurs" value="1">Kurs2</option>
-                                <option name="Kurs" value="2">Kurs3</option>
-                                <option name="Kurs" value="3">Kurs4</option>
-                            </select>
-                        </div>--}}
-                    </div>
-
                     <div class="form-row mt-3">
                         <div class="form-group col-md-12">
                             <p>
@@ -81,7 +117,7 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="star4" name="soz_1" type="radio" value="4" class="radio-btn hide" />
+                                            <input id="star4" name="soz_1" type="radio" value="4" checked="checked" class="radio-btn hide" />
                                             <label for="star4" onclick="removeComment(1)">☆</label>
                                             <input id="star3" name="soz_1" type="radio" value="3" class="radio-btn hide" />
                                             <label for="star3" onclick="removeComment(1)">☆</label>
@@ -95,20 +131,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="starbox_1"></div>
-                            {{!-- Wird bei einem Stern hinzugefügt
-                            <div class="form-row mb-0" id="startbox_1">
-                                <div class="form-group col-md-6 border mb-0 px-0">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text no-border">Brgründung:</span>
-                                        </div>
-                                        <textarea class="form-control no-border" type="text" name="kommentar" id="kommentar" placeholder="..." rows="1"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-2 border ml-0 mb-0"></div>
-                            </div>
-                            --}}
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
                                     <p class="mb-0 ml-3">2. Du bist hilfsbereit.</p>
@@ -634,4 +656,5 @@
                 </form>
             </div>
         </div>
-    </div>
+</body>
+</html>

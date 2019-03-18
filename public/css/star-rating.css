@@ -66,3 +66,7 @@
     color: #FFD700;
 }
 
+input[readonly] {
+    background-color: white;
+}
+  

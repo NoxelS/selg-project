@@ -32,6 +32,8 @@
     "nodemailer": "^4.7.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "phantom-html2pdf": "^4.0.1",
+    "phantomjs": "^2.1.7",
     "template-pdf-generator": "^1.0.2"
   },
   "devDependencies": {
