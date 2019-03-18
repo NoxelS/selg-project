@@ -341,6 +341,43 @@ router.get("/delete_schueler", userHasAdminPermission(), function(
   res.render("schueler_delete", handlebars_presettings);
 });
 
+router.get("/announcement", userHasAdminPermission(), function(req,res,next){
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Admintool",
+    icon_cards: false,
+    location: "Neue Ankündigung"
+  };
+
+
+  res.render("announcement/new", handlebars_presettings);
+});
+
+router.post("/new_announcement", userHasAdminPermission(), function(req,res,next){
+
+   const author_name = (res.locals.fullname[0]+" "+res.locals.fullname[1]);
+   const author_id = res.locals.user_id;
+   const datum =   datetime.create().format("Y-m-d H:M:S");
+   const display_date = datetime.create().format("d.m.Y H:M:S");
+   const message = req.body.message;
+   const zielgruppe = req.body.zielgruppe;
+ 
+   var db = require("../db.js");
+ 
+   db.query(
+     "INSERT INTO `selg_schema`.`announcement_db` (`author_name`, `author_id`, `datum`, `display_date`, `message`, `zielgruppe`) VALUES (?, ?, ?, ?, ?, ?);",
+     [author_name, author_id, datum, display_date, message, zielgruppe],
+     function(err, result, fields) {
+       if (err) {
+         return next(new Error(err.message));
+       } else {
+        console.log(`[NEW ANKÜNDIGUNG] from ${author_name}: ${message}`);
+        res.redirect("/");
+       }
+     }
+   );
+});
+
 passport.serializeUser(function(user_id, done) {
   done(null, user_id);
 });

@@ -72,7 +72,8 @@ app.engine(
       genSearchResult: require("./helpers/genSearchTable"),
       genFachlehrerLastBewertungen: require("./helpers/genFachlehrerLastBewertungen"),
       ifEqual: require("./helpers/conditionalHelper"),
-      calcRows: require("./helpers/calcRows")
+      calcRows: require("./helpers/calcRows"),
+      formatAnnouncements: require("./helpers/formatAnnouncements")
     }
   })
 );
@@ -181,6 +182,7 @@ app.use((req, res, next) => {
   if (res.locals.isAuthenticated) {
     res.locals.user_id = req.user.user_id;
     const db = require("./db");
+
     db.query(
       "SELECT * FROM user_db WHERE id = ?",
       [res.locals.user_id],
@@ -214,12 +216,42 @@ app.use((req, res, next) => {
                 return next(new Error(err.message));
               } else {
                 res.locals.meineKurse = result;
-                next();
+
+
+
+                  // Sucht alle momentanen Ankündigungen für alle drei Arten von Benutzern
+                  if(res.locals.permission === "fachlehrer"){
+                  db.query(
+                     "SELECT * FROM announcement_db WHERE (zielgruppe = 'Fachlehrer' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle') AND NOT ( datum < NOW() - INTERVAL 30 DAY);",
+                     (error, results, fields) => {
+                      if(error) return next(new Error(error.message));
+                      res.locals.announcements_count = results.length;
+                      res.locals.announcements = results;
+                      next();
+                  });
+                  }else if(res.locals.permission === "tutor"){
+                    db.query(
+                      "SELECT * FROM announcement_db WHERE zielgruppe = 'Tutoren' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle';",
+                      (error, results, fields) => {
+                        if(error) return next(new Error(error.message));
+                        res.locals.announcements_count = results.length;
+                        res.locals.announcements = results;
+                        next();
+                   });
+                  }
               }
             }
           );
         }else{
-          next();
+          // Sucht nach Ankündigungen für Administratoren
+          db.query(
+            "SELECT * FROM announcement_db WHERE zielgruppe = 'Administratoren' OR zielgruppe = 'Fachlehrer und Tutoren' OR zielgruppe = 'Alle';",
+            (error, results, fields) => {
+              if(error) return next(new Error(error.message));
+              res.locals.announcements = results;
+              res.locals.announcements_count = results.length;
+              next();
+         });
         }
       }
     );

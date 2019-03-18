@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="container-fluid border">
+        <br>
+        <div class="container-fluid">
+            <div class="card-header" style="background-color: #e9ecef;">
+                Neue Ankündigung erstellen
+            </div>
+            <br>
+            <div class="card card-body">
+                <form action="/admin/new_announcement" method="post" autocomplete="off">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Nachricht</label>
+                        <div class="form-label-group">
+                            <input type="message" id="message" name="message" class="form-control"
+                                placeholder="Nachricht" required="required" maxlength="250" autofocus="autofocus">
+                            <label for="message">Nachricht</label>
+                        </div>
+                    </div>
+  
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Sichtbar für:</label>
+                        <select class="form-control" id="zielgruppe" name="zielgruppe">
+                            <option>Fachlehrer</option>
+                            <option>Tutoren</option>
+                            <option>Administratoren</option>
+                            <option>Fachlehrer und Tutoren</option>
+                            <option>Alle</option>
+                        </select>
+                    </div>
+                    <button type="submit" value="Submit" class="btn btn-primary">Ankündigung erstellen</button>
+                    <br>
+
+                </form>
+            </div>
+
+
+
+        </div>
+    </div>
