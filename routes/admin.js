@@ -147,25 +147,6 @@ router.post("/create_kurs", userHasAdminPermission(), function(req, res, next) {
   );
 });
 
-// TMP SCRIPT
-router.get("/bock", userHasAdminPermission(), function(req, res, next) {
-  var db = require("../db");
-  var erster_schueler = 150;
-  var id_kurs = 35;
-  
-  for(var id_schueler = erster_schueler; id_schueler <= erster_schueler+30; id_schueler++){
-    db.query(
-      "INSERT INTO `selg_schema`.`schueler_kurs_link` (`id_schueler`, `id_kurs`) VALUES (?, ?);",
-      [id_schueler, id_kurs],
-      function(err, result) {
-        if (err) return next(new Error(err.message));
-        console.log(result);
-      }
-    );
-  }
-
-});
-
 router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
   // Check Password Match
   if (req.body.password !== req.body.password_re)

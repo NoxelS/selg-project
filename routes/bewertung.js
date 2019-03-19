@@ -107,7 +107,6 @@ router.post("/neu", function(req, res, next) {
           }
         }
         */
-        console.log(req.body)
       
         db.query(
           "INSERT INTO `selg_schema`.`bewertungen_db` "
@@ -190,30 +189,26 @@ router.get("/download=:id", function(req, res, next) {
     });
 
 
-    var temp = fs.readFileSync('./views/bewertungen/view_pdf.hbs','utf8');
-    if (err) throw err;
+    //var temp = fs.readFileSync('./views/bewertungen/view_pdf.hbs','utf8');
+    fs.readFile('./views/bewertungen/view_pdf.hbs','utf8', (err, temp) => {
+      if (err) return next(new Error("Fehler beim Download..."+err.message));
+      let template = Handlebars.compile(temp);
 
-    let template = Handlebars.compile(temp);
-
-    var pdfOptions = {
-      html: template(bewertung_presetting[0]),
-      paperSize: {
-        format: 'A4',
-        orientation: 'portrait',
-        border: '1cm'
-      }
-    };
-  
-    pdf.convert(pdfOptions, function(err, result) {
-      result.toFile(__dirname+"/SELG-Protokoll.pdf", function() {
-        console.log('Done');
-        var file = __dirname + '/SELG-Protokoll.pdf';
-        res.download(file); // Set disposition and send it.
+      var pdfOptions = {
+        html: template(bewertung_presetting[0]),
+        paperSize: {
+          format: 'A4',
+          orientation: 'portrait',
+          border: '1cm'
+        }
+      };
+      pdf.convert(pdfOptions, function(err, result) {
+        result.toFile(__dirname+"/SELG-Protokoll.pdf", function() {
+          var file = __dirname + '/SELG-Protokoll.pdf';
+          res.download(file); // Set disposition and send it.
+        });
       });
-    });
-  
-
-    
+    });  
   });
 });
 
@@ -241,9 +236,6 @@ router.get("/view=:id", function(req, res, next) {
       }
 
       handlebars_presettings.json = JSON.stringify(result);
-      console.log(handlebars_presettings);
-      console.log(['a', 'aa', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'aa', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'].length);
-
       res.render("bewertungen/view", handlebars_presettings)
     }
   });
