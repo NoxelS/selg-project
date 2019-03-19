@@ -19,7 +19,7 @@
             padding: 0px;
             color: black;
             font-family: arial;
-
+            font-weight: 100;
         }
 
         .main {
@@ -103,36 +103,40 @@
             height: 80px;
             width: 90px;
             position: fixed;
-            top: 0px;
+            top: 9px;
             right: 10px;
         }
 
         .sozialverhalten-tabelle {
             border: 0.1em solid black;
+            border-color: rgba(0, 0, 0, 0.8);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            font-weight: 100;
         }
 
         .table-title {
             text-align: left;
             font-size: 18px;
-            padding: 28px 28px 28px 28px;
-            width: 300px;
+            /* top | right | bottom | left */
+            padding: 28px 28px 28px 40px;
+            width: 350px;
         }
 
         td,
         tr,
         th {
             border: 0.1em solid black;
+            border-color: rgba(0, 0, 0, 0.35);
             padding: 2px 2px 2px 2px;
         }
 
         .star {
             vertical-align: bottom;
-            width: 30px;
+            width: 25px;
             height: 74px;
         }
 
@@ -144,8 +148,54 @@
             padding: 0px 10px 0px 10px
         }
 
-        .kreuz{
+        .kreuz {
             text-align: center;
+        }
+
+
+        hr.style1 {
+            border-top: 1px solid rgba(0, 0, 0, 0.5);
+        }
+
+        
+        .footer{
+            width: 100%;
+            height: 50px;
+            font-size: x-small;
+            color: rgba(0, 0, 0, 0.75);
+            float: left;
+        }
+        .footer-stars{
+            float: left;
+            bottom: 0px;
+            left: 0px;
+            width: 50px;
+            text-align: right;
+            color: #FFD700;
+        }
+        .footer-bewertung{
+            float: left;
+            padding-left: 20px;
+            bottom: 0px;
+            left: 50px;
+            width: 70px;
+            text-align: left;
+        }
+        .footer-erklaerung{
+            float: left;
+            bottom: 0px;
+            left: 120px;
+            width: 450px;
+            text-align: left;
+        }
+        .clear { clear: both; }
+
+        .eingerueck{
+            text-indent: 35px;
+        }
+
+        p{
+            font-weight: 100;
         }
     </style>
 </head>
@@ -157,7 +207,7 @@
         <h3 class="text-center" style="text-align: center; padding: 0px; margin: 5px; margin-bottom: 10px;"><b>Protokoll
                 vom {{date}}</b></h3>
         <p class="text-center" style="text-align: center; padding: 0px; margin: 5px;">Name der Schülerin / des Schülers:
-            {{ schueler_name }}, Klasse: 9a{{!--@TODO--}}</p></br>
+            {{ schueler_name }}, Klasse: 9a{{!--@TODO--}}</p>
         <div class="img-header mt-0">
             <img style="height: 80px; width: auto;"
                 src="https://ganztagsschule.bildung-rp.de/typo3temp/pics/880768783a.jpeg">
@@ -193,67 +243,64 @@
                             <tr>
                                 <td><span class="zahl">1.</span> Du bist anderen gegenüber höflich, rücksichts- und
                                     respektvoll.</td>
-                                <td>&#215;</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td class="kreuz">{{#ifEqual soz_1 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_1 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_1 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_1 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
                                 <td><span class="zahl">2.</span> Du bist hilfsbereit.</td>
-                                <td></td>
-                                <td class="kreuz">&#215;</td>
-                                <td></td>
-                                <td></td>
+                                <td class="kreuz">{{#ifEqual soz_2 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_2 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_2 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_2 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
                                 <td><span class="zahl">3.</span> Du kannst Kritik annehmen und umsetzen.</td>
-                                <td class="kreuz">&#215;</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td class="kreuz">{{#ifEqual soz_3 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_3 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_3 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_3 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">4.</span> Du bist anderen gegenüber höflich, rücksichts- und
-                                    respektvoll</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td class="kreuz">&#215;</td>
+                                <td><span class="zahl">4.</span> Du zeigst dich gegenüber fremdem Eigentum achtsam.</td>
+                                <td class="kreuz">{{#ifEqual soz_4 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_4 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_4 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_4 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td class="no-border"><span class="zahl">5.</span> Du bist anderen gegenüber höflich,
-                                    rücksichts- und respektvoll</td>
+                                <td class="no-border"><span class="zahl">5.</span> Du hälst dich an die vereinbarten ...</td>
                                 <td class="no-border"></td>
                                 <td class="no-border"></td>
                                 <td class="no-border"></td>
                                 <td class="no-border"></td>
                             </tr>
                             <tr>
-                                <td stlye="padding-left: 50px;">Gesprächsregeln.</td>
-                                <td></td>
-                                <td class="kreuz">&#215;</td>
-                                <td></td>
-                                <td></td>
+                                <td class="eingerueck">Gesprächsregeln.</td>
+                                <td class="kreuz">{{#ifEqual soz_5_1 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_5_1 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_5_1 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_5_1 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td stlye="padding-left: 50px;">Schulregeln.</td>
-                                <td class="kreuz">&#215;</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td  class="eingerueck">Schulregeln.</td>
+                                <td class="kreuz">{{#ifEqual soz_5_2 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_5_2 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_5_2 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_5_2 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">6.</span> Du bist anderen gegenüber höflich, rücksichts- und
-                                    respektvoll</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td class="kreuz">&#215;</td>
+                                <td><span class="zahl">6.</span> Du trägst mit deinem Verhalten zur guten Gemeinschaft bei.</td>
+                                <td class="kreuz">{{#ifEqual soz_6 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_6 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_6 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual soz_6 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <br><br>
+                    <br>
 
                     <table class="sozialverhalten-tabelle">
                         <thead>
@@ -267,99 +314,114 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span class="zahl">1.</span> Du bist anderen gegenüber höflich, rücksichts- und
-                                    respektvoll.</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
+                                <td><span class="zahl">1.</span> Du erscheinst pünktlich zum Unterricht.</td>
+                                <td class="kreuz">{{#ifEqual lear_1 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_1 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_1 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_1 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">2.</span> Du bist hilfsbereit.</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
+                                <td><span class="zahl">2.</span> Du sorgst für vollstädige Arbeitsmaterialien.</td>
+                                <td class="kreuz">{{#ifEqual lear_2 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_2 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_2 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_2 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">3.</span> Du kannst Kritik annehmen und umsetzen.</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
+                                <td><span class="zahl">3.</span> Du bsit zuverlässig und organisierst dich selbst.</td>
+                                <td class="kreuz">{{#ifEqual lear_3 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_3 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_3 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_3 1}}&#215;{{/ifEqual}}</td>
+                            <tr>
+                                <td><span class="zahl">4.</span> Du arbeitest konzentriert und folgst dem Unterricht aufmerksam.</td>
+                                <td class="kreuz">{{#ifEqual lear_4 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_4 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_4 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_4 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">4.</span> Du bist anderen gegenüber höflich, rücksichts- und
-                                    respektvoll</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
+                                <td><span class="zahl">5.</span> Dein Arbeitstempo ist angemessen.</td>
+                                <td class="kreuz">{{#ifEqual lear_5 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_5 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_5 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_5 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">6.</span> Du bist anderen gegenüber höflich, rücksichts- und
-                                    respektvoll</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
+                                <td><span class="zahl">6.</span> Du bist lernbereit und lässt dich nicht schnell entmutigen.</td>
+                                <td class="kreuz">{{#ifEqual lear_6 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_6 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_6 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_6 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">7.</span> Du bist anderen gegenüber höflich, rücksichts- und
-                                    respektvoll</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
+                                <td><span class="zahl">7.</span> Du hälst die vereinbarten Regeln zur Heftführung bei.</td>
+                                <td class="kreuz">{{#ifEqual lear_7 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_7 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_7 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_7 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">8.</span> Du bist anderen gegenüber höflich, rücksichts- und
-                                    respektvoll</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
+                                <td><span class="zahl">8.</span> Du beteiligst dich aktiv am Unterrichtsgeschehen.</td>
+                                <td class="kreuz">{{#ifEqual lear_8 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_8 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_8 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_8 1}}&#215;{{/ifEqual}}</td>
                             </tr>
 
                             <tr>
-                                <td class="no-border"><span class="zahl">9.</span> Du bist anderen gegenüber höflich,
-                                    rücksichts- und respektvoll</td>
+                                <td class="no-border"><span class="zahl">9.</span> Du arbeitest eigenverantwortlich und selbstbestimmt in Phasen <span class="eingerueck">der...</span></td>
                                 <td class="no-border"></td>
                                 <td class="no-border"></td>
                                 <td class="no-border"></td>
                                 <td class="no-border"></td>
                             </tr>
                             <tr>
-                                <td stlye="padding-left: 50px;">Gesprächsregeln.</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
+                                <td class="eingerueck"><b>Einzelarbeit</b></td>
+                                <td class="kreuz">{{#ifEqual lear_9_1 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_9_1 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_9_1 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_9_1 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td stlye="padding-left: 50px;">Schulregeln.</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
+                                <td class="eingerueck"><b>Partnerarbeit</b></td>
+                                <td class="kreuz">{{#ifEqual lear_9_2 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_9_2 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_9_2 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_9_2 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td stlye="padding-left: 50px;">Schulregeln.</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
+                                <td class="eingerueck"><b>Gruppenarbeit</b></td>
+                                <td class="kreuz">{{#ifEqual lear_9_3 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_9_3 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_9_3 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_9_3 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">10.</span> Du bist anderen gegenüber höflich, rücksichts- und
-                                    respektvoll</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
-                                <td>x</td>
+                                <td><span class="zahl">10.</span> Du fertigst deine Hausaufgaben regelmäßig an.</td>
+                                <td class="kreuz">{{#ifEqual lear_10 4}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_10 3}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_10 2}}&#215;{{/ifEqual}}</td>
+                                <td class="kreuz">{{#ifEqual lear_10 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                         </tbody>
                     </table>
+                    
+                    <br>
+                    <hr class="style1">
+                    <div class="footer">
+                        
+                        <div class="footer-stars">
+                            ★★★★<br>★★★<br>★★<br>★
+                        </div>
+                        <div class="footer-bewertung">
+                            prima:<br>meist:<br>teilweise:<br>zu wenig:
+                        </div>
+                        <div class="footer-erklaerung">
+                            Du machst es hervorragend.<br>Es gelingt dir häufig.<br>Es gelingt dir manchmal. Du brauchst noch Erinnerung.<br>Du musst noch viel üben und brauchst noch sehr oft Hilfe.
+                        </div>
+                        <div class="clear"></div>
+                    </div>
 
                     <!--
 
