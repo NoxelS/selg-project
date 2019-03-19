@@ -1,0 +1,21 @@
+<div id="overlay">
+    <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Willkommen zum SELG-Fachlehrertool</div>
+      <div class="card-body">
+        <form action="/tutorial/cancel" method="post" autocomplete="off">
+          
+            <div class="form-group">
+                <p>
+                    Hallo {{genDisplayName fullname}}, ich sehe Sie nutzen das SELG-Tool das erste Mal.
+                    Möchten Sie eine Einführung starten, um mit dem Programm vertraut zu werden?
+                </p>
+            </div>
+            <div class="mx-auto">
+                <a onclick="startTutorial();" class="btn btn-primary text-light">Einführung beginnen</a>
+                <button value="cancel" class="btn btn-primary text-light">Nein danke</button>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>

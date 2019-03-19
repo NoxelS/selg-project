@@ -35,9 +35,15 @@
         {{#if icon_cards}}
           {{> iconcards/basic}}
         {{/if}}   
-        --}}     
+        --}}   
+
         {{{ body }}}
         {{> sticky/footer}}
+
+                
+        {{#if tutorial}}
+          {{> tutorial/fachlehrer}}
+        {{/if}}
       </div>
     </div>
     {{!-- END OF MAIN WRAPPER --}}

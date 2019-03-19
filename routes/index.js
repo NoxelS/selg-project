@@ -63,7 +63,7 @@ router.get("/", function(req, res, next) {
   } else if(res.locals.permission === "fachlehrer"){
     var db = require('../db.js')
     var Handlebars = require('handlebars');
-    db.query('SELECT * FROM (SELECT * FROM bewertungen_db WHERE lehrer_id = (?) ORDER BY id DESC LIMIT 25) sub ORDER BY id DESC', [res.locals.user_id], function(err, last_bewertungen) {
+    db.query('SELECT * FROM (SELECT * FROM bewertungen_db WHERE lehrer_id = (?) ORDER BY id DESC LIMIT 10) sub ORDER BY id DESC', [res.locals.user_id], function(err, last_bewertungen) {
       if (err){ 
         return next(new Error(err.message)) 
       }else if(last_bewertungen.length === 0){
@@ -136,6 +136,14 @@ router.post("/search", function(req, res, next) {
   res.redirect("/search="+req.body.nametofind);    
 });
 
+router.post("/tutorial/cancel", function(req, res, next){
+  const db = require("../db")
+  db.query("UPDATE `selg_schema`.`user_db` SET `hasDoneTutorial` = '1' WHERE (`id` = ?);", [res.locals.user_id], (result, err) =>{
+    if(err) console.log(err);
+    res.redirect("/")
+  })
+});
+
 router.get("/search=:nametofind", function(req, res, next) {
   var handlebars_presettings = {
     layout: res.locals.permission,
@@ -180,7 +188,6 @@ router.get("/search=:nametofind", function(req, res, next) {
       }else{
         db.query("SELECT id_schueler FROM schueler_kurs_link WHERE id_kurs IN (SELECT id FROM kurs_db WHERE lehrer_id = ?)",[res.locals.user_id], function(err, result) {
           if (err) return next(new Error(err.message));
-          if(result.length === 0) next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
           for(var i = 0; i < handlebars_presettings.schueler_gefunden.length ; i++){
             for(var k = 0; k < result.length; k++){
               if(handlebars_presettings.schueler_gefunden[i].id === result[k].id_schueler){
@@ -188,8 +195,8 @@ router.get("/search=:nametofind", function(req, res, next) {
               }
             }
           }
-          if(handlebars_presettings.result.length === 0){
-            next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden.")); 
+          if(handlebars_presettings.result.length === 0 || result.length === 0){
+            return next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden.")); 
           }else{
             handlebars_presettings.resultLength = handlebars_presettings.result.length;
             handlebars_presettings.result = handlebars_presettings.result.sort( (a,b) => {return a.id - b.id});

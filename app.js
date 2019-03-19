@@ -184,14 +184,25 @@ app.use((req, res, next) => {
     res.locals.user_id = req.user.user_id;
     const db = require("./db");
 
+    // @TODO
+    res.locals.tutorial = true;
+
     db.query(
       "SELECT * FROM user_db WHERE id = ?",
       [res.locals.user_id],
       (error, results, fields) => {
-        if (error) throw new Error(error.message);
+        if (error) return next(new Error(error.message));
         res.locals.permission = results[0].permission_flag;
         res.locals.username = results[0].username;
         res.locals.fullname = [results[0].vorname,results[0].nachname];
+
+        // Schaut ob der Nutzer die Einführung absolviert hat, wenn nicht wird ein Tutorial auf der Hauptseite angezeigt
+        if(results[0].hasDoneTutorial){
+          res.locals.tutorial = false;
+        }else{
+          res.locals.tutorial = true;
+        }
+
         console.log(
           [
             datetime.create().format("m/d/Y H:M:"),
@@ -217,8 +228,6 @@ app.use((req, res, next) => {
                 return next(new Error(err.message));
               } else {
                 res.locals.meineKurse = result;
-
-
 
                   // Sucht alle momentanen Ankündigungen für alle drei Arten von Benutzern
                   if(res.locals.permission === "fachlehrer"){
@@ -261,11 +270,11 @@ app.use((req, res, next) => {
   }
 });
 
-// /login can be visited wihout session
+// Login kann als einzige Seite ohne Session betreten werden
 app.use("/login", loginRouter);
 app.use(authenticationMiddleware());
 
-// further access is only granted when a permission_flag is set
+// Weiterer Zugriff wird nur gewährt, wenn der Nutzer angemeldet ist und eine gültige Session vorweisen kann
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/error", errorRouter);
@@ -274,6 +283,7 @@ app.use("/logout", logoutRouter);
 app.use("/kurs", kursRouter);
 app.use("/bewertung", bewertungRouter);
 
+// Middlewear um sich anzumelden
 passport.use(
   new LocalStrategy(function(username, password, done) {
     const db = getDB();
