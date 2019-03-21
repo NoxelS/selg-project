@@ -33,7 +33,6 @@ var sessionStore = new MySQLStore({
   password: "password",
   database: "selg_schema",
   insecureAuth : true
-  */
   
  host: "185.233.105.88",
  port: "3306",
@@ -41,6 +40,7 @@ var sessionStore = new MySQLStore({
  password: "password",
  database: "selg_schema",
  insecureAuth : true
+ 
 });
 
 var staticLogger = require("./log/statistic-logger");
@@ -161,8 +161,8 @@ app.use(
     store: sessionStore,
     saveUninitialized: false,
     cookie: {
-      maxAge: 1000 * 60 * 60
-    } /* Ein Nutzer bleibt maximal eine stunde eingeloggt */
+      maxAge: 1000 * 60 * 60 * 24
+    } /* Ein Nutzer bleibt maximal einen Tag eingeloggt */
   })
 );
 app.use(passport.initialize());
@@ -179,7 +179,6 @@ function authenticationMiddleware() {
 // Setting locals
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
-
   if (res.locals.isAuthenticated) {
     res.locals.user_id = req.user.user_id;
     const db = require("./db");
@@ -195,6 +194,9 @@ app.use((req, res, next) => {
         res.locals.permission = results[0].permission_flag;
         res.locals.username = results[0].username;
         res.locals.fullname = [results[0].vorname,results[0].nachname];
+        res.locals.vorname = results[0].vorname;
+        res.locals.nachname = results[0].nachname;
+        res.locals.url = req.originalUrl; // Url wird benutzt um bei einem 404 Error anzuzeigen, welche Seite es nicht gibt
 
         // Schaut ob der Nutzer die Einführung absolviert hat, wenn nicht wird ein Tutorial auf der Hauptseite angezeigt
         if(results[0].hasDoneTutorial){
@@ -228,7 +230,7 @@ app.use((req, res, next) => {
                 return next(new Error(err.message));
               } else {
                 res.locals.meineKurse = result;
-
+                res.locals.kure_count = result.length;
                   // Sucht alle momentanen Ankündigungen für alle drei Arten von Benutzern
                   if(res.locals.permission === "fachlehrer"){
                   db.query(

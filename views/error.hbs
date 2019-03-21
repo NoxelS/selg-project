@@ -2,7 +2,7 @@
   <h5 class="card-header">{{#if error.message }} Error {{else}} Error 404 {{/if}}</h5>
   <div class="card-body">
     <h5 class="card-title">Es ist ein Fehler aufgetreten.</h5>
-    <p class="card-text">{{#if error.message }} {{error.message}} {{else}}Die Seite die Sie suchen gibt es nicht.{{/if}} </p>
+    <p class="card-text">{{#if error.message }} {{error.message}} {{else}}Die Seite "{{url}}" gibt es leider nicht.{{/if}} </p>
 
     {{!-- Wenn kein 404 error: Button zum report senden --}}
     {{#if error.message }}

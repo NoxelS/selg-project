@@ -78,6 +78,7 @@ router.get("/", function(req, res, next) {
         row += `<td> ${last_bewertungen[i].schueler_name}</td>`;
         row += `<td> ${last_bewertungen[i].date}</td>`;
         row += `<td><a href="/bewertung/view=${last_bewertungen[i].id}"><i class="fas fa-search"></i></a></td>`;
+        row += `<td><a href="/bewertung/download=${last_bewertungen[i].id}"><i class="fas fa-download"></i></a></td>`;
         table += row + "</tr>";
       }
       handlebars_presettings.last_bewertungen = new Handlebars.SafeString(table);
@@ -85,8 +86,8 @@ router.get("/", function(req, res, next) {
       res.render("index_fachlehrer", handlebars_presettings);
       }
     });
-  }else {
-    res.render("index", handlebars_presettings);
+  }else if(res.locals.permission === "tutor") {
+    res.render("index/tutor", handlebars_presettings);
   }
 });
 

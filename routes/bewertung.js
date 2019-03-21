@@ -193,18 +193,18 @@ router.get("/download=:id", function(req, res, next) {
     fs.readFile('./views/bewertungen/view_pdf.hbs','utf8', (err, temp) => {
       if (err) return next(new Error("Fehler beim Download..."+err.message));
       let template = Handlebars.compile(temp);
-
       var pdfOptions = {
         html: template(bewertung_presetting[0]),
         paperSize: {
           format: 'A4',
           orientation: 'portrait',
-          border: '1cm'
+          border: '1cm',
+          deleteOnAction: true
         }
       };
       pdf.convert(pdfOptions, function(err, result) {
-        result.toFile(__dirname+"/SELG-Protokoll.pdf", function() {
-          var file = __dirname + '/SELG-Protokoll.pdf';
+        result.toFile(__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf", function() {
+          var file =__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf";
           res.download(file); // Set disposition and send it.
         });
       });

@@ -13,19 +13,29 @@
     <style>
         html,
         body {
+            top: 0px;
+            left: 0px;
             width: 0px;
             height: 0px;
             margin: 0px;
             padding: 0px;
             color: black;
-            font-family: arial;
+            font-family: 'Arimo', sans-serif;
             font-weight: 100;
+
+            transform-origin: 0 0; 
+            -webkit-transform-origin: 0 0; 
+            transform: scale(0.84); 
+            -webkit-transform: scale(0.84);
         }
 
         .main {
-            width: 640px;
+            top: 0px;
+            margin: 0px;
+            width: 690px;
             padding: 0px;
             margin-left: 1cm;
+            margin-right: 1cm;
         }
 
         .rating-text {
@@ -136,7 +146,7 @@
 
         .star {
             vertical-align: bottom;
-            width: 25px;
+            width: 15px;
             height: 74px;
         }
 
@@ -157,19 +167,20 @@
             border-top: 1px solid rgba(0, 0, 0, 0.5);
         }
 
-        hr.style2{
+        hr.style2 {
             border-top: 1px solid rgba(0, 0, 0, 0.9);
         }
 
-        
-        .footer{
+
+        .footer {
             width: 100%;
             height: 50px;
             font-size: x-small;
             color: rgba(0, 0, 0, 0.75);
             float: left;
         }
-        .footer-stars{
+
+        .footer-stars {
             float: left;
             bottom: 0px;
             left: 0px;
@@ -177,7 +188,8 @@
             text-align: right;
             color: #FFD700;
         }
-        .footer-bewertung{
+
+        .footer-bewertung {
             float: left;
             padding-left: 20px;
             bottom: 0px;
@@ -185,31 +197,37 @@
             width: 70px;
             text-align: left;
         }
-        .footer-erklaerung{
+
+        .footer-erklaerung {
             float: left;
             bottom: 0px;
             left: 120px;
             width: 450px;
             text-align: left;
         }
-        .clear { clear: both; }
 
-        .eingerueck{
+        .clear {
+            clear: both;
+        }
+
+        .eingerueck {
             text-indent: 35px;
         }
 
-        p{
+        p {
             font-weight: 100;
         }
 
-        .Zielvereinabrungen{
+        .Zielvereinabrungen {
             /*margin: 10px 10px 10px 10px;*/
             padding: 10px 10px 10px 10px;
             border: 3px solid rgba(0, 0, 0, 0.8);
             border-radius: 5px;
         }
 
-        .u{
+        .u {
+            padding: 0px;
+            margin-bottom: 0px;
             margin-left: 15px;
             width: 100%;
             height: 50px;
@@ -219,26 +237,26 @@
         }
 
 
-        #u1{
+        #u1 {
             float: left;
             width: 40%;
             border-top: 1px solid black;
         }
 
-        #u2{
+        #u2 {
             float: left;
             width: 40%;
             border-top: 1px solid black;
             margin-left: 100px;
         }
 
-        #u3{
+        #u3 {
             float: left;
             width: 40%;
             border-top: 1px solid black;
         }
 
-        #u4{
+        #u4 {
             float: left;
             width: 40%;
             border-top: 1px solid black;
@@ -264,7 +282,7 @@
         <div class="container-fluid">
             <div class="container-fluid mb-3">
                 <div class="container-fluid">
-                    <p style="line-height: 130%; font-size: 15px;">
+                    <p style="line-height: 130%; font-size: 15px; margin-top: 30px;">
                         In einem verbindlichen Gespräch zwischen Schüler/in, Eltern und Tutoren
                         werden Lernentwicklung und Leistungsstand gewürdigt.
                         Eine gemeinsame Zielvereinbarung kann die Weiterentwicklung in der Schule
@@ -317,7 +335,8 @@
                                 <td class="kreuz">{{#ifEqual soz_4 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td class="no-border"><span class="zahl">5.</span> Du hälst dich an die vereinbarten ...</td>
+                                <td class="no-border"><span class="zahl">5.</span> Du hälst dich an die vereinbarten ...
+                                </td>
                                 <td class="no-border"></td>
                                 <td class="no-border"></td>
                                 <td class="no-border"></td>
@@ -331,14 +350,15 @@
                                 <td class="kreuz">{{#ifEqual soz_5_1 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td  class="eingerueck">Schulregeln.</td>
+                                <td class="eingerueck">Schulregeln.</td>
                                 <td class="kreuz">{{#ifEqual soz_5_2 4}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual soz_5_2 3}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual soz_5_2 2}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual soz_5_2 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">6.</span> Du trägst mit deinem Verhalten zur guten Gemeinschaft bei.</td>
+                                <td><span class="zahl">6.</span> Du trägst mit deinem Verhalten zur guten Gemeinschaft
+                                    bei.</td>
                                 <td class="kreuz">{{#ifEqual soz_6 4}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual soz_6 3}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual soz_6 2}}&#215;{{/ifEqual}}</td>
@@ -381,7 +401,8 @@
                                 <td class="kreuz">{{#ifEqual lear_3 2}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual lear_3 1}}&#215;{{/ifEqual}}</td>
                             <tr>
-                                <td><span class="zahl">4.</span> Du arbeitest konzentriert und folgst dem Unterricht aufmerksam.</td>
+                                <td><span class="zahl">4.</span> Du arbeitest konzentriert und folgst dem Unterricht
+                                    aufmerksam.</td>
                                 <td class="kreuz">{{#ifEqual lear_4 4}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual lear_4 3}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual lear_4 2}}&#215;{{/ifEqual}}</td>
@@ -395,14 +416,16 @@
                                 <td class="kreuz">{{#ifEqual lear_5 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">6.</span> Du bist lernbereit und lässt dich nicht schnell entmutigen.</td>
+                                <td><span class="zahl">6.</span> Du bist lernbereit und lässt dich nicht schnell
+                                    entmutigen.</td>
                                 <td class="kreuz">{{#ifEqual lear_6 4}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual lear_6 3}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual lear_6 2}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual lear_6 1}}&#215;{{/ifEqual}}</td>
                             </tr>
                             <tr>
-                                <td><span class="zahl">7.</span> Du hälst die vereinbarten Regeln zur Heftführung bei.</td>
+                                <td><span class="zahl">7.</span> Du hälst die vereinbarten Regeln zur Heftführung bei.
+                                </td>
                                 <td class="kreuz">{{#ifEqual lear_7 4}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual lear_7 3}}&#215;{{/ifEqual}}</td>
                                 <td class="kreuz">{{#ifEqual lear_7 2}}&#215;{{/ifEqual}}</td>
@@ -417,7 +440,8 @@
                             </tr>
 
                             <tr>
-                                <td class="no-border"><span class="zahl">9.</span> Du arbeitest eigenverantwortlich und selbstbestimmt in Phasen <span class="eingerueck">der...</span></td>
+                                <td class="no-border"><span class="zahl">9.</span> Du arbeitest eigenverantwortlich und
+                                    selbstbestimmt in Phasen <span class="eingerueck">der...</span></td>
                                 <td class="no-border"></td>
                                 <td class="no-border"></td>
                                 <td class="no-border"></td>
@@ -453,11 +477,11 @@
                             </tr>
                         </tbody>
                     </table>
-                    
+
                     <br>
-                    <hr class="style1">
+                    <hr class="style1" style="margin-top: 55px;">
                     <div class="footer">
-                        
+
                         <div class="footer-stars">
                             ★★★★<br>★★★<br>★★<br>★
                         </div>
@@ -465,7 +489,8 @@
                             prima:<br>meist:<br>teilweise:<br>zu wenig:
                         </div>
                         <div class="footer-erklaerung">
-                            Du machst es hervorragend.<br>Es gelingt dir häufig.<br>Es gelingt dir manchmal. Du brauchst noch Erinnerung.<br>Du musst noch viel üben und brauchst noch sehr oft Hilfe.
+                            Du machst es hervorragend.<br>Es gelingt dir häufig.<br>Es gelingt dir manchmal. Du brauchst
+                            noch Erinnerung.<br>Du musst noch viel üben und brauchst noch sehr oft Hilfe.
                         </div>
                         <div class="clear"></div>
                     </div>
