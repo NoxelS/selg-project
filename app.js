@@ -48,7 +48,7 @@ var fileLogger = require("./log/file-logger");
 fileLogger.log();
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+var usersRouter = require("./routes/user");
 var loginRouter = require("./routes/login");
 var errorRouter = require("./routes/error");
 var adminRouter = require("./routes/admin");
@@ -278,7 +278,7 @@ app.use(authenticationMiddleware());
 
 // Weiterer Zugriff wird nur gewährt, wenn der Nutzer angemeldet ist und eine gültige Session vorweisen kann
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/user", usersRouter);
 app.use("/error", errorRouter);
 app.use("/admin", adminRouter);
 app.use("/logout", logoutRouter);

@@ -75,7 +75,13 @@ router.get("/", function(req, res, next) {
         var row = "<tr>";
         row += `<td> ${last_bewertungen[i].kurs_name}</td>`;
         row += `<td> ${last_bewertungen[i].leistungsebene}</td>`;
-        row += `<td> ${last_bewertungen[i].schueler_name}</td>`;
+
+        // Um den Namen wird ein Anchor gemacht, damit man auf den Namen klicken kann,
+        // um zusätzliche Informationen über einen Schüler sehen zu können.
+        // Der Style vom Anchor wird dabei zurückgesetzt
+          row += `<td><a style="color: inherit;
+          text-decoration: inherit;" href="/user?name=${last_bewertungen[i].schueler_name.split(" ")[0]+"_"+last_bewertungen[i].schueler_name.split(" ")[1]}">${last_bewertungen[i].schueler_name}<a></td>`;
+        
         row += `<td> ${last_bewertungen[i].date}</td>`;
         row += `<td><a href="/bewertung/view=${last_bewertungen[i].id}"><i class="fas fa-search"></i></a></td>`;
         row += `<td><a href="/bewertung/download=${last_bewertungen[i].id}"><i class="fas fa-download"></i></a></td>`;
