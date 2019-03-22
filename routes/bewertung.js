@@ -205,7 +205,13 @@ router.get("/download=:id", function(req, res, next) {
       pdf.convert(pdfOptions, function(err, result) {
         result.toFile(__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf", function() {
           var file =__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf";
-          res.download(file); // Set disposition and send it.
+          res.download(file, "SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf", (err) => {
+            if(err) return next(new Error(err.message));
+            fs.unlink(__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf",function(err){
+              if(err) return next(new Error(err.message));
+              console.log('\tEine Bewertung von '+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+' wurde erfolgreich exportiert und wieder gelöscht');
+            });  
+          }); 
         });
       });
     });  
