@@ -43,14 +43,33 @@
 
             </div>
         </li>
-        <!-- Nachrichten -->
+         {{! Nachrichten }}
         <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
-                <span class="badge badge-danger">
-                    <!-- Anzahl neuer Nachrichten-->1</span>
+                {{! @TODO}}
+                <!--{{#ifEqual announcements_count 0}}{{else}}<span class="badge badge-danger">{{announcements_count}}{{/ifEqual}}</span>-->
             </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+                <a class="dropdown-item"><span><i class="pull-right"></i><i class="fas fa-envelope fa-fw text-primary"></i> Nachrichten</span></a>
+                <div class="dropdown-divider mb-3"></div>
+                <div class="container" style="width: 35rem; height: auto;">
+                   <div class="list-group">
+                     {{! @TODO}}
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start mb-3">
+                        <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Von Noel Schwabenland</h5>
+                        <small class="text-gray">#1</small>
+                        </div>
+                        <p class="mb-1">Dies ist eine Testnachricht um das Styling zu testen. Im Moment ist es jedoch nicht möglich Nachrichten zu versenden.</p>
+                        <small>21.3.2019 16:12</small>
+                        </a>
+                  </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                 <a class="dropdown-item"><span class="text-muted small"><i class="pull-right"></i>Aktualisiert um {{currentTime}} </span></a>
+            </div>
         </li>
         <!-- Profil -->
         <li class="nav-item dropdown no-arrow">

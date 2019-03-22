@@ -9,7 +9,7 @@ router.get("/", function(req, res, next) {
     title: "SELG-Tool",
     display_name: req.params.name,
     icon_cards: true,
-    location: "Übersicht"
+    location: ""
   };
   if (res.locals.permission === "admin") {
     handlebars_presettings.user_count = 0;
@@ -60,7 +60,7 @@ router.get("/", function(req, res, next) {
         });
       });
     });
-  } else if(res.locals.permission === "fachlehrer"){
+  } else if(res.locals.permission === "fachlehrer" /* @TODO */ || res.locals.permission === "tutor"){
     var db = require('../db.js')
     var Handlebars = require('handlebars');
     db.query('SELECT * FROM (SELECT * FROM bewertungen_db WHERE lehrer_id = (?) ORDER BY id DESC LIMIT 10) sub ORDER BY id DESC', [res.locals.user_id], function(err, last_bewertungen) {
@@ -213,6 +213,25 @@ router.get("/search=:nametofind", function(req, res, next) {
       }
     });
   }
+});
+
+router.get("/klasse", function(req, res, next) {
+  if(res.locals.permission !== "tutor") return next(new Error(""));
+
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    location: "Meine Klasse"
+  };
+
+  const db = require("../db")
+
+  db.query(
+    "SELECT * FROM selg_schema.schueler_db WHERE stufe = ? AND klassen_suffix = ?;", [res.locals.stufe, res.locals.stufe_suffix],
+    (error, result) => {
+     if(error) return next(new Error(error.message));
+     res.locals.meineKlasse = result;
+     res.render("meine_klasse", handlebars_presettings);
+ });
 });
 
 

@@ -33,13 +33,14 @@
 
                         <div class="form-group col-md-2">
                             <label for="permission">Benutzerart</label>
-                            <select name="permission" id="permission" class="form-control">
+                            <select name="permission" id="permission" class="form-control" onmousedown="this.value='';" onchange="changeForm(this.value);">
                                 <option value="fachlehrer" selected> Fachlehrer</option>
                                 <option value="tutor"> Tutor </option>
                                 <option value="admin"> Administrator </option>
                             </select>
                         </div>
                     </div>
+                    <div  id="placeholder"></div>
                     <br>
                     <button type="submit" value="Submit" class="btn btn-primary">Benutzer erstellen</button>
                 </form>
@@ -48,3 +49,5 @@
 
     </div>
 </div>
+
+<script src="/js/user_create.js"></script>

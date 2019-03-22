@@ -74,7 +74,8 @@ app.engine(
       ifEqual: require("./helpers/conditionalHelper"),
       calcRows: require("./helpers/calcRows"),
       formatAnnouncements: require("./helpers/formatAnnouncements"),
-      currentTime: require("./helpers/currentTime")
+      currentTime: require("./helpers/currentTime"),
+      genMeineKlasseTable: require("./helpers/genMeineKlasseTable")
     }
   })
 );
@@ -248,7 +249,14 @@ app.use((req, res, next) => {
                         if(error) return next(new Error(error.message));
                         res.locals.announcements_count = results.length;
                         res.locals.announcements = results;
-                        next();
+                        db.query(
+                          "SELECT * FROM selg_schema.klasse_db WHERE lehrer_id = ?;", [res.locals.user_id],
+                          (error, result) => {
+                           if(error) return next(new Error(error.message));
+                           res.locals.stufe = result[0].stufe;
+                           res.locals.stufe_suffix = result[0].suffix;
+                           next();
+                       });
                    });
                   }
               }

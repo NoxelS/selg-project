@@ -161,6 +161,13 @@ router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
     const nachname = req.body.nachname;
     const permission = req.body.permission;
 
+    // Checkt ob für einen Tutor eine wirkliche Klasse eingegeben wurde.
+    // (Gehen würde z.B. "8a", "9b", "7c", Nicht funktionieren würde z.B. "88a, a9, 9 a, 9)a... usw.")
+    if (!req.body.tutor_klasse.split('')[1].match(/[a-z]/i) || 
+        !req.body.tutor_klasse.split('')[0].match(/[0-9]/i)){
+      return next(new Error("Die Klasse ist ungültig."))
+    }
+
     var db = require("../db.js");
     bcrypt.hash(password, saltRounds, function(err, hash) {
       db.query(
@@ -175,27 +182,61 @@ router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
               (error, results, fields) => {
                 if (error) {
                   return next(new Error(error.message));
+                }else{
+                  if(permission === "tutor"){
+                    const lehrer_id = results[0].user_id;
+                    let stufe;
+                    let suffix;
+                    try{
+                      stufe = req.body.tutor_klasse.split('')[0];
+                      suffix = req.body.tutor_klasse.split('')[1];
+                    }catch(e){
+                      return next(new Error("Die Klasse ist ungültig."))
+                    }
+                    db.query(
+                    "INSERT INTO `selg_schema`.`klasse_db` (`lehrer_id`, `stufe`, `suffix`) VALUES (?, ?, ?);",
+                    [lehrer_id, stufe, suffix],
+                    function(err, result, fields) {
+                      if (err) {
+                        return next(new Error(err.message));
+                      } else {
+                        db.query(
+                          "SELECT LAST_INSERT_ID() as user_id",
+                          (error, results, fields) => {
+                            if (error) {
+                              return next(new Error(error.message));
+                            }
+                            res.redirect("/");
+                            console.log(
+                              [
+                                datetime.create().format("m/d/Y H:M:S"),
+                                ": [ NEW USER CREATED ] -> user_id=",
+                                results[0].user_id
+                              ].join("")
+                            );
+                          }
+                        );
+                      }
+                    });
+                  }else{
+                    res.redirect("/");
+                    console.log(
+                      [
+                        datetime.create().format("m/d/Y H:M:S"),
+                        ": [ NEW USER CREATED ] -> user_id=",
+                        results[0].user_id
+                      ].join("")
+                    );
+                  }
                 }
-                //user_id = results[0]
-                /* @TODO 
-              req.login(results[0], err => {
-                res.redirect("/");
-              });
-              */
-                res.redirect("/");
-                console.log(
-                  [
-                    datetime.create().format("m/d/Y H:M:S"),
-                    ": [ NEW USER CREATED ] -> user_id=",
-                    results[0].user_id
-                  ].join("")
-                );
+                
               }
             );
           }
         }
       );
     });
+    
   } else {
     // @TODO - Invalider Benutzer bzw Fehler beim erstellen
     var handlebars_presettings = {

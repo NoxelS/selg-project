@@ -1,9 +1,9 @@
 <div id="overlay">
-    <div class="container">
-    <div class="card card-login mx-auto mt-5">
+    <div class="container-fluid">
+    <div class="card card-login mx-auto mt-5" style="width: 50%!important; max-width: 100%; display: block;">
       <div class="card-header">Willkommen zum SELG-Fachlehrertool</div>
       <div class="card-body">
-        <form action="/tutorial/cancel" method="post" autocomplete="off">
+        <!--<form action="/tutorial/cancel" method="post" autocomplete="off">
           
             <div class="form-group">
                 <p>
@@ -15,7 +15,10 @@
                 <a onclick="startTutorial();" class="btn btn-primary text-light">Einführung beginnen</a>
                 <button value="cancel" class="btn btn-primary text-light">Nein danke</button>
             </div>
-        </form>
+        </form>-->
+
+        {{> version_update/update}}
+
       </div>
     </div>
 </div>
