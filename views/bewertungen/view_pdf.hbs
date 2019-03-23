@@ -272,7 +272,7 @@
         <h3 class="text-center" style="text-align: center; padding: 0px; margin: 5px; margin-bottom: 10px;"><b>Protokoll
                 vom {{date}}</b></h3>
         <p class="text-center" style="text-align: center; padding: 0px; margin: 5px;">Name der Schülerin / des Schülers:
-            {{ schueler_name }}, Klasse: 9a{{!--@TODO--}}</p>
+            {{ schueler_name }} {{#if isSumUp}}, Klasse: {{stufe}} {{suffix}} {{/if}} {{!--@TODO--}}</p>
         <div class="img-header mt-0">
             <img style="height: 80px; width: auto;"
                 src="https://ganztagsschule.bildung-rp.de/typo3temp/pics/880768783a.jpeg">

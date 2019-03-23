@@ -1,0 +1,68 @@
+.rating-text{
+    color: #666666;
+    font-size: medium;
+}
+
+.txt-center {
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+    width: 0px;
+    height: 0px;
+}
+
+.rating {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    position: relative;
+}
+
+.rating > label {
+    
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}
+
+.rating-fix{
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    width: 1.1em;
+    color: #000;
+}
+
+.filled{
+    font-size: medium;
+    content: "\2605";
+    color: #FFD700;
+}
+
+input[readonly] {
+    background-color: white;
+}
+  

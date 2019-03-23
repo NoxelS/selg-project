@@ -13,8 +13,8 @@ module.exports = function(Schuelerliste_) {
     row += `<td>${Schueler.vorname}</td>`;
     row += `<td>${Schueler.nachname}</td>`;
     row += `<td>${Schueler.index}</td>`;
-    row += `<td><span class="text-primary">In Dev</span></td>`;
-    row += `<td><span class="text-primary">In Dev</span></td>`;
+    row += `<td><a href="/bewertung/view_sumup=${Schueler.id}"><i class="fas fa-search"></i></a></td>`;
+    row += `<td><a href="/bewertung/download_sumup=${Schueler.id}"><i class="fas fa-download"></i></a></td>`;
     i++;
     row += `<td><a class="mx-5" href="/user?name=${
         Schueler.raw_name}">
