@@ -190,6 +190,8 @@ router.get("/search=:nametofind", function(req, res, next) {
       handlebars_presettings.nametofind = req.params.nametofind;
       handlebars_presettings.schueler_gefunden = result;
       handlebars_presettings.result = [];
+
+
       if(result.length === 0){
         next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
       }else{
@@ -205,8 +207,23 @@ router.get("/search=:nametofind", function(req, res, next) {
           if(handlebars_presettings.result.length === 0 || result.length === 0){
             return next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden.")); 
           }else{
+
+           
             handlebars_presettings.resultLength = handlebars_presettings.result.length;
             handlebars_presettings.result = handlebars_presettings.result.sort( (a,b) => {return a.id - b.id});
+            
+            // Das folgende Script schaut, dass kein Schüler zweimal angezeigt wird.
+            let tmp_schueler= {};
+            let tmp_schuelerliste = [];
+            handlebars_presettings.result.forEach(Schueler => {
+              if(tmp_schueler[Schueler.id] === undefined){
+                tmp_schueler[Schueler.id] = 1;
+                tmp_schuelerliste.push(Schueler);
+              }
+            });
+            handlebars_presettings.result = tmp_schuelerliste;
+
+            
             res.render("search/search", handlebars_presettings);
           } 
         });
