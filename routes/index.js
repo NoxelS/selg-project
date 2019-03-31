@@ -175,6 +175,10 @@ router.get("/search=:nametofind", function(req, res, next) {
         // Durch eine helperfunction wird aus handlebars_presettings.result eine HTML-Tabelle (HBS Safestring) erstellt
         handlebars_presettings.result = result;
         handlebars_presettings.resultLength = result.length;
+
+        // Zeigt den Table-Footer nur an wenn mehr als 10 Ergebnisse gefunden wurden.
+        handlebars_presettings.footer_is_needed = handlebars_presettings.result.length >= 10 ? true : false;
+
         res.render("search/search", handlebars_presettings);
       }
     });
@@ -223,7 +227,10 @@ router.get("/search=:nametofind", function(req, res, next) {
             });
             handlebars_presettings.result = tmp_schuelerliste;
 
-            
+            // Zeigt den Table-Footer nur an wenn mehr als 10 Ergebnisse gefunden wurden.
+            handlebars_presettings.footer_is_needed = handlebars_presettings.result.length >= 10 ? true : false;
+
+
             res.render("search/search", handlebars_presettings);
           } 
         });

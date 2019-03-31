@@ -16,6 +16,7 @@
                         <th>Schülerinformation</th>
                     </tr>
                 </thead>
+                {{#if footer_is_needed}}
                 <tfoot>
                     <tr>
                         <th><b>#</b></th>
@@ -26,6 +27,7 @@
                         <th>Schülerinformation</th>
                     </tr>
                 </tfoot>
+                {{/if}}
                 <tbody>
                     {{genSearchResult result}}
                 </tbody>
