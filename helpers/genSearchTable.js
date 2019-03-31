@@ -20,12 +20,13 @@ module.exports = function(result, options) {
     
 
     // Alle Kurse in denen der Schüler ist:
-    console.log(entry);
+
+    console.log("Test1: "+entry.kurse_belegt.length)
 
     for(let k = 0; k < entry.kurse_belegt.length; k++){
       row+= `<li><a href="/bewertung/neu/schuelerid=${entry.id}/kursid=${entry.kurse_belegt[k].id}">- ${entry.kurse_belegt[k].name}</a></li>`
     }
-
+  
     row+=`
               </ul>
               </div>

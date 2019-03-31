@@ -184,7 +184,7 @@ router.get("/search=:nametofind", function(req, res, next) {
     });
   }else{
     /* 
-      Wenn ein fachlehrer die Suchleiste benutzt, werden Ihm alle Schüler angezeigt, die in seinen Kursen vorahnden sind
+      Wenn ein Fachlehrer die Suchleiste benutzt, werden Ihm alle Schüler angezeigt, die in seinen Kursen vorahnden sind
       Zuerst werden alle Schüler gesucht, dann werden alle schüler ids gescuht, welche in seinen Kursen vorhanden sind
       Die Überschneidungen dieser zwei Mengen werden in der handlebars_presettings.result Array gespeichert.
     */
@@ -199,8 +199,9 @@ router.get("/search=:nametofind", function(req, res, next) {
       if(result.length === 0){
         next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
       }else{
+        // Zeigt nur schüler an, welche im Kurs eines Lehrers sind
         db.query("SELECT id_schueler FROM schueler_kurs_link WHERE id_kurs IN (SELECT id FROM kurs_db WHERE lehrer_id = ?)",[res.locals.user_id], function(err, result) {
-          if (err) return next(new Error(err.message));
+          if (err || result.length === 0) return next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
           for(var i = 0; i < handlebars_presettings.schueler_gefunden.length ; i++){
             for(var k = 0; k < result.length; k++){
               if(handlebars_presettings.schueler_gefunden[i].id === result[k].id_schueler){
@@ -230,28 +231,29 @@ router.get("/search=:nametofind", function(req, res, next) {
 
            
             //console.log(handlebars_presettings.result.map(obj => obj.id).join(", "));
+
+            // Sucht die Kurse in denen die Schüler sind
             db.query("SELECT * FROM schueler_kurs_link WHERE id_schueler IN (?)",[ handlebars_presettings.result.map(obj => obj.id)], function(err, result) {
-              if (err) return next(new Error(err.message));
+              if (err || result.length === 0) return next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
               let tmp_kurslsite = {};
               let schueler_informationen = [];
 
 
-              console.log(res.locals.meineKurse.map(obj => [obj.id, obj.name]))
-
               result.forEach(Kurs_Link => {
                 // Es wird geschaut, ob der Schüler in einem Kurs des Lehrers ist.
                 if((res.locals.meineKurse.findIndex(x => x.id === Kurs_Link.id_kurs)) !== -1){
-                  if(tmp_kurslsite[Kurs_Link.id] === undefined){
-                    tmp_kurslsite[Kurs_Link.id] = 1;
+                  if(tmp_kurslsite[Kurs_Link.id_schueler] === undefined){
+                    tmp_kurslsite[Kurs_Link.id_schueler] = 1;
                     schueler_informationen.push({
                       schueler_id: Kurs_Link.id_schueler,
-                      kurs_id: [{id: Kurs_Link.id_kurs, name: res.locals.meineKurse[res.locals.meineKurse.findIndex(x => x.id === Kurs_Link.id_kurs)].name}]
+                      kurs_id: [{id: Kurs_Link.id_kurs, name: res.locals.meineKurse[res.locals.meineKurse.findIndex(x => x.id === Kurs_Link.id_kurs)].name +" "+ res.locals.meineKurse[res.locals.meineKurse.findIndex(x => x.id === Kurs_Link.id_kurs)].jahrgang}]
                     })
-                  }else{
-                    schueler_informationen[(schueler_informationen.findIndex(x => x.id === Kurs_Link.id))]['kurs_id'].push({id: Kurs_Link.id_kurs, name: res.locals.meineKurse[res.locals.meineKurse.findIndex(x => x.id === Kurs_Link.id_kurs)].name});
+                  }else if(tmp_kurslsite[Kurs_Link.id_schueler] !== undefined){
+                    schueler_informationen[(schueler_informationen.findIndex(x => x.schueler_id === Kurs_Link.id_schueler))]['kurs_id'].push({id: Kurs_Link.id_kurs, name: res.locals.meineKurse[res.locals.meineKurse.findIndex(x => x.id === Kurs_Link.id_kurs)].name +" "+ res.locals.meineKurse[res.locals.meineKurse.findIndex(x => x.id === Kurs_Link.id_kurs)].jahrgang});
                   }
                 }
               });
+
 
               // Jeder Schüler in der Liste erhält ein Attribut "kurse_belegt" welches eine Array von objekten hat. Dise haben ein Attribut id und ein Attribut name
               // Also z.B. schueler['kurse_belegt'] = [{id: 36, name: "Mathematik"}, {id: 37, name: "Deutsch"}]
@@ -261,12 +263,11 @@ router.get("/search=:nametofind", function(req, res, next) {
                 handlebars_presettings.result[handlebars_presettings.result.findIndex(x => x.id === info.schueler_id)]['kurse_belegt'] = info.kurs_id;
                 //console.log(handlebars_presettings.result[handlebars_presettings.result.findIndex(x => x.id === info.schueler_id)]);
               });
-
-
+       
               handlebars_presettings.schueler_informationen = schueler_informationen;
               // Zeigt den Table-Footer nur an wenn mehr als 10 Ergebnisse gefunden wurden.
               handlebars_presettings.footer_is_needed = handlebars_presettings.result.length >= 10 ? true : false;
-
+             
               res.render("search/search", handlebars_presettings);
 
             });
