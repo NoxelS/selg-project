@@ -42,11 +42,16 @@ router.get('/', function(req, res, next) {
         var student_is_accessible = false;
         result.forEach(result => { if(result.id === student.id) student_is_accessible = true});
 
-
-        db.query('SELECT * FROM user_db WHERE id = (SELECT lehrer_id FROM klasse_db WHERE stufe = ? AND suffix = ?)', [handlebars_presettings.klasse, handlebars_presettings.stufe], (err, result) => {
-          if(err || result.length === 0){if(err || result.length === 0) handlebars_presettings.klassenlehrer = "n/a"}else{handlebars_presettings.klassenlehrer = result[0].vorname + " " + result[0].nachname;}
+        // Klassenlehrer wird gesucht
+        db.query('SELECT * FROM user_db WHERE id = (SELECT lehrer_id FROM klasse_db WHERE stufe = ? AND suffix = ?)', [handlebars_presettings.stufe, handlebars_presettings.klasse], (err, result) => {
           if(student_is_accessible) {
-            res.render("user", handlebars_presettings)
+            if(err || result.length === 0){
+              handlebars_presettings.klassenlehrer = "n/a"
+              res.render("user", handlebars_presettings)
+            }else{
+              handlebars_presettings.klassenlehrer = result[0].vorname + " " + result[0].nachname;
+              res.render("user", handlebars_presettings)
+            }
           }else{
             return next(new Error(`Wir konnten niemanden mit dem Namen "${toName(raw_name)}" finden.`));
           }

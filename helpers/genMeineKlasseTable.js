@@ -12,7 +12,8 @@ module.exports = function(Schuelerliste_) {
     row += `<td>${i}</td>`;
     row += `<td>${Schueler.vorname}</td>`;
     row += `<td>${Schueler.nachname}</td>`;
-    row += `<td>${Schueler.index}</td>`;
+    // TODO anzahl Berwertungen die abgegeben wurden
+    row += `<td>${Math.round((Math.random()*12))}/12</td>`;
     row += `<td><a href="/bewertung/view_sumup=${Schueler.id}"><i class="fas fa-search"></i></a></td>`;
     row += `<td><a href="/bewertung/download_sumup=${Schueler.id}"><i class="fas fa-download"></i></a></td>`;
     i++;

@@ -14,7 +14,7 @@ router.get("/neu/schuelerid=:id/kursid=:kid", function(req, res, next) {
     location: "Neue Bewertung",
   };
 
-  // TODO waf
+  // TODO 
   // Checkt ob der User die berechtigung hat für deisen Schüler eine
   // Bewertung zu schreiben
 
