@@ -298,7 +298,7 @@ router.get("/klasse", function(req, res, next) {
      if(error) return next(new Error(error.message));
      res.locals.meineKlasse = result;
      res.render("meine_klasse", handlebars_presettings);
- });
+  });
 });
 
 

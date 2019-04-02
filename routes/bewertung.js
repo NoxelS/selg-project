@@ -299,7 +299,7 @@ router.get("/view=:id", function(req, res, next) {
     display_name: req.params.name,
     icon_cards: false,
     location: "Bewertung ansehen",
-    json: req.params.id
+    id: req.params.id
   };
 
 
@@ -463,135 +463,146 @@ router.get("/view_sumup=:schuelerid", function(req, res, next){
 });
 
 router.get("/download_sumup=:schuelerid", function(req, res, next){
-  // @TODO ist der Schüler in der Klasse des Tutors?
-  // @TODO schauen ob der Schüler Bewertungen in jedem Kurs erhalten hat (Bsp: 10/12 Bewertungen wurden abgegeben);
+  // TODO schauen ob der Schüler Bewertungen in jedem Kurs erhalten hat (Bsp: 10/12 Bewertungen wurden abgegeben);
 
+  if(res.locals.permission !== "tutor") return next(new Error("Diese Funktion können nur Tutoren einer Klasse nutzen."));
 
-  // req.params.schuelerid
-
-  db.query("SELECT * FROM bewertungen_db WHERE schueler_id = ?", [req.params.schuelerid], (err, result) => {
-    if(err || result.length === 0) return next(new Error("Leider konnte diese Bewertung nicht heruntergeladen werden."));
+  db.query("SELECT stufe, klassen_suffix FROM schueler_db WHERE id = ?", [req.params.schuelerid], (err, result)=>{
+    if(result[0].stufe === res.locals.stufe && result[0].klassen_suffix === res.locals.stufe_suffix){
+      
     
-    // Ein BLueprint der Zusammenfassung wird erstellt.
-    var sumup = {
-      isSumUp: true,
-      schueler_id: req.params.schuelerid,
-      stufe: res.locals.stufe,
-      suffix: res.locals.stufe_suffix,
-      date: datetime.create().format("d.m.Y"),
-      schueler_name: result[0].schueler_name,
-      soz_1: result[0].soz_1,
-      soz_2: result[0].soz_1,
-      soz_3: result[0].soz_1,
-      soz_4: result[0].soz_1,
-      soz_5_1: result[0].soz_1,
-      soz_5_2: result[0].soz_1,
-      soz_6: result[0].soz_1,
-      lear_1: result[0].soz_1,
-      lear_2: result[0].soz_1,
-      lear_3: result[0].soz_1,
-      lear_4: result[0].soz_1,
-      lear_5: result[0].soz_1,
-      lear_6: result[0].soz_1,
-      lear_7: result[0].soz_1,
-      lear_8: result[0].soz_1,
-      lear_9_1: result[0].soz_1,
-      lear_9_2: result[0].soz_1,
-      lear_9_3: result[0].soz_1,
-      lear_10: result[0].soz_1,
-    };
- 
-    var bewertungs_count = 1;
 
-    // Alle Bewertungen werden aufaddiert
-    for(var i = 1; i < result.length; i++){
-      sumup.soz_1 +=     result[i].soz_1 ;
-      sumup.soz_2 +=     result[i].soz_2 ;
-      sumup.soz_3 +=     result[i].soz_3 ;
-      sumup.soz_4 +=     result[i].soz_4 ;
-      sumup.soz_5_1 +=   result[i].soz_5_1;
-      sumup.soz_5_2 +=   result[i].soz_5_2;
-      sumup.soz_6 +=     result[i].soz_6 ;
-      sumup.lear_1 +=    result[i].lear_1;
-      sumup.lear_2 +=    result[i].lear_2;
-      sumup.lear_3 +=    result[i].lear_3;
-      sumup.lear_4 +=    result[i].lear_4;
-      sumup.lear_5 +=    result[i].lear_5;
-      sumup.lear_6 +=    result[i].lear_6;
-      sumup.lear_7 +=    result[i].lear_7;
-      sumup.lear_8 +=    result[i].lear_8;
-      sumup.lear_9_1 +=  result[i].lear_9_1;
-      sumup.lear_9_2 +=  result[i].lear_9_2;
-      sumup.lear_9_3 +=  result[i].lear_9_3;
-      sumup.lear_10 +=   result[i].lear_10;
-      bewertungs_count++;
-    }
+    // req.params.schuelerid
 
-    // Der Durchschnitt wird gebildet und auf ganez Zahlen gerundet.
-    sumup.soz_1     = Math.round(sumup.soz_1    / bewertungs_count);  
-    sumup.soz_2     = Math.round(sumup.soz_2    / bewertungs_count); 
-    sumup.soz_3     = Math.round(sumup.soz_3    / bewertungs_count);
-    sumup.soz_4     = Math.round(sumup.soz_4    / bewertungs_count); 
-    sumup.soz_5_1   = Math.round(sumup.soz_5_1  / bewertungs_count);
-    sumup.soz_5_2   = Math.round(sumup.soz_5_2  / bewertungs_count);
-    sumup.soz_6     = Math.round(sumup.soz_6    / bewertungs_count);
-    sumup.lear_1    = Math.round(sumup.lear_1   / bewertungs_count);
-    sumup.lear_2    = Math.round(sumup.lear_2   / bewertungs_count);
-    sumup.lear_3    = Math.round(sumup.lear_3   / bewertungs_count);
-    sumup.lear_4    = Math.round(sumup.lear_4   / bewertungs_count);
-    sumup.lear_5    = Math.round(sumup.lear_5   / bewertungs_count);
-    sumup.lear_6    = Math.round(sumup.lear_6   / bewertungs_count);
-    sumup.lear_7    = Math.round(sumup.lear_7   / bewertungs_count);
-    sumup.lear_8    = Math.round(sumup.lear_8   / bewertungs_count);
-    sumup.lear_9_1  = Math.round(sumup.lear_9_1 / bewertungs_count);
-    sumup.lear_9_2  = Math.round(sumup.lear_9_2 / bewertungs_count);
-    sumup.lear_9_3  = Math.round(sumup.lear_9_3 / bewertungs_count);
-    sumup.lear_10   = Math.round(sumup.lear_10  / bewertungs_count);
+    db.query("SELECT * FROM bewertungen_db WHERE schueler_id = ?", [req.params.schuelerid], (err, result) => {
+      if(err || result.length === 0) return next(new Error("Leider konnte diese Bewertung nicht heruntergeladen werden. Wurden schon alle Bewertungen abgegeben?"));
 
-    var bewertung_presetting = [];
-        bewertung_presetting[0] = sumup;    
-    const pdf = require('phantom-html2pdf');
-    const Handlebars = require('handlebars');
-    const fs = require('fs');
-
-    // Ein helper welcher es HBS erlaubt Werte zu vergleichen.
-    Handlebars.registerHelper('ifEqual', function(a, b, opts) {
-      if(a == b)
-          return opts.fn(this);
-      else
-          return opts.inverse(this);
-    });
-
-    // Das HBS-Template für eine Bewertung wird geladen.
-    // Über das bewertung_presetting[0] objekt wird das Template dann gerendert und zu einer PDF
-    // Option gemacht.
-    fs.readFile('./views/bewertungen/view_pdf.hbs','utf8', (err, temp) => {
-      if (err) return next(new Error("Fehler beim Download..."+err.message));
-      let template = Handlebars.compile(temp);
-      var pdfOptions = {
-        html: template(bewertung_presetting[0]),
-        paperSize: {
-          format: 'A4',
-          orientation: 'portrait',
-          border: '1cm',
-          deleteOnAction: true
-        }
+      // Ein BLueprint der Zusammenfassung wird erstellt.
+      var sumup = {
+        isSumUp: true,
+        schueler_id: req.params.schuelerid,
+        stufe: res.locals.stufe,
+        suffix: res.locals.stufe_suffix,
+        date: datetime.create().format("d.m.Y"),
+        schueler_name: result[0].schueler_name,
+        soz_1: result[0].soz_1,
+        soz_2: result[0].soz_1,
+        soz_3: result[0].soz_1,
+        soz_4: result[0].soz_1,
+        soz_5_1: result[0].soz_1,
+        soz_5_2: result[0].soz_1,
+        soz_6: result[0].soz_1,
+        lear_1: result[0].soz_1,
+        lear_2: result[0].soz_1,
+        lear_3: result[0].soz_1,
+        lear_4: result[0].soz_1,
+        lear_5: result[0].soz_1,
+        lear_6: result[0].soz_1,
+        lear_7: result[0].soz_1,
+        lear_8: result[0].soz_1,
+        lear_9_1: result[0].soz_1,
+        lear_9_2: result[0].soz_1,
+        lear_9_3: result[0].soz_1,
+        lear_10: result[0].soz_1,
       };
-      // Wenn die pdfOptions erstellt wurden, wird das Dokument temporär gespeichert und dem Benutzer als Downlaod geschickt.
-      // Wenn der Download erfolgreich war, wird das Dokument wieder gelöscht
-      pdf.convert(pdfOptions, function(err, result) {
-        result.toFile(__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf", function() {
-          var file =__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf";
-          res.download(file, "SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf", (err) => {
-            if(err) return next(new Error(err.message));
-            fs.unlink(__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf",function(err){
+
+      if(req.query.date) sumup.date = req.query.date;
+
+      var bewertungs_count = 1;
+
+      // Alle Bewertungen werden aufaddiert
+      for(var i = 1; i < result.length; i++){
+        sumup.soz_1 +=     result[i].soz_1 ;
+        sumup.soz_2 +=     result[i].soz_2 ;
+        sumup.soz_3 +=     result[i].soz_3 ;
+        sumup.soz_4 +=     result[i].soz_4 ;
+        sumup.soz_5_1 +=   result[i].soz_5_1;
+        sumup.soz_5_2 +=   result[i].soz_5_2;
+        sumup.soz_6 +=     result[i].soz_6 ;
+        sumup.lear_1 +=    result[i].lear_1;
+        sumup.lear_2 +=    result[i].lear_2;
+        sumup.lear_3 +=    result[i].lear_3;
+        sumup.lear_4 +=    result[i].lear_4;
+        sumup.lear_5 +=    result[i].lear_5;
+        sumup.lear_6 +=    result[i].lear_6;
+        sumup.lear_7 +=    result[i].lear_7;
+        sumup.lear_8 +=    result[i].lear_8;
+        sumup.lear_9_1 +=  result[i].lear_9_1;
+        sumup.lear_9_2 +=  result[i].lear_9_2;
+        sumup.lear_9_3 +=  result[i].lear_9_3;
+        sumup.lear_10 +=   result[i].lear_10;
+        bewertungs_count++;
+      }
+
+      // Der Durchschnitt wird gebildet und auf ganez Zahlen gerundet.
+      sumup.soz_1     = Math.round(sumup.soz_1    / bewertungs_count);  
+      sumup.soz_2     = Math.round(sumup.soz_2    / bewertungs_count); 
+      sumup.soz_3     = Math.round(sumup.soz_3    / bewertungs_count);
+      sumup.soz_4     = Math.round(sumup.soz_4    / bewertungs_count); 
+      sumup.soz_5_1   = Math.round(sumup.soz_5_1  / bewertungs_count);
+      sumup.soz_5_2   = Math.round(sumup.soz_5_2  / bewertungs_count);
+      sumup.soz_6     = Math.round(sumup.soz_6    / bewertungs_count);
+      sumup.lear_1    = Math.round(sumup.lear_1   / bewertungs_count);
+      sumup.lear_2    = Math.round(sumup.lear_2   / bewertungs_count);
+      sumup.lear_3    = Math.round(sumup.lear_3   / bewertungs_count);
+      sumup.lear_4    = Math.round(sumup.lear_4   / bewertungs_count);
+      sumup.lear_5    = Math.round(sumup.lear_5   / bewertungs_count);
+      sumup.lear_6    = Math.round(sumup.lear_6   / bewertungs_count);
+      sumup.lear_7    = Math.round(sumup.lear_7   / bewertungs_count);
+      sumup.lear_8    = Math.round(sumup.lear_8   / bewertungs_count);
+      sumup.lear_9_1  = Math.round(sumup.lear_9_1 / bewertungs_count);
+      sumup.lear_9_2  = Math.round(sumup.lear_9_2 / bewertungs_count);
+      sumup.lear_9_3  = Math.round(sumup.lear_9_3 / bewertungs_count);
+      sumup.lear_10   = Math.round(sumup.lear_10  / bewertungs_count);
+
+      var bewertung_presetting = [];
+          bewertung_presetting[0] = sumup;    
+      const pdf = require('phantom-html2pdf');
+      const Handlebars = require('handlebars');
+      const fs = require('fs');
+
+      // Ein helper welcher es HBS erlaubt Werte zu vergleichen.
+      Handlebars.registerHelper('ifEqual', function(a, b, opts) {
+        if(a == b)
+            return opts.fn(this);
+        else
+            return opts.inverse(this);
+      });
+
+      // Das HBS-Template für eine Bewertung wird geladen.
+      // Über das bewertung_presetting[0] objekt wird das Template dann gerendert und zu einer PDF
+      // Option gemacht.
+      fs.readFile('./views/bewertungen/view_pdf.hbs','utf8', (err, temp) => {
+        if (err) return next(new Error("Fehler beim Download..."+err.message));
+        let template = Handlebars.compile(temp);
+        var pdfOptions = {
+          html: template(bewertung_presetting[0]),
+          paperSize: {
+            format: 'A4',
+            orientation: 'portrait',
+            border: '1cm',
+            deleteOnAction: true
+          }
+        };
+        // Wenn die pdfOptions erstellt wurden, wird das Dokument temporär gespeichert und dem Benutzer als Downlaod geschickt.
+        // Wenn der Download erfolgreich war, wird das Dokument wieder gelöscht
+        pdf.convert(pdfOptions, function(err, result) {
+          result.toFile(__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf", function() {
+            var file =__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf";
+            res.download(file, "SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf", (err) => {
               if(err) return next(new Error(err.message));
-              console.log('\tEine Bewertung von '+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+' wurde erfolgreich exportiert und wieder gelöscht');
-            });  
-          }); 
+              fs.unlink(__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf",function(err){
+                if(err) return next(new Error(err.message));
+                console.log('\tEine Bewertung von '+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+' wurde erfolgreich exportiert und wieder gelöscht');
+              });  
+            }); 
+          });
         });
       });
     });
-  });
+  }else{
+    return next(new Error("Wir konnten diesen Schüler nicht in Ihrer Klasse finden."))
+  }
+});
 });
 module.exports = router;

@@ -1,5 +1,5 @@
 var Handlebars = require("handlebars");
-
+var datetime = require("node-datetime");
 module.exports = function(Schuelerliste_) {
   var i = 1;
   var table = "";
@@ -15,7 +15,31 @@ module.exports = function(Schuelerliste_) {
     // TODO anzahl Berwertungen die abgegeben wurden
     row += `<td>${Math.round((Math.random()*12))}/12</td>`;
     row += `<td><a href="/bewertung/view_sumup=${Schueler.id}"><i class="fas fa-search"></i></a></td>`;
-    row += `<td><a href="/bewertung/download_sumup=${Schueler.id}"><i class="fas fa-download"></i></a></td>`;
+    row += `<td><a href="/bewertung/download_sumup=${Schueler.id}" data-toggle="modal" data-target="#date_update_modal_${Schueler.id}"><i class="fas fa-download"></i></a></td>`;
+
+    row += `<div class="modal fade" id="date_update_modal_${Schueler.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Datum des SELG</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Geben Sie bitte das Datum an, an dem das Gespräch gehalten wird: <form class="form-inline">
+        <div class="form-group">
+            <label for=""></label>
+            <input type="text" value="${datetime.create().format("d.m.y")}" name="date" id="date_${Schueler.id}" class="form-control" placeholder="" aria-describedby="helpId">
+            <small id="helpId" class="text-muted">Format: Tag.Monat.Jahr</small>
+        </div>
+    </form></div>
+        <div class="modal-footer">
+          <a class="btn btn-primary text-light" onclick="`+"window.location.replace(`/bewertung/download_sumup="+Schueler.id+"?date=${document.getElementById(`${'date_'+'"+Schueler.id+"'}`).value}`)"+`">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>`
+
     i++;
     row += `<td><a class="mx-5" href="/user?name=${
         Schueler.raw_name}">
