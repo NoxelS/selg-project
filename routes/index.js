@@ -140,7 +140,11 @@ router.get("/datenschutz", function(req, res, next) {
   Wenn die SUchleiste benutzt wird, wird die Suchanfrage an /search=[Name der gesucht wurde] weitergeleitet.
 */
 router.post("/search", function(req, res, next) {
-  res.redirect("/search="+req.body.nametofind);    
+  if(req.body.nametofind.length === 0){
+    res.redirect('/search= ');
+  }else{
+    res.redirect("/search="+req.body.nametofind);    
+  }
 });
 
 router.post("/tutorial/cancel", function(req, res, next){

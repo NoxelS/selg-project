@@ -1,6 +1,9 @@
 var Handlebars = require("handlebars");
 
 module.exports = function(announcements) {
+    // Durch 'reverse' werden die neusten Anlündigungen zuerst angezeigt.
+    announcements = announcements.reverse();
+    
     if (announcements !== undefined && announcements.length !== 0) {
         let dropdown = "";
         for (let i = 0; i < announcements.length; i++) {

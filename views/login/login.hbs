@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Login</title>
+  <title>SELG-Login</title>
 
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark" onload="onLoad()">
   <div class="container">
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
@@ -41,18 +41,20 @@
               <label for="password">Passwort</label>
             </div>
           </div>
+          {{#if failedLogin}}
+          <div class="alert alert-danger" role="alert">
+            <strong>Ungültiger Benutzername oder Passwort</strong>
+          </div>
+          {{/if}}
           <div class="form-group">
             <div class="checkbox">
               <label> {{! @TODO }}
-                <input type="checkbox" value="remember-me"> Benutzername speichern
+                <input type="checkbox" id="username_check" value="remember-me" onload="onLoad();" onchange="onSave();"> Benutzername speichern
               </label>
             </div>
           </div>
           <button class="btn btn-primary btn-block">Anmelden</button>
         </form>
-        <div class="text-center">
-          <a class="d-block small" href="/login/recovery">Passwort oder Benutzername vergessen?</a>
-        </div>
       </div>
     </div>
   </div>
@@ -64,6 +66,7 @@
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="js/test.js"></script>
+  <script src="js/login.js"></script>
 
 </body>
 

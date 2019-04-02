@@ -9,7 +9,8 @@ router.get("/", function(req, res, next) {
     title: "Login",
     display_name: null,
     icon_cards: false,
-    location: "Login"
+    location: "Login",
+    failedLogin: req.query.failed === undefined ? false : true
   };
 
   if(res.locals.permission){
@@ -72,7 +73,7 @@ router.post("/recovery", function(req, res, next) {
 router.post("/", passport.authenticate(
   'local', {
     successRedirect: '/',
-    failureRedirect: '/login'
+    failureRedirect: '/login?failed=true'
   }));
 
 module.exports = router;
