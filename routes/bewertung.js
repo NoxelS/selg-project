@@ -600,9 +600,29 @@ router.get("/download_sumup=:schuelerid", function(req, res, next){
         });
       });
     });
-  }else{
-    return next(new Error("Wir konnten diesen Schüler nicht in Ihrer Klasse finden."))
-  }
+    }else{
+      return next(new Error("Wir konnten diesen Schüler nicht in Ihrer Klasse finden."))
+    } 
+  });
 });
+
+router.get("/meine", function(req, res, next) {
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Tool",
+    display_name: req.params.name,
+    icon_cards: false,
+    location: "Neue Bewertung"
+  };  
+
+  db.query("SELECT * FROM bewertungen_db WHERE lehrer_id = ?", [res.locals.user_id], (err, result)=>{
+    if (err) return next(new Error(""));
+    handlebars_presettings.kurse = result;
+    res.render("bewertungen/meine", handlebars_presettings);
+  
+
+  });
+    
 });
+
 module.exports = router;
