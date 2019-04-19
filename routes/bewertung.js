@@ -116,38 +116,46 @@ router.post("/neu", function(req, res, next) {
                   if(result.length === 0){ 
                     return next(new Error("Es konnte kein Kurs mit dem Namen "+req.body.fach+" "+req.body.leistungsebene+" gefunden werden."))
                   }else{
-                    db.query(
-                      "INSERT INTO `selg_schema`.`bewertungen_db` "
-                      + "(`schueler_id`, `kurs_id`, `lehrer_id`, `date`,`schueler_name`, `kurs_name`, `leistungsebene`, `kommentar`,"
-                      + "`soz_1`, `soz_2`, `soz_3`, `soz_4_1`, `soz_4_2`," 
-                      + "`lear_1`, `lear_2`, `lear_3`, `lear_4`, `lear_5`, `lear_6`, `lear_7`, `lear_8_1`, `lear_8_2`, `lear_9`,"
-                      + "`k_1`, `k_2`, `k_3`, `k_4`, `k_5`, `k_6`, `k_7`, `k_8`, `k_9`, `k_10`, `k_11`, `k_12`, `k_13`, `k_14`, `k_15`) "
-                      + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
-                      insert_array,
-                      function(err, result, fields) {
-                        if (err) {
-                          return next(new Error(err.message));
-                        } else {
-                          db.query(
-                            "SELECT LAST_INSERT_ID() as last_bewertung",
-                            (error, results, fields) => {
-                              if (error) {
-                                return next(new Error(error.message));
-                              } else {
-                                // @TODO Suche die Kurse in welchen er Standartmäßig ist
-                                console.log(
-                                  [
-                                    datetime.create().format("m/d/Y H:M:S"),
-                                    ": [ NEUE BEWERTUNG ] -> "+results[0].last_bewertung
-                                  ].join("")
-                                );
-                                res.redirect("/bewertung/view="+results[0].last_bewertung);
+
+                    db.query("SELECT date, id FROM bewertungen_db WHERE (kurs_id = ? AND schueler_id = ?)",[ req.body.kurs_id, req.body.schueler_id], (err,result) =>{
+                      if(err){ return next(new Error(err.message)); }
+                      if(result.length > 0){ 
+                        return next(new Error("Diese Bewertung wurde schon am "+result[0].date+" erstellt. Sie können sie unter 'Meine Bewertungen' bearbeiten."));
+                    }else{
+                      db.query(
+                        "INSERT INTO `selg_schema`.`bewertungen_db` "
+                        + "(`schueler_id`, `kurs_id`, `lehrer_id`, `date`,`schueler_name`, `kurs_name`, `leistungsebene`, `kommentar`,"
+                        + "`soz_1`, `soz_2`, `soz_3`, `soz_4_1`, `soz_4_2`," 
+                        + "`lear_1`, `lear_2`, `lear_3`, `lear_4`, `lear_5`, `lear_6`, `lear_7`, `lear_8_1`, `lear_8_2`, `lear_9`,"
+                        + "`k_1`, `k_2`, `k_3`, `k_4`, `k_5`, `k_6`, `k_7`, `k_8`, `k_9`, `k_10`, `k_11`, `k_12`, `k_13`, `k_14`, `k_15`) "
+                        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+                        insert_array,
+                        function(err, result, fields) {
+                          if (err) {
+                            return next(new Error(err.message));
+                          } else {
+                            db.query(
+                              "SELECT LAST_INSERT_ID() as last_bewertung",
+                              (error, results, fields) => {
+                                if (error) {
+                                  return next(new Error(error.message));
+                                } else {
+                                  // @TODO Suche die Kurse in welchen er Standartmäßig ist
+                                  console.log(
+                                    [
+                                      datetime.create().format("m/d/Y H:M:S"),
+                                      ": [ NEUE BEWERTUNG ] -> "+results[0].last_bewertung
+                                    ].join("")
+                                  );
+                                  res.redirect("/bewertung/view="+results[0].last_bewertung);
+                                }
                               }
-                            }
-                          );
+                            );
+                          }
                         }
-                      }
-                    );
+                      );
+                    }
+                    });
                   }
                 });
             }});
