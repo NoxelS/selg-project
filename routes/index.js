@@ -104,9 +104,9 @@ router.get("/profil", function(req, res, next) {
     title: "SELG-Tool",
     display_name: res.locals.username,
     icon_cards: false,
-    location: "Profil"
+    location: "Profil",
+    kurse_count: res.locals.meineKurse.length
   };
-
   res.render("profile", handlebars_presettings);
 });
 
@@ -117,7 +117,9 @@ router.get("/einstellungen", function(req, res, next) {
     title: "SELG-Tool",
     display_name: res.locals.username,
     icon_cards: false,
-    location: "Einstellungen"
+    location: "Einstellungen",
+    wrong_password: req.query.wrong_password === undefined ? false : true,
+    wrong_password_2: req.query.wrong_password_2 === undefined ? false : true,
   };
 
   res.render("einstellungen", handlebars_presettings);
@@ -299,6 +301,38 @@ router.get("/klasse", function(req, res, next) {
      res.locals.meineKlasse = result;
      res.render("meine_klasse", handlebars_presettings);
   });
+});
+
+var passport = require('passport');
+router.post("/reset_password", function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { return next(new Error(err.message)); }
+    if (!user) { return res.redirect('/einstellungen?wrong_password=true'); }
+    req.logIn(user, function(err) {
+      if (err) { return next(new Error(err.message)); }
+      
+      if(req.body.new_password_1 !== req.body.new_password_2) return res.redirect('/einstellungen?wrong_password_2=true');
+
+      const saltRounds = 10;
+      var bcrypt = require("bcrypt");
+      var db = require("../db.js");
+      var password = req.body.new_password_1;
+      
+      bcrypt.hash(password, saltRounds, function(err, hash) {
+        db.query(
+          "UPDATE `selg_schema`.`user_db` SET `password` = ? WHERE (`id` = ?);",
+          [hash, res.locals.user_id],
+            function(err, result, fields) {
+              if (err) {
+                return next(new Error(err.message));
+              } else {
+                res.redirect("/")
+              }
+            }
+        )
+      });
+    });
+  })(req, res, next);
 });
 
 

@@ -12,6 +12,7 @@ router.get("/neu/schuelerid=:id/kursid=:kid", function(req, res, next) {
     display_name: req.params.name,
     icon_cards: false,
     location: "Neue Bewertung",
+    next: req.query.next
   };
 
   // TODO 
@@ -72,6 +73,7 @@ router.post("/neu", function(req, res, next) {
     res.render("neue_bewertung", handlebars_presettings);
 
   } else {
+
     var datetime = require('node-datetime');
 
     if(req.body.manuell_erstellt){
@@ -85,15 +87,24 @@ router.post("/neu", function(req, res, next) {
           if(err || result.length === 0) return next(new Error("Diesen Kurs gibt es leider nicht..."))
           req.body.kurs_id = result[0].id;      
           db.query("SELECT * FROM schueler_kurs_link WHERE id_schueler = ? AND id_kurs = ?", [req.body.schueler_id, req.body.kurs_id], (err, result) => {
-            if(err || result.length === 0) return next(new Error("Dieser Schüler ist nicht in dem angegebenen Kurs."))
+            if(err || result.length === 0) return next(new Error("Dieser Schüler ist nicht im angegebenen Kurs vorhanden."))
 
-          
+            /* Altes Bewertungssystem
             var insert_array =
             [
               req.body.schueler_id, req.body.kurs_id,res.locals.user_id, datetime.create().format("d.m.Y") , req.body.name, req.body.fach, req.body.leistungsebene, req.body.kommentar,
               req.body.soz_1,req.body.soz_2,req.body.soz_3,req.body.soz_4,req.body.soz_5_1,req.body.soz_5_2,req.body.soz_6,
               req.body.lernab_1,req.body.lernab_2,req.body.lernab_3,req.body.lernab_4,req.body.lernab_5,req.body.lernab_6,req.body.lernab_7,req.body.lernab_8,req.body.lernab_9_1,req.body.lernab_9_2,req.body.lernab_9_3,req.body.lernab_10,
               req.body.kommentar_1,req.body.kommentar_2,req.body.kommentar_3,req.body.kommentar_4,req.body.kommentar_51,req.body.kommentar_52,req.body.kommentar_6,req.body.kommentar_7,req.body.kommentar_8,req.body.kommentar_9,req.body.kommentar_10,req.body.kommentar_11,req.body.kommentar_12,req.body.kommentar_13,req.body.kommentar_14,req.body.kommentar_15,req.body.kommentar_16,req.body.kommentar_17,req.body.kommentar_18
+            ];
+            */
+
+            var insert_array =
+            [
+              req.body.schueler_id, req.body.kurs_id,res.locals.user_id, datetime.create().format("d.m.Y") , req.body.name, req.body.fach, req.body.leistungsebene, req.body.kommentar,
+              req.body.soz_1,req.body.soz_2,req.body.soz_3,req.body.soz_4_1,req.body.soz_4_2,
+              req.body.lernab_1,req.body.lernab_2,req.body.lernab_3,req.body.lernab_4,req.body.lernab_5,req.body.lernab_6,req.body.lernab_7,req.body.lernab_8_1,req.body.lernab_8_2,req.body.lernab_9,
+              req.body.kommentar_1,req.body.kommentar_2,req.body.kommentar_3,req.body.kommentar_41,req.body.kommentar_42,req.body.kommentar_5,req.body.kommentar_6,req.body.kommentar_7,req.body.kommentar_8,req.body.kommentar_9,req.body.kommentar_10,req.body.kommentar_11,req.body.kommentar_12,req.body.kommentar_13,req.body.kommentar_14
             ];
           
             // Es wird geschaut ob es dieses Schüler überhaupt in der Datenbank gibt
@@ -108,10 +119,10 @@ router.post("/neu", function(req, res, next) {
                     db.query(
                       "INSERT INTO `selg_schema`.`bewertungen_db` "
                       + "(`schueler_id`, `kurs_id`, `lehrer_id`, `date`,`schueler_name`, `kurs_name`, `leistungsebene`, `kommentar`,"
-                      + "`soz_1`, `soz_2`, `soz_3`, `soz_4`, `soz_5_1`, `soz_5_2`, `soz_6`," 
-                      + "`lear_1`, `lear_2`, `lear_3`, `lear_4`, `lear_5`, `lear_6`, `lear_7`, `lear_8`, `lear_9_1`, `lear_9_2`, `lear_9_3`, `lear_10`, "
-                      + "`k_1`, `k_2`, `k_3`, `k_4`, `k_5_1`,`k_5_2`, `k_6`, `k_7`, `k_8`, `k_9`, `k_10`, `k_11`, `k_12`, `k_13`, `k_14`, `k_15`, `k_16`, `k_17`, `k_18`) "
-                      + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+                      + "`soz_1`, `soz_2`, `soz_3`, `soz_4_1`, `soz_4_2`," 
+                      + "`lear_1`, `lear_2`, `lear_3`, `lear_4`, `lear_5`, `lear_6`, `lear_7`, `lear_8_1`, `lear_8_2`, `lear_9`,"
+                      + "`k_1`, `k_2`, `k_3`, `k_4`, `k_5`, `k_6`, `k_7`, `k_8`, `k_9`, `k_10`, `k_11`, `k_12`, `k_13`, `k_14`, `k_15`) "
+                      + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
                       insert_array,
                       function(err, result, fields) {
                         if (err) {
@@ -148,9 +159,9 @@ router.post("/neu", function(req, res, next) {
       var insert_array =
       [
         req.body.schueler_id, req.body.kurs_id,res.locals.user_id, datetime.create().format("d.m.Y") , req.body.name, req.body.fach, req.body.leistungsebene, req.body.kommentar,
-        req.body.soz_1,req.body.soz_2,req.body.soz_3,req.body.soz_4,req.body.soz_5_1,req.body.soz_5_2,req.body.soz_6,
-        req.body.lernab_1,req.body.lernab_2,req.body.lernab_3,req.body.lernab_4,req.body.lernab_5,req.body.lernab_6,req.body.lernab_7,req.body.lernab_8,req.body.lernab_9_1,req.body.lernab_9_2,req.body.lernab_9_3,req.body.lernab_10,
-        req.body.kommentar_1,req.body.kommentar_2,req.body.kommentar_3,req.body.kommentar_4,req.body.kommentar_51,req.body.kommentar_52,req.body.kommentar_6,req.body.kommentar_7,req.body.kommentar_8,req.body.kommentar_9,req.body.kommentar_10,req.body.kommentar_11,req.body.kommentar_12,req.body.kommentar_13,req.body.kommentar_14,req.body.kommentar_15,req.body.kommentar_16,req.body.kommentar_17,req.body.kommentar_18
+        req.body.soz_1,req.body.soz_2,req.body.soz_3,req.body.soz_4_1,req.body.soz_4_2,
+        req.body.lernab_1,req.body.lernab_2,req.body.lernab_3,req.body.lernab_4,req.body.lernab_5,req.body.lernab_6,req.body.lernab_7,req.body.lernab_8_1,req.body.lernab_8_2,req.body.lernab_9,
+        req.body.kommentar_1,req.body.kommentar_2,req.body.kommentar_3,req.body.kommentar_41,req.body.kommentar_42,req.body.kommentar_5,req.body.kommentar_6,req.body.kommentar_7,req.body.kommentar_8,req.body.kommentar_9,req.body.kommentar_10,req.body.kommentar_11,req.body.kommentar_12,req.body.kommentar_13,req.body.kommentar_14
       ];
 
       // Es wird geschaut ob es dieses Schüler überhaupt in der Datenbank gibt
@@ -164,10 +175,10 @@ router.post("/neu", function(req, res, next) {
               db.query(
                 "INSERT INTO `selg_schema`.`bewertungen_db` "
                 + "(`schueler_id`, `kurs_id`, `lehrer_id`, `date`,`schueler_name`, `kurs_name`, `leistungsebene`, `kommentar`,"
-                + "`soz_1`, `soz_2`, `soz_3`, `soz_4`, `soz_5_1`, `soz_5_2`, `soz_6`," 
-                + "`lear_1`, `lear_2`, `lear_3`, `lear_4`, `lear_5`, `lear_6`, `lear_7`, `lear_8`, `lear_9_1`, `lear_9_2`, `lear_9_3`, `lear_10`, "
-                + "`k_1`, `k_2`, `k_3`, `k_4`, `k_5_1`,`k_5_2`, `k_6`, `k_7`, `k_8`, `k_9`, `k_10`, `k_11`, `k_12`, `k_13`, `k_14`, `k_15`, `k_16`, `k_17`, `k_18`) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+                + "`soz_1`, `soz_2`, `soz_3`, `soz_4_1`, `soz_4_2`," 
+                + "`lear_1`, `lear_2`, `lear_3`, `lear_4`, `lear_5`, `lear_6`, `lear_7`, `lear_8_1`, `lear_8_2`, `lear_9`,"
+                + "`k_1`, `k_2`, `k_3`, `k_4`, `k_5`, `k_6`, `k_7`, `k_8`, `k_9`, `k_10`, `k_11`, `k_12`, `k_13`, `k_14`, `k_15`) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
                 insert_array,
                 function(err, result, fields) {
                   if (err) {
@@ -186,7 +197,12 @@ router.post("/neu", function(req, res, next) {
                               ": [ NEUE BEWERTUNG ] -> "+results[0].last_bewertung
                             ].join("")
                           );
-                          res.redirect("/bewertung/view="+results[0].last_bewertung);
+                          console.log(req.body.next);
+                          if(req.body.next !== "null"){
+                            res.redirect("/kurs/"+req.body.next.split("-")[1])
+                          }else{
+                            res.redirect("/bewertung/meine");
+                          }
                         }
                       }
                     );
@@ -603,6 +619,30 @@ router.get("/download_sumup=:schuelerid", function(req, res, next){
     }else{
       return next(new Error("Wir konnten diesen Schüler nicht in Ihrer Klasse finden."))
     } 
+  });
+});
+
+
+
+router.get("/edit=:bewertungsid" , function(req, res, next) {
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Tool",
+    display_name: req.params.name,
+    icon_cards: false,
+    location: "Bewertung bearbeiten"
+  };  
+
+  // Schauen ob man überhaupt eine Bewertung schreiben darf
+
+  // Schülerinformationen
+  db.query("SELECT * FROM bewertungen_db WHERE id = ?", [req.params.bewertungsid], (err, presetting) => {
+    // Fügt zum Presetting-Object alle Daten der Bewertung hinzu
+    for(var key in presetting[0]){handlebars_presettings[key] = presetting[0][key];}
+
+    console.log(handlebars_presettings);
+
+    res.render("bewertungen/edit", handlebars_presettings);
   });
 });
 

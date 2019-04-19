@@ -7,7 +7,7 @@ function htmlToElement(html) {
 }
 
 function generateStarbox(id) {
-  var inner_html = `<div class="form-row mb-3" id="startbox_${id}_${id}">
+  var inner_html = `<div class="form-row mb-3" id="starbox_${id}_${id}">
      <div class="form-group col-md-8 border mb-0 px-0">
          <div class="input-group">
              <div class="input-group-prepend">
@@ -33,6 +33,7 @@ function addAdditionalComment(id) {
 function removeComment(id) {
     if (enabled[id] !== undefined) {
         enabled[id] = undefined;
-        document.getElementById(`startbox_${id}_${id}`).parentNode.removeChild(document.getElementById(`startbox_${id}_${id}`));
+        var tmp = document.getElementById(`starbox_${id}_${id}`).parentNode;
+        tmp.removeChild(document.getElementById(`starbox_${id}_${id}`));
       }
 }

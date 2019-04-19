@@ -48,12 +48,12 @@
           {{/if}}
           <div class="form-group">
             <div class="checkbox">
-              <label> {{! @TODO }}
+              <label>
                 <input type="checkbox" id="username_check" value="remember-me" onload="onLoad();" onchange="onSave();"> Benutzername speichern
               </label>
             </div>
           </div>
-          <button class="btn btn-primary btn-block">Anmelden</button>
+          <button onclick="onSave();" class="btn btn-primary btn-block">Anmelden</button>
         </form>
       </div>
     </div>

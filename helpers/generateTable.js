@@ -8,21 +8,28 @@ module.exports = function(Schuelerliste_, options) {
   Schuelerliste = Schuelerliste_.sort().reverse();
   Schuelerliste.forEach(Schueler => {
     var row = "<tr>";
-    
-    Object.entries(Schueler).forEach(([key, value]) => {
-      row += `<td> ${i}</td>`;
-      row += `<td> ${value.name}</td>`;
-      row += `<td> ${value.stufe}${value.klassen_suffix}</td>`;
-      row += `<td> ${/*value.geburtsdatum*/"01.01.2000"}</td>`;
-      row += `<td> ${value.index}</td>`;
-      row += `<td><a class="mx-5" href="/bewertung/neu/schuelerid=${
-        value.id
-      }/kursid=${Kurs.id}">
-        <i class="fas fa-file-alt"></i></a></td>`;
-      i++;
-    });
 
-    table += row + "</re>";
+    row += `<td> ${i}</td>`;
+    row += `<td> ${Schueler[0].name}</td>`;
+    row += `<td> ${Schueler[0].stufe}${Schueler[0].klassen_suffix}</td>`;
+    
+
+    var next = Schuelerliste.length !== i ? (Schuelerliste[i][0].id+"-"+Kurs.id) : "null";
+    
+    if(Schueler[0].isDone){
+      row += `<td><a class="mx-5" href="/bewertung/view=${Schueler[0].bewertungs_id}">
+      <i class="fas fa-edit text-success"></i></a></td>`;
+    }else{
+      row += `<td><a class="mx-5" href="/bewertung/neu/schuelerid=${
+        Schueler[0].id
+      }/kursid=${Kurs.id}?next=${next}">
+      <i class="fas fa-file-alt"></i></a></td>`;
+    }
+    
+   
+    i++;
+  
+    table += row + "</tr>";
   });
   return new Handlebars.SafeString(table);
 };

@@ -40,9 +40,7 @@ router.get("/:kursid", function(req, res, next) {
           } else {
             async.each(
               result,
-              // 2nd param is the function that each item is passed to
               function(item, callback) {
-                // Call an asynchronous function, often a save() to DB
                 db.query(
                   "SELECT * FROM schueler_db WHERE id = ?",
                   [item.id_schueler],
@@ -56,10 +54,27 @@ router.get("/:kursid", function(req, res, next) {
                   }
                 );
               },
-              // 3rd param is the function to call when everything's done
-              function(err) {
+              function(error) {
+                if (error) return next(new Error(error.message));
                 handlebars_presettings.schueler = Schueler;
-                res.render("kurse/fachlehrer", handlebars_presettings);
+                var schueler_to_look = Schueler.map(array => array[0].name);
+
+                db.query("SELECT id, schueler_name, schueler_id, kurs_name FROM bewertungen_db WHERE (schueler_name IN (?) AND kurs_id = ?)",[schueler_to_look, kursid],(err, result) =>{
+
+                  for(var i = 0; i < Schueler.length; i++){
+                    result.forEach(bewertung => {
+                      if(bewertung.schueler_name === Schueler[i][0].name){
+                        Schueler[i][0].isDone = true;
+                        Schueler[i][0].bewertungs_id = bewertung.id;
+                      }
+                    });
+                    if(Schueler[i][0].isDone === undefined) Schueler[i][0].isDone = false;           
+                  }
+
+                  console.log(Schueler);
+
+                  res.render("kurse/fachlehrer", handlebars_presettings);
+                });
               }
             );
           }
