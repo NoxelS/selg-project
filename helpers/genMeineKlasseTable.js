@@ -13,7 +13,31 @@ module.exports = function(Schuelerliste_) {
     row += `<td>${Schueler.vorname}</td>`;
     row += `<td>${Schueler.nachname}</td>`;
     // TODO anzahl Berwertungen die abgegeben wurden
-    row += `<td>${Math.round((Math.random()*12))}/12</td>`;
+    //row += `<td>${Schueler.hatBewertung}/${Schueler.sollBewertung}</td>`;
+    var dropdownKurse = "";
+    if(Schueler.Bewertungen.length != 0){
+      Schueler.Bewertungen.forEach(Bewertung => {
+        dropdownKurse+= `<a class="dropdown-item">&bull; ${Bewertung}</a>`;
+      })
+    }else{
+      dropdownKurse+= `<a class="dropdown-item"><i> Leider wurden noch keine Bewertungen abgegeben.</i></a>`;
+    }
+    
+
+    row += `
+    
+    <td>
+    <div class="dropdown">
+      <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        ${Schueler.hatBewertung}/${Schueler.sollBewertung}
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item"><b>Bewertungen abgegeben:</b></a>
+        <div class="dropdown-divider"></div>       
+        ${dropdownKurse}
+      </div>
+    </div>
+    </td>`;
     row += `<td><a href="/bewertung/view_sumup=${Schueler.id}"><i class="fas fa-search"></i></a></td>`;
     row += `<td><a href="/bewertung/download_sumup=${Schueler.id}" data-toggle="modal" data-target="#date_update_modal_${Schueler.id}"><i class="fas fa-download"></i></a></td>`;
 

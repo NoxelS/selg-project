@@ -298,8 +298,28 @@ router.get("/klasse", function(req, res, next) {
     "SELECT * FROM selg_schema.schueler_db WHERE stufe = ? AND klassen_suffix = ?;", [res.locals.stufe, res.locals.stufe_suffix],
     (error, result) => {
      if(error) return next(new Error(error.message));
-     res.locals.meineKlasse = result;
-     res.render("meine_klasse", handlebars_presettings);
+      res.locals.meineKlasse = result;
+
+      // Holt sich alle Bewertungen der Schüler um zu schauen welche vollständig sind
+      db.query("SELECT id as b_id, schueler_id as s_id, kurs_name as name, leistungsebene FROM bewertungen_db WHERE schueler_id IN (?)",[result.map(schueler=> schueler.id)],(err,result)=>{
+        
+        res.locals.meineKlasse.forEach(Schueler => {
+          Schueler["hatBewertung"] = 0;
+          Schueler["Bewertungen"] = [];
+          for(var i = 0; i < result.length; i++){
+            if(result[i].s_id == Schueler.id){
+              Schueler["hatBewertung"] += 1;
+              Schueler["Bewertungen"].push(`${result[i].name} ${result[i].leistungsebene}`)
+            }
+          }
+          Schueler["sollBewertung"] = res.locals.stufe === 5 ? 10 : res.locals.stufe === 6 ? 11 : res.locals.stufe === 7 ? 12 : 13;
+        });
+
+
+
+        console.log(res.locals.meineKlasse);
+        res.render("meine_klasse", handlebars_presettings);
+      });
   });
 });
 
