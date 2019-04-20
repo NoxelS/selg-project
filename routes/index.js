@@ -105,8 +105,9 @@ router.get("/profil", function(req, res, next) {
     display_name: res.locals.username,
     icon_cards: false,
     location: "Profil",
-    kurse_count: res.locals.meineKurse.length
+    kurse_count: res.locals.permission === "admin" ? "n/a" : res.locals.meineKurse.length
   };
+
   res.render("profile", handlebars_presettings);
 });
 
@@ -155,6 +156,18 @@ router.post("/tutorial/cancel", function(req, res, next){
     if(err) console.log(err);
     res.redirect("/")
   })
+});
+
+router.post("/tutorial", function(req, res, next){
+  const db = require("../db")
+  if(req.query.restart == "true"){
+  db.query("UPDATE `selg_schema`.`user_db` SET `hasDoneTutorial` = 'null' WHERE (`id` = ?);", [res.locals.user_id], (result, err) =>{
+    if(err) console.log(err);
+    res.redirect("/")
+  })
+  }else{
+    return next(new Error());
+  }
 });
 
 router.get("/search=:nametofind", function(req, res, next) {

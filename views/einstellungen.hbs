@@ -58,7 +58,9 @@
                         </div>
                     <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"> 
                         <p>Sind Sie sich sicher, die Einführung erneut starten zu wollen?</p>
-                        <button class="btn btn-primary">Einführung erneut starten</button>
+                        <form action="/tutorial?restart=true" method="post" autocomplete="off">
+                            <button class="btn btn-primary" type="submit" value="Submit">Einführung erneut starten</button>
+                        </form>
                     </div>
                     <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                         Wenn Sie Hilfe benötigen, bitte wenden Sie sich an einen Administrator.</div>

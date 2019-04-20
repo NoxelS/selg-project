@@ -200,7 +200,7 @@ app.use((req, res, next) => {
         res.locals.url = req.originalUrl; // Url wird benutzt um bei einem 404 Error anzuzeigen, welche Seite es nicht gibt
 
         // Schaut ob der Nutzer die Einführung absolviert hat, wenn nicht wird ein Tutorial auf der Hauptseite angezeigt
-        if(results[0].hasDoneTutorial){
+        if(results[0].hasDoneTutorial === "1"){
           res.locals.tutorial = false;
         }else{
           res.locals.tutorial = true;
