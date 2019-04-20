@@ -326,8 +326,8 @@ router.get("/view=:id", function(req, res, next) {
 
 
   db.query("SELECT * FROM bewertungen_db WHERE id = ?", [req.params.id], function(    err,    result  ) {
-    if (err) {
-      return next(new Error(err.message));
+    if (err || result.length == 0) {
+      return next(new Error(""));
     } else if(result[0].lehrer_id != res.locals.user_id){
       return next(new Error(""));
     }else {
@@ -643,12 +643,40 @@ router.get("/edit=:bewertungsid" , function(req, res, next) {
 
   // Schülerinformationen
   db.query("SELECT * FROM bewertungen_db WHERE id = ?", [req.params.bewertungsid], (err, presetting) => {
+
+    if(err || presetting.length == 0) return next(new Error("Die Bewertung konnte nicht gefunden werden."));
+    if(presetting[0].lehrer_id != res.locals.user_id) return next(new Error("Die Bewertung konnte nicht gefunden werden."));
+
     // Fügt zum Presetting-Object alle Daten der Bewertung hinzu
     for(var key in presetting[0]){handlebars_presettings[key] = presetting[0][key];}
 
-    console.log(handlebars_presettings);
+    handlebars_presettings.bewertungs_id = req.params.bewertungsid;
 
     res.render("bewertungen/edit", handlebars_presettings);
+  });
+});
+
+router.post("/edit", function(req, res, next){
+
+  var insert_array =
+  [
+    datetime.create().format("d.m.Y") , req.body.kommentar,
+    req.body.soz_1,req.body.soz_2,req.body.soz_3,req.body.soz_4_1,req.body.soz_4_2,
+    req.body.lernab_1,req.body.lernab_2,req.body.lernab_3,req.body.lernab_4,req.body.lernab_5,req.body.lernab_6,req.body.lernab_7,req.body.lernab_8_1,req.body.lernab_8_2,req.body.lernab_9,
+    req.body.kommentar_1,req.body.kommentar_2,req.body.kommentar_3,req.body.kommentar_4,req.body.kommentar_5,req.body.kommentar_6,req.body.kommentar_7,req.body.kommentar_8,req.body.kommentar_9,req.body.kommentar_10,req.body.kommentar_11,req.body.kommentar_12,req.body.kommentar_13,req.body.kommentar_14,req.body.kommentar_15,
+    req.body.bewertungs_id
+  ];
+
+  console.log(insert_array);
+
+
+  db.query("UPDATE `selg_schema`.`bewertungen_db` SET `date` = ?, `kommentar` = ? , `soz_1` = ?, `soz_2` = ?, `soz_3` = ?, `soz_4_1` = ?, `soz_4_2` = ?, `lear_1` = ?, `lear_2` = ?, `lear_3` = ?, `lear_4` = ?, `lear_5` = ?, `lear_6` = ?, `lear_7` = ?, `lear_8_1` = ?, `lear_8_2` = ?, `lear_9` = ?,"
+          +"`k_1` = ?, `k_2` = ?, `k_3` = ?, `k_4` = ?, `k_5` = ?, `k_6` = ?, `k_7` = ?, `k_8` = ?, `k_9` = ?, `k_10` = ?, `k_11` = ?, `k_12` = ?, `k_13` = ?, `k_14` = ?, `k_15` = ? WHERE (`id` = ?);",
+  insert_array,
+  (err, result)=>{
+    if(err) return next(new Error(err.message));
+    console.log(result);
+    res.redirect("/bewertung/view="+req.body.bewertungs_id);
   });
 });
 

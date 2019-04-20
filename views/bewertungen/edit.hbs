@@ -16,7 +16,7 @@
                     {{!-- META DATA -> Hidden values--}}
                     <input type="hidden" name="schueler_id" id="schueler_id" readonly="readonly" value="{{schueler_id}}">
                     <input type="hidden" name="kurs_id" id="kurs_id" readonly="readonly" value="{{kurs_id}}"> 
-                    
+                    <input type="hidden" name="bewertungs_id" id="bewertungs_id" readonly="readonly" value="{{bewertungs_id}}"> 
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -78,9 +78,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div id="starbox_1">
                             {{#if k_1}}
                             <script> enabled[1] = true; console.log(enabled)</script>
-                            <div id="starbox_1">
                                 <div>
                                     <div class="form-row mb-0" id="starbox_1_1">
                                         <div class="form-group col-md-6 border mb-0 px-0">
@@ -88,14 +88,14 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text no-border">Brgründung:</span>
                                                 </div>
-                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar" rows="{{calcRows k_1}}" id="kommentar">{{k_1}}</textarea>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_1" rows="{{calcRows k_1}}" id="kommentar">{{k_1}}</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-2 border ml-0 mb-0"></div>
                                     </div>
                                 </div>
-                            </div>
                             {{/if}}
+                            </div>
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
                                     <p class="mb-0 ml-3">2. Du bist hilfsbereit.</p>
@@ -117,9 +117,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div id="starbox_2">
                             {{#if k_2}}
                             <script> enabled[2] = true; console.log(enabled)</script>
-                            <div id="starbox_2">
                                 <div>
                                     <div class="form-row mb-0" id="starbox_2_2">
                                         <div class="form-group col-md-6 border mb-0 px-0">
@@ -127,18 +127,18 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text no-border">Brgründung:</span>
                                                 </div>
-                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar" rows="{{calcRows k_2}}" id="kommentar">{{k_2}}</textarea>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_2" rows="{{calcRows k_2}}" id="kommentar">{{k_2}}</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-2 border ml-0 mb-0"></div>
                                     </div>
                                 </div>
-                            </div>
                             {{/if}}
+                            </div>
 
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">3. Du kannst Kritik annehmen und umsetzen.</p>
+                                    <p class="mb-0 ml-3">3. Du kannst mit Kritik umgehen.</p>
                                 </div>
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
@@ -157,9 +157,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div id="starbox_3">
                             {{#if k_3}}
                             <script> enabled[3] = true; console.log(enabled)</script>
-                            <div id="starbox_3">
                                 <div>
                                     <div class="form-row mb-0" id="starbox_3_3">
                                         <div class="form-group col-md-6 border mb-0 px-0">
@@ -167,58 +167,18 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text no-border">Brgründung:</span>
                                                 </div>
-                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar" rows="{{calcRows k_3}}" id="kommentar">{{k_3}}</textarea>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_3" rows="{{calcRows k_3}}" id="kommentar">{{k_3}}</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-2 border ml-0 mb-0"></div>
                                     </div>
                                 </div>
-                            </div>
                             {{/if}}
-
-                            <div class="form-row mb-0">
-                                <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">4. Du zeigst dich gegenüber fremden Eigentum achtsam.</p>
-                                </div>
-                                <div class="form-group col-md-2 border ml-0 mb-0">
-                                    <div class="ml-4 mb-0">
-                                        <div class="rating">
-                                            <input id="star34" name="soz_4" type="radio" value="4" class="radio-btn hide" {{#ifEqual soz_4 4}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star34" onclick="removeComment(4)">☆</label>
-                                            <input id="star33" name="soz_4" type="radio" value="3" class="radio-btn hide" {{#ifEqual soz_4 3}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star33" onclick="removeComment(4)">☆</label>
-                                            <input id="star32" name="soz_4" type="radio" value="2" class="radio-btn hide" {{#ifEqual soz_4 2}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star32" onclick="removeComment(4)">☆</label>
-                                            <input id="star31" name="soz_4" type="radio" value="1" class="radio-btn hide" {{#ifEqual soz_4 1}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star31" onclick="addAdditionalComment(4)">☆</label>
-                                            <div class="clear">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                            {{#if k_4}}
-                            <script> enabled[4] = true; console.log(enabled)</script>
-                            <div id="starbox_4">
-                                <div>
-                                    <div class="form-row mb-0" id="starbox_4_4">
-                                        <div class="form-group col-md-6 border mb-0 px-0">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
-                                                </div>
-                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar" rows="{{calcRows k_4}}" id="kommentar">{{k_4}}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{/if}}
 
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-8 border mb-0">
-                                    <p class="mb-0 ml-3">5. Du hälst dich an die vereinbarten ...</p>
+                                    <p class="mb-0 ml-3">4. Du hälst dich an die vereinbarten ...</p>
                                 </div>
                             </div>
                             <div class="form-row mb-0">
@@ -228,38 +188,38 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="star44" name="soz_5_1" type="radio" value="4" class="radio-btn hide" {{#ifEqual soz_5_1 4}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star44" onclick="removeComment(51)">☆</label>
-                                            <input id="star43" name="soz_5_1" type="radio" value="3" class="radio-btn hide" {{#ifEqual soz_5_1 3}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star43" onclick="removeComment(51)">☆</label>
-                                            <input id="star42" name="soz_5_1" type="radio" value="2" class="radio-btn hide" {{#ifEqual soz_5_1 2}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star42" onclick="removeComment(51)">☆</label>
-                                            <input id="star41" name="soz_5_1" type="radio" value="1" class="radio-btn hide" {{#ifEqual soz_5_1 1}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star41" onclick="addAdditionalComment(51)">☆</label>
+                                            <input id="star44" name="soz_4_1" type="radio" value="4" class="radio-btn hide" {{#ifEqual soz_4_1 4}} checked="checked" {{/ifEqual}}/>
+                                            <label for="star44" onclick="removeComment(4)">☆</label>
+                                            <input id="star43" name="soz_4_1" type="radio" value="3" class="radio-btn hide" {{#ifEqual soz_4_1 3}} checked="checked" {{/ifEqual}}/>
+                                            <label for="star43" onclick="removeComment(4)">☆</label>
+                                            <input id="star42" name="soz_4_1" type="radio" value="2" class="radio-btn hide" {{#ifEqual soz_4_1 2}} checked="checked" {{/ifEqual}}/>
+                                            <label for="star42" onclick="removeComment(4)">☆</label>
+                                            <input id="star41" name="soz_4_1" type="radio" value="1" class="radio-btn hide" {{#ifEqual soz_4_1 1}} checked="checked" {{/ifEqual}}/>
+                                            <label for="star41" onclick="addAdditionalComment(4)">☆</label>
                                             <div class="clear">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            {{#if k_5_1}}
-                            <script> enabled[51] = true; console.log(enabled)</script>
-                            <div id="starbox_51">
+                            <div id="starbox_4">
+                            {{#if k_4}}
+                            <script> enabled[4] = true; console.log(enabled)</script>
                                 <div>
-                                    <div class="form-row mb-0" id="starbox_51_51">
+                                    <div class="form-row mb-0" id="starbox_4_4">
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text no-border">Brgründung:</span>
                                                 </div>
-                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar" rows="{{calcRows k_5_1}}" id="kommentar">{{k_5_1}}</textarea>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_4" rows="{{calcRows k_4}}" id="kommentar">{{k_4}}</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-2 border ml-0 mb-0"></div>
                                     </div>
                                 </div>
-                            </div>
                             {{/if}}
+                            </div>
 
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
@@ -268,79 +228,38 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="star441" name="soz_5_2" type="radio" value="4" class="radio-btn hide" {{#ifEqual soz_5_2 4}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star441" onclick="removeComment(52)">☆</label>
-                                            <input id="star431" name="soz_5_2" type="radio" value="3" class="radio-btn hide" {{#ifEqual soz_5_2 3}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star431" onclick="removeComment(52)">☆</label>
-                                            <input id="star421" name="soz_5_2" type="radio" value="2" class="radio-btn hide" {{#ifEqual soz_5_2 2}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star421" onclick="removeComment(52)">☆</label>
-                                            <input id="star411" name="soz_5_2" type="radio" value="1" class="radio-btn hide" {{#ifEqual soz_5_2 1}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star411" onclick="addAdditionalComment(52)">☆</label>
+                                            <input id="star441" name="soz_4_2" type="radio" value="4" class="radio-btn hide" {{#ifEqual soz_4_2 4}} checked="checked" {{/ifEqual}}/>
+                                            <label for="star441" onclick="removeComment(5)">☆</label>
+                                            <input id="star431" name="soz_4_2" type="radio" value="3" class="radio-btn hide" {{#ifEqual soz_4_2 3}} checked="checked" {{/ifEqual}}/>
+                                            <label for="star431" onclick="removeComment(5)">☆</label>
+                                            <input id="star421" name="soz_4_2" type="radio" value="2" class="radio-btn hide" {{#ifEqual soz_4_2 2}} checked="checked" {{/ifEqual}}/>
+                                            <label for="star421" onclick="removeComment(5)">☆</label>
+                                            <input id="star411" name="soz_4_2" type="radio" value="1" class="radio-btn hide" {{#ifEqual soz_4_2 1}} checked="checked" {{/ifEqual}}/>
+                                            <label for="star411" onclick="addAdditionalComment(5)">☆</label>
                                             <div class="clear">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            {{#if k_5_2}}
-                            <script> enabled[52] = true; console.log(enabled)</script>
-                            <div id="starbox_52">
+                            <div id="starbox_5">
+                            {{#if k_5}}
+                            <script> enabled[5] = true; console.log(enabled)</script>
                                 <div>
-                                    <div class="form-row mb-0" id="starbox_52_52">
+                                    <div class="form-row mb-0" id="starbox_5_5">
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text no-border">Brgründung:</span>
                                                 </div>
-                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar" rows="{{calcRows k_5_2}}" id="kommentar">{{k_5_2}}</textarea>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_5" rows="{{calcRows k_5}}" id="kommentar">{{k_5}}</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-2 border ml-0 mb-0"></div>
                                     </div>
                                 </div>
-                            </div>
                             {{/if}}
-
-
-                            <div class="form-row mb-0">
-                                <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">6. Du trägst mit deinem Verhalten zur guten Gemeinschaft bei.</p>
-                                </div>
-                                <div class="form-group col-md-2 border ml-0 mb-0">
-                                    <div class="ml-4 mb-0">
-                                        <div class="rating">
-                                            <input id="star54" name="soz_6" type="radio" value="4" class="radio-btn hide" {{#ifEqual soz_6 4}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star54" onclick="removeComment(6)">☆</label>
-                                            <input id="star53" name="soz_6" type="radio" value="3" class="radio-btn hide" {{#ifEqual soz_6 3}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star53" onclick="removeComment(6)">☆</label>
-                                            <input id="star52" name="soz_6" type="radio" value="2" class="radio-btn hide" {{#ifEqual soz_6 2}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star52" onclick="removeComment(6)">☆</label>
-                                            <input id="star51" name="soz_6" type="radio" value="1" class="radio-btn hide" {{#ifEqual soz_6 1}} checked="checked" {{/ifEqual}}/>
-                                            <label for="star51" onclick="addAdditionalComment(6)">☆</label>
-                                            <div class="clear">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                            {{#if k_6}}
-                            <script> enabled[6] = true; console.log(enabled)</script>
-                            <div id="starbox_6">
-                                <div>
-                                    <div class="form-row mb-0" id="starbox_6_6">
-                                        <div class="form-group col-md-6 border mb-0 px-0">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
-                                                </div>
-                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar" rows="{{calcRows k_6}}" id="kommentar">{{k_6}}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{/if}}
                         </div>
                     </div>
                     <!-- END OF SOZIALVERHALTEN -->
@@ -351,186 +270,290 @@
                             <h5 class="h5 mb-3"> Lern- und Arbeitsverhalten</h5>
                         </div>
                         <div class="ml-4 mb-4">
+                            <div class="form-row mb-0">
+                                <div class="form-group col-md-6 border mb-0">
+                                    <p class="mb-0 ml-3">1. Du sorgst für vollständige Arbeitsmaterialien.</p>
+                                </div>
+                                <div class="form-group col-md-2 border ml-0 mb-0">
+                                    <div class="ml-4 mb-0">
+                                        <div class="rating">
+                                            <input id="astar14" name="lernab_1" type="radio" value="4" class="radio-btn hide" {{#ifEqual lear_1 4}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar14" onclick="removeComment(6)">☆</label>
+                                            <input id="astar13" name="lernab_1" type="radio" value="3" class="radio-btn hide" {{#ifEqual lear_1 3}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar13" onclick="removeComment(6)">☆</label>
+                                            <input id="astar12" name="lernab_1" type="radio" value="2" class="radio-btn hide" {{#ifEqual lear_1 2}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar12" onclick="removeComment(6)">☆</label>
+                                            <input id="astar11" name="lernab_1" type="radio" value="1" class="radio-btn hide" {{#ifEqual lear_1 1}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar11" onclick="addAdditionalComment(6)">☆</label>
+                                            <div class="clear">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="starbox_6">
+                            {{#if k_6}}
+                            <script> enabled[6] = true; console.log(enabled)</script>
+                                <div>
+                                    <div class="form-row mb-0" id="starbox_6_6">
+                                        <div class="form-group col-md-6 border mb-0 px-0">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                </div>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_6" rows="{{calcRows k_6}}" id="kommentar">{{k_6}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                            </div>
+
 
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">1. Du erscheinst pünktlich zum Unterricht.</p>
+                                    <p class="mb-0 ml-3">2. Du bist zuverlässig und organisierst dich selbst.</p>
                                 </div>
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="astar4" name="lernab_1" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="astar4" onclick="removeComment(7)">☆</label>
-                                            <input id="astar3" name="lernab_1" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="astar3" onclick="removeComment(7)">☆</label>
-                                            <input id="astar2" name="lernab_1" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="astar2" onclick="removeComment(7)">☆</label>
-                                            <input id="astar1" name="lernab_1" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="astar1" onclick="addAdditionalComment(7)">☆</label>
+                                            <input id="astar24" name="lernab_2" type="radio" value="4" class="radio-btn hide" {{#ifEqual lear_2 4}} checked="checked" {{/ifEqual}} />
+                                            <label for="astar24" onclick="removeComment(7)">☆</label>
+                                            <input id="astar23" name="lernab_2" type="radio" value="3" class="radio-btn hide" {{#ifEqual lear_2 3}} checked="checked" {{/ifEqual}} />
+                                            <label for="astar23" onclick="removeComment(7)">☆</label>
+                                            <input id="astar22" name="lernab_2" type="radio" value="2" class="radio-btn hide" {{#ifEqual lear_2 2}} checked="checked" {{/ifEqual}} />
+                                            <label for="astar22" onclick="removeComment(7)">☆</label>
+                                            <input id="astar21" name="lernab_2" type="radio" value="1" class="radio-btn hide" {{#ifEqual lear_2 1}} checked="checked" {{/ifEqual}} />
+                                            <label for="astar21" onclick="addAdditionalComment(7)">☆</label>
                                             <div class="clear">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="starbox_7"></div>
+                            <div id="starbox_7">
+                            {{#if k_7}}
+                            <script> enabled[7] = true; console.log(enabled)</script>
+                                <div>
+                                    <div class="form-row mb-0" id="starbox_7_7">
+                                        <div class="form-group col-md-6 border mb-0 px-0">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                </div>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_7" rows="{{calcRows k_7}}" id="kommentar">{{k_7}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                            </div>
+
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">2. Du sorgst für vollständige Arbeitsmaterialien.</p>
+                                    <p class="mb-0 ml-3">3. Du arbeitest konzentriert und folgst dem Unterricht aufmerksam.</p>
                                 </div>
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="astar14" name="lernab_2" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="astar14" onclick="removeComment(8)">☆</label>
-                                            <input id="astar13" name="lernab_2" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="astar13" onclick="removeComment(8)">☆</label>
-                                            <input id="astar12" name="lernab_2" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="astar12" onclick="removeComment(8)">☆</label>
-                                            <input id="astar11" name="lernab_2" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="astar11" onclick="addAdditionalComment(8)">☆</label>
+                                            <input id="astar34" name="lernab_3" type="radio" value="4" class="radio-btn hide" {{#ifEqual lear_3 4}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar34" onclick="removeComment(8)">☆</label>
+                                            <input id="astar33" name="lernab_3" type="radio" value="3" class="radio-btn hide" {{#ifEqual lear_3 3}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar33" onclick="removeComment(8)">☆</label>
+                                            <input id="astar32" name="lernab_3" type="radio" value="2" class="radio-btn hide" {{#ifEqual lear_3 2}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar32" onclick="removeComment(8)">☆</label>
+                                            <input id="astar31" name="lernab_3" type="radio" value="1" class="radio-btn hide" {{#ifEqual lear_3 1}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar31" onclick="addAdditionalComment(8)">☆</label>
                                             <div class="clear">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="starbox_8"></div>
+                            <div id="starbox_8">
+                            {{#if k_8}}
+                            <script> enabled[8] = true; console.log(enabled)</script>
+                                <div>
+                                    <div class="form-row mb-0" id="starbox_8_8">
+                                        <div class="form-group col-md-6 border mb-0 px-0">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                </div>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_8" rows="{{calcRows k_8}}" id="kommentar">{{k_8}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                            </div>
+
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">3. Du bist zuverlässig und organisierst dich selbst.</p>
+                                    <p class="mb-0 ml-3">4. Dein Arbeitstempo ist angemessen.</p>
                                 </div>
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="astar24" name="lernab_3" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="astar24" onclick="removeComment(9)">☆</label>
-                                            <input id="astar23" name="lernab_3" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="astar23" onclick="removeComment(9)">☆</label>
-                                            <input id="astar22" name="lernab_3" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="astar22" onclick="removeComment(9)">☆</label>
-                                            <input id="astar21" name="lernab_3" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="astar21" onclick="addAdditionalComment(9)">☆</label>
+                                            <input id="bastar34" name="lernab_4" type="radio" value="4" class="radio-btn hide" {{#ifEqual lear_4 4}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bastar34" onclick="removeComment(9)">☆</label>
+                                            <input id="bastar33" name="lernab_4" type="radio" value="3" class="radio-btn hide" {{#ifEqual lear_4 3}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bastar33" onclick="removeComment(9)">☆</label>
+                                            <input id="bastar32" name="lernab_4" type="radio" value="2" class="radio-btn hide" {{#ifEqual lear_4 2}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bastar32" onclick="removeComment(9)">☆</label>
+                                            <input id="bastar31" name="lernab_4" type="radio" value="1" class="radio-btn hide" {{#ifEqual lear_4 1}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bastar31" onclick="addAdditionalComment(9)">☆</label>
                                             <div class="clear">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="starbox_9"></div>
+                            <div id="starbox_9">
+                            {{#if k_9}}
+                            <script> enabled[9] = true; console.log(enabled)</script>
+                                <div>
+                                    <div class="form-row mb-0" id="starbox_9_9">
+                                        <div class="form-group col-md-6 border mb-0 px-0">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                </div>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_9" rows="{{calcRows k_9}}" id="kommentar">{{k_9}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                            </div>
+
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">4. Du arbeitest konzentriert und folgst dem Unterricht aufmerksam.</p>
+                                    <p class="mb-0 ml-3">5. Du zeigst dich lernbereit.</p>
                                 </div>
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="astar34" name="lernab_4" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="astar34" onclick="removeComment(10)">☆</label>
-                                            <input id="astar33" name="lernab_4" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="astar33" onclick="removeComment(10)">☆</label>
-                                            <input id="astar32" name="lernab_4" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="astar32" onclick="removeComment(10)">☆</label>
-                                            <input id="astar31" name="lernab_4" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="astar31" onclick="addAdditionalComment(10)">☆</label>
+                                            <input id="cbastar34" name="lernab_5" type="radio" value="4" class="radio-btn hide" {{#ifEqual lear_5 4}} checked="checked" {{/ifEqual}}/>
+                                            <label for="cbastar34" onclick="removeComment(10)">☆</label>
+                                            <input id="cbastar33" name="lernab_5" type="radio" value="3" class="radio-btn hide" {{#ifEqual lear_5 3}} checked="checked" {{/ifEqual}}/>
+                                            <label for="cbastar33" onclick="removeComment(10)">☆</label>
+                                            <input id="cbastar32" name="lernab_5" type="radio" value="2" class="radio-btn hide" {{#ifEqual lear_5 2}} checked="checked" {{/ifEqual}}/>
+                                            <label for="cbastar32" onclick="removeComment(10)">☆</label>
+                                            <input id="cbastar31" name="lernab_5" type="radio" value="1" class="radio-btn hide" {{#ifEqual lear_5 1}} checked="checked" {{/ifEqual}}/>
+                                            <label for="cbastar31" onclick="addAdditionalComment(10)">☆</label>
                                             <div class="clear">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="starbox_10"></div>
+                            <div id="starbox_10">
+                            {{#if k_10}}
+                            <script> enabled[10] = true; console.log(enabled)</script>
+                                <div>
+                                    <div class="form-row mb-0" id="starbox_10_10">
+                                        <div class="form-group col-md-6 border mb-0 px-0">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                </div>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_10" rows="{{calcRows k_10}}" id="kommentar">{{k_10}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                            </div>
+
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">5. Dein Arbeitstempo ist angemessen.</p>
+                                    <p class="mb-0 ml-3">6. Du lässt dich nicht so schnell entmutigen.</p>
                                 </div>
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="bastar34" name="lernab_5" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="bastar34" onclick="removeComment(11)">☆</label>
-                                            <input id="bastar33" name="lernab_5" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="bastar33" onclick="removeComment(11)">☆</label>
-                                            <input id="bastar32" name="lernab_5" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="bastar32" onclick="removeComment(11)">☆</label>
-                                            <input id="bastar31" name="lernab_5" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="bastar31" onclick="addAdditionalComment(11)">☆</label>
+                                            <input id="dcbastar34" name="lernab_6" type="radio" value="4" class="radio-btn hide" {{#ifEqual lear_6 4}} checked="checked" {{/ifEqual}}/>
+                                            <label for="dcbastar34" onclick="removeComment(11)">☆</label>
+                                            <input id="dcbastar33" name="lernab_6" type="radio" value="3" class="radio-btn hide" {{#ifEqual lear_6 3}} checked="checked" {{/ifEqual}}/>
+                                            <label for="dcbastar33" onclick="removeComment(11)">☆</label>
+                                            <input id="dcbastar32" name="lernab_6" type="radio" value="2" class="radio-btn hide" {{#ifEqual lear_6 2}} checked="checked" {{/ifEqual}}/>
+                                            <label for="dcbastar32" onclick="removeComment(11)">☆</label>
+                                            <input id="dcbastar31" name="lernab_6" type="radio" value="1" class="radio-btn hide" {{#ifEqual lear_6 1}} checked="checked" {{/ifEqual}}/>
+                                            <label for="dcbastar31" onclick="addAdditionalComment(11)">☆</label>
                                             <div class="clear">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="starbox_11"></div>
+                            <div id="starbox_11">
+                            {{#if k_11}}
+                            <script> enabled[11] = true; console.log(enabled)</script>
+                                <div>
+                                    <div class="form-row mb-0" id="starbox_11_11">
+                                        <div class="form-group col-md-6 border mb-0 px-0">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                </div>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_11" rows="{{calcRows k_11}}" id="kommentar">{{k_11}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                            </div>
+
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">6. Du bist lernbereit und lässt dich nicht so schnell entmutigen.</p>
+                                    <p class="mb-0 ml-3">7. Du beteiligst dich aktiv am Unterrichtsgeschehen.</p>
                                 </div>
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="cbastar34" name="lernab_6" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="cbastar34" onclick="removeComment(12)">☆</label>
-                                            <input id="cbastar33" name="lernab_6" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="cbastar33" onclick="removeComment(12)">☆</label>
-                                            <input id="cbastar32" name="lernab_6" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="cbastar32" onclick="removeComment(12)">☆</label>
-                                            <input id="cbastar31" name="lernab_6" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="cbastar31" onclick="addAdditionalComment(12)">☆</label>
+                                            <input id="edcbastar34" name="lernab_7" type="radio" value="4" class="radio-btn hide" {{#ifEqual lear_7 4}} checked="checked" {{/ifEqual}}/>
+                                            <label for="edcbastar34" onclick="removeComment(12)">☆</label>
+                                            <input id="edcbastar33" name="lernab_7" type="radio" value="3" class="radio-btn hide" {{#ifEqual lear_7 3}} checked="checked" {{/ifEqual}}/>
+                                            <label for="edcbastar33" onclick="removeComment(12)">☆</label>
+                                            <input id="edcbastar32" name="lernab_7" type="radio" value="2" class="radio-btn hide" {{#ifEqual lear_7 2}} checked="checked" {{/ifEqual}}/>
+                                            <label for="edcbastar32" onclick="removeComment(12)">☆</label>
+                                            <input id="edcbastar31" name="lernab_7" type="radio" value="1" class="radio-btn hide" {{#ifEqual lear_7 1}} checked="checked" {{/ifEqual}}/>
+                                            <label for="edcbastar31" onclick="addAdditionalComment(12)">☆</label>
                                             <div class="clear">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="starbox_12"></div>
-                            <div class="form-row mb-0">
-                                <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">7. Du hälst die vereinbarten Regeln zur Heftführung ein.</p>
-                                </div>
-                                <div class="form-group col-md-2 border ml-0 mb-0">
-                                    <div class="ml-4 mb-0">
-                                        <div class="rating">
-                                            <input id="dcbastar34" name="lernab_7" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="dcbastar34" onclick="removeComment(13)">☆</label>
-                                            <input id="dcbastar33" name="lernab_7" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="dcbastar33" onclick="removeComment(13)">☆</label>
-                                            <input id="dcbastar32" name="lernab_7" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="dcbastar32" onclick="removeComment(13)">☆</label>
-                                            <input id="dcbastar31" name="lernab_7" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="dcbastar31" onclick="addAdditionalComment(13)">☆</label>
-                                            <div class="clear">
+                            <div id="starbox_12">
+                            {{#if k_12}}
+                            <script> enabled[12] = true; console.log(enabled)</script>
+                                <div>
+                                    <div class="form-row mb-0" id="starbox_12_12">
+                                        <div class="form-group col-md-6 border mb-0 px-0">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                </div>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_12" rows="{{calcRows k_12}}" id="kommentar">{{k_12}}</textarea>
                                             </div>
                                         </div>
+                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
                                     </div>
                                 </div>
+                            {{/if}}
                             </div>
-                            <div id="starbox_13"></div>
-                            <div class="form-row mb-0">
-                                <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">8. Du beteiligst dich aktiv am Unterrichtsgeschehen.</p>
-                                </div>
-                                <div class="form-group col-md-2 border ml-0 mb-0">
-                                    <div class="ml-4 mb-0">
-                                        <div class="rating">
-                                            <input id="edcbastar34" name="lernab_8" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="edcbastar34" onclick="removeComment(14)">☆</label>
-                                            <input id="edcbastar33" name="lernab_8" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="edcbastar33" onclick="removeComment(14)">☆</label>
-                                            <input id="edcbastar32" name="lernab_8" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="edcbastar32" onclick="removeComment(14)">☆</label>
-                                            <input id="edcbastar31" name="lernab_8" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="edcbastar31" onclick="addAdditionalComment(14)">☆</label>
-                                            <div class="clear">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="starbox_14"></div>
+
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-8 border mb-0">
-                                    <p class="mb-0 ml-3">9. Du arbeitest eigenverantwortlich und selbstbestimmt in Phasen
+                                    <p class="mb-0 ml-3">8. Du arbeitest eigenverantwortlich und selbstbestimmt in Phasen
                                         der ...</p>
                                 </div>
                             </div>
@@ -541,43 +564,39 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="astar44" name="lernab_9_1" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="astar44" onclick="removeComment(15)">☆</label>
-                                            <input id="astar43" name="lernab_9_1" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="astar43" onclick="removeComment(15)">☆</label>
-                                            <input id="astar42" name="lernab_9_1" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="astar42" onclick="removeComment(15)">☆</label>
-                                            <input id="astar41" name="lernab_9_1" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="astar41" onclick="addAdditionalComment(15)">☆</label>
+                                            <input id="astar44" name="lernab_8_1" type="radio" value="4" class="radio-btn hide" {{#ifEqual lear_8_1 4}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar44" onclick="removeComment(13)">☆</label>
+                                            <input id="astar43" name="lernab_8_1" type="radio" value="3" class="radio-btn hide" {{#ifEqual lear_8_1 3}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar43" onclick="removeComment(13)">☆</label>
+                                            <input id="astar42" name="lernab_8_1" type="radio" value="2" class="radio-btn hide" {{#ifEqual lear_8_1 2}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar42" onclick="removeComment(13)">☆</label>
+                                            <input id="astar41" name="lernab_8_1" type="radio" value="1" class="radio-btn hide" {{#ifEqual lear_8_1 1}} checked="checked" {{/ifEqual}}/>
+                                            <label for="astar41" onclick="addAdditionalComment(13)">☆</label>
                                             <div class="clear">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="starbox_15"></div>
-                            <div class="form-row mb-0">
-                                <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-5"><b>Partnerarbeit</b></p>
-                                </div>
-                                <div class="form-group col-md-2 border ml-0 mb-0">
-                                    <div class="ml-4 mb-0">
-                                        <div class="rating">
-                                            <input id="astar441" name="lernab_9_2" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="astar441" onclick="removeComment(16)">☆</label>
-                                            <input id="astar431" name="lernab_9_2" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="astar431" onclick="removeComment(16)">☆</label>
-                                            <input id="astar421" name="lernab_9_2" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="astar421" onclick="removeComment(16)">☆</label>
-                                            <input id="astar411" name="lernab_9_2" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="astar411" onclick="addAdditionalComment(16)">☆</label>
-                                            <div class="clear">
+                            <div id="starbox_13">
+                            {{#if k_13}}
+                            <script> enabled[13] = true; console.log(enabled)</script>
+                                <div>
+                                    <div class="form-row mb-0" id="starbox_13_13">
+                                        <div class="form-group col-md-6 border mb-0 px-0">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                </div>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_13" rows="{{calcRows k_13}}" id="kommentar">{{k_13}}</textarea>
                                             </div>
                                         </div>
+                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
                                     </div>
                                 </div>
+                            {{/if}}
                             </div>
-                            <div id="starbox_16"></div>
+
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
                                     <p class="mb-0 ml-5"><b>Gruppenarbeit</b></p>
@@ -585,43 +604,78 @@
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="bstar441" name="lernab_9_3" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="bstar441" onclick="removeComment(17)">☆</label>
-                                            <input id="bstar431" name="lernab_9_3" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="bstar431" onclick="removeComment(17)">☆</label>
-                                            <input id="bstar421" name="lernab_9_3" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="bstar421" onclick="removeComment(17)">☆</label>
-                                            <input id="bstar411" name="lernab_9_3" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="bstar411" onclick="addAdditionalComment(17)">☆</label>
+                                            <input id="bstar441" name="lernab_8_2" type="radio" value="4" class="radio-btn hide" {{#ifEqual lear_8_2 4}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bstar441" onclick="removeComment(14)">☆</label>
+                                            <input id="bstar431" name="lernab_8_2" type="radio" value="3" class="radio-btn hide" {{#ifEqual lear_8_2 3}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bstar431" onclick="removeComment(14)">☆</label>
+                                            <input id="bstar421" name="lernab_8_2" type="radio" value="2" class="radio-btn hide" {{#ifEqual lear_8_2 2}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bstar421" onclick="removeComment(14)">☆</label>
+                                            <input id="bstar411" name="lernab_8_2" type="radio" value="1" class="radio-btn hide" {{#ifEqual lear_8_2 1}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bstar411" onclick="addAdditionalComment(14)">☆</label>
                                             <div class="clear">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="starbox_17"></div>
+                            <div id="starbox_14">
+                            {{#if k_14}}
+                            <script> enabled[14] = true; console.log(enabled)</script>
+                                <div>
+                                    <div class="form-row mb-0" id="starbox_14_14">
+                                        <div class="form-group col-md-6 border mb-0 px-0">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                </div>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_14" rows="{{calcRows k_14}}" id="kommentar">{{k_14}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                            </div>
+
                             <div class="form-row mb-0">
                                 <div class="form-group col-md-6 border mb-0">
-                                    <p class="mb-0 ml-3">10. Du fertigst deine Hausaufgaben regelmäßig an.</p>
+                                    <p class="mb-0 ml-3">9. Du fertigst deine Hausaufgaben regelmäßig an.</p>
                                 </div>
                                 <div class="form-group col-md-2 border ml-0 mb-0">
                                     <div class="ml-4 mb-0">
                                         <div class="rating">
-                                            <input id="bstar54" name="lernab_10" type="radio" value="4" class="radio-btn hide" />
-                                            <label for="bstar54" onclick="removeComment(18)">☆</label>
-                                            <input id="bstar53" name="lernab_10" type="radio" value="3" class="radio-btn hide" />
-                                            <label for="bstar53" onclick="removeComment(18)">☆</label>
-                                            <input id="bstar52" name="lernab_10" type="radio" value="2" class="radio-btn hide" />
-                                            <label for="bstar52" onclick="removeComment(18)">☆</label>
-                                            <input id="bstar51" name="lernab_10" type="radio" value="1" class="radio-btn hide" />
-                                            <label for="bstar51" onclick="addAdditionalComment(18)">☆</label>
+                                            <input id="bstar54" name="lernab_9" type="radio" value="4" class="radio-btn hide" {{#ifEqual lear_9 4}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bstar54" onclick="removeComment(15)">☆</label>
+                                            <input id="bstar53" name="lernab_9" type="radio" value="3" class="radio-btn hide" {{#ifEqual lear_9 3}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bstar53" onclick="removeComment(15)">☆</label>
+                                            <input id="bstar52" name="lernab_9" type="radio" value="2" class="radio-btn hide" {{#ifEqual lear_9 2}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bstar52" onclick="removeComment(15)">☆</label>
+                                            <input id="bstar51" name="lernab_9" type="radio" value="1" class="radio-btn hide" {{#ifEqual lear_9 1}} checked="checked" {{/ifEqual}}/>
+                                            <label for="bstar51" onclick="addAdditionalComment(15)">☆</label>
                                             <div class="clear">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="starbox_18"></div>
+                            <div id="starbox_15">
+                            {{#if k_15}}
+                            <script> enabled[15] = true; console.log(enabled)</script>
+                                <div>
+                                    <div class="form-row mb-0" id="starbox_15_15">
+                                        <div class="form-group col-md-6 border mb-0 px-0">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                </div>
+                                                <textarea class="form-control no-border bg-white" type="text" name="kommentar_15" rows="{{calcRows k_15}}" id="kommentar">{{k_15}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2 border ml-0 mb-0"></div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                            </div>
                         </div>
                     </div>
                     <!-- END OF ARBEITSVERHALTEN -->
@@ -632,7 +686,7 @@
                             rows="3">{{kommentar}}</textarea>
                     </div>
 
-                    <button type="submit" value="Submit" class="mt-3 btn btn-primary">Bewertung erstellen</button>
+                    <button type="submit" value="Submit" class="mt-3 btn btn-warning">Bewertung speichern</button>
 
                     {{!-- Erklärung der Sterne--}}
                     <div class="col-xs-12 mt-4"><hr></div>
