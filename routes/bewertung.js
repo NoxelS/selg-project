@@ -147,7 +147,7 @@ router.post("/neu", function(req, res, next) {
                                       ": [ NEUE BEWERTUNG ] -> "+results[0].last_bewertung
                                     ].join("")
                                   );
-                                  res.redirect("/bewertung/view="+results[0].last_bewertung);
+                                  res.redirect("/bewertung/neu");
                                 }
                               }
                             );
@@ -205,12 +205,10 @@ router.post("/neu", function(req, res, next) {
                               ": [ NEUE BEWERTUNG ] -> "+results[0].last_bewertung
                             ].join("")
                           );
-                          console.log(req.body.next);
-                          if(req.body.next !== "null"){
-                            res.redirect("/kurs/"+req.body.next.split("-")[1])
-                          }else{
-                            res.redirect("/bewertung/meine");
-                          }
+                          
+                          
+                          res.redirect("/kurs/"+req.body.kurs_id);
+                          
                         }
                       }
                     );
@@ -663,7 +661,7 @@ router.get("/meine", function(req, res, next) {
     location: "Neue Bewertung"
   };  
 
-  db.query("SELECT * FROM bewertungen_db WHERE lehrer_id = ?", [res.locals.user_id], (err, result)=>{
+  db.query("SELECT * FROM bewertungen_db WHERE lehrer_id = ? ORDER BY date DESC", [res.locals.user_id], (err, result)=>{
     if (err) return next(new Error(""));
     handlebars_presettings.kurse = result;
     res.render("bewertungen/meine", handlebars_presettings);

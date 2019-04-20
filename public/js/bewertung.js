@@ -14,7 +14,7 @@ function generateStarbox(id) {
                  <span class="input-group-text no-border">Begründung:</span>
              </div>
              <textarea class="form-control no-border" required="required" type="text" name="kommentar_${id}" id="kommentar_${id}" placeholder="Bitte geben Sie einen Grund für diese Bewertung an..."
-                 rows="1"></textarea>
+                 rows="1" maxlength="120"></textarea>
          </div>
      </div>
      `/*<div class="form-group col-md-2 border ml-0 mb-0"></div>

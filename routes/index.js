@@ -60,10 +60,10 @@ router.get("/", function(req, res, next) {
         });
       });
     });
-  } else if(res.locals.permission === "fachlehrer" /* @TODO */ || res.locals.permission === "tutor"){
+  } else if(res.locals.permission === "fachlehrer" || res.locals.permission === "tutor"){
     var db = require('../db.js')
     var Handlebars = require('handlebars');
-    db.query('SELECT * FROM (SELECT * FROM bewertungen_db WHERE lehrer_id = (?) ORDER BY id DESC LIMIT 10) sub ORDER BY id DESC', [res.locals.user_id], function(err, last_bewertungen) {
+    db.query('SELECT * FROM (SELECT * FROM bewertungen_db WHERE lehrer_id = (?) ORDER BY id DESC LIMIT 10) sub ORDER BY date DESC', [res.locals.user_id], function(err, last_bewertungen) {
       if (err){ 
         return next(new Error(err.message)) 
       }else if(last_bewertungen.length === 0){
@@ -84,7 +84,6 @@ router.get("/", function(req, res, next) {
         
         row += `<td> ${last_bewertungen[i].date}</td>`;
         row += `<td><a href="/bewertung/view=${last_bewertungen[i].id}"><i class="fas fa-search"></i></a></td>`;
-        row += `<td><a href="/bewertung/download=${last_bewertungen[i].id}"><i class="fas fa-download"></i></a></td>`;
         table += row + "</tr>";
       }
       handlebars_presettings.last_bewertungen = new Handlebars.SafeString(table);
