@@ -361,31 +361,26 @@ router.get("/view_sumup=:schuelerid", function(req, res, next){
         date: datetime.create().format("d.m.Y"),
         schueler_name: result[0].schueler_name,
         soz_1: result[0].soz_1,
-        soz_2: result[0].soz_1,
-        soz_3: result[0].soz_1,
-        soz_4: result[0].soz_1,
-        soz_5_1: result[0].soz_1,
-        soz_5_2: result[0].soz_1,
-        soz_6: result[0].soz_1,
-        lear_1: result[0].soz_1,
-        lear_2: result[0].soz_1,
-        lear_3: result[0].soz_1,
-        lear_4: result[0].soz_1,
-        lear_5: result[0].soz_1,
-        lear_6: result[0].soz_1,
-        lear_7: result[0].soz_1,
-        lear_8: result[0].soz_1,
-        lear_9_1: result[0].soz_1,
-        lear_9_2: result[0].soz_1,
-        lear_9_3: result[0].soz_1,
-        lear_10: result[0].soz_1,
+        soz_2: result[0].soz_2,
+        soz_3: result[0].soz_3,
+        soz_4_1: result[0].soz_4_1,
+        soz_4_2: result[0].soz_4_2,
+        lear_1: result[0].lear_1,
+        lear_2: result[0].lear_2,
+        lear_3: result[0].lear_3,
+        lear_4: result[0].lear_4,
+        lear_5: result[0].lear_5,
+        lear_6: result[0].lear_6,
+        lear_7: result[0].lear_7,
+        lear_8_1: result[0].lear_8_1,
+        lear_8_2: result[0].lear_8_2,
+        lear_9: result[0].lear_9,
       // Um alle Kommentare zusammen zu fassen:
         k_1: [],
         k_2: [],
         k_3: [],
         k_4: [],
-        k_5_1: [],
-        k_5_2: [],
+        k_5: [],
         k_6: [],
         k_7: [],
         k_8: [],
@@ -396,23 +391,19 @@ router.get("/view_sumup=:schuelerid", function(req, res, next){
         k_13: [],
         k_14: [],
         k_15: [],
-        k_16: [],
-        k_17: [],
-        k_18: [],
         kommentar: []
     };
  
     var bewertungs_count = 1;
 
     // Alle Bewertungen werden aufaddiert
+    // Alle Bewertungen werden aufaddiert
     for(var i = 1; i < result.length; i++){
       sumup.soz_1 +=     result[i].soz_1 ;
       sumup.soz_2 +=     result[i].soz_2 ;
       sumup.soz_3 +=     result[i].soz_3 ;
-      sumup.soz_4 +=     result[i].soz_4 ;
-      sumup.soz_5_1 +=   result[i].soz_5_1;
-      sumup.soz_5_2 +=   result[i].soz_5_2;
-      sumup.soz_6 +=     result[i].soz_6 ;
+      sumup.soz_4_1 +=   result[i].soz_4_1;
+      sumup.soz_4_2 +=   result[i].soz_4_2;
       sumup.lear_1 +=    result[i].lear_1;
       sumup.lear_2 +=    result[i].lear_2;
       sumup.lear_3 +=    result[i].lear_3;
@@ -420,14 +411,28 @@ router.get("/view_sumup=:schuelerid", function(req, res, next){
       sumup.lear_5 +=    result[i].lear_5;
       sumup.lear_6 +=    result[i].lear_6;
       sumup.lear_7 +=    result[i].lear_7;
-      sumup.lear_8 +=    result[i].lear_8;
-      sumup.lear_9_1 +=  result[i].lear_9_1;
-      sumup.lear_9_2 +=  result[i].lear_9_2;
-      sumup.lear_9_3 +=  result[i].lear_9_3;
-      sumup.lear_10 +=   result[i].lear_10;
-
+      sumup.lear_8_1 +=  result[i].lear_8_1;
+      sumup.lear_8_2 +=  result[i].lear_8_2;
+      sumup.lear_9 +=   result[i].lear_9;
       bewertungs_count++;
     }
+
+    // Der Durchschnitt wird gebildet und auf ganez Zahlen gerundet.
+    sumup.soz_1     = Math.round(sumup.soz_1    / bewertungs_count);  
+    sumup.soz_2     = Math.round(sumup.soz_2    / bewertungs_count); 
+    sumup.soz_3     = Math.round(sumup.soz_3    / bewertungs_count);
+    sumup.soz_4_1   = Math.round(sumup.soz_4_1  / bewertungs_count);
+    sumup.soz_4_2   = Math.round(sumup.soz_4_2  / bewertungs_count);
+    sumup.lear_1    = Math.round(sumup.lear_1   / bewertungs_count);
+    sumup.lear_2    = Math.round(sumup.lear_2   / bewertungs_count);
+    sumup.lear_3    = Math.round(sumup.lear_3   / bewertungs_count);
+    sumup.lear_4    = Math.round(sumup.lear_4   / bewertungs_count);
+    sumup.lear_5    = Math.round(sumup.lear_5   / bewertungs_count);
+    sumup.lear_6    = Math.round(sumup.lear_6   / bewertungs_count);
+    sumup.lear_7    = Math.round(sumup.lear_7   / bewertungs_count);
+    sumup.lear_8_1  = Math.round(sumup.lear_8_1 / bewertungs_count);
+    sumup.lear_8_2  = Math.round(sumup.lear_8_2 / bewertungs_count);
+    sumup.lear_9   = Math.round(sumup.lear_9  / bewertungs_count);
 
     // Addiert alle Kommentart
     for(var i = 0; i < result.length; i++){
@@ -435,8 +440,7 @@ router.get("/view_sumup=:schuelerid", function(req, res, next){
       if(result[i].k_2   !== null && result[i].k_2   !== undefined) sumup.k_2.push(result[i].k_2); 
       if(result[i].k_3   !== null && result[i].k_3   !== undefined) sumup.k_3.push(result[i].k_3); 
       if(result[i].k_4   !== null && result[i].k_4   !== undefined) sumup.k_4.push(result[i].k_4); 
-      if(result[i].k_5_1 !== null && result[i].k_5_1 !== undefined) sumup.k_5_1.push(result[i].k_5_1);
-      if(result[i].k_5_2 !== null && result[i].k_5_2 !== undefined) sumup.k_5_2.push(result[i].k_5_2);
+      if(result[i].k_5   !== null && result[i].k_5   !== undefined) sumup.k_5.push(result[i].k_5);
       if(result[i].k_6   !== null && result[i].k_6   !== undefined) sumup.k_6.push(result[i].k_6); 
       if(result[i].k_7   !== null && result[i].k_7   !== undefined) sumup.k_7.push(result[i].k_7); 
       if(result[i].k_8   !== null && result[i].k_8   !== undefined) sumup.k_8.push(result[i].k_8); 
@@ -447,33 +451,8 @@ router.get("/view_sumup=:schuelerid", function(req, res, next){
       if(result[i].k_13  !== null && result[i].k_13  !== undefined) sumup.k_13.push(result[i].k_13);
       if(result[i].k_14  !== null && result[i].k_14  !== undefined) sumup.k_14.push(result[i].k_14);
       if(result[i].k_15  !== null && result[i].k_15  !== undefined) sumup.k_15.push(result[i].k_15);
-      if(result[i].k_16  !== null && result[i].k_16  !== undefined) sumup.k_16.push(result[i].k_16);
-      if(result[i].k_17  !== null && result[i].k_17  !== undefined) sumup.k_17.push(result[i].k_17);
-      if(result[i].k_18  !== null && result[i].k_18  !== undefined) sumup.k_18.push(result[i].k_18);
       if(result[i].kommentar  !== null && result[i].kommentar  !== undefined && result[i].kommentar.length  !== 0) sumup.kommentar.push(result[i].kurs_name+" "+result[i].leistungsebene+": "+result[i].kommentar);
-      
     }
-    // Der Durchschnitt wird gebildet und auf ganez Zahlen gerundet.
-    sumup.soz_1     = Math.round(sumup.soz_1    / bewertungs_count);  
-    sumup.soz_2     = Math.round(sumup.soz_2    / bewertungs_count); 
-    sumup.soz_3     = Math.round(sumup.soz_3    / bewertungs_count);
-    sumup.soz_4     = Math.round(sumup.soz_4    / bewertungs_count); 
-    sumup.soz_5_1   = Math.round(sumup.soz_5_1  / bewertungs_count);
-    sumup.soz_5_2   = Math.round(sumup.soz_5_2  / bewertungs_count);
-    sumup.soz_6     = Math.round(sumup.soz_6    / bewertungs_count);
-    sumup.lear_1    = Math.round(sumup.lear_1   / bewertungs_count);
-    sumup.lear_2    = Math.round(sumup.lear_2   / bewertungs_count);
-    sumup.lear_3    = Math.round(sumup.lear_3   / bewertungs_count);
-    sumup.lear_4    = Math.round(sumup.lear_4   / bewertungs_count);
-    sumup.lear_5    = Math.round(sumup.lear_5   / bewertungs_count);
-    sumup.lear_6    = Math.round(sumup.lear_6   / bewertungs_count);
-    sumup.lear_7    = Math.round(sumup.lear_7   / bewertungs_count);
-    sumup.lear_8    = Math.round(sumup.lear_8   / bewertungs_count);
-    sumup.lear_9_1  = Math.round(sumup.lear_9_1 / bewertungs_count);
-    sumup.lear_9_2  = Math.round(sumup.lear_9_2 / bewertungs_count);
-    sumup.lear_9_3  = Math.round(sumup.lear_9_3 / bewertungs_count);
-    sumup.lear_10   = Math.round(sumup.lear_10  / bewertungs_count);
-
 
     /* @TODO Anderes Template benutzen und Kommentare anders anzeigen
      * Fach und Leistunsebene wegmachen, dafür Datum und Klasse
@@ -508,24 +487,20 @@ router.get("/download_sumup=:schuelerid", function(req, res, next){
         date: datetime.create().format("d.m.Y"),
         schueler_name: result[0].schueler_name,
         soz_1: result[0].soz_1,
-        soz_2: result[0].soz_1,
-        soz_3: result[0].soz_1,
-        soz_4: result[0].soz_1,
-        soz_5_1: result[0].soz_1,
-        soz_5_2: result[0].soz_1,
-        soz_6: result[0].soz_1,
-        lear_1: result[0].soz_1,
-        lear_2: result[0].soz_1,
-        lear_3: result[0].soz_1,
-        lear_4: result[0].soz_1,
-        lear_5: result[0].soz_1,
-        lear_6: result[0].soz_1,
-        lear_7: result[0].soz_1,
-        lear_8: result[0].soz_1,
-        lear_9_1: result[0].soz_1,
-        lear_9_2: result[0].soz_1,
-        lear_9_3: result[0].soz_1,
-        lear_10: result[0].soz_1,
+        soz_2: result[0].soz_2,
+        soz_3: result[0].soz_3,
+        soz_4_1: result[0].soz_4_1,
+        soz_4_2: result[0].soz_4_2,
+        lear_1: result[0].lear_1,
+        lear_2: result[0].lear_2,
+        lear_3: result[0].lear_3,
+        lear_4: result[0].lear_4,
+        lear_5: result[0].lear_5,
+        lear_6: result[0].lear_6,
+        lear_7: result[0].lear_7,
+        lear_8_1: result[0].lear_8_1,
+        lear_8_2: result[0].lear_8_2,
+        lear_9: result[0].lear_9,
       };
 
       if(req.query.date) sumup.date = req.query.date;
@@ -537,10 +512,8 @@ router.get("/download_sumup=:schuelerid", function(req, res, next){
         sumup.soz_1 +=     result[i].soz_1 ;
         sumup.soz_2 +=     result[i].soz_2 ;
         sumup.soz_3 +=     result[i].soz_3 ;
-        sumup.soz_4 +=     result[i].soz_4 ;
-        sumup.soz_5_1 +=   result[i].soz_5_1;
-        sumup.soz_5_2 +=   result[i].soz_5_2;
-        sumup.soz_6 +=     result[i].soz_6 ;
+        sumup.soz_4_1 +=   result[i].soz_4_1;
+        sumup.soz_4_2 +=   result[i].soz_4_2;
         sumup.lear_1 +=    result[i].lear_1;
         sumup.lear_2 +=    result[i].lear_2;
         sumup.lear_3 +=    result[i].lear_3;
@@ -548,11 +521,9 @@ router.get("/download_sumup=:schuelerid", function(req, res, next){
         sumup.lear_5 +=    result[i].lear_5;
         sumup.lear_6 +=    result[i].lear_6;
         sumup.lear_7 +=    result[i].lear_7;
-        sumup.lear_8 +=    result[i].lear_8;
-        sumup.lear_9_1 +=  result[i].lear_9_1;
-        sumup.lear_9_2 +=  result[i].lear_9_2;
-        sumup.lear_9_3 +=  result[i].lear_9_3;
-        sumup.lear_10 +=   result[i].lear_10;
+        sumup.lear_8_1 +=  result[i].lear_8_1;
+        sumup.lear_8_2 +=  result[i].lear_8_2;
+        sumup.lear_9 +=   result[i].lear_9;
         bewertungs_count++;
       }
 
@@ -560,10 +531,8 @@ router.get("/download_sumup=:schuelerid", function(req, res, next){
       sumup.soz_1     = Math.round(sumup.soz_1    / bewertungs_count);  
       sumup.soz_2     = Math.round(sumup.soz_2    / bewertungs_count); 
       sumup.soz_3     = Math.round(sumup.soz_3    / bewertungs_count);
-      sumup.soz_4     = Math.round(sumup.soz_4    / bewertungs_count); 
-      sumup.soz_5_1   = Math.round(sumup.soz_5_1  / bewertungs_count);
-      sumup.soz_5_2   = Math.round(sumup.soz_5_2  / bewertungs_count);
-      sumup.soz_6     = Math.round(sumup.soz_6    / bewertungs_count);
+      sumup.soz_4_1   = Math.round(sumup.soz_4_1  / bewertungs_count);
+      sumup.soz_4_2   = Math.round(sumup.soz_4_2  / bewertungs_count);
       sumup.lear_1    = Math.round(sumup.lear_1   / bewertungs_count);
       sumup.lear_2    = Math.round(sumup.lear_2   / bewertungs_count);
       sumup.lear_3    = Math.round(sumup.lear_3   / bewertungs_count);
@@ -571,11 +540,9 @@ router.get("/download_sumup=:schuelerid", function(req, res, next){
       sumup.lear_5    = Math.round(sumup.lear_5   / bewertungs_count);
       sumup.lear_6    = Math.round(sumup.lear_6   / bewertungs_count);
       sumup.lear_7    = Math.round(sumup.lear_7   / bewertungs_count);
-      sumup.lear_8    = Math.round(sumup.lear_8   / bewertungs_count);
-      sumup.lear_9_1  = Math.round(sumup.lear_9_1 / bewertungs_count);
-      sumup.lear_9_2  = Math.round(sumup.lear_9_2 / bewertungs_count);
-      sumup.lear_9_3  = Math.round(sumup.lear_9_3 / bewertungs_count);
-      sumup.lear_10   = Math.round(sumup.lear_10  / bewertungs_count);
+      sumup.lear_8_1  = Math.round(sumup.lear_8_1 / bewertungs_count);
+      sumup.lear_8_2  = Math.round(sumup.lear_8_2 / bewertungs_count);
+      sumup.lear_9   = Math.round(sumup.lear_9  / bewertungs_count);
 
       var bewertung_presetting = [];
           bewertung_presetting[0] = sumup;    
