@@ -17,13 +17,13 @@ module.exports = function(Schuelerliste_, options) {
     var next = Schuelerliste.length !== i ? (Schuelerliste[i][0].id+"-"+Kurs.id) : "null";
     
     if(Schueler[0].isDone){
-      row += `<td><a class="mx-5" href="/bewertung/view=${Schueler[0].bewertungs_id}">
-      <i class="fas fa-edit text-success"></i></a></td>`;
+      row += `<td><a style="color: inherit;" href="/bewertung/view=${Schueler[0].bewertungs_id}">
+      <i class="fas fa-edit text-success"></i><span class="ml-2">Ansehen & Bearbeiten</span></a></td>`;
     }else{
-      row += `<td><a class="mx-5" href="/bewertung/neu/schuelerid=${
+      row += `<td><a style="color: inherit;" href="/bewertung/neu/schuelerid=${
         Schueler[0].id
       }/kursid=${Kurs.id}?next=${next}">
-      <i class="fas fa-file-alt"></i></a></td>`;
+      <i class="fas fa-file-alt text-primary"></i><span class="ml-2">Bewertung erstellen</span></a></td>`;
     }
     
    
