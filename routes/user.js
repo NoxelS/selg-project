@@ -12,7 +12,7 @@ function toName(string){
 // Bsp. /user?name=max_mustermann
 router.get('/', function(req, res, next) {
   if(req.query.name === undefined){
-    res.redirect('/');
+    return next(new Error(""));
   }else{  
     const raw_name = req.query.name;
     const db = require('../db');
@@ -32,6 +32,8 @@ router.get('/', function(req, res, next) {
         index: student.index
       };
 
+      var student_is_accessible = ((student.stufe == res.locals.stufe) && (student.klassen_suffix == res.locals.stufe_suffix)) ? true : false;
+
       // Es werden alle Schüler gesucht, die der Benutzer sehen darf.
       db.query('SELECT id_schueler AS id FROM schueler_kurs_link WHERE id_kurs IN( SELECT id from kurs_db WHERE lehrer_id = ? )',[res.locals.user_id], (err, result) => {
         if(err) return next(new Error(err.message));
@@ -39,8 +41,11 @@ router.get('/', function(req, res, next) {
         // Wenn der Schüler von der URL (Bsp. user?name=max_mustermann) gefunden wird, wird die Seite gerendert.
         // Wenn dies nicht der Fall ist, versucht der Benutzer einen Schüler zu sehen, den er in keinem Kurs hat.
 
-        var student_is_accessible = false;
-        result.forEach(result => { if(result.id === student.id) student_is_accessible = true});
+        // Checkt ob der Fachlehrer diesen Schüler sehen darf
+        result.forEach(result => { 
+            if(result.id === student.id) student_is_accessible = true;
+          });
+
 
         // Klassenlehrer wird gesucht
         db.query('SELECT * FROM user_db WHERE id = (SELECT lehrer_id FROM klasse_db WHERE stufe = ? AND suffix = ?)', [handlebars_presettings.stufe, handlebars_presettings.klasse], (err, result) => {
