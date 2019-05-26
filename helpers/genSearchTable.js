@@ -9,7 +9,6 @@ module.exports = function(result, options) {
     row += `<td> ${i}</td>`;
     row += `<td> ${entry.name}</td>`;
     row += `<td> ${entry.stufe}${entry.klassen_suffix}</td>`;
-    row += `<td> ${entry.index}</td>`;
     row += `<td>
               <div class="dropdown">
               <i class="fas fa-file-alt dropdown-toggle text-primary" data-toggle="dropdown"></i>

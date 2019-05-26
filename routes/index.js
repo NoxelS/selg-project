@@ -149,6 +149,7 @@ router.post("/search", function(req, res, next) {
   }
 });
 
+
 router.post("/tutorial/cancel", function(req, res, next){
   const db = require("../db")
   db.query("UPDATE `selg_schema`.`user_db` SET `hasDoneTutorial` = '1' WHERE (`id` = ?);", [res.locals.user_id], (result, err) =>{
@@ -185,7 +186,7 @@ router.get("/search=:nametofind", function(req, res, next) {
     var db = require("../db.js");
     db.query("SELECT  * FROM  schueler_db WHERE  name LIKE ? ORDER BY name ASC",["%"+req.params.nametofind+"%"], function(err, result) {
       // Wenn es ein Error gibt, oder niemand gefunden wird (result.length = 0), wird ein Error weitergegeben
-      if (err) return next(new Error(err.message));
+      if (err) return next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
       handlebars_presettings.nametofind = req.params.nametofind;
       if(result.length === 0){
         next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
@@ -195,9 +196,10 @@ router.get("/search=:nametofind", function(req, res, next) {
         handlebars_presettings.resultLength = result.length;
 
         // Zeigt den Table-Footer nur an wenn mehr als 10 Ergebnisse gefunden wurden.
-        handlebars_presettings.footer_is_needed = handlebars_presettings.result.length >= 10 ? true : false;
+        handlebars_presettings.footer_is_needed = handlebars_presettings.resultLength >= 10 ? true : false;
 
-        res.render("search/search", handlebars_presettings);
+        res.render("search/search_admin", handlebars_presettings);
+        
       }
     });
   }else{
@@ -326,10 +328,6 @@ router.get("/klasse", function(req, res, next) {
           }
           Schueler["sollBewertung"] = res.locals.stufe === 5 ? 10 : res.locals.stufe === 6 ? 11 : res.locals.stufe === 7 ? 12 : 13;
         });
-
-
-
-        console.log(res.locals.meineKlasse);
         res.render("meine_klasse", handlebars_presettings);
       });
   });

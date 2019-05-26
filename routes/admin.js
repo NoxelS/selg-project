@@ -300,7 +300,7 @@ router.post("/create_schueler", userHasAdminPermission(), function(
 ) {
   // { vorname: '', nachname: '', stufe: '', suffix: '' }
   const vorname = req.body.vorname;
-  const nachname = req.body.nachnP;
+  const nachname = req.body.nachname;
   const fullname = vorname + " " + nachname;
   const stufe = req.body.stufe;
   const suffix = req.body.suffix;
