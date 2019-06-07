@@ -27,6 +27,56 @@ router.get("/create_kurs", userHasAdminPermission(), function(req, res, next) {
   res.render("create/kurs", handlebars_presettings);
 });
 
+/* DEV: Admins können die Reports sehen*/
+router.get("/reports", userHasAdminPermission(), function(req, res, next) {
+  var handlebars_presettings = {
+    layout: false,
+    title: "SELG-Admintool",
+    display_name: null,
+    icon_cards: false,
+    location: "DEV",
+  };
+  const db = require('../db')
+
+  db.query("SELECT * FROM bugreports_db;", [], (err, result) => {
+    if(err) next(err);
+
+    handlebars_presettings.reports = result;
+    res.render("dev/view_reports", handlebars_presettings);
+  });
+});
+
+router.get("/create_all_schueler", userHasAdminPermission(), function(req, res, next) {
+  fs.readFile('./routes/schueler_88.CSV', 'latin1', (err, data) => {
+    if(err) return next(new Error(err.message));
+    var list = data.split('\r\n');
+    var schueler = list.map(string => {
+      return {
+        vorname: string.split(';')[2],
+        nachanme: string.split(';')[1],
+        name: `${string.split(';')[2]} ${string.split(';')[1]}`,
+        klasse: string.split(';')[0]
+      }
+    });
+
+
+    console.log(schueler);
+
+    const db = require('../db')
+
+    schueler.forEach(Schueler => {
+      db.query("INSERT INTO `selg_schema`.`schueler_db` (`name`, `stufe`, `klassen_suffix`, `vorname`, `nachname`) VALUES (?, ?, ?, ?, ?);", 
+      [Schueler.name, Schueler.klasse.split('')[0], Schueler.klasse.split('')[1], Schueler.vorname, Schueler.nachanme], (err, result) => {
+        if(err) console.log(err);
+      });
+    })
+
+
+
+    res.render('create_tmp', {layout: 'admin', user: JSON.stringify(schueler[43])});
+  });
+});
+
 function genFachName(type) {
   let ret;
   switch (type) {

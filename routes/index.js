@@ -137,6 +137,18 @@ router.get("/datenschutz", function(req, res, next) {
 
   res.render("policy/datenschutz", handlebars_presettings);
 });
+/*  DEV: Testpersonen können Bugs reporten
+*
+*/
+router.post("/bugreport", function(req, res, next) {
+  if(req.body.inhalt.length == 0 || res.locals.url === undefined) return next(new Error("Bitte beschreiben Sie den Fehler."))
+  const db = require("../db")
+  db.query("INSERT INTO `selg_schema`.`bugreports_db` (`inhalt`, `author`) VALUES (?,?);", [req.body.inhalt, res.locals.username], (result, err) =>{
+    if(err) console.log(err);
+  })
+  res.redirect(req.body.url)
+});
+
 
 /*
   Wenn die SUchleiste benutzt wird, wird die Suchanfrage an /search=[Name der gesucht wurde] weitergeleitet.
