@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="container-fluid border">
+        <br>
+        <div class="container-fluid">
+            <div class="card-header" style="background-color: #e9ecef;">
+                Überprüfen Sie ihre Eingabe
+            </div>
+            <div class="card-body">
+              
+                <table class="table table-responsive">
+                    <p> {{count}} Schüeler wurden in der Tabelle gefunden</p>
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>Stufe</th>
+                            <th>Nachname</th>
+                            <th>Vorname</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {{#each schueler}}
+                            <tr>
+                                <td scope="row">{{stufe}}{{suffix}}</td>
+                                <td>{{nachname}}</td>
+                                <td>{{vorname}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                </table>
+
+                 <form action="/admin/jahrgang_erstellen_sql" method="post" enctype="multipart/form-data" autocomplete="off">  
+                
+                 <input type="hidden" name="schueler" value="{{schueler_string}}">
+
+                <br>
+                <p>Sind Sie sich sicher, dass die Daten stimmen?</p>
+
+                 <button type="submit" class="btn btn-primary">Jahrgang erstellen</button>
+                 </form>
+
+            </div>
+        </div>
+    </div>
+</div>

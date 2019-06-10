@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="container-fluid border">
+        <br>
+        <div class="container-fluid">
+            <div class="card-header" style="background-color: #e9ecef;">
+                Jahrgang hinzufügen
+            </div>
+            <div class="card-body">
+              <form action="/admin/jahrgang_erstellen" method="post" enctype="multipart/form-data" autocomplete="off">                 
+                  <div class="input-group mb-3">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" name="jahrgang_csv" id="jahrgang_csv" placeholder="CSV-Datei" aria-describedby="inputGroupFileAddon04">
+                      <label class="custom-file-label" for="inputGroupFile04">Wählen Sie eine gültige CSV Datei aus</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Hochladen</button>           
+              </form>
+              <br>
+              <p>
+                Um einen Jahrgang erstellen zu können, muss eine valide CSV Datei hochgeladen werden. 
+                Dazu exportieren Sie bitte den Jahrgang in einer Excel Tabelle. Diese müssen sie anschließend als eine CSV Datei speichern und hochladen.
+              </p>
+              <img src="/images/csv.png" width="600px"/>
+            </div>
+        </div>
+    </div>
+</div>

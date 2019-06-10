@@ -46,36 +46,79 @@ router.get("/reports", userHasAdminPermission(), function(req, res, next) {
   });
 });
 
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
+
+// Form um einen Jahrgang hochzuladen
 router.get("/create_all_schueler", userHasAdminPermission(), function(req, res, next) {
-  fs.readFile('./routes/schueler_88.CSV', 'latin1', (err, data) => {
+    res.render('create_jahrgang', {
+    layout: "admin",
+    title: "SELG-Admintool",
+    icon_cards: false,
+    location: "Jahrgang erstellen"
+    });
+});
+
+
+// Post Request wenn die CSV Datei hochgeladen wurde
+router.post("/jahrgang_erstellen", userHasAdminPermission(), function(req, res, next) {
+  console.log(req.files.jahrgang_csv);
+
+  fs.readFile(req.files.jahrgang_csv.tempFilePath, 'UTF-8', (err, data) => {
+
     if(err) return next(new Error(err.message));
-    var list = data.split('\r\n');
+    var list = data.split(/\r?\n/);
+    list.splice(0,1);
+    list.splice(list.length-1,list.length);
+    
+    while(list.indexOf(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;") != -1){
+      list.remove(list.indexOf(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"));
+    }
+    while(list.indexOf(";;;;;;;;;;;;;;;;;;;;;;;;;;;;") != -1){
+      list.remove(list.indexOf(";;;;;;;;;;;;;;;;;;;;;;;;;;;;"));
+    }
+
     var schueler = list.map(string => {
       return {
         vorname: string.split(';')[2],
-        nachanme: string.split(';')[1],
+        nachname: string.split(';')[1],
         name: `${string.split(';')[2]} ${string.split(';')[1]}`,
-        klasse: string.split(';')[0]
+        stufe: string.split(';')[0].split('')[1],
+        suffix: string.split(';')[0].split('')[2]
       }
     });
 
-
-    console.log(schueler);
-
-    const db = require('../db')
-
-    schueler.forEach(Schueler => {
-      db.query("INSERT INTO `selg_schema`.`schueler_db` (`name`, `stufe`, `klassen_suffix`, `vorname`, `nachname`) VALUES (?, ?, ?, ?, ?);", 
-      [Schueler.name, Schueler.klasse.split('')[0], Schueler.klasse.split('')[1], Schueler.vorname, Schueler.nachanme], (err, result) => {
-        if(err) console.log(err);
+    res.render('create_jahrgang_approof', {
+      layout: "admin",
+      title: "SELG-Admintool",
+      icon_cards: false,
+      location: "Jahrgang erstellen",
+      schueler: schueler,
+      schueler_string: JSON.stringify(schueler),
+      count: schueler.length
       });
-    })
 
-
-
-    res.render('create_tmp', {layout: 'admin', user: JSON.stringify(schueler[43])});
   });
 });
+
+// Post Request wenn die CSV Datei hochgeladen wurde
+router.post("/jahrgang_erstellen_sql", userHasAdminPermission(), function(req, res, next) {
+  var schueler = JSON.parse(req.body.schueler);
+  const db = require("../db");
+
+  schueler.forEach(Schueler => {
+    db.query("INSERT INTO `selg_schema`.`schueler_db` (`name`, `stufe`, `klassen_suffix`, `vorname`, `nachname`) VALUES (?,?,?,?,?);",
+    [Schueler.name, Schueler.stufe, Schueler.suffix, Schueler.vorname, Schueler.nachname], (err, result) => {
+      if(err) console.log(err);
+    });
+  });
+
+  res.redirect("/");
+});
+
 
 function genFachName(type) {
   let ret;
@@ -138,7 +181,7 @@ function genFachName(type) {
       ret = "Tech&Wirt";
       break;
     case "kunst_und_design":
-      ret = "Kunst & Design";
+      ret = "Kunst&Design";
       break;
   }
   return ret;
@@ -188,7 +231,7 @@ router.post("/create_kurs", userHasAdminPermission(), function(req, res, next) {
             if (err) {
               return next(new Error(err.message));
             } else {
-              res.redirect("/");
+              res.redirect("/admin/create_kurs");
             }
           }
         );
@@ -211,11 +254,14 @@ router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
     const nachname = req.body.nachname;
     const permission = req.body.permission;
 
+    
     // Checkt ob für einen Tutor eine wirkliche Klasse eingegeben wurde.
     // (Gehen würde z.B. "8a", "9b", "7c", Nicht funktionieren würde z.B. "88a, a9, 9 a, 9)a... usw.")
-    if (!req.body.tutor_klasse.split('')[1].match(/[a-z]/i) || 
-        !req.body.tutor_klasse.split('')[0].match(/[0-9]/i)){
-      return next(new Error("Die Klasse ist ungültig."))
+    if(req.body.permission === 'tutor'){
+      if (!req.body.tutor_klasse.split('')[1].match(/[a-z]/i) || 
+          !req.body.tutor_klasse.split('')[0].match(/[0-9]/i)){
+        return next(new Error("Die Klasse ist ungültig."))
+      }
     }
 
     var db = require("../db.js");
@@ -256,7 +302,7 @@ router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
                             if (error) {
                               return next(new Error(error.message));
                             }
-                            res.redirect("/");
+                            res.redirect("/admin/create_user");
                             console.log(
                               [
                                 datetime.create().format("m/d/Y H:M:S"),
@@ -269,7 +315,7 @@ router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
                       }
                     });
                   }else{
-                    res.redirect("/");
+                    res.redirect("/admin/create_user");
                     console.log(
                       [
                         datetime.create().format("m/d/Y H:M:S"),

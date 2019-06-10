@@ -143,7 +143,7 @@ router.get("/datenschutz", function(req, res, next) {
 router.post("/bugreport", function(req, res, next) {
   if(req.body.inhalt.length == 0 || res.locals.url === undefined) return next(new Error("Bitte beschreiben Sie den Fehler."))
   const db = require("../db")
-  db.query("INSERT INTO `selg_schema`.`bugreports_db` (`inhalt`, `author`) VALUES (?,?);", [req.body.inhalt, res.locals.username], (result, err) =>{
+  db.query("INSERT INTO `selg_schema`.`bugreports_db` (`inhalt`, `author`) VALUES (?,?);", [req.body.inhalt, `${res.locals.username}${req.body.url}`], (err, result) =>{
     if(err) console.log(err);
   })
   res.redirect(req.body.url)

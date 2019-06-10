@@ -50,6 +50,27 @@
         </div>
     </li>
 
+    {{!-- Jahrgang --}}
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Jahrgang</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="/admin/create_all_schueler"><span><i class="pull-right fas fa-plus-circle"></i> Erstellen</span></a>
+            <a class="dropdown-item" href="/admin/edit_all_schueler"><span><i class="pull-right fas fa-pencil-alt"></i> Bearbeiten</span></a>
+        </div>
+    </li>
+
+    {{!-- Reports --}}
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/reports" data-target="#">
+            <i class="fas fa-flag"></i>
+            <span>Reports</span></a>
+    </li>
+
+
     {{!-- Alle --}}
     <li class="nav-item">
         <a class="nav-link" href="/profil" data-target="#">

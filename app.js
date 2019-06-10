@@ -9,7 +9,7 @@ var fs = require("fs");
 var nodeStatusCodes = require("node-status-codes");
 const favicon = require("express-favicon");
 var expressValidator = require("express-validator");
-
+var expressFileupload = require("express-fileupload");
 
 // Authentication Packages
 var session = require("express-session");
@@ -183,9 +183,6 @@ app.use((req, res, next) => {
   if (res.locals.isAuthenticated) {
     res.locals.user_id = req.user.user_id;
     const db = require("./db");
-
-    // @TODO
-    res.locals.tutorial = true;
 
     db.query(
       "SELECT * FROM user_db WHERE id = ?",

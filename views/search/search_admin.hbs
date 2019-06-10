@@ -10,7 +10,6 @@
                     <tr class="table-active">
                         <th>Name</th>
                         <th>Klasse</th>
-                        <th>Kurse</th>
                     </tr>
                 </thead>
                 {{#if footer_is_needed}}
@@ -18,16 +17,14 @@
                     <tr>
                         <th>Name</th>
                         <th>Klasse</th>
-                        <th>Kurse</th>
                     </tr>
                 </tfoot>
                 {{/if}}
                 <tbody>
                     {{#each result}}
                     <tr>
-                        <td>{{vorname}} {{nachname}}</td>
+                        <td>{{name}}</td>
                         <td>{{stufe}} {{suffix}}</td>
-                        <td>{{kurse}}</td>
                     </tr>
                     {{/each}}
                 </tbody>
