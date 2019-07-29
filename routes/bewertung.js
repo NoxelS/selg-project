@@ -15,19 +15,12 @@ router.get("/neu/schuelerid=:id/kursid=:kid", function(req, res, next) {
     next: req.query.next
   };
 
-  // TODO 
-  // Checkt ob der User die berechtigung hat für deisen Schüler eine
-  // Bewertung zu schreiben
-
-
-  // TODO Checkt ob der Schüler in dem Kurs ist
-
   db.query("SELECT * FROM schueler_db WHERE id = ?", [req.params.id], function(
     err,
     result
   ) {
     if (err) {
-      return next(new Error(err.message));
+      return next(new Error("Es ist ein Fehler aufgetreten..."));
     } else {
       handlebars_presettings.schuelername = result[0].name;
       handlebars_presettings.schuelerid = req.params.id;
@@ -37,7 +30,7 @@ router.get("/neu/schuelerid=:id/kursid=:kid", function(req, res, next) {
         result
       ) {
         if (err) {
-          return next(new Error(err.message));
+          return next(new Error("Es ist ein Fehler aufgetreten..."));
         } else {
           handlebars_presettings.kursname = result[0].name;
           handlebars_presettings.kursid = req.params.kid;
@@ -62,17 +55,10 @@ router.post("/neu", function(req, res, next) {
     display_name: req.params.name,
     icon_cards: false,
     location: "Neue Bewertung",
-    json: JSON.stringify(req.body),
     length: Object.keys(req.body).length,
     missing_value: false
   };
 
-  if (Object.keys(req.body).length === 206 /* ! @TODO Checken ob alles ausgefüllt ist*/) {
-    // @TODO
-    handlebars_presettings.missing_value = "Bitte füllen Sie alle Felder aus!";
-    res.render("neue_bewertung", handlebars_presettings);
-
-  } else {
 
     var datetime = require('node-datetime');
 
@@ -109,16 +95,16 @@ router.post("/neu", function(req, res, next) {
           
             // Es wird geschaut ob es dieses Schüler überhaupt in der Datenbank gibt
             db.query("SELECT * from `schueler_db` WHERE name = ?", [req.body.name], function(err, result){
-              if(err){ return next(new Error(err.message)); }
+              if(err){ return next(new Error("Diesen Schüler gibt es leider nicht...")); }
               if(result.length === 0){ return next(new Error("Es konnte kein Schüler mit dem Namen "+req.body.name+" gefunden werden."))}else{
                 db.query("SELECT * from `kurs_db` WHERE name = ?", [req.body.fach], function(err, result){
-                  if(err){ return next(new Error(err.message)); }
+                  if(err){ return next(new Error("Es konnte kein Kurs mit dem Namen "+req.body.fach+" "+req.body.leistungsebene+" gefunden werden.")); }
                   if(result.length === 0){ 
                     return next(new Error("Es konnte kein Kurs mit dem Namen "+req.body.fach+" "+req.body.leistungsebene+" gefunden werden."))
                   }else{
 
                     db.query("SELECT date, id FROM bewertungen_db WHERE (kurs_id = ? AND schueler_id = ?)",[ req.body.kurs_id, req.body.schueler_id], (err,result) =>{
-                      if(err){ return next(new Error(err.message)); }
+                      if(err){ return next(new Error("Es ist ein fehler aufgetreten...")); }
                       if(result.length > 0){ 
                         return next(new Error("Diese Bewertung wurde schon am "+result[0].date+" erstellt. Sie können sie unter 'Meine Bewertungen' bearbeiten."));
                     }else{
@@ -132,13 +118,13 @@ router.post("/neu", function(req, res, next) {
                         insert_array,
                         function(err, result, fields) {
                           if (err) {
-                            return next(new Error(err.message));
+                            return next(new Error("Bitte füllen Sie alle Felder aus.."));
                           } else {
                             db.query(
                               "SELECT LAST_INSERT_ID() as last_bewertung",
                               (error, results, fields) => {
                                 if (error) {
-                                  return next(new Error(error.message));
+                                  return next(new Error("Bitte füllen Sie alle Felder aus.."));
                                 } else {
                                   // @TODO Suche die Kurse in welchen er Standartmäßig ist
                                   console.log(
@@ -174,10 +160,10 @@ router.post("/neu", function(req, res, next) {
 
       // Es wird geschaut ob es dieses Schüler überhaupt in der Datenbank gibt
       db.query("SELECT * from `schueler_db` WHERE name = ?", [req.body.name], function(err, result){
-        if(err){ return next(new Error(err.message)); }
+        if(err){ return next(new Error("Es ist ein Fehler aufgetreten...")); }
         if(result.length === 0){ return next(new Error("Es konnte kein Schüler mit dem Namen "+req.body.name+" gefunden werden."))}else{
           db.query("SELECT * from `kurs_db` WHERE name = ?", [req.body.fach], function(err, result){
-            if(err){ return next(new Error(err.message)); }
+            if(err){ return next(new Error("Es ist ein Fehler aufgetreten...")); }
             if(result.length === 0){ return next(new Error("Es konnte kein Kurs mit dem Namen "+req.body.fach+" "+req.body.leistungsebene+" gefunden werden."))
             }else{
               db.query(
@@ -190,13 +176,13 @@ router.post("/neu", function(req, res, next) {
                 insert_array,
                 function(err, result, fields) {
                   if (err) {
-                    return next(new Error(err.message));
+                    return next(new Error("Bitte füllen Sie alle Felder aus..."));
                   } else {
                     db.query(
                       "SELECT LAST_INSERT_ID() as last_bewertung",
                       (error, results, fields) => {
                         if (error) {
-                          return next(new Error(error.message));
+                          return next(new Error("Bitte füllen Sie alle Felder aus..."));
                         } else {
                           // @TODO Suche die Kurse in welchen er Standartmäßig ist
                           console.log(
@@ -219,7 +205,7 @@ router.post("/neu", function(req, res, next) {
           });
       }});
     }
-  }
+  
 });
 
 router.get("/neu", function(req, res, next) {
@@ -237,7 +223,7 @@ router.get("/neu", function(req, res, next) {
 
   const db = require("../db");
   db.query("SELECT * from schueler_db WHERE id IN (SELECT id_schueler FROM schueler_kurs_link WHERE id_kurs IN (SELECT id FROM kurs_db WHERE lehrer_id = ?))",[res.locals.user_id], (err, result) => {
-    if(err) return next(new Error(err.message));
+    if(err) return next(new Error("Es ist ein Fehler aufgetreten..."));
 
     var autocomplete_schueler_lsit = {};
 
@@ -302,9 +288,9 @@ router.get("/download=:id", function(req, res, next) {
         result.toFile(__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf", function() {
           var file =__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf";
           res.download(file, "SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf", (err) => {
-            if(err) return next(new Error(err.message));
+            if(err) return next(new Error("Es ist ein Fehler aufgetreten..."));
             fs.unlink(__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf",function(err){
-              if(err) return next(new Error(err.message));
+              if(err) return next(new Error("Es ist ein Fehler aufgetreten..."));
               console.log('\tEine Bewertung von '+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+' wurde erfolgreich exportiert und wieder gelöscht');
             });  
           }); 
@@ -579,9 +565,9 @@ router.get("/download_sumup=:schuelerid", function(req, res, next){
           result.toFile(__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf", function() {
             var file =__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf";
             res.download(file, "SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf", (err) => {
-              if(err) return next(new Error(err.message));
+              if(err) return next(new Error("Es ist ein Fehler aufgetreten..."));
               fs.unlink(__dirname+"/SELG-Protokoll-"+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+".pdf",function(err){
-                if(err) return next(new Error(err.message));
+                if(err) return next(new Error("Es ist ein Fehler aufgetreten..."));
                 console.log('\tEine Bewertung von '+bewertung_presetting[0].schueler_name.split(" ")[0]+"-"+bewertung_presetting[0].schueler_name.split(" ")[1]+' wurde erfolgreich exportiert und wieder gelöscht');
               });  
             }); 
@@ -634,14 +620,11 @@ router.post("/edit", function(req, res, next){
     req.body.bewertungs_id
   ];
 
-  console.log(insert_array);
-
-
   db.query("UPDATE `selg_schema`.`bewertungen_db` SET `date` = ?, `kommentar` = ? , `soz_1` = ?, `soz_2` = ?, `soz_3` = ?, `soz_4_1` = ?, `soz_4_2` = ?, `lear_1` = ?, `lear_2` = ?, `lear_3` = ?, `lear_4` = ?, `lear_5` = ?, `lear_6` = ?, `lear_7` = ?, `lear_8_1` = ?, `lear_8_2` = ?, `lear_9` = ?,"
           +"`k_1` = ?, `k_2` = ?, `k_3` = ?, `k_4` = ?, `k_5` = ?, `k_6` = ?, `k_7` = ?, `k_8` = ?, `k_9` = ?, `k_10` = ?, `k_11` = ?, `k_12` = ?, `k_13` = ?, `k_14` = ?, `k_15` = ? WHERE (`id` = ?);",
   insert_array,
   (err, result)=>{
-    if(err) return next(new Error(err.message));
+    if(err) return next(new Error("Bitte füllen Sie alle Felder aus..."));
     console.log(result);
     res.redirect("/bewertung/view="+req.body.bewertungs_id);
   });

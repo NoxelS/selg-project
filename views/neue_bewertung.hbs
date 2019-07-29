@@ -50,6 +50,7 @@
                         {{/if}}
                     </div>
 
+                    {{!
                     <div class="form-row mt-3">
                         <div class="form-group col-md-12">
                             <p>
@@ -60,10 +61,102 @@
                             </p>
                         </div>
                     </div>
+                    }}
+
+                    {{!-- Erklärung der Sterne--}}
+                    {{! spacer <div class="col-xs-12 mt-4"><hr></div>}}
+                    {{!-- 4 Sterne: Prima--}}
+                    <div class="form-row mb-0 mt-4 mr-0">
+                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
+                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
+                                <div class="rating-fix">
+                                    <input id="rating_1" name="rating_1" type="radio" class="radio-btn hide" />
+                                    <label for="rating_1" class="filled">☆</label>
+                                    <input id="rating_2" name="rating_2" type="radio" class="radio-btn hide" />
+                                    <label for="rating_2" class="filled">☆</label>
+                                    <input id="rating_3" name="rating_3" type="radio" class="radio-btn hide" />
+                                    <label for="rating_3" class="filled">☆</label>
+                                    <input id="rating_4" name="rating_4" type="radio" class="radio-btn hide" />
+                                    <label for="rating_4" class="filled">☆</label>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
+                            <p class="mb-0 ml-1">prima:</p>
+                        </div>
+                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">
+                            Du machst es hervorragend.
+                        </div>
+
+                    </div>
+
+                    {{!-- 3 Sterne: meist--}}
+                    <div class="form-row mb-0 mt-0 mr-0">
+                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
+                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
+                                <div class="rating-fix">
+                                    <input id="rating_11" name="rating_11" type="radio" class="radio-btn hide" />
+                                    <label for="rating_11" class="filled">☆</label>
+                                    <input id="rating_12" name="rating_12" type="radio" class="radio-btn hide" />
+                                    <label for="rating_12" class="filled">☆</label>
+                                    <input id="rating_13" name="rating_13" type="radio" class="radio-btn hide" />
+                                    <label for="rating_13" class="filled">☆</label>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
+                            <p class="mb-0 ml-1">meist:</p>
+                        </div>
+                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">
+                            Es gelingt dir häufig.
+                        </div>
+
+                    </div>
+
+                    {{!-- 2 Sterne: meist--}}
+                    <div class="form-row mb-0 mt-0 mr-0">
+                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
+                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
+                                <div class="rating-fix">
+                                    <input id="rating_111" name="rating_111" type="radio" class="radio-btn hide" />
+                                    <label for="rating_111" class="filled">☆</label>
+                                    <input id="rating_112" name="rating_112" type="radio" class="radio-btn hide" />
+                                    <label for="rating_112" class="filled">☆</label>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
+                            <p class="mb-0 ml-1">teilweise:</p>
+                        </div>
+                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">Es gelingt dir manchmal. Du brauchst noch Erinnerung.
+                        </div>
+                    </div>
+
+                    {{!-- 1 Sterne: meist--}}
+                    <div class="form-row mb-0 mt-0 mr-0">
+                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
+                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
+                                <div class="rating-fix">
+                                    <input id="rating_1111" name="rating_1111" type="radio" class="radio-btn hide" />
+                                    <label for="rating_1111" class="filled">☆</label>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
+                            <p class="mb-0 ml-1">zu wenig:</p>
+                        </div>
+                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">
+                            Du musst noch viel üben und brauchst noch sehr oft Hilfe.
+                        </div>
+                    </div>
 
 
                     <!-- SOZIALVERHALTEN -->
-                    <div class="border">
+                    <div class="border mt-4">
                         <div class="ml-5 mr-1 mt-3 mb-1">
                             <h5 class="h5 mb-3"> Sozialverhalten</h5>
                         </div>
@@ -457,98 +550,8 @@
                         <div id="char_count"></div>
                     </div>
 
-                    <button type="submit" value="Submit" class="mt-3 btn btn-primary">Bewertung erstellen</button>
+                    <button type="submit" id="submit_button" value="Submit" class="mt-3 btn btn-primary">Bewertung erstellen</button>
 
-                    {{!-- Erklärung der Sterne--}}
-                    <div class="col-xs-12 mt-4"><hr></div>
-                    {{!-- 4 Sterne: Prima--}}
-                    <div class="form-row mb-0 mt-1 mr-0">
-                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
-                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
-                                <div class="rating-fix">
-                                    <input id="rating_1" name="rating_1" type="radio" class="radio-btn hide" />
-                                    <label for="rating_1" class="filled">☆</label>
-                                    <input id="rating_2" name="rating_2" type="radio" class="radio-btn hide" />
-                                    <label for="rating_2" class="filled">☆</label>
-                                    <input id="rating_3" name="rating_3" type="radio" class="radio-btn hide" />
-                                    <label for="rating_3" class="filled">☆</label>
-                                    <input id="rating_4" name="rating_4" type="radio" class="radio-btn hide" />
-                                    <label for="rating_4" class="filled">☆</label>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
-                            <p class="mb-0 ml-1">prima:</p>
-                        </div>
-                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">
-                            Du machst es hervorragend.
-                        </div>
-
-                    </div>
-
-                    {{!-- 3 Sterne: meist--}}
-                    <div class="form-row mb-0 mt-0 mr-0">
-                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
-                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
-                                <div class="rating-fix">
-                                    <input id="rating_11" name="rating_11" type="radio" class="radio-btn hide" />
-                                    <label for="rating_11" class="filled">☆</label>
-                                    <input id="rating_12" name="rating_12" type="radio" class="radio-btn hide" />
-                                    <label for="rating_12" class="filled">☆</label>
-                                    <input id="rating_13" name="rating_13" type="radio" class="radio-btn hide" />
-                                    <label for="rating_13" class="filled">☆</label>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
-                            <p class="mb-0 ml-1">meist:</p>
-                        </div>
-                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">
-                            Es gelingt dir häufig.
-                        </div>
-
-                    </div>
-
-                    {{!-- 2 Sterne: meist--}}
-                    <div class="form-row mb-0 mt-0 mr-0">
-                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
-                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
-                                <div class="rating-fix">
-                                    <input id="rating_111" name="rating_111" type="radio" class="radio-btn hide" />
-                                    <label for="rating_111" class="filled">☆</label>
-                                    <input id="rating_112" name="rating_112" type="radio" class="radio-btn hide" />
-                                    <label for="rating_112" class="filled">☆</label>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
-                            <p class="mb-0 ml-1">teilweise:</p>
-                        </div>
-                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">Es gelingt dir manchmal. Du brauchst noch Erinnerung.
-                        </div>
-                    </div>
-
-                    {{!-- 1 Sterne: meist--}}
-                    <div class="form-row mb-0 mt-0 mr-0">
-                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
-                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
-                                <div class="rating-fix">
-                                    <input id="rating_1111" name="rating_1111" type="radio" class="radio-btn hide" />
-                                    <label for="rating_1111" class="filled">☆</label>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
-                            <p class="mb-0 ml-1">zu wenig:</p>
-                        </div>
-                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">
-                            Du musst noch viel üben und brauchst noch sehr oft Hilfe.
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>

@@ -37,3 +37,5 @@ function removeComment(id) {
         tmp.removeChild(document.getElementById(`starbox_${id}_${id}`));
       }
 }
+
+

@@ -12,7 +12,6 @@ module.exports = function(Schuelerliste_) {
     row += `<td>${i}</td>`;
     row += `<td>${Schueler.vorname}</td>`;
     row += `<td>${Schueler.nachname}</td>`;
-    // TODO anzahl Berwertungen die abgegeben wurden
     //row += `<td>${Schueler.hatBewertung}/${Schueler.sollBewertung}</td>`;
     var dropdownKurse = "";
     if(Schueler.Bewertungen.length != 0){
@@ -22,10 +21,8 @@ module.exports = function(Schuelerliste_) {
     }else{
       dropdownKurse+= `<a class="dropdown-item"><i> Leider wurden noch keine Bewertungen abgegeben.</i></a>`;
     }
-    
-
+  
     row += `
-    
     <td>
     <div class="dropdown">
       <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,8 +35,18 @@ module.exports = function(Schuelerliste_) {
       </div>
     </div>
     </td>`;
-    row += `<td><a href="/bewertung/view_sumup=${Schueler.id}"><i class="fas fa-search"></i></a></td>`;
-    row += `<td><a href="/bewertung/download_sumup=${Schueler.id}" data-toggle="modal" data-target="#date_update_modal_${Schueler.id}"><i class="fas fa-download"></i></a></td>`;
+
+    if(Schueler.hatBewertung == 0){
+      row += `<td><a class="text-muted"><i class="fas fa-search"></i></a></td>`;
+    }else{
+      row += `<td><a href="/bewertung/view_sumup=${Schueler.id}"><i class="fas fa-search"></i></a></td>`;
+    }
+
+    if(Schueler.hatBewertung == 0){
+      row += `<td><a class="text-muted"><i class="fas fa-download"></i></a></td>`;
+    }else{
+      row += `<td><a href="/bewertung/download_sumup=${Schueler.id}" data-toggle="modal" data-target="#date_update_modal_${Schueler.id}"><i class="fas fa-download"></i></a></td>`;
+    }
 
     row += `<div class="modal fade" id="date_update_modal_${Schueler.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

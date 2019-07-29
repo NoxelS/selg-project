@@ -11,6 +11,9 @@ const favicon = require("express-favicon");
 var expressValidator = require("express-validator");
 var expressFileupload = require("express-fileupload");
 
+// Load Envs
+require('dotenv').config();
+
 // Authentication Packages
 var session = require("express-session");
 var passport = require("passport");
@@ -20,32 +23,16 @@ var bcrypt = require("bcrypt");
 
 // MySQL Session Storage
 var sessionStore = new MySQLStore({
-  /* OLD PC local
-  host: "192.168.178.37",
-  port: "3306",
-  user: "node_connection",
-  password: "a&r6a90$48|wfa9awfg8wgaa9a0gag0ga0ag0ffaffm0=",
-  database: "selg_schema"*/
-  /* VPS HOST
-  host: "Service_Selg_MySql",
-  port: "3306",
-  user: "node_con",
-  password: "password",
-  database: "selg_schema",
-  insecureAuth : true
-  
- host: "185.233.105.88",
- port: "3306",
- user: "node_con",
- password: "password",
- database: "selg_schema",
- insecureAuth : true
- 
+  host:   process.env.MYSQL_HOST_IP,
+  port:   process.env.MYSQL_HOST_PORT,
+  user:   process.env.MYSQL_HOST_USER,
+  password:   process.env.MYSQL_HOST_PASSWORD,
+  database:   process.env.MYSQL_HOST_DATABASE,
+  insecureAuth :   process.env.MYSQL_HOST_INSECUREAUTH,
 });
 
+// Logging
 var staticLogger = require("./log/statistic-logger");
-var fileLogger = require("./log/file-logger");
-fileLogger.log();
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/user");
@@ -75,45 +62,17 @@ app.engine(
       calcRows: require("./helpers/calcRows"),
       formatAnnouncements: require("./helpers/formatAnnouncements"),
       currentTime: require("./helpers/currentTime"),
-      genMeineKlasseTable: require("./helpers/genMeineKlasseTable")
+      genMeineKlasseTable: require("./helpers/genMeineKlasseTable"),
+      genMeineBewertungen: require("./helpers/genMeineBewertungen")
     }
   })
 );
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
-// Morgan Logger -> Logs to Console & /log/server.los
+// Morgan Logger
 app.use(
   logger((tokens, req, res) => {
-    fs.appendFile(
-      __dirname + "/log/server.log",
-      [
-        datetime.create().format("m/d/Y H:M:S") + ": [",
-        tokens.method(req, res),
-        "] Url:",
-        tokens.url(req, res),
-        "FileType(ending):",
-        tokens
-          .url(req, res)
-          .split("/")
-          [tokens.url(req, res).split("/").length - 1].split(".")
-          .reverse()[0],
-        "\tStatus: ",
-        nodeStatusCodes[tokens.status(req, res)],
-        "(",
-        tokens.status(req, res),
-        ")",
-        tokens.res(req, res, "content-length"),
-        "Responsetime:",
-        tokens["response-time"](req, res),
-        "ms",
-        "\r\n"
-      ].join(" "),
-      function(err) {
-        if (err) return console.log(err);
-      }
-    );
-
     if (tokens.method(req, res) == "POST") {
       return [
         datetime.create().format("m/d/Y H:M:S") + ": [",
@@ -138,7 +97,6 @@ app.use(
 
 app.use(favicon(__dirname + "/public/images/favicon.png"));
 
-// @TODO
 app.all("*", function(req, res, next) {
   res.header("Access-Control-Allow-Origin", req.headers.origin); // also  tried "*" here
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -154,22 +112,28 @@ app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(expressFileupload({
+  useTempFiles : true,
+  tempFileDir : '/tmp/'
+}));
+
 // Session
 app.use(
   session({
-    secret: "w4wafafwetgfelfwa#24ns42indawfwol",
-    resave: false,
+    secret: process.env.SESSION_SECRET,
+    resave: process.env.SESSION_RESAVE,
     store: sessionStore,
     saveUninitialized: false,
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24
-    } /* Ein Nutzer bleibt maximal einen Tag eingeloggt */
+      maxAge: 24 * 60 * 60 * 60
+    } /* Ein Nutzer bleibt maximal einen Tag eingeloggt (Default) */
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Checks if User is signedin -> If not: redirect to /login
+// Checkt ob ein User eingeloggt ist
 function authenticationMiddleware() {
   return (req, res, next) => {
     if (req.isAuthenticated()) return next();
@@ -323,53 +287,39 @@ passport.use(
   })
 );
 
-/*
- app.use((req, res, next) => {
-  if (req.cookies.user_sid && !req.session.user) {
-      res.clearCookie('user_sid');        
-  }
-  next();
-});
-*/
-
-// catch 404 and forward to error handler
+// 404 Error wird erzeugt wenn nichts gefunden wird
 app.use(function(req, res, next) {
   next(404);
 });
 
-// error handler
+// Error Handler
 app.use(function(err, req, res, next) {
-  res.locals.message = err.message;
+  res.locals.message = err.message ||"404";
   res.locals.error = err;
 
-  // render the error page
   res.status(err.status || 500);
 
   var handlebars_presettings = {
     layout: res.locals.permission,
-    title: "SELG-Tool",
-    display_name: req.params.name,
-    icon_cards: false,
     location: "Error"
   };
 
+  fs.appendFile(
+    __dirname + "/log/server.log",
+    [
+      datetime.create().format("m/d/Y H:M:S") + ":",
+      "ERROR",
+      err.status,
+      res.locals.message,
+      "\r\n"
+    ].join(" "),
+    function(err) {
+      if (err) return console.log(err);
+    }
+  );
+
   res.render("error", handlebars_presettings);
 });
-
-/*
-var scheduler = require('node-schedule');
-
-var rule = new scheduler.RecurrenceRule();
-rule.hour = 22
-rule.dayOfWeek = new schedule.Range(0,6)
-var dailyJob = schedule.scheduleJob(date, function(){
- console.log('[SCHEDULE]I run on days at 22:00');
- fileLogger.logSchedule();
-
-});
-scheduler.scheduleJob(rule,task);
-*/
-
 
 module.exports = app;
 

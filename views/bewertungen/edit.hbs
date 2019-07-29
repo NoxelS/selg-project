@@ -38,20 +38,113 @@
                         {{/if}}
                     </div>
 
+                     {{!
                     <div class="form-row mt-3">
                         <div class="form-group col-md-12">
                             <p>
-                                In einem verbindlichen Gespräch zwischen Schüler/in, Eltern und Tutoren werden Lernentwicklungen und Leistungsstand gewürdigt.
+                                In einem verbindlichen Gespräch zwischen Schüler/in, Eltern und Tutoren werden Lernentwicklung und Leistungsstand gewürdigt.
                                 Eine gemeinsame Zielvereinbarung kann die Weiterentwicklung in der Schule unterstützen. Diese
                                 Information über die Lernentwicklung der Schülerin/des Schülers ersetzt gemäß ÜSchO §59 (3)
-                                die Verbalbeurteilung zum Halbjahr.
+                                die Verbalbeurteilung zum Halbjahr. 
                             </p>
+                        </div>
+                    </div>
+                    }}
+
+                    {{!-- Erklärung der Sterne--}}
+                    {{! spacer <div class="col-xs-12 mt-4"><hr></div>}}
+                    {{!-- 4 Sterne: Prima--}}
+                    <div class="form-row mb-0 mt-4 mr-0">
+                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
+                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
+                                <div class="rating-fix">
+                                    <input id="rating_1" name="rating_1" type="radio" class="radio-btn hide" />
+                                    <label for="rating_1" class="filled">☆</label>
+                                    <input id="rating_2" name="rating_2" type="radio" class="radio-btn hide" />
+                                    <label for="rating_2" class="filled">☆</label>
+                                    <input id="rating_3" name="rating_3" type="radio" class="radio-btn hide" />
+                                    <label for="rating_3" class="filled">☆</label>
+                                    <input id="rating_4" name="rating_4" type="radio" class="radio-btn hide" />
+                                    <label for="rating_4" class="filled">☆</label>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
+                            <p class="mb-0 ml-1">prima:</p>
+                        </div>
+                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">
+                            Du machst es hervorragend.
+                        </div>
+
+                    </div>
+
+                    {{!-- 3 Sterne: meist--}}
+                    <div class="form-row mb-0 mt-0 mr-0">
+                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
+                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
+                                <div class="rating-fix">
+                                    <input id="rating_11" name="rating_11" type="radio" class="radio-btn hide" />
+                                    <label for="rating_11" class="filled">☆</label>
+                                    <input id="rating_12" name="rating_12" type="radio" class="radio-btn hide" />
+                                    <label for="rating_12" class="filled">☆</label>
+                                    <input id="rating_13" name="rating_13" type="radio" class="radio-btn hide" />
+                                    <label for="rating_13" class="filled">☆</label>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
+                            <p class="mb-0 ml-1">meist:</p>
+                        </div>
+                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">
+                            Es gelingt dir häufig.
+                        </div>
+
+                    </div>
+
+                    {{!-- 2 Sterne: meist--}}
+                    <div class="form-row mb-0 mt-0 mr-0">
+                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
+                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
+                                <div class="rating-fix">
+                                    <input id="rating_111" name="rating_111" type="radio" class="radio-btn hide" />
+                                    <label for="rating_111" class="filled">☆</label>
+                                    <input id="rating_112" name="rating_112" type="radio" class="radio-btn hide" />
+                                    <label for="rating_112" class="filled">☆</label>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
+                            <p class="mb-0 ml-1">teilweise:</p>
+                        </div>
+                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">Es gelingt dir manchmal. Du brauchst noch Erinnerung.
+                        </div>
+                    </div>
+
+                    {{!-- 1 Sterne: meist--}}
+                    <div class="form-row mb-0 mt-0 mr-0">
+                        <div class="form-group col-md-1 ml-0 mb-0 mr-0">
+                            <div class="ml-0 mb-0 mr-0" style="text-align: right;">
+                                <div class="rating-fix">
+                                    <input id="rating_1111" name="rating_1111" type="radio" class="radio-btn hide" />
+                                    <label for="rating_1111" class="filled">☆</label>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1 mb-0 ml-0 rating-text">
+                            <p class="mb-0 ml-1">zu wenig:</p>
+                        </div>
+                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">
+                            Du musst noch viel üben und brauchst noch sehr oft Hilfe.
                         </div>
                     </div>
 
 
                     <!-- SOZIALVERHALTEN -->
-                    <div class="border">
+                    <div class="border mt-4">
                         <div class="ml-5 mr-1 mt-3 mb-1">
                             <h5 class="h5 mb-3"> Sozialverhalten</h5>
                         </div>
@@ -86,7 +179,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_1" rows="{{calcRows k_1}}" id="kommentar">{{k_1}}</textarea>
                                             </div>
@@ -125,7 +218,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_2" rows="{{calcRows k_2}}" id="kommentar">{{k_2}}</textarea>
                                             </div>
@@ -165,7 +258,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_3" rows="{{calcRows k_3}}" id="kommentar">{{k_3}}</textarea>
                                             </div>
@@ -210,7 +303,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_4" rows="{{calcRows k_4}}" id="kommentar">{{k_4}}</textarea>
                                             </div>
@@ -250,7 +343,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_5" rows="{{calcRows k_5}}" id="kommentar">{{k_5}}</textarea>
                                             </div>
@@ -299,7 +392,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_6" rows="{{calcRows k_6}}" id="kommentar">{{k_6}}</textarea>
                                             </div>
@@ -340,7 +433,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_7" rows="{{calcRows k_7}}" id="kommentar">{{k_7}}</textarea>
                                             </div>
@@ -380,7 +473,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_8" rows="{{calcRows k_8}}" id="kommentar">{{k_8}}</textarea>
                                             </div>
@@ -420,7 +513,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_9" rows="{{calcRows k_9}}" id="kommentar">{{k_9}}</textarea>
                                             </div>
@@ -460,7 +553,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_10" rows="{{calcRows k_10}}" id="kommentar">{{k_10}}</textarea>
                                             </div>
@@ -500,7 +593,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_11" rows="{{calcRows k_11}}" id="kommentar">{{k_11}}</textarea>
                                             </div>
@@ -540,7 +633,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_12" rows="{{calcRows k_12}}" id="kommentar">{{k_12}}</textarea>
                                             </div>
@@ -586,7 +679,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_13" rows="{{calcRows k_13}}" id="kommentar">{{k_13}}</textarea>
                                             </div>
@@ -626,7 +719,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_14" rows="{{calcRows k_14}}" id="kommentar">{{k_14}}</textarea>
                                             </div>
@@ -666,7 +759,7 @@
                                         <div class="form-group col-md-6 border mb-0 px-0">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text no-border">Brgründung:</span>
+                                                    <span class="input-group-text no-border">Begründung:</span>
                                                 </div>
                                                 <textarea class="form-control no-border bg-white" type="text" name="kommentar_15" rows="{{calcRows k_15}}" id="kommentar">{{k_15}}</textarea>
                                             </div>
@@ -756,7 +849,7 @@
                         <div class="form-group col-md-1 mb-0 ml-0 rating-text">
                             <p class="mb-0 ml-1">teilweise:</p>
                         </div>
-                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">Es gelignt dir manchmal. Du brauchst noch Erinnerung.
+                        <div class="form-group col-md-5 mb-0 ml-0 rating-text">Es gelingt dir manchmal. Du brauchst noch Erinnerung.
                         </div>
                     </div>
 

@@ -4,15 +4,7 @@
     <h5 class="card-title">Es ist ein Fehler aufgetreten.</h5>
     <p class="card-text">{{#if error.message }} {{error.message}} {{else}}Die Seite "{{url}}" gibt es leider nicht.{{/if}} </p>
 
-    {{!-- Wenn kein 404 error: Button zum report senden --}}
-    {{#if error.message }}
-    <div class="" role="alert">
-      <form action="/error" method="post">
-        <button name="error" class="btn btn-danger" value="{{error.message}}">Diesen Fehler melden</button>
-      </form>
-    </div>
-    {{else}}
     <a name="error" class="btn btn-danger" href="/">Zurück zur Übersicht</a>
-    {{/if}}
+    
   </div>
 </div>

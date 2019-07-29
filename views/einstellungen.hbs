@@ -9,12 +9,11 @@
                     <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
                         href="#list-home" role="tab" aria-controls="home"><i class="fas fa-key text-primary mr-1"></i>Passwort ändern</a>
                     <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
-                        href="#list-profile" role="tab" aria-controls="profile"><i class="fas fa-info-circle text-primary mr-1"></i>Einführng erneut starten</a>
+                        href="#list-profile" role="tab" aria-controls="profile"><i class="fas fa-info-circle text-primary mr-1"></i>Einführung erneut starten</a>
                     {{!<a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
                         href="#list-messages" role="tab" aria-controls="messages"><i class="fas fa-question-circle text-primary mr-1"></i>Hilfe</a>}}
                 </div>
             </div>
-            {{! @TODO }}
             <div class="col-8">
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="list-home" role="tabpanel"
@@ -24,7 +23,7 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Neues Passwort</label>
                         <div class="col-sm-9">
-                            <input name="new_password_1" type="password" class="form-control" id="new_password_1" placeholder="Neues Password">
+                            <input name="new_password_1" type="password" class="form-control" id="new_password_1" placeholder="Neues Passwort">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -41,9 +40,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-3 col-form-label">Alter Passwort</label>
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Altes Passwort</label>
                         <div class="col-sm-9">
-                            <input type="password" name="password" class="form-control" id="password" placeholder="Alter Passwort">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Altes Passwort">
                              {{#if wrong_password}}
                             <div class="alert alert-danger mt-2" role="alert">
                                 Falsches Passwort

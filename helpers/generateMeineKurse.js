@@ -24,7 +24,7 @@ module.exports = function(meineKurse_unsroted) {
         meineKurse[i].id
       }"><span><i class="pull-right fas fa-caret-right"></i> ${
         kursName
-      } ${meineKurse[i].jahrgang}-${meineKurse[i].leistungsebene}</span></a>`;
+      } ${meineKurse[i].jahrgang}-${meineKurse[i].leistungsebene.toUpperCase()}</span></a>`;
     } else {
       dropdown += `<a class="dropdown-item" href="/kurs/${
         meineKurse[i].id
