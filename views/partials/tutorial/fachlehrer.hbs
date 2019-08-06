@@ -1,5 +1,5 @@
 <div id="overlay">
-    <div class="container-fluid">
+    <div id="main_tut" class="container-fluid">
     <div class="card card-login mx-auto mt-5" style="width: 30%!important; max-width: 100%; display: block;">
       <div class="card-header">Willkommen zum SELG-Fachlehrertool</div>
       <div class="card-body">
@@ -11,14 +11,29 @@
                     Möchten Sie eine Einführung starten, um mit dem Programm vertraut zu werden?
                 </p>
             </div>
-            <div class="mt-3 pt-3">
-                {{!<a onclick="startTutorial();" class="btn btn-primary text-light">Einführung beginnen</a>}}
-                <button value="cancel" class="btn btn-primary text-light">Einführung beginnen</button>
+           <div class="mt-3 pt-3">
+                <a onclick="startTutorial();" class="btn btn-primary text-light">Einführung beginnen</a>
                 <button value="cancel" class="btn btn-primary text-light">Nein danke</button>
             </div>
-        </form>
+        
       </div>
     </div>
 </div>
-
+<div id="video_tut" class="container-fluid" style="visibility: hidden; position: absolute; top:5rem;">
+<div class="card mx-auto my-auto" style="width: 60%">
+  <div class="card-header">Einführung</div>
+  <div class="card-body">
+      <video style="width: 100%;" autobuffer controls>
+        <source src="video.ogg" type="video/ogg">
+        <source src="videos/tutorial.mp4" type="video/mp4" >
+        <div> Es scheint, Sie haben probleme das Video abzuspielen. Probieren Sie es bitte mit einem anderen Browser.</div>
+    </video>
+  </div>
+  <div class="card-footer">
+      <p>Sie können das Video jeder Zeit unter <b>Einstellungen > Einführung erneut starten</b> anschauen.</p>
+      <p>Bei weiteren Fragen, bitte wenden Sie sich an einen Administrator.</p>
+      <button value="cancel" class="btn btn-primary text-light">Tutorial beenden</button>
+  </div>
+</div>
+</form>
 <script src="js/tutorial.js"></script>

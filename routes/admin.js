@@ -65,59 +65,359 @@ router.get("/create_all_schueler", userHasAdminPermission(), function(req, res, 
 
 // Post Request wenn die CSV Datei hochgeladen wurde
 router.post("/jahrgang_erstellen", userHasAdminPermission(), function(req, res, next) {
-  console.log(req.files.jahrgang_csv);
-
-  fs.readFile(req.files.jahrgang_csv.tempFilePath, 'UTF-8', (err, data) => {
-
+  fs.readFile(req.files.jahrgang_csv.tempFilePath, 'latin1', (err, data) => {
     if(err) return next(new Error(err.message));
     var list = data.split(/\r?\n/);
+
+    // Table Scope wird ermittelt
+    const table_headings = list[0].split(';');
+    let table_headings_shorts = [];
+
+    // Headings die wichtig sind um die Daten zu kontrollieren
+    var table_headings_cut = [];
+    let j = 0;
+    table_headings.forEach(heading => { 
+      if(heading.indexOf('(Kürzel)') == -1 && heading.indexOf('Lehrkraft') == -1){
+        if(heading.indexOf('Fachbezeichnung')){
+          table_headings_cut.push(heading.split(' ')[0]);
+        }else{
+          table_headings_cut.push(heading);
+        }
+      }else{
+        table_headings_shorts.push(j);
+      }
+      j++;
+    })
+
     list.splice(0,1);
-    list.splice(list.length-1,list.length);
-    
-    while(list.indexOf(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;") != -1){
-      list.remove(list.indexOf(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"));
-    }
-    while(list.indexOf(";;;;;;;;;;;;;;;;;;;;;;;;;;;;") != -1){
-      list.remove(list.indexOf(";;;;;;;;;;;;;;;;;;;;;;;;;;;;"));
+    list.splice(list.length-1,list.length);    
+
+    // Die länge des ersten (richtigen) eintrags entscheidet wie groß/klein die spacings sind
+    let length_tmp = (list[0].length);
+
+    // Alle leeren Zeilen werden gelöscht
+    for(var i = list.length-1; i > 0; i--){
+      if(list[i].length <= length_tmp/2){
+        list.remove(i);
+      }
     }
 
-    var schueler = list.map(string => {
-      return {
-        vorname: string.split(';')[2],
-        nachname: string.split(';')[1],
-        name: `${string.split(';')[2]} ${string.split(';')[1]}`,
-        stufe: string.split(';')[0].split('')[1],
-        suffix: string.split(';')[0].split('')[2]
-      }
+    // Zeile -> Objekt (Schüler)
+    let schueler_objects = list.map(string => {
+      let tmp_obj = {};
+      let i = 0;
+      table_headings.forEach(prop => {
+        tmp_obj[prop] = string.split(';')[i];
+        i++;
+      });
+      return(tmp_obj);
     });
 
-    res.render('create_jahrgang_approof', {
-      layout: "admin",
-      title: "SELG-Admintool",
-      icon_cards: false,
-      location: "Jahrgang erstellen",
-      schueler: schueler,
-      schueler_string: JSON.stringify(schueler),
-      count: schueler.length
-      });
+    // Anzahl Klassen werden ermittelt
+    let klassen = {};
+    schueler_objects.forEach(schueler => {
+      if(!klassen[schueler['Klasse']])
+        klassen[schueler['Klasse']] = 1;
+    })
 
+    // Eine Propmt für die Klassen wird erstellt
+    var klassen_promt = [];
+    for(var klasse in klassen) {
+      klassen_promt.push(klasse);
+    }
+
+    // s_id dient der Indexierung der Schüler
+    let s_id = 0;
+    var schueler = list.map(string => {
+      s_id++;
+      let values = string.split(';');
+      // Lehrer Kürzel werden entfernt
+      let offset = 0;
+      table_headings_shorts.forEach(element => {
+        values.remove(element-offset);
+        offset++;
+      })
+
+      return values;
+    });
+
+    // Alle möglichen User als Klassenlehrer werden gesucht:
+    // Wobei Username => Kürzel
+    var lehrer = [];
+    const db = require('../db');
+    db.query(
+      "SELECT username, vorname, nachname, id FROM selg_schema.user_db WHERE NOT ( permission_flag = 'admin');", [], (err, data) => {
+        if(err) console.log(err.message);
+        data.forEach(obj => { 
+          lehrer.push(`${obj.username} - ${obj.vorname} ${obj.nachname} (${obj.id})`)
+        });
+        res.render('create_jahrgang_approof', {
+          layout: "admin",
+          title: "SELG-Admintool",
+          icon_cards: false,
+          location: "Jahrgang erstellen",
+          schueler: schueler,
+          schueler_string: JSON.stringify(schueler_objects),
+          count: schueler.length,
+          table_headings: table_headings_cut,
+          klassen: klassen_promt,
+          user: lehrer
+          });
+    });
   });
 });
 
-// Post Request wenn die CSV Datei hochgeladen wurde
+// Daten der CSV Datei werden endgültig hochgeladen
 router.post("/jahrgang_erstellen_sql", userHasAdminPermission(), function(req, res, next) {
   var schueler = JSON.parse(req.body.schueler);
   const db = require("../db");
 
-  schueler.forEach(Schueler => {
-    db.query("INSERT INTO `selg_schema`.`schueler_db` (`name`, `stufe`, `klassen_suffix`, `vorname`, `nachname`) VALUES (?,?,?,?,?);",
-    [Schueler.name, Schueler.stufe, Schueler.suffix, Schueler.vorname, Schueler.nachname], (err, result) => {
-      if(err) console.log(err);
-    });
-  });
+  /* Es werden folgende Einträge erstellt:
+  **  > Schüler (Name, Vorname, Stufe, Suffix)
+  **  > Klassen (Lehrer_ID, Stufe, Suffix) -> Es muss der Klassenlehrer und seine ID ermittelt werden
+  **  > Kurse (Name, Fachlehrer_Name,  Fachlehrer_ID, Type, Jahrgang, Leistungsebene)
+  **
+  ** Es muss also erst folgendes ermittelt werden =>
+  **    >> Klassenlehrer der Klasse -> Via Prompt
+  ** 
+  ** Dann müssen die Fachlehrer andhand der Kürzel ermittelt werden:
+  **    >> Kürzel => (Fachlehrer_Name, Fachlehrer_ID)
+  **      und
+  **    >> Fachbezeichnungskürzel => (Name (Fachname), Type (SELG-Schreibweise))
+  */    
 
-  res.redirect("/");
+  var klassen = {};
+
+  // > Schüler (Name, Vorname, Stufe, Suffix)
+  let new_schueler = 0;
+  schueler.forEach(Schueler => {
+    if(!klassen[Schueler.Klasse]){ klassen[Schueler.Klasse] = 1 };
+    db.query("INSERT INTO schueler_db (`name`, `stufe`, `klassen_suffix`, `vorname`, `nachname`) VALUES (?, ?, ?, ?, ?);", 
+    [(Schueler.Vornamen +" "+ Schueler.Familienname), Schueler.Klasse.split('')[1],  Schueler.Klasse.split('')[2], Schueler.Vornamen, Schueler.Familienname], (err, data) => {
+      if(err) return next(new Error(err.message));
+      new_schueler++;
+    });
+  })
+
+  // > Klassen (Lehrer_ID, Stufe, Suffix)
+  let new_klassen = 0;
+  let Klassen = [];
+  for(var Klasse in klassen){
+
+    const suffix = Klasse.split('')[2];
+    const stufe = Klasse.split('')[1];
+
+    db.query("SELECT id, nachname, username FROM user_db WHERE username = ?", [req.body[`klasse_${Klasse}`].split(' - ')[0]], (err, data) =>{
+      if(err) return next(new Error(err.message));
+      if(data.length == 0) {
+        return next(new Error(`Der Tutor "${req.body[`klasse_${Klasse}`].split(' - ')[0]}" konnte nicht gefunden werden`));
+      }else{
+        db.query("INSERT INTO klasse_db (`lehrer_id`, `stufe`, `suffix`) VALUES (?, ?, ?);", [data[0].id, stufe, suffix], (err, res) =>{
+          if(err) return next(new Error(err.message));
+          Klassen.push({
+            id: data[0].id, 
+            stufe: stufe, 
+            suffix: suffix,
+            lehrer: data[0].nachname,
+            lehrer_s: data[0].username
+          });
+          new_klassen++;
+
+          // Fachlehrer werden zum Tutor ernannt
+          db.query("UPDATE user_db SET `permission_flag` = 'tutor' WHERE (`id` = ?);", [data[0].id], (err, res) => {
+            if(err) return next(new Error(err.message));
+          });
+        });
+      }
+    });
+  }
+
+  // > Kurse (Name, Fachlehrer_Name,  Fachlehrer_ID, Type, Jahrgang, Leistungsebene)
+
+  var kurse_tmp = {};
+  var kurse = [];
+  // Macht aus Objekten eine Array mit allen Values
+  // Aus diesen werden dann die Kurse und deren Lehrer ermittelt
+  schueler.map(obj => {
+    let tmp = [];
+    for(var key in obj){
+      tmp.push(obj[key])
+    }
+    return tmp;
+  })
+  .forEach(value_list => {
+    for(let i = 3 /* Name und Klasse wird übersprungen*/; i < value_list.length - 1; i+=2){
+      if(!kurse_tmp[`${value_list[i]}#${value_list[i+1]}#${value_list[0]}`]){
+        kurse_tmp[`${value_list[i]}#${value_list[i+1]}#${value_list[0]}`] = 1
+      }
+    }
+  });
+  var new_kurse = 0;
+  for(var key in kurse_tmp){
+    new_kurse++;
+    var fl_username, type, jahrgang, leistungsebene, type_raw;
+    fl_username = key.split('#')[1];
+    jahrgang = key.split('#')[2];
+    leistungsebene = key.split('#')[0].split('_')[1] ? key.split('#')[0].split('_')[1].indexOf('/') == -1 ? key.split('#')[0].split('_')[1].toLowerCase() : 'g' : 'g';
+    type_raw = key.split('#')[0].split('_')[0];
+    type = genTypeName(type_raw);
+
+    kurse.push({
+      raw_name: key.replace(/#/g,'_'),
+      fl_name: "", 
+      fl_id: "", 
+      fl_username: fl_username,
+      name: genFachName(type), 
+      type: type, 
+      type_raw: type_raw,
+      jahrgang: jahrgang , 
+      leistungsebene: leistungsebene
+    });
+  }
+
+  let kurse_final = [];
+  kurse.forEach(Kurs => {
+    // Fachlehrer wird gesucht
+    db.query("SELECT * FROM user_db WHERE username IN (?)", [Kurs.fl_username.toUpperCase()], (err, data) =>{
+      if(err) return next(new Error(err.message));
+      if(data.length == 0) {
+        if(err) return next(new Error(`Der Lehrer ${Kurs.fl_username.toUpperCase()} konnte nicht gefunden werden.`));
+      }else{
+        kurse_final.push({
+          raw_name: Kurs.raw_name,
+          fl_name: data[0].nachname, 
+          fl_id: data[0].id, 
+          fl_username: Kurs.fl_username,
+          name: Kurs.name,
+          type: Kurs.type, 
+          type_raw: Kurs.type_raw,
+          jahrgang: Kurs.jahrgang , 
+          leistungsebene: Kurs.leistungsebene
+        });
+      }
+    })
+  })
+
+  // Wartet bis alle requests getätigt wurden
+  setTimeout(function(){
+
+    kurse_final.forEach(Kurs => {
+      if(!Kurs.name){
+        return next(new Error(`Der Kurs ${Kurs.type_raw} entspricht nicht der SELG-Tool Namensgebung.`))
+      }
+    });
+
+    res.render('jahrgang_final', { 
+    layout: "admin",
+    title: "SELG-Admintool",
+    location: "Jahrgang erstellen",
+    kurse: kurse_final.sort(dynamicSort("type")),
+    schueler: schueler,
+    klassen: Klassen,
+    new_kurse: new_kurse,
+    new_klassen: new_klassen,
+    new_schueler: new_schueler
+  })}, 6000)
 });
+
+function dynamicSort(property) {
+  var sortOrder = 1;
+
+  if(property[0] === "-") {
+      sortOrder = -1;
+      property = property.substr(1);
+  }
+
+  return function (a,b) {
+      if(sortOrder == -1){
+          return b[property].localeCompare(a[property]);
+      }else{
+          return a[property].localeCompare(b[property]);
+      }        
+  }
+}
+
+function genTypeName(type_raw) {
+  type_raw = type_raw.toLowerCase();
+  let ret;
+  switch (type_raw) {
+    case "d":
+      ret = "deutsch";
+      break;
+    case "e":
+      ret = "englisch";
+      break;
+    case "m":
+      ret = "mathematik";
+      break;
+    case "gl":
+      ret = "gesellschaftslehre";
+      break;
+    case "mu":
+      ret = "musik";
+      break;
+    case "bk":
+      ret = "bildende_kunst";
+      break;
+    case "ch":
+      ret = "chemie";
+      break;
+    case "bio":
+      ret = "biologie";
+      break;
+    case "ph":
+      ret = "physik";
+      break;
+
+    // TODO
+    case "relrk":
+      ret = "religion";
+      break;
+    case "relev":
+      ret = "religion";
+      break;
+    case "eth":
+      ret = "religion";
+      break;
+    case "spkos":
+      ret = "sport";
+      break;
+    case "nawi":
+      ret = "naturwissenschaften";
+      break;
+    case "sgl":
+      ret = "sgl";
+      break;
+    case "wkm":
+      ret = "kommunikation_und_medien";
+      break;
+    case "wök":
+      ret = "oekologie";
+      break;
+    case "wds":
+      ret = "darstellendes_spielen";
+      break;
+    case "wsp":
+      ret = "sport_und_gesundheit";
+      break;
+    case "wfr":
+      ret = "franzoesisch";
+      break;
+    case "wtw":
+      ret = "technik_und_wirtschaft";
+      break;
+    case "wbk": //TODO Abkürzugen klären
+      ret = "kunst_und_design";
+      break;
+    case "wal": //TODO Abkürzugen klären
+      ret = "technik_und_wirtschaft";
+      break;
+    default:
+      ret = "unknown ("+type_raw+")";
+      break;
+  }
+  return ret;
+}
 
 
 function genFachName(type) {
@@ -186,6 +486,103 @@ function genFachName(type) {
   }
   return ret;
 }
+
+router.get("/delete_all_schueler", userHasAdminPermission(), function(req, res, next) {
+
+  const db = require('../db');
+  db.query("SELECT stufe FROM klasse_db;", [], (err, klassen) => {
+    if (err) return next(new Error(err.message));
+    var jahrgang = {};
+    var jahrgaenge = [];
+    klassen.forEach(Klasse => { if(!jahrgang[Klasse.stufe]) jahrgang[Klasse.stufe] = 1})
+    for(var Stufe in jahrgang){ jahrgaenge.push(Stufe) };
+    var handlebars_presettings = {
+      layout: "admin",
+      title: "SELG-Admintool",
+      location: "Jahrgang löschen",
+      jahrgang: jahrgaenge
+    };
+    res.render("delete_all", handlebars_presettings);
+  });
+});
+
+router.post("/delete_jahrgang", userHasAdminPermission(), function(req, res, next) {
+  const jahrgang = req.body.jahrgang;
+
+  const db = require('../db');
+  db.query("SELECT id FROM schueler_db WHERE stufe = ?;", [jahrgang], (err, data) => {
+    if (err) return next(new Error(err.message));
+    const schueler = data.length;
+    const schueler_ids = data.map(obj => obj.id);
+    
+    db.query("SELECT id FROM bewertungen_db WHERE schueler_id IN (?);", [schueler], (err, data) => {
+      if (err) return next(new Error(err.message));
+      const bewertungen = data.length;
+      const bewertungen_ids = data.map(obj => obj.id);
+
+      db.query("SELECT id FROM kurs_db WHERE jahrgang = ?;", [jahrgang], (err, data) => {
+        if (err) return next(new Error(err.message));
+        const kurse = data.length;
+        db.query("SELECT lehrer_id FROM klasse_db WHERE stufe = ?", [jahrgang], (err, data) => {
+          if (err ) return next(new Error(err.message));
+          const klassen = data.length;
+          const lehrer_ids = data.map(obj => obj.lehrer_id);
+
+          
+          /* Zu löschen:
+          ** >> bewertungen_db
+          ** >> bewertungen_sumup_db
+          ** >> klasse_db
+          ** >> kurs_db
+          ** >> schueler_db
+          ** >> schueler_kurs_link  
+          ** >> user_db update permissions
+          **
+          */
+
+          // Bewertungen werden gelöscht
+          db.query("DELETE FROM bewertungen_db WHERE schueler_id IN (?);", [schueler_ids], (err, data) => {           
+            if (err) return next(new Error(err.message));
+            // Bewertungen_sumup werden gelöscht
+            db.query("DELETE FROM bewertungen_sumup_db WHERE schueler_id IN (?);", [schueler_ids], (err, data) => {
+              if (err) return next(new Error(err.message));
+              // Klassen werden gelöscht
+              db.query("DELETE FROM klasse_db WHERE stufe = ?;", [jahrgang], (err, data) => {
+                if (err) return next(new Error(err.message));
+                // Kurse werden gelöscht
+                db.query("DELETE FROM kurs_db WHERE jahrgang = ?;", [jahrgang], (err, data) => {
+                  if (err) return next(new Error(err.message));
+                  // Schüler werden gelöscht
+                  db.query("DELETE FROM schueler_db WHERE stufe = ?;", [jahrgang], (err, data) => {
+                    if (err) return next(new Error(err.message));
+                    // Schüler-Kurs-Links werden gelöscht
+                    db.query("DELETE FROM schueler_kurs_link WHERE id_schueler IN (?);", [schueler_ids], (err, data) => {
+                      if (err) return next(new Error(err.message));
+                      // Tutoren werden zu Fachlehrern
+                      db.query("UPDATE user_db SET permission_flag = 'fachlehrer' WHERE id IN (?);", [lehrer_ids], (err, data) => {
+                        if (err) return next(new Error(err.message));
+                        res.redirect('/');
+
+                        console.log(
+                          `Es wurde ein Jahrgang gelöscht:\r\n`+
+                          `\tSchüler: ${schueler}\r\n`+
+                          `\tKlassen: ${klassen}\r\n`+
+                          `\tKurse: ${kurse}\r\n`+
+                          `\tBewertungen: ${bewertungen}\r\n`
+                        )
+                      });
+                    });
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+  });
+});
+
 /* Create User Route. */
 router.get("/create_user", userHasAdminPermission(), function(req, res, next) {
   var handlebars_presettings = {
@@ -248,7 +645,7 @@ router.post("/create_user", userHasAdminPermission(), function(req, res, next) {
   // {"vorname":"awgawg","nachname":"awgawg","username":"awgawg","password":"awgawgawg","password_re":"awgawgag","leistungsebene":"admin"}
 
   if (!req.validationErrors()) {
-    const username = req.body.username;
+    const username = req.body.username.toUpperCase();
     const password = req.body.password;
     const vorname = req.body.vorname;
     const nachname = req.body.nachname;

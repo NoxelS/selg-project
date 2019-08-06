@@ -1,0 +1,71 @@
+<div class="container">
+    <h5>Es wurden <b>{{new_klassen}}</b> Klassen hinzugefügt:</h5>
+    <table class="table table-sm table-hover table-striped">
+        <thead class="thead-inverse">
+        <tr>   
+            <th><b>#</b></th>
+            <th>Lehrer</th>
+            <th>Stufe</th>
+        </tr>
+        </thead>
+        <tbody>
+            {{#each klassen}}
+            <tr>
+                <td><b>{{@index}}</b></td>
+                <td>{{lehrer_s}} - {{lehrer}}</td>
+                <td>{{stufe}} {{suffix}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <br>
+    <h5>Es wurden <b>{{new_kurse}}</b> Kurse hinzugefügt:</h5>
+    <table class="table table-sm table-hover table-striped">
+        <thead class="thead-inverse">
+        <tr>   
+            <th><b>#</b></th>
+            <th>Name</th>
+            <th>Bezeichnung</th>
+            <th>Fachlehrer</th>
+            <th>Fachlehrer (Kürzel)</th>
+            <th>Leistungsebene</th>
+            <th>Klasse</th>
+        </tr>
+        </thead>
+        <tbody>
+            {{#each kurse}}
+            <tr>
+                <td><b>{{@index}}</b></td>
+                <td>{{raw_name}}</td>
+                <td>{{name}}</td>
+                <td>{{fl_name}}</td>
+                <td>{{fl_username}}</td>
+                <td>{{leistungsebene}}</td>
+                <td>{{jahrgang}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <br>
+    <h5>Es wurden <b>{{new_schueler}}</b> Schüler hinzugefügt:</h5>
+    <table class="table table-sm table-hover table-striped">
+        <thead class="thead-inverse">
+        <tr>   
+            <th><b>#</b></th>
+            <th>Nachname</th>
+            <th>Vorname</th>
+            <th>Klasse</th>
+        </tr>
+        </thead>
+        <tbody>
+            {{#each schueler}}
+            <tr>
+                <td><b>{{@index}}</b></td>
+                <td>{{Familienname}}</td>
+                <td>{{Vornamen}}</td>
+                <td>{{Klasse}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

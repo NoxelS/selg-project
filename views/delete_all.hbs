@@ -1,48 +1,52 @@
-<form action="/admin/delete_user" method="POST" autocomplete="off">
 <div class="container-fluid">
     <div class="container-fluid border">
         <br>
         <div class="container-fluid">
             <div class="card-header" style="background-color: #e9ecef;">
-                Benutzer löschen
+                Jahrgang löschen
             </div>
             <div class="card-body">
-                    <div class="form-group">
-                        <label for="inputAddress">Kürzel</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Kürzel">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputZip">Nachname</label>
-                        <input type="text" class="form-control" id="inputZip" placeholder="Nachname">
-                    </div>
-
+                    <h4>Sobald Sie einen Jahrgang löschen, ist er <b class="primary">endgültig</b> gelöscht.<br> <b>Jeder Schüler </b>,<b> jeder Kurs</b> und <b>alle Bewertungen</b> die damit verbunden sind, werden aus der Datenbank entfernt. 
+                    <br>Es ist danach <b>nicht möglich</b>, diesen Schritt rückgängig zu machen! </h4>
                     <br>
                     <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#logoutModal">
                         <i class="fas fa-fw fa-user-minus"></i>
-                        <span>Benutzer löschen</span></a>
+                        <span>Fortfahren</span></a>
             </div>
         </div>
 
     </div>
 </div>
 
+<form action="/admin/delete_jahrgang" method="POST" autocomplete="off">
 
-<!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sind Sie sich sicher?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Jahrgang löschen</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Klicken Sie auf "Benutzer Löschen", wenn Sie sich sicher sind, den ausgewählten Benutzer zu löschen.</div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                  <label for="">Welcher Jahrgang soll gelöscht werden?</label>
+                  <select class="form-control" name="jahrgang" id="jahrgang">
+                    {{#each jahrgang}}
+                        <option>{{this}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+
+            </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Abbrechen</button>
-                <button type="submit" class="btn btn-danger">Benutzer Löschen</button>
+                <button type="submit" class="btn btn-danger">Jahrgang Löschen</button>
             </div>
         </div>
     </div>
 </div>
+
 </form>

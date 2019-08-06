@@ -125,7 +125,7 @@ app.use(
     store: sessionStore,
     saveUninitialized: false,
     cookie: {
-      maxAge: 24 * 60 * 60 * 60
+      maxAge: 1000 * 24 * 60 * 60
     } /* Ein Nutzer bleibt maximal einen Tag eingeloggt (Default) */
   })
 );
