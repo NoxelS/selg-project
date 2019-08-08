@@ -196,6 +196,7 @@ router.post("/jahrgang_erstellen_sql", userHasAdminPermission(), function(req, r
     [(Schueler.Vornamen +" "+ Schueler.Familienname), Schueler.Klasse.split('')[1],  Schueler.Klasse.split('')[2], Schueler.Vornamen, Schueler.Familienname], (err, data) => {
       if(err) return next(new Error(err.message));
       new_schueler++;
+      Schueler.id = data.insertId;
     });
   })
 
@@ -247,6 +248,7 @@ router.post("/jahrgang_erstellen_sql", userHasAdminPermission(), function(req, r
   })
   .forEach(value_list => {
     for(let i = 3 /* Name und Klasse wird übersprungen*/; i < value_list.length - 1; i+=2){
+      // Kursname: Typ_LehrerKürzel_jahrgang Bsp: "BK_POR_08d"
       if(!kurse_tmp[`${value_list[i]}#${value_list[i+1]}#${value_list[0]}`]){
         kurse_tmp[`${value_list[i]}#${value_list[i+1]}#${value_list[0]}`] = 1
       }
@@ -274,7 +276,6 @@ router.post("/jahrgang_erstellen_sql", userHasAdminPermission(), function(req, r
       leistungsebene: leistungsebene
     });
   }
-
   let kurse_final = [];
   kurse.forEach(Kurs => {
     // Fachlehrer wird gesucht
@@ -294,10 +295,39 @@ router.post("/jahrgang_erstellen_sql", userHasAdminPermission(), function(req, r
           jahrgang: Kurs.jahrgang , 
           leistungsebene: Kurs.leistungsebene
         });
+        db.query("INSERT INTO kurs_db (`name`, `lehrer_name`, `lehrer_id`, `type`, `jahrgang`, `leistungsebene`) VALUES (?, ?, ?, ?, ?, ?);",
+          [Kurs.name, data[0].nachname, data[0].id, Kurs.type, jahrgang.split('')[1], leistungsebene], (err, data) => {
+            if(err) return next(new Error(`Es ist ein fehler aufgetreten...`));
+            const kurs_id = data.insertId;
+
+            //console.log(`${schueler[0]['G5 Fachbezeichnung']}_${schueler[0]['G5 Fachlehrer (Kürzel)']}_${schueler[0]['Klasse']}`);
+            
+
+            // Schueler werden mit den Kursen gelinkt
+            schueler.forEach(Schueler => {
+              let prop_list = [];
+              for(var property in Schueler){
+                if(property != 'Klasse' && property != 'Familienname' && property != 'Vornamen'){
+                  prop_list.push(Schueler[property]);
+                }
+              };
+              for(let i = 0; i < prop_list.length - 1; i+=2){
+                //console.log(Schueler.id+": "+prop_list[i]+"_"+prop_list[i+1]+"_"+Schueler.Klasse);
+                if(Kurs.raw_name === `${prop_list[i]}_${prop_list[i+1]}_${Schueler.Klasse}`){
+                  //console.log(Schueler.id + " IN " + Kurs.raw_name);
+                  db.query("INSERT INTO schueler_kurs_link (`id_schueler`, `id_kurs`) VALUES (?, ?);", [Schueler.id, kurs_id], (err, data) => {
+                    if(err) return next(new Error(`Es ist ein fehler aufgetreten...`));
+                  })
+                }
+
+              }
+            });
+
+        })
       }
     })
-  })
-
+  });
+  
   // Wartet bis alle requests getätigt wurden
   setTimeout(function(){
 
@@ -515,7 +545,7 @@ router.post("/delete_jahrgang", userHasAdminPermission(), function(req, res, nex
     const schueler = data.length;
     const schueler_ids = data.map(obj => obj.id);
     
-    db.query("SELECT id FROM bewertungen_db WHERE schueler_id IN (?);", [schueler], (err, data) => {
+    db.query("SELECT id FROM bewertungen_db WHERE schueler_id IN (?);", [schueler_ids], (err, data) => {
       if (err) return next(new Error(err.message));
       const bewertungen = data.length;
       const bewertungen_ids = data.map(obj => obj.id);
@@ -769,6 +799,19 @@ router.get("/delete_user", userHasAdminPermission(), function(req, res, next) {
   };
   res.render("benutzer_delete", handlebars_presettings);
 });
+
+
+
+router.post("/delete_user", userHasAdminPermission(), function(req, res, next) {
+  const username = req.body.username;
+  const db = require('../db');
+  db.query("DELETE FROM user_db WHERE username = ?;", [username, nachname], (err, data) => {
+    if(err) return next(new Error(err.message));
+    console.log(data);
+    res.redirect('/');
+  })
+});
+
 
 /* Create Schueler Route. */
 router.get("/create_schueler", userHasAdminPermission(), function(

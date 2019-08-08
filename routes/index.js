@@ -17,15 +17,15 @@ router.get("/", function(req, res, next) {
     // @TODO ASYNC bewertungen_count
 
     var db = require("../db.js");
-    db.query("SELECT MAX(ID) AS LastID FROM user_db", function(err, result) {
+    db.query("SELECT id FROM user_db", function(err, result) {
       if (err) return next(new Error(err.message));
-      handlebars_presettings.user_count = result[0].LastID;
-      db.query("SELECT MAX(ID) AS LastID FROM schueler_db", function(err, result) {
+      handlebars_presettings.user_count = result.length;
+      db.query("SELECT id FROM schueler_db", function(err, result) {
         if (err) return next(new Error(err.message));
-        handlebars_presettings.schueler_count = result[0].LastID;
-        db.query("SELECT MAX(ID) AS LastID FROM bewertungen_db", function(err, result) {
+        handlebars_presettings.schueler_count = result.length;
+        db.query("SELECT id FROM bewertungen_db", function(err, result) {
           if (err) return next(new Error(err.message));
-          handlebars_presettings.bewertungen_count = result[0].LastID;
+          handlebars_presettings.bewertungen_count = result.length;
           db.query("SELECT * FROM session_history", function(err, history_data) {
             if (err) return next(new Error(err.message));
             var history = {};
@@ -321,13 +321,13 @@ router.get("/klasse", function(req, res, next) {
   const db = require("../db")
 
   db.query(
-    "SELECT * FROM selg_schema.schueler_db WHERE stufe = ? AND klassen_suffix = ?;", [res.locals.stufe, res.locals.stufe_suffix],
+    "SELECT * FROM schueler_db WHERE stufe = ? AND klassen_suffix = ?;", [res.locals.stufe, res.locals.stufe_suffix],
     (error, result) => {
      if(error) return next(new Error(error.message));
       res.locals.meineKlasse = result;
 
       // Holt sich alle Bewertungen der Schüler um zu schauen welche vollständig sind
-      db.query("SELECT id as b_id, schueler_id as s_id, kurs_name as name, leistungsebene FROM bewertungen_db WHERE schueler_id IN (?)",[result.map(schueler=> schueler.id)],(err,result)=>{
+      db.query("SELECT id as b_id, date, schueler_id as s_id, kurs_name as name, leistungsebene FROM bewertungen_db WHERE schueler_id IN (?)",[result.map(schueler=> schueler.id)],(err,result)=>{
         
         res.locals.meineKlasse.forEach(Schueler => {
           Schueler["hatBewertung"] = 0;
@@ -335,7 +335,7 @@ router.get("/klasse", function(req, res, next) {
           for(var i = 0; i < result.length; i++){
             if(result[i].s_id == Schueler.id){
               Schueler["hatBewertung"] += 1;
-              Schueler["Bewertungen"].push(`${result[i].name} ${result[i].leistungsebene}`)
+              Schueler["Bewertungen"].push(`${result[i].name} ${result[i].leistungsebene} (${result[i].date})`)
             }
           }
           Schueler["sollBewertung"] = res.locals.stufe === 5 ? 10 : res.locals.stufe === 6 ? 11 : res.locals.stufe === 7 ? 12 : 13;
