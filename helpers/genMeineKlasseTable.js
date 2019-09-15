@@ -6,7 +6,7 @@ module.exports = function(Schuelerliste_) {
   Schuelerliste = Schuelerliste_.sort().reverse();
   Schuelerliste.forEach(Schueler => {
 
-    Schueler.raw_name = Schueler.name.split(" ")[0]+"_"+Schueler.name.split(" ")[1];
+    Schueler.raw_name = Schueler.name.replace(' ', '_');
 
     var row = "<tr>";
     row += `<td>${i}</td>`;

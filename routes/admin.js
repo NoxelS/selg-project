@@ -208,25 +208,28 @@ router.post("/jahrgang_erstellen_sql", userHasAdminPermission(), function(req, r
     const suffix = Klasse.split('')[2];
     const stufe = Klasse.split('')[1];
 
-    db.query("SELECT id, nachname, username FROM user_db WHERE username = ?", [req.body[`klasse_${Klasse}`].split(' - ')[0]], (err, data) =>{
+    db.query("SELECT id, nachname, username FROM user_db WHERE username = ? OR username = ?", [req.body[`klasse_${Klasse}_a`].split(' - ')[0],req.body[`klasse_${Klasse}_b`].split(' - ')[0]], (err, data) =>{
       if(err) return next(new Error(err.message));
-      if(data.length == 0) {
-        return next(new Error(`Der Tutor "${req.body[`klasse_${Klasse}`].split(' - ')[0]}" konnte nicht gefunden werden`));
+      if(data.length <= 1) {
+        return next(new Error(`Einer der beiden Tutoren (${req.body[`klasse_${Klasse}_a`].split(' - ')[0] +", "+ req.body[`klasse_${Klasse}_b`].split(' - ')[0]}) konnte nicht gefunden werden`));
       }else{
-        db.query("INSERT INTO klasse_db (`lehrer_id`, `stufe`, `suffix`) VALUES (?, ?, ?);", [data[0].id, stufe, suffix], (err, res) =>{
+        db.query("INSERT INTO klasse_db (`lehrer_id`, `stufe`, `suffix`, `lehrer_id_secondary`) VALUES (?, ?, ?, ?);", [data[0].id, stufe, suffix, data[1].id], (err, res) =>{
           if(err) return next(new Error(err.message));
           Klassen.push({
             id: data[0].id, 
             stufe: stufe, 
             suffix: suffix,
             lehrer: data[0].nachname,
-            lehrer_s: data[0].username
+            lehrer_s: data[0].username,
+            lehrer_sec: data[1].nachname,
+            lehrer_s_sec: data[1].username
           });
           new_klassen++;
 
           // Fachlehrer werden zum Tutor ernannt
-          db.query("UPDATE user_db SET `permission_flag` = 'tutor' WHERE (`id` = ?);", [data[0].id], (err, res) => {
+          db.query("UPDATE user_db SET `permission_flag` = 'tutor' WHERE (id = ? OR id = ?);", [data[0].id, data[1].id], (err, res) => {
             if(err) return next(new Error(err.message));
+            console.log(res);
           });
         });
       }
@@ -277,17 +280,30 @@ router.post("/jahrgang_erstellen_sql", userHasAdminPermission(), function(req, r
     });
   }
   let kurse_final = [];
+  let kurse_final_error = [];
   kurse.forEach(Kurs => {
     // Fachlehrer wird gesucht
     db.query("SELECT * FROM user_db WHERE username IN (?)", [Kurs.fl_username.toUpperCase()], (err, data) =>{
       if(err) return next(new Error(err.message));
       if(data.length == 0) {
-        if(err) return next(new Error(`Der Lehrer ${Kurs.fl_username.toUpperCase()} konnte nicht gefunden werden.`));
+        kurse_final_error.push({
+          raw_name: Kurs.raw_name,
+          err: true,
+          fl_name: "Unbekannt", 
+          fl_id: 'Unbekannt', 
+          fl_username: Kurs.fl_username,
+          name: Kurs.name,
+          type: Kurs.type, 
+          type_raw: Kurs.type_raw,
+          jahrgang: Kurs.jahrgang , 
+          leistungsebene: Kurs.leistungsebene
+        });
       }else{
         kurse_final.push({
           raw_name: Kurs.raw_name,
           fl_name: data[0].nachname, 
           fl_id: data[0].id, 
+          err: false,
           fl_username: Kurs.fl_username,
           name: Kurs.name,
           type: Kurs.type, 
@@ -341,10 +357,10 @@ router.post("/jahrgang_erstellen_sql", userHasAdminPermission(), function(req, r
     layout: "admin",
     title: "SELG-Admintool",
     location: "Jahrgang erstellen",
-    kurse: kurse_final.sort(dynamicSort("type")),
+    kurse: [...kurse_final, ...kurse_final_error].sort(dynamicSort("type")),
     schueler: schueler,
     klassen: Klassen,
-    new_kurse: new_kurse,
+    new_kurse: kurse_final.length+" von "+new_kurse,
     new_klassen: new_klassen,
     new_schueler: new_schueler
   })}, 6000)
@@ -935,6 +951,53 @@ router.post("/new_announcement", userHasAdminPermission(), function(req,res,next
      }
    );
 });
+
+router.get("/liste_kurse", userHasAdminPermission(), function(req,res,next){
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Admintool",
+    icon_cards: false,
+    location: "Liste (Kurse)"
+  };
+
+  const db = require('../db');
+  db.query("SELECT * FROM kurs_db;", (err, result) => {
+    if(err) return next(new Error(err.message));
+    handlebars_presettings.kurse = result;
+    res.render("listen/kurse", handlebars_presettings);
+  });
+});
+
+router.get("/liste_schueler", userHasAdminPermission(), function(req,res,next){
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Admintool",
+    location: "Liste (Schüler)"
+  };
+  const db = require('../db');
+  db.query("SELECT * FROM schueler_db;", (err, result) => {
+    if(err) return next(new Error(err.message));
+    handlebars_presettings.schueler = result;
+    res.render("listen/schueler", handlebars_presettings);
+  });
+});
+
+router.get("/liste_benutzer", userHasAdminPermission(), function(req,res,next){
+  var handlebars_presettings = {
+    layout: res.locals.permission,
+    title: "SELG-Admintool",
+    icon_cards: false,
+    location: "Liste (Benutzer)"
+  };
+
+  const db = require('../db');
+  db.query("SELECT * FROM user_db;", (err, result) => {
+    if(err) return next(new Error(err.message));
+    handlebars_presettings.user = result;
+    res.render("listen/benutzer", handlebars_presettings);
+  });
+});
+
 
 passport.serializeUser(function(user_id, done) {
   done(null, user_id);

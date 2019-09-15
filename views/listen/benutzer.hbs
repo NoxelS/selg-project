@@ -1,0 +1,49 @@
+<div class="container-fluid mb-5">
+    <div class="container-fluid border py-3">
+    <table id="dataTable" class="table table-hover table-striped table-bordered mt-3">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Kürzel</th>
+          <th scope="col">Name</th>
+          <th scope="col">Benutzerart</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each user}}
+            <tr>
+              <th scope="row">{{id}}</th>
+              <td>{{username}}</td>
+              <td>{{vorname}} {{nachname}}</td>
+              <td>{{permission_flag}}</td>
+            </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    </div>
+</div>
+
+<script>
+    // Basic example
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            "ordering": true,
+            "paging": true,
+            "info": false,
+            "searching": true,
+            "language": {
+                "lengthMenu": "Zeige _MENU_ Benutzer pro Seite",
+                "zeroRecords": "Keine Übereinstimmung",
+                "search": "Suche:",
+                "paginate": {
+                    "first":      "Zurück",
+                    "last":       "Zurück",
+                    "next":       "Nächste Seite",
+                    "previous":   "Vorherige Seite"
+                },
+            }
+        });
+        $('.dataTables_length').addClass('bs-select');
+    });
+</script>
+

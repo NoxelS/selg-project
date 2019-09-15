@@ -1,5 +1,5 @@
 <div class="container">
-    <h5>Es wurden <b>{{new_klassen}}</b> Klassen hinzugefügt:</h5>
+    <h5>Es wurden <b>{{new_klassen}}</b> Klassen erstellt:</h5>
     <table class="table table-sm table-hover table-striped">
         <thead class="thead-inverse">
         <tr>   
@@ -12,14 +12,14 @@
             {{#each klassen}}
             <tr>
                 <td><b>{{@index}}</b></td>
-                <td>{{lehrer_s}} - {{lehrer}}</td>
+                <td>{{lehrer}} (<b>{{lehrer_s}}</b>) und {{lehrer_sec}} (<b>{{lehrer_s_sec}}</b>) </td>
                 <td>{{stufe}} {{suffix}}</td>
             </tr>
             {{/each}}
         </tbody>
     </table>
     <br>
-    <h5>Es wurden <b>{{new_kurse}}</b> Kurse hinzugefügt:</h5>
+    <h5>Es wurden <b>{{new_kurse}}</b> Kursen erfolgreich hinzugefügt:</h5>
     <table class="table table-sm table-hover table-striped">
         <thead class="thead-inverse">
         <tr>   
@@ -34,7 +34,18 @@
         </thead>
         <tbody>
             {{#each kurse}}
-            <tr>
+            {{#if err}}
+            <tr class="table-danger" data-toggle="tooltip" data-placement="top" title="Der Lehrer '{{fl_username}}' konnte nicht im System gefunden werden.">
+                <td><b>{{@index}}</b></td>
+                <td>{{raw_name}}</td>
+                <td>{{{name}}}</td>
+                <td><b><span style='color: red;'><i class="fas fa-exclamation-circle mr-2"></i></span>{{{fl_name}}}</b></td>
+                <td>{{fl_username}}</td>
+                <td>{{leistungsebene}}</td>
+                <td>{{jahrgang}}</td>
+            </tr>
+            {{else}}
+            <tr class="table-success">
                 <td><b>{{@index}}</b></td>
                 <td>{{raw_name}}</td>
                 <td>{{name}}</td>
@@ -43,6 +54,7 @@
                 <td>{{leistungsebene}}</td>
                 <td>{{jahrgang}}</td>
             </tr>
+            {{/if}}
             {{/each}}
         </tbody>
     </table>
@@ -59,7 +71,7 @@
         </thead>
         <tbody>
             {{#each schueler}}
-            <tr>
+            <tr class="table-success">
                 <td><b>{{@index}}</b></td>
                 <td>{{Familienname}}</td>
                 <td>{{Vornamen}}</td>
@@ -69,3 +81,9 @@
         </tbody>
     </table>
 </div>
+
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>

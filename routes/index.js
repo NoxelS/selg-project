@@ -217,7 +217,7 @@ router.get("/search=:nametofind", function(req, res, next) {
   }else{
     /* 
       Wenn ein Fachlehrer die Suchleiste benutzt, werden Ihm alle Schüler angezeigt, die in seinen Kursen vorahnden sind
-      Zuerst werden alle Schüler gesucht, dann werden alle schüler ids gescuht, welche in seinen Kursen vorhanden sind
+      Zuerst werden alle Schüler gesucht, dann werden alle schüler ids gesucht, welche in seinen Kursen vorhanden sind
       Die Überschneidungen dieser zwei Mengen werden in der handlebars_presettings.result Array gespeichert.
     */
     var db = require("../db.js");
@@ -227,7 +227,6 @@ router.get("/search=:nametofind", function(req, res, next) {
       handlebars_presettings.schueler_gefunden = result;
       handlebars_presettings.result = [];
 
-
       if(result.length === 0){
         next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
       }else{
@@ -236,7 +235,10 @@ router.get("/search=:nametofind", function(req, res, next) {
           if (err || result.length === 0) return next(new Error("Wir konnten leider niemanden mit dem Namen "+req.params.nametofind+" finden."));
           for(var i = 0; i < handlebars_presettings.schueler_gefunden.length ; i++){
             for(var k = 0; k < result.length; k++){
-              if(handlebars_presettings.schueler_gefunden[i].id === result[k].id_schueler){
+              console.log(res.locals.permission == 'tutor' && handlebars_presettings.schueler_gefunden[i].stufe === res.locals.stufe && handlebars_presettings.schueler_gefunden[i].suffix === res.locals.stufe_suffix);
+              if(handlebars_presettings.schueler_gefunden[i].id === result[k].id_schueler ||
+                (res.locals.permission == 'tutor' && handlebars_presettings.schueler_gefunden[i].stufe === res.locals.stufe && handlebars_presettings.schueler_gefunden[i].suffix === res.locals.stufe_suffix)){
+                
                 handlebars_presettings.result.push(handlebars_presettings.schueler_gefunden[i]);
               }
             }

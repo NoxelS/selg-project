@@ -1,0 +1,50 @@
+<div class="container-fluid mb-5">
+    <div class="container-fluid border py-3">
+
+    <table id="dataTable" class="table table-hover table-striped table-bordered mt-3">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Kurs</th>
+          <th scope="col">Lehrer</th>
+          <th scope="col">Stufe</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each kurse}}
+            <tr>
+              <th scope="row">{{@index}}</th>
+              <td>{{name}} <b>{{leistungsebene}}</b></td>
+              <td>{{lehrer_name}}</td>
+              <td>{{jahrgang}}</td>
+            </tr>
+        {{/each}}
+      </tbody>
+    </table>
+        
+    </div>
+</div>
+
+<script>
+    // Basic example
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            "ordering": true,
+            "paging": true,
+            "info": false,
+            "searching": true,
+            "language": {
+                "lengthMenu": "Zeige _MENU_ Kurse pro Seite",
+                "zeroRecords": "Keine Übereinstimmung",
+                "search": "Suche:",
+                "paginate": {
+                    "first":      "Zurück",
+                    "last":       "Zurück",
+                    "next":       "Nächste Seite",
+                    "previous":   "Vorherige Seite"
+                },
+            }
+        });
+        $('.dataTables_length').addClass('bs-select');
+    });
+</script>

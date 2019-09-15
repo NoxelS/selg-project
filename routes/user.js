@@ -1,11 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-// Macht aus dem parameter einen richtigen Namen
-// BSP 'max_mustermann' -> 'Max Mustermann'
 function toName(string){
-  return string.split("_")[0].split('')[0].toUpperCase()+string.split("_")[0].substring(1)
-        +" "+string.split("_")[1].split('')[0].toUpperCase()+string.split("_")[1].substring(1)
+  return string.replace('_', ' ');
 }
 
 // Zeigt das Profil eines Nutzers 
@@ -46,6 +43,7 @@ router.get('/', function(req, res, next) {
             if(result.id === student.id) student_is_accessible = true;
           });
 
+        console.log(student_is_accessible);
 
         // Klassenlehrer wird gesucht
         db.query('SELECT * FROM user_db WHERE id = (SELECT lehrer_id FROM klasse_db WHERE stufe = ? AND suffix = ?)', [handlebars_presettings.stufe, handlebars_presettings.klasse], (err, result) => {

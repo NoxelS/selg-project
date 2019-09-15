@@ -100,7 +100,11 @@
                                   <label for="klasse_{{this}}">Klassenlehrer für <b>{{this}}</b></label>
                                   <div class="autocomplete" style="width:100%;">
                                     <input type="text"
-                                        class="form-control" name="klasse_{{this}}" id="klasse_{{this}}" aria-describedby="helpId" placeholder="Kürzel" required="required">
+                                        class="form-control" name="klasse_{{this}}_a" id="klasse_{{this}}_a" aria-describedby="helpId" placeholder="1. Tutor" required="required">
+                                  </div>
+                                  <div class="autocomplete mt-1" style="width:100%;">
+                                    <input type="text"
+                                        class="form-control" name="klasse_{{this}}_b" id="klasse_{{this}}_b" aria-describedby="helpId" placeholder="2. Tutor" required="required">
                                   </div>
                                 </div>
                                 {{/each}}
@@ -231,7 +235,8 @@
                 {{! Macht autocomplete für jede Eingabe möglich}}
                     <script>
                         {{#each klassen}}
-                            autocomplete(document.getElementById("klasse_{{this}}"), fachlehrer);
+                            autocomplete(document.getElementById("klasse_{{this}}_a"), fachlehrer);
+                            autocomplete(document.getElementById("klasse_{{this}}_b"), fachlehrer);
                         {{/each}}
                     </script>
                 {{!/ Autocomplete Eingabe}}

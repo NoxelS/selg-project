@@ -211,7 +211,7 @@ app.use((req, res, next) => {
                         res.locals.announcements_count = results.length;
                         res.locals.announcements = results;
                         db.query(
-                          "SELECT * FROM selg_schema.klasse_db WHERE lehrer_id = ?;", [res.locals.user_id],
+                          "SELECT * FROM klasse_db WHERE lehrer_id = ? OR lehrer_id_secondary = ?;", [res.locals.user_id, res.locals.user_id],
                           (error, result) => {
                            if(error) return next(new Error(error.message));
                            res.locals.stufe = result[0].stufe;
